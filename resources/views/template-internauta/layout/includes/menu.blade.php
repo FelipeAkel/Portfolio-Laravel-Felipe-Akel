@@ -20,7 +20,7 @@
             <span>Serviços</span>
             <a class="iknow_tm_full_link" href="#service"></a>
         </li>
-        <li>
+        {{-- <li>
             <img class="svg" src="{{ asset('template-internauta/img/') }}/svg/message.svg" alt="" />
             <span>Depoimento</span>
             <a class="iknow_tm_full_link" href="#testimonials"></a>
@@ -29,7 +29,7 @@
             <img class="svg" src="{{ asset('template-internauta/img/') }}/svg/writing.svg" alt="" />
             <span>Blog</span>
             <a class="iknow_tm_full_link" href="#news"></a>
-        </li>
+        </li> --}}
         <li>
             <img class="svg" src="{{ asset('template-internauta/img/') }}/svg/letter.svg" alt="" />
             <span>Contato</span>

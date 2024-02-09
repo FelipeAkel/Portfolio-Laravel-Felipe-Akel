@@ -66,14 +66,16 @@
 				<div class="content_inner">
 					<div class="main_info">
 						<div class="left">
-							<span class="subtitle">Olá, Eu sou</span>
+							<span class="subtitle">Olá Mundo, eu sou</span>
 							<h3 class="name">Felipe Akel</h3>
 							<p class="text">Programador PHP | Laravel</p>
 							<div class="iknow_tm_video">
 								<div class="video_inner">
-									<div class="circle"></div>
-									<h3 class="play">Play Video</h3>
-									<a class="iknow_tm_full_link popup-youtube" href="https://www.youtube.com/watch?v=7e90gBu4pas"></a>
+									<div class="circle">
+										<a href="https://www.linkedin.com/in/felipe-akel-carvalho-florentino-009412135/" target="_blank">
+											<img class="" src="{{ asset('template-internauta/img/') }}/svg/social/linkedin-2.svg" alt="Logo Linkedin" />
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>

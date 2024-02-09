@@ -471,7 +471,7 @@ body.dark .loader_line:after{
 	text-transform: uppercase;
 	font-weight: 600;
 	display: inline-block;
-	background-color: #ff451b;
+	background-color: #0087CC;
 	padding: 14px 50px;
 	border-radius: 10px;
 	white-space: nowrap;
@@ -577,7 +577,7 @@ body.dark .loader_line:after{
 }
 .iknow_tm_hero .subtitle{
 	display: inline-block;
-	color: #ff451b;
+	color: #0087CC;
 	font-size: 30px;
 	font-weight: 700;
 	margin-bottom: 5px;
@@ -613,7 +613,7 @@ body.dark .loader_line:after{
 	border-radius: 100%;
 	position: relative;
 }
-.iknow_tm_video .circle:before{
+/* .iknow_tm_video .circle:before{
 	position: absolute;
 	content: "";
     display: inline-block;
@@ -626,7 +626,7 @@ body.dark .loader_line:after{
 	left: 50%;
 	transform: translate(-50%,-50%);
 	margin-left: 3px;
-}
+} */
 .iknow_tm_video .play{
 	font-size: 24px;
 	font-weight: 700;
@@ -740,7 +740,7 @@ body.dark .loader_line:after{
 .iknow_tm_hero .main_menu ul li .svg{
 	width: 40px;
 	height: 40px;
-	color: #ff451b;
+	color: #0087CC;
 	display: block;
 	
 	-webkit-transition: all .3s ease;
@@ -777,7 +777,7 @@ body.dark .loader_line:after{
 	color: #fff;
 }
 .iknow_tm_hero .main_menu ul li.active{
-	background-color: #ff451b;
+	background-color: #0087CC;
 }
 
 /*---------------------------------------------------*/
@@ -1095,7 +1095,7 @@ body.dark .loader_line:after{
 }
 .rounded_shapes .one .cls-1{
 	stroke: inherit;
-	fill: #ff451b;
+	fill: #0087CC;
 }
 .rounded_shapes .one .svg{
 	width: 20px;
@@ -1420,7 +1420,7 @@ body.dark .loader_line:after{
 	min-width: 47%;
 	left: -55px;
 	margin-top: 55px;
-	background-color: #ff451b;
+	background-color: #0087CC;
 	padding: 36px 40px 35px 40px;
 	z-index: 1;
 	border-radius: 15px;
@@ -1466,7 +1466,7 @@ body.dark .loader_line:after{
 }
 .iknow_tm_main_title span{
 	font-size: 21px;
-	color: #ff451b;
+	color: #0087CC;
 	font-weight: 700;
 	display: inline-block;
 	margin-bottom: 6px;
@@ -1552,7 +1552,7 @@ body.dark .loader_line:after{
 	width: 24px;
 	height: 24px;
 	border-radius: 100%;
-	border: 3px solid #ff451b;
+	border: 3px solid #0087CC;
 }
 .iknow_tm_resume_title .shape:before{
 	position: absolute;
@@ -1560,7 +1560,7 @@ body.dark .loader_line:after{
 	width: 8px;
 	height: 8px;
 	border-radius: 100%;
-	background-color: #ff451b;
+	background-color: #0087CC;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
@@ -1606,7 +1606,7 @@ body.dark .loader_line:after{
 }
 .iknow_tm_resume .info_list ul li .short .year span{
 	font-size: 20px;
-	color: #ff451b;
+	color: #0087CC;
 	display: inline-block;
 	border: 1px solid #dddddd;
 	border-radius: 50px;
@@ -1683,7 +1683,7 @@ body.dark .loader_line:after{
 	right: 100%;
 	bottom: -5px;
 	transition: all 2s cubic-bezier(0.165, 0.840, 0.440, 1.000);  /* IE 10+ */
-	color: #ff451b;
+	color: #0087CC;
 	font-family: "Poppins";
 }
 .progress_inner .background{
@@ -1696,7 +1696,7 @@ body.dark .loader_line:after{
 }
 .progress_inner .background .bar_in{
 	height:5px;
-	background:#ff451b;
+	background:#0087CC;
 	width:0px;
 	overflow:hidden;
 	border-radius: 50px;
@@ -1778,7 +1778,7 @@ body.dark .loader_line:after{
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
-	color: #ff451b;
+	color: #0087CC;
 	font-size: 30px;
 	font-weight: 400;
 }
@@ -1813,7 +1813,7 @@ body.dark .loader_line:after{
 	margin-right: 0px;
 }
 .iknow_tm_portfolio .portfolio_filter ul li a.current{
-	color: #ff451b;
+	color: #0087CC;
 }
 .iknow_tm_portfolio .portfolio_filter ul li a{
 	text-decoration: none;
@@ -1828,7 +1828,7 @@ body.dark .loader_line:after{
 	        transition: all .3s ease;
 }
 .iknow_tm_portfolio .portfolio_filter ul li a:hover{
-	color: #ff451b;
+	color: #0087CC;
 }
 .iknow_tm_portfolio .portfolio_list{
 	width: 100%;
@@ -2409,7 +2409,7 @@ body.dark .loader_line:after{
 .iknow_tm_testimonials .owl-theme .owl-dots .owl-dot span{
 	width: 11px;
 	height: 11px;
-	background-color: #ff451b;
+	background-color: #0087CC;
 	position: relative;
 	margin: 0px 15px;
 }
@@ -2524,7 +2524,7 @@ body.dark .loader_line:after{
 }
 .iknow_tm_news .news_list ul li .details .category a{
 	text-decoration: none;
-	color: #ff451b;
+	color: #0087CC;
 	font-size: 16px;
 	font-weight: 700;
 }
@@ -2542,7 +2542,7 @@ body.dark .loader_line:after{
 	        transition: all .3s ease;
 }
 .iknow_tm_news .news_list ul li .details .title a:hover{
-	color: #ff451b;
+	color: #0087CC;
 }
 .iknow_tm_news .news_informations{
 	display: none;
@@ -2681,7 +2681,7 @@ body.dark .loader_line:after{
 	        transition: all .3s ease;
 }
 .iknow_tm_contact .wrapper .left ul li .list_inner .short span a:hover{
-	color: #ff451b;
+	color: #0087CC;
 }
 .iknow_tm_contact .wrapper .right{
 	width: 65%;
@@ -2806,7 +2806,7 @@ input[type=number] {
 	        transition: all .3s ease;
 }
 .iknow_tm_copyright .left a:hover{
-	color: #ff451b;
+	color: #0087CC;
 }
 .iknow_tm_copyright .right ul{
 	margin: 0px;
@@ -2830,7 +2830,7 @@ input[type=number] {
 	        transition: all .3s ease;
 }
 .iknow_tm_copyright .right ul li a:hover{
-	color: #ff451b;
+	color: #0087CC;
 }
 .iknow_tm_copyright.fixed{
 	position: fixed;
@@ -2877,7 +2877,7 @@ input[type=number] {
 }
 .iknow_tm_hero_second .subtitle{
 	display: inline-block;
-	color: #ff451b;
+	color: #0087CC;
 	font-size: 30px;
 	font-weight: 700;
 	margin-bottom: 5px;
@@ -2944,7 +2944,7 @@ input[type=number] {
 .iknow_tm_hero_second .right .image .first{
 	width: 90px;
 	height: 90px;
-	background-color: #ff451b;
+	background-color: #0087CC;
 	top: 20px;
 	left: -5px;
 	transform: rotate(42deg);
@@ -3032,7 +3032,7 @@ input[type=number] {
 	        transition: all .3s ease;
 }
 .iknow_tm_extra_menu .list_in .list_icon{
-	background-color: #ff451b;
+	background-color: #0087CC;
 }
 .iknow_tm_extra_menu .list_in .down_icon{
 	background-color: #ffb324;
@@ -3101,7 +3101,7 @@ input[type=number] {
 }
 .iknow_tm_extra_menu .menu_list .unordered .unorderest_li.opened .list_in .center,
 .iknow_tm_extra_menu .menu_list .unordered .unorderest_li .list_in:hover .center{
-	background-color: #ff451b;
+	background-color: #0087CC;
 }
 .iknow_tm_extra_menu .menu_list .unordered .unorderest_li.opened .list_in .center span,
 .iknow_tm_extra_menu .menu_list .unordered .unorderest_li .list_in:hover .center span{
@@ -3190,7 +3190,7 @@ input[type=number] {
 .iknow_tm_fixed_content .menubar ul li .svg{
 	width: 27px;
 	height: 27px;
-	color: #ff451b;
+	color: #0087CC;
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
@@ -3538,7 +3538,7 @@ input[type=number] {
   width: 6px;
   height: 6px;
   z-index: 100;
-  background-color: #ff451b;
+  background-color: #0087CC;
   -webkit-transition: width .3s ease-in-out, height .3s ease-in-out, margin .3s ease-in-out, opacity .3s ease-in-out;
   transition: width .3s ease-in-out, height .3s ease-in-out, margin .3s ease-in-out, opacity .3s ease-in-out;
 }
@@ -3547,7 +3547,7 @@ input[type=number] {
   margin-top: -40px;
   width: 80px;
   height: 80px;
-  background-color: #ff451b;
+  background-color: #0087CC;
   opacity: .3;
 }
 .cursor-outer {
@@ -3555,7 +3555,7 @@ input[type=number] {
   margin-top: -15px;
   width: 30px;
   height: 30px;
-  border: 2px solid #ff451b;
+  border: 2px solid #0087CC;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   z-index: 100;
@@ -3659,12 +3659,12 @@ input[type=number] {
 	color: #222;
 }
 .iknow_tm_sidebar_2 .menu ul li.mleave.active .svg{
-	color: #ff451b;
+	color: #0087CC;
 }
 .iknow_tm_sidebar_2 .menu ul li .svg{
 	width: 27px;
 	height: 27px;
-	color: #ff451b;
+	color: #0087CC;
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
@@ -3937,7 +3937,7 @@ input[type=number] {
 	background-color: #ffb324;
 }
 .iknow_tm_button.yellow a:hover{
-	background-color: #ff451b;
+	background-color: #0087CC;
 }
 
 /*---------------------------------------------------*/
@@ -4226,15 +4226,15 @@ input[type=number] {
 	width: 100%;
 }
 .iknow_tm_sidebar_3 .menu ul li.current span{
-	color: #ff451b;
+	color: #0087CC;
 }
 .iknow_tm_sidebar_3 .menu ul li:hover span{
-	color: #ff451b;
+	color: #0087CC;
 }
 .iknow_tm_sidebar_3 .menu ul li .svg{
 	width: 25px;
 	height: 25px;
-	color: #ff451b;
+	color: #0087CC;
 	position: absolute;
 	left: 40px;
 }
@@ -4306,7 +4306,7 @@ input[type=number] {
 }
 .iknow_tm_hero_third .content .hello{
 	font-weight: 700;
-	color: #ff451b;
+	color: #0087CC;
 	font-size: 26px;
 	display: inline-block;
 	margin-bottom: 2px;
@@ -4432,7 +4432,7 @@ input[type=number] {
 }
 .iknow_tm_hero_fourth .content .right .hello{
 	font-weight: 700;
-	color: #ff451b;
+	color: #0087CC;
 	font-size: 26px;
 	display: inline-block;
 	margin-bottom: 2px;
@@ -4559,7 +4559,7 @@ input[type=number] {
 }
 .iknow_tm_hero_fifth .hello{
 	font-weight: 700;
-	color: #ff451b;
+	color: #0087CC;
 	font-size: 26px;
 	display: inline-block;
 	margin-bottom: 2px;
@@ -4645,7 +4645,7 @@ input[type=number] {
 .iknow_tm_mainpart_new_2 .main_menu ul li .svg{
 	width: 25px;
 	height: 25px;
-	color: #ff451b;
+	color: #0087CC;
 	display: block;
 	
 	-webkit-transition: all .3s ease;
@@ -4683,7 +4683,7 @@ input[type=number] {
 	color: #fff;
 }
 .iknow_tm_mainpart_new_2 .main_menu ul li.current{
-	background-color: #ff451b;
+	background-color: #0087CC;
 }
 
 /*---------------------------------------------------*/
@@ -4880,8 +4880,8 @@ input[type=number] {
 	.iknow_tm_topbar .wrapper .menu ul{display: flex;flex-direction: column;}
 	.iknow_tm_topbar .wrapper .menu ul li a{display: block;}
 	.iknow_tm_topbar .wrapper .menu .ccc{display: none;}
-	.iknow_tm_topbar .wrapper .menu ul li.active a{color: #ff451b;}
-	.iknow_tm_topbar .wrapper .menu ul li a:hover{color: #ff451b;}
+	.iknow_tm_topbar .wrapper .menu ul li.active a{color: #0087CC;}
+	.iknow_tm_topbar .wrapper .menu ul li a:hover{color: #0087CC;}
 	.iknow_tm_topbar .wrapper .menu ul li a{padding: 6px 15px 5px 15px;}
 	.iknow_tm_animate_section .section_inner{padding: 50px 20px;}
 	.iknow_tm_hero_fourth .content{flex-direction: column;justify-content: center;text-align: center;padding: 0px 20px;}

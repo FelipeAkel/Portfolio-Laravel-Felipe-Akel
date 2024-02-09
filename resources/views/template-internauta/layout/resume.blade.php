@@ -61,7 +61,7 @@
                                         <span>Scrum Alliance </span>
                                     </div>
                                     <div class="year">
-                                        <span>31/05/2022 - 31/05/2024</span>
+                                        <span>2022 - 2024</span>
                                     </div>
                                 </div>
                                 <div class="text">
@@ -143,25 +143,40 @@
                         </li>
                     </ul>
                 </div>
+                <div class="info_list">
+                    <div class="iknow_tm_resume_title">
+                        <h3>Cursos Complementares</h3>
+                        <span class="shape"></span>
+                    </div>
+                    <ul>
+                        <li>
+                            <div class="list_inner">
+                                <div class="text">
+                                    <p>Cursos de aperfeiçamento ligados a área de Tecnologia com certificados. Total: 20. Saiba quais, clicando aqui!</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="right">
                 <div class="skills_list">
                     <div class="iknow_tm_resume_title">
-                        <h3>Personal Skills</h3>
+                        <h3>Frameworks</h3>
                         <span class="shape"></span>
                     </div>
                     <div class="personal">
                         <div class="dodo_progress">
-                            <div class="progress_inner" data-value="90">
-                                <span><span class="label">Time Management</span><span class="number">90%</span></span>
+                            <div class="progress_inner" data-value="100">
+                                <span><span class="label">Laravel <span style="color: #a7afbd;">Back-end</span></span></span>
                                 <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
                             </div>
-                            <div class="progress_inner" data-value="70" >
-                                <span><span class="label">Effeciency</span><span class="number">70%</span></span>
+                            <div class="progress_inner" data-value="100">
+                                <span><span class="label">Bootstrap <span style="color: #a7afbd;">Front-end</span></span></span>
                                 <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
                             </div>
-                            <div class="progress_inner" data-value="80">
-                                <span><span class="label">Intigrity</span><span class="number">80%</span></span>
+                            <div class="progress_inner" data-value="100">
+                                <span><span class="label">Metronic <span style="color: #a7afbd;">Front-end</span></span></span>
                                 <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
                             </div>
                         </div>
@@ -169,37 +184,57 @@
                 </div>
                 <div class="skills_list">
                     <div class="iknow_tm_resume_title">
-                        <h3>Software Skills</h3>
+                        <h3>Codificação</h3>
                         <span class="shape"></span>
                     </div>
-                    <div class="software">
-                        <div class="circular_progress_bar">
-                            <ul>
-                                <li>
-                                    <div class="list_inner">
-                                        <div class="myCircle" data-value="0.8"></div>
-                                        <div class="title"><h3>Ms Office</h3></div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="list_inner">
-                                        <div class="myCircle" data-value="0.75"></div>
-                                        <div class="title"><h3>Photoshop</h3></div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="list_inner">
-                                        <div class="myCircle" data-value="0.9"></div>
-                                        <div class="title"><h3>Illustrator</h3></div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="list_inner">
-                                        <div class="myCircle" data-value="0.65"></div>
-                                        <div class="title"><h3>Figma</h3></div>
-                                    </div>
-                                </li>
-                            </ul>
+                    <div class="personal">
+                        <div class="dodo_progress">
+                            <div class="progress_inner" data-value="100">
+                                <span><span class="label">PHP <span style="color: #a7afbd;">5x e 7x</span></span></span>
+                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
+                            </div>
+                            <div class="progress_inner" data-value="100">
+                                <span><span class="label">HTML5 e CSS3</span></span>
+                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
+                            </div>
+                            <div class="progress_inner" data-value="100">
+                                <span><span class="label">JavaScript</span></span>
+                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
+                            </div>
+                            <div class="progress_inner" data-value="100">
+                                <span><span class="label">Linguagem SQL <span style="color: #a7afbd;">Oracle, MySQL, PostgreSQL</span></span></span>
+                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
+                            </div>
+                            <div class="progress_inner" data-value="50">
+                                <span><span class="label">Testes Unitários e Integração</span></span>
+                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
+                            </div>
+                            <div class="progress_inner" >
+                                <span><span class="label">API</span></span>
+                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills_list">
+                    <div class="iknow_tm_resume_title">
+                        <h3>Designer</h3>
+                        <span class="shape"></span>
+                    </div>
+                    <div class="personal">
+                        <div class="dodo_progress">
+                            <div class="progress_inner" data-value="100">
+                                <span><span class="label">Lightroom</span></span>
+                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
+                            </div>
+                            <div class="progress_inner" data-value="50">
+                                <span><span class="label">Photoshop</span></span>
+                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
+                            </div>
+                            <div class="progress_inner" data-value="50">
+                                <span><span class="label">InDesigner</span></span>
+                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
+                            </div>
                         </div>
                     </div>
                 </div>

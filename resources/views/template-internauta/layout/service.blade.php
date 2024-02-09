@@ -2,16 +2,15 @@
 <div id="service" class="iknow_tm_main_section">
     <div class="iknow_tm_services">
         <div class="iknow_tm_main_title">
-            <span>Service</span>
-            <h3>Never compromise with quality</h3>
+            <h3>Serviços</h3>
         </div>
         <div class="service_list">
             <ul>
                 <li>
                     <div class="list_inner">
-                        <span class="icon"><img class="svg" src="{{ asset('template-internauta/img/') }}/svg/squares.svg" alt="" /></span>
-                        <h3 class="title">Wireframing</h3>
-                        <p class="text">Web development is the building and maintenance of websites. it’s the work that...</p>
+                        <span class="icon"><img class="svg" src="{{ asset('template-internauta/img/') }}/svg/web.svg" alt="" /></span>
+                        <h3 class="title">Front-End</h3>
+                        <p class="text">Utilizando Frameworks consolidados no mercado, como por exemplo Bootstrap e Metronic...</p>
                         <a class="iknow_tm_full_link" href="#"></a>
                         <div class="hidden_content">
                             <div class="service_informations">
@@ -20,9 +19,7 @@
                                     <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/service/1.jpg"></div>
                                 </div>
                                 <div class="description">
-                                    <p>iKnow is a leading web design agency with an award-winning design team that creates innovative, effective websites that capture your brand, improve your conversion rates, and maximize your revenue to help grow your business and achieve your goals.</p>
-                                    <p>In today’s digital world, your website is the first interaction consumers have with your business. That's why almost 95 percent of a user’s first impression relates to web design. It’s also why web design services can have an immense impact on your company’s bottom line.</p>
-                                    <p>That’s why more companies are not only reevaluating their website’s design but also partnering with Kura, the web design agency that’s driven more than $2.4 billion in revenue for its clients. With over 50 web design awards under our belt, we're confident we can design a custom website that drives sales for your unique business.</p>
+                                    <p>Utilizando Frameworks consolidados no mercado, como por exemplo Bootstrap e Metronic, para aumentar a velocidade da codificação e respeitar os prazos estabelecidos. Além disso, adoto conceitos de UX/Designer cujo objetivo é garantir que o usuário tenha a melhor experiência de uso com relação ao produto/serviço.</p>
                                 </div>
                             </div>
                         </div>
@@ -30,9 +27,9 @@
                 </li>
                 <li>
                     <div class="list_inner">
-                        <span class="icon"><img class="svg" src="{{ asset('template-internauta/img/') }}/svg/physics.svg" alt="" /></span>
-                        <h3 class="title">Prototype</h3>
-                        <p class="text">Web development is the building and maintenance of websites. it’s the work that...</p>
+                        <span class="icon"><img class="svg" src="{{ asset('template-internauta/img/') }}/svg/shapes/code-slash.svg" alt="" /></span>
+                        <h3 class="title">Back-End</h3>
+                        <p class="text">Por dentro das linguagens de programação, no desenvolvimento de software, apto a ...</p>
                         <a class="iknow_tm_full_link" href="#"></a>
                         <div class="hidden_content">
                             <div class="service_informations">
@@ -41,9 +38,7 @@
                                     <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/service/2.jpg"></div>
                                 </div>
                                 <div class="description">
-                                    <p>iKnow is a leading web design agency with an award-winning design team that creates innovative, effective websites that capture your brand, improve your conversion rates, and maximize your revenue to help grow your business and achieve your goals.</p>
-                                    <p>In today’s digital world, your website is the first interaction consumers have with your business. That's why almost 95 percent of a user’s first impression relates to web design. It’s also why web design services can have an immense impact on your company’s bottom line.</p>
-                                    <p>That’s why more companies are not only reevaluating their website’s design but also partnering with Kura, the web design agency that’s driven more than $2.4 billion in revenue for its clients. With over 50 web design awards under our belt, we're confident we can design a custom website that drives sales for your unique business.</p>
+                                    <p>Por dentro das linguagens de programação, no desenvolvimento de software, apto a resolver problemas relacionados "aos bastidores" do site. Atualmente codifico mais em PHP e estou consolidando os estudos em Laravel o qual não me impossibilitada de apreender novas linguagens e Frameworks.</p>
                                 </div>
                             </div>
                         </div>
@@ -51,9 +46,9 @@
                 </li>
                 <li>
                     <div class="list_inner">
-                        <span class="icon"><img class="svg" src="{{ asset('template-internauta/img/') }}/svg/web.svg" alt="" /></span>
-                        <h3 class="title">UI Design</h3>
-                        <p class="text">Web development is the building and maintenance of websites. it’s the work that...</p>
+                        <span class="icon"><img class="svg" src="{{ asset('template-internauta/img/') }}/svg/writing.svg" alt="" /></span>
+                        <h3 class="title">Responsabilidades</h3>
+                        <p class="text">Sobre o meu ponto de vista, o programador não trabalha somente com códigos. Tenho...</p>
                         <a class="iknow_tm_full_link" href="#"></a>
                         <div class="hidden_content">
                             <div class="service_informations">
@@ -62,72 +57,8 @@
                                     <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/service/3.jpg"></div>
                                 </div>
                                 <div class="description">
-                                    <p>iKnow is a leading web design agency with an award-winning design team that creates innovative, effective websites that capture your brand, improve your conversion rates, and maximize your revenue to help grow your business and achieve your goals.</p>
-                                    <p>In today’s digital world, your website is the first interaction consumers have with your business. That's why almost 95 percent of a user’s first impression relates to web design. It’s also why web design services can have an immense impact on your company’s bottom line.</p>
-                                    <p>That’s why more companies are not only reevaluating their website’s design but also partnering with Kura, the web design agency that’s driven more than $2.4 billion in revenue for its clients. With over 50 web design awards under our belt, we're confident we can design a custom website that drives sales for your unique business.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="list_inner">
-                        <span class="icon"><img class="svg" src="{{ asset('template-internauta/img/') }}/svg/user.svg" alt="" /></span>
-                        <h3 class="title">Personal Creation</h3>
-                        <p class="text">Web development is the building and maintenance of websites. it’s the work that...</p>
-                        <a class="iknow_tm_full_link" href="#"></a>
-                        <div class="hidden_content">
-                            <div class="service_informations">
-                                <div class="image">
-                                    <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
-                                    <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/service/4.jpg"></div>
-                                </div>
-                                <div class="description">
-                                    <p>iKnow is a leading web design agency with an award-winning design team that creates innovative, effective websites that capture your brand, improve your conversion rates, and maximize your revenue to help grow your business and achieve your goals.</p>
-                                    <p>In today’s digital world, your website is the first interaction consumers have with your business. That's why almost 95 percent of a user’s first impression relates to web design. It’s also why web design services can have an immense impact on your company’s bottom line.</p>
-                                    <p>That’s why more companies are not only reevaluating their website’s design but also partnering with Kura, the web design agency that’s driven more than $2.4 billion in revenue for its clients. With over 50 web design awards under our belt, we're confident we can design a custom website that drives sales for your unique business.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="list_inner">
-                        <span class="icon"><img class="svg" src="{{ asset('template-internauta/img/') }}/svg/briefcase.svg" alt="" /></span>
-                        <h3 class="title">Case Study</h3>
-                        <p class="text">Web development is the building and maintenance of websites. it’s the work that...</p>
-                        <a class="iknow_tm_full_link" href="#"></a>
-                        <div class="hidden_content">
-                            <div class="service_informations">
-                                <div class="image">
-                                    <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
-                                    <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/service/5.jpg"></div>
-                                </div>
-                                <div class="description">
-                                    <p>iKnow is a leading web design agency with an award-winning design team that creates innovative, effective websites that capture your brand, improve your conversion rates, and maximize your revenue to help grow your business and achieve your goals.</p>
-                                    <p>In today’s digital world, your website is the first interaction consumers have with your business. That's why almost 95 percent of a user’s first impression relates to web design. It’s also why web design services can have an immense impact on your company’s bottom line.</p>
-                                    <p>That’s why more companies are not only reevaluating their website’s design but also partnering with Kura, the web design agency that’s driven more than $2.4 billion in revenue for its clients. With over 50 web design awards under our belt, we're confident we can design a custom website that drives sales for your unique business.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="list_inner">
-                        <span class="icon"><img class="svg" src="{{ asset('template-internauta/img/') }}/svg/writing_2.svg" alt="" /></span>
-                        <h3 class="title">Experience Design</h3>
-                        <p class="text">Web development is the building and maintenance of websites. it’s the work that...</p>
-                        <a class="iknow_tm_full_link" href="#"></a>
-                        <div class="hidden_content">
-                            <div class="service_informations">
-                                <div class="image">
-                                    <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
-                                    <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/service/6.jpg"></div>
-                                </div>
-                                <div class="description">
-                                    <p>iKnow is a leading web design agency with an award-winning design team that creates innovative, effective websites that capture your brand, improve your conversion rates, and maximize your revenue to help grow your business and achieve your goals.</p>
-                                    <p>In today’s digital world, your website is the first interaction consumers have with your business. That's why almost 95 percent of a user’s first impression relates to web design. It’s also why web design services can have an immense impact on your company’s bottom line.</p>
-                                    <p>That’s why more companies are not only reevaluating their website’s design but also partnering with Kura, the web design agency that’s driven more than $2.4 billion in revenue for its clients. With over 50 web design awards under our belt, we're confident we can design a custom website that drives sales for your unique business.</p>
+                                    <p>Sobre o meu ponto de vista, o programador não trabalha somente com códigos. Tenho as seguintes responsabilidades:</p>
+                                    <p>Executar as tarefas do backlog do produto respeitando as necessidades definidas pelo Product Owner (PO); Manter o quadro de tarefas atualizado; Descrever as histórias do usuário; Evidênciar a entrega da funcionalidade;</p>
                                 </div>
                             </div>
                         </div>
