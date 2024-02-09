@@ -948,8 +948,8 @@ body.dark .loader_line:after{
 	fill: none;
 }
 .simple_shapes .eleven .svg{
-	width: 10px;
-	height: 10px;
+	width: 20px;
+	height: 20px;
 	stroke: rgba(169,219,90,.3);
 }
 .simple_shapes .twelve{
@@ -974,8 +974,8 @@ body.dark .loader_line:after{
 	fill: none;
 }
 .simple_shapes .thirteen .svg{
-	width: 18px;
-	height: 18px;
+	width: 40px;
+	height: 40px;
 	stroke: rgba(91,215,180,.3);
 }
 .simple_shapes .fourteen{

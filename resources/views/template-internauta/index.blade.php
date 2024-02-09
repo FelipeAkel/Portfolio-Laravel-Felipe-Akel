@@ -23,6 +23,9 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('template-internauta/css/dark.css') }}" />
 	<link rel="stylesheet" type="text/css" href="{{ asset('template-internauta/css/style.css') }}" />
 
+	{{-- ICONS --}}
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 	<!-- SCRIPTS -->
 	<script src="{{ asset('template-internauta/js/jquery.js') }}" defer></script>
 	<script src="{{ asset('template-internauta/js/plugins.js') }}" defer></script>
@@ -126,7 +129,6 @@
 	
 </div>
 <!-- / WRAPPER ALL -->
-	
 
 </body>
 

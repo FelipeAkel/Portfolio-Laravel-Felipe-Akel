@@ -10,10 +10,11 @@
                 <ul>
                     <li>
                         <div class="list_inner">
-                            <span class="icon"><img class="svg" src="{{ asset('template-internauta/img/') }}/svg/smartphone.svg" alt="" /></span>
+                            <span class="icon"><img class="svg" src="{{ asset('template-internauta/img/') }}/svg/whatsapp.svg" alt="" /></span>
+                            {{-- <span class="icon"><i class="svg bi bi-whatsapp" style="font-size: 30px;"></i></span> --}}
                             <div class="short">
                                 <h3>Me mande um WhatsApp</h3>
-                                <span>+55 (61) 9 9193-9043</span>
+                                <span><a href="https://api.whatsapp.com/send/?phone=5561991939043&text=Ol%C3%A1%2C+este+%C3%A9+o+contato+direto+para+conversar+com+o+Felipe+Akel+em+que+posso+ajuda-lo%3F&type=phone_number&app_absent=0" target="_blank">+55 (61) 9 9193-9043</a></span>
                             </div>
                         </div>
                     </li>
@@ -22,7 +23,7 @@
                             <span class="icon"><img class="svg" src="{{ asset('template-internauta/img/') }}/svg/letter.svg" alt="" /></span>
                             <div class="short">
                                 <h3>Enviar E-mail</h3>
-                                <span><a href="#">felipe.akel01@gmail.com</a></span>
+                                <span><a href="mailto:felipe.akel01@gmail.com?subject='Sobre o Currículo e Portfólio'">felipe.akel01@gmail.com</a></span>
                             </div>
                         </div>
                     </li>

@@ -2,14 +2,14 @@
 <div id="resume" class="iknow_tm_main_section">
     <div class="iknow_tm_resume">
         <div class="iknow_tm_main_title">
-            <span>Resume</span>
-            <h3>Combination of Skill &amp; Experience</h3>
+            <span>Resumo</span>
+            <h3>Habilidades e experiência</h3>
         </div>
         <div class="resume_inner">
             <div class="left">
                 <div class="info_list">
                     <div class="iknow_tm_resume_title">
-                        <h3>Education</h3>
+                        <h3>Escolaridade</h3>
                         <span class="shape"></span>
                     </div>
                     <ul>
@@ -17,15 +17,15 @@
                             <div class="list_inner">
                                 <div class="short">
                                     <div class="job">
-                                        <h3>Cognitive Sciences</h3>
-                                        <span>University of Maine</span>
+                                        <h3>Segurança da Informação</h3>
+                                        <span>Centro Universitário (IESB)</span>
                                     </div>
                                     <div class="year">
-                                        <span>2018 - 2020</span>
+                                        <span>2015 - 2016</span>
                                     </div>
                                 </div>
                                 <div class="text">
-                                    <p>The goal of cognitive science is to understand the principles of intelligence with the hope that this will lead to better comprehension.</p>
+                                    <p>Pós-Graduação, Segurança da Informação, o curso é uma especialização que visa proteger a integridade das informações de empresas e desenvolver mecanismos que impeçam acessos não autorizados. 480 horas/aula.</p>
                                 </div>
                             </div>
                         </li>
@@ -33,31 +33,15 @@
                             <div class="list_inner">
                                 <div class="short">
                                     <div class="job">
-                                        <h3>Civil Engineering</h3>
-                                        <span>University of Texas</span>
+                                        <h3>Sistema de Infomação</h3>
+                                        <span>Centro Universitário do Distrito Federal (UDF)</span>
                                     </div>
                                     <div class="year">
-                                        <span>2016 - 2017</span>
+                                        <span>2010-2014</span>
                                     </div>
                                 </div>
                                 <div class="text">
-                                    <p>Civil engineering is arguably the oldest engineering discipline. It deals with the built environment and can be dated to the first time someone placed a roof.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list_inner">
-                                <div class="short">
-                                    <div class="job">
-                                        <h3>Bachelor of Science</h3>
-                                        <span>Univercity of Dhaka</span>
-                                    </div>
-                                    <div class="year">
-                                        <span>2012 - 2015</span>
-                                    </div>
-                                </div>
-                                <div class="text">
-                                    <p>This project is called a thesis and is usually presented in front of a group of people, including university professors who will evaluate it and let the student..</p>
+                                    <p>Bacharelado, Sistema de Informação, o curso forma profissionais capazes de administrar o fluxo de informações geradas e distribuídas por redes de computadores dentro e fora de uma organização. 3000 horas/aula.</p>
                                 </div>
                             </div>
                         </li>
@@ -65,7 +49,7 @@
                 </div>
                 <div class="info_list">
                     <div class="iknow_tm_resume_title">
-                        <h3>Experience</h3>
+                        <h3>Certificados</h3>
                         <span class="shape"></span>
                     </div>
                     <ul>
@@ -73,32 +57,88 @@
                             <div class="list_inner">
                                 <div class="short">
                                     <div class="job">
-                                        <h3>UI/UX Designer</h3>
-                                        <span>Envato Market</span>
+                                        <h3>Certified Scrum Developer® (CSD®)</h3>
+                                        <span>Scrum Alliance </span>
                                     </div>
                                     <div class="year">
-                                        <span>2018 - running</span>
+                                        <span>31/05/2022 - 31/05/2024</span>
                                     </div>
                                 </div>
                                 <div class="text">
-                                    <p>Web Developers are build a website’s core structure using coding languages, while designers are more visually creative and user-focused.</p>
+                                    <p><a href="https://bcert.me/bc/html/show-badge.html?b=yyvvmnew" target="_blank">Acesse o Certificado</a>. 16 horas/aula.</p>
                                 </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="info_list">
+                    <div class="iknow_tm_resume_title">
+                        <h3>Experiência</h3>
+                        <span class="shape"></span>
+                    </div>
+                    <ul>
+                        <li>
+                            <div class="list_inner">
+                                <div class="short">
+                                    <div class="job">
+                                        <h3>Analista de Sistemas</h3>
+                                        <span>Globalweb Corp</span>
+                                    </div>
+                                    <div class="year">
+                                        <span>2021 - Atual</span>
+                                    </div>
+                                </div>
+                                {{-- <div class="text">
+                                    <p>Web Developers are build a website’s core structure using coding languages, while designers are more visually creative and user-focused.</p>
+                                </div> --}}
                             </div>
                         </li>
                         <li>
                             <div class="list_inner">
                                 <div class="short">
                                     <div class="job">
-                                        <h3>Creative Designer</h3>
-                                        <span>Bahanno Digital</span>
+                                        <h3>Web Designer</h3>
+                                        <span>Vert Integradora de TI</span>
                                     </div>
                                     <div class="year">
-                                        <span>2015 - 2017</span>
+                                        <span>2016 - 2020</span>
                                     </div>
                                 </div>
-                                <div class="text">
+                                {{-- <div class="text">
                                     <p>Web Developers are build a website’s core structure using coding languages, while designers are more visually creative and user-focused.</p>
+                                </div> --}}
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list_inner">
+                                <div class="short">
+                                    <div class="job">
+                                        <h3>Web Designer</h3>
+                                        <span>Montreal Informática S.A.</span>
+                                    </div>
+                                    <div class="year">
+                                        <span>2015 - 2016</span>
+                                    </div>
                                 </div>
+                                {{-- <div class="text">
+                                    <p>Web Developers are build a website’s core structure using coding languages, while designers are more visually creative and user-focused.</p>
+                                </div> --}}
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list_inner">
+                                <div class="short">
+                                    <div class="job">
+                                        <h3>Técnico de Suporte em TI</h3>
+                                        <span>Defensoria Pública da União</span>
+                                    </div>
+                                    <div class="year">
+                                        <span>2013 - 2014</span>
+                                    </div>
+                                </div>
+                                {{-- <div class="text">
+                                    <p>Web Developers are build a website’s core structure using coding languages, while designers are more visually creative and user-focused.</p>
+                                </div> --}}
                             </div>
                         </li>
                     </ul>
