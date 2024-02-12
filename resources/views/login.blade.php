@@ -18,7 +18,6 @@
 
     @include('template-admin.layout.include.color-modes')
 
-
     <main class="form-signin w-100 m-auto">
         <form>
             <img class="mb-4" src="{{ asset('template-admin/img/undraw_login_re_4vu2.svg') }}" alt="" width="250" >
@@ -35,7 +34,7 @@
             </div>
 
             <button class="btn btn-primary w-100 py-2" type="submit">Entrar</button>
-            <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
+            <p class="mt-5 mb-3 text-body-secondary">Todos os Direitos Reservados <br>&copy; <a href="#" target="_blank">Felipe Akel</a></p>
         </form>
     </main>
 

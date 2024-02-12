@@ -15,7 +15,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('template-internauta.index');
+})->name('internauta.index');
+
+Route::get('/login', function(){
+    return view('login');
+})->name('login');
+
+Route::prefix('admin')->group(function(){
+
+    Route::get('/dashboard', function(){
+        return view('template-admin.dashboard');
+    })->name('admin.dashboard');
+
 });
+    
 
 Route::get('/login', function(){
     return view('login');

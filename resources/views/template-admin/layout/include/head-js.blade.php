@@ -4,3 +4,5 @@
 
 {{-- Tema Escuro ou Claro --}}
 <script src="{{ asset('template-admin/js/color-modes.js') }}" defer></script>
+
+<script src="{{ asset('template-admin/js/customizado.js') }}" defer></script>

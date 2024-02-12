@@ -1,0 +1,33 @@
+/* Tooltip color personalized */
+.custom-tooltip-info {
+    --bd-info-bg: #0dcaf0;
+    --bs-white: #ffffff;
+    --bs-tooltip-bg: var(--bd-info-bg);
+    --bs-tooltip-color: var(--bs-white);
+    opacity: 0;
+}
+
+.custom-tooltip-edit {
+    --bd-edit-bg: #0d6efd;
+    --bs-white: #ffffff;
+    --bs-tooltip-bg: var(--bd-edit-bg);
+    --bs-tooltip-color: var(--bs-white);
+    opacity: 0;
+}
+
+.custom-tooltip-delete {
+    --bd-delete-bg: #dc3545;
+    --bs-white: #ffffff;
+    --bs-tooltip-bg: var(--bd-delete-bg);
+    --bs-tooltip-color: var(--bs-white);
+    opacity: 0;
+}
+
+.custom-tooltip-dark {
+    --bd-dark-bg: #212529;
+    --bs-white: #ffffff;
+    --bs-tooltip-bg: var(--bd-dark-bg);
+    --bs-tooltip-color: var(--bs-white);
+    opacity: 0;
+}
+/* END Tooltip color personalized */
