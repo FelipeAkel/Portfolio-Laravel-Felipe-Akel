@@ -8,7 +8,7 @@
         <h1 class="h2">Dashboard</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
-                <button type="button" class="btn btn-success">Novo Registro</button>
+                <button type="button" class="btn btn-success">Novo Registro <i class="bi bi-plus-lg"></i></button>
             </div>
         </div>
     </div>
@@ -60,7 +60,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Pesquisar</button>
+                                    <button type="submit" class="btn btn-primary">Pesquisar <i class="bi bi-search"></i></button>
                                 </div>
                             </form>
 
@@ -76,37 +76,39 @@
 
     <h5 class="">Resultado</h5>
     <div class="table-responsive ">
-        <table class="table table-hover table-bordered border-primary ">
+        <table class="table table-hover table-bordered border ">
             <thead class="table-primary">
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col" width="200px">Ações</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Header</th>
                     <th scope="col">Header</th>
                     <th scope="col">Header</th>
-                    <th scope="col">Ações</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>1,001</td>
-                    <td>random</td>
-                    <td>data</td>
-                    <td>placeholder</td>
                     <td>
                         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                             <div class="btn-group me-2" role="group" aria-label="First group">
-                                <button type="button" class="btn btn-secondary btn-sm" 
+                                <button type="button" class="btn btn-info btn-sm" 
                                     data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-info"
                                     data-bs-title="Visualizar Registro"
                                 ><i class="bi bi-card-text"></i></button>
-                                <button type="button" class="btn btn-secondary btn-sm" 
+                            </div>
+                            <div class="btn-group me-2" role="group" aria-label="Second group">
+                                <button type="button" class="btn btn-primary btn-sm" 
                                     data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-edit"
                                     data-bs-title="Editar Registro"
                                 ><i class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-secondary btn-sm" 
+                            </div>
+                            <div class="btn-group me-2" role="group" aria-label="Third group">
+                                <button type="button" class="btn btn-danger btn-sm" 
                                     data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-delete"
                                     data-bs-title="Deletar Registro"
                                 ><i class="bi bi-trash"></i></button>
+                            </div>
+                            <div class="btn-group" role="group" aria-label="Four group">
                                 <button type="button" class="btn btn-secondary btn-sm"
                                     data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-dark"
                                     data-bs-title="Outras Ações"
@@ -114,6 +116,10 @@
                             </div>
                         </div>
                     </td>
+                    <td>1,001</td>
+                    <td>random</td>
+                    <td>data</td>
+                    <td>placeholder</td>
                 </tr>
                 <tr>
                     <td>1,002</td>
@@ -223,4 +229,8 @@
             </tbody>
         </table>
     </div>
+    {{-- <p>
+        {{ $retornoCarreiraProfissional->links() }}
+        <b>Exibindo {{ $retornoCarreiraProfissional->count() }} registros de {{ $retornoCarreiraProfissional->total() }} (De {{ $retornoCarreiraProfissional->firstItem() }} a {{ $retornoCarreiraProfissional->lastItem() }})</b>
+    </p> --}}
 @endsection

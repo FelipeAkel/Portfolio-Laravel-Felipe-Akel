@@ -31,3 +31,11 @@
     opacity: 0;
 }
 /* END Tooltip color personalized */
+
+.breadcrumb-item a {
+    text-decoration:none;
+}
+
+.accordion-button {
+    background-color: #031633;
+}

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CarreiraProfissionalCotroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,15 @@ Route::prefix('admin')->group(function(){
     Route::get('/dashboard', function(){
         return view('template-admin.dashboard');
     })->name('admin.dashboard');
+
+    Route::controller(CarreiraProfissionalCotroller::class)->group(function () {
+        Route::prefix('carreira-profissional')->group(function(){
+            Route::get('index', 'index')->name('carreira-profissional.index');
+            // Route::get('/orders/{id}', 'show');
+            // Route::post('/orders', 'store');
+
+        });
+    });
 
 });
     

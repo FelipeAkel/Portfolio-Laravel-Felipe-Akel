@@ -34,6 +34,8 @@
         </div>
     </div>
 
+    @include('template-admin.layout.include.footer')
+
 </body>
 
 </html>
