@@ -36,6 +36,11 @@
 
     @include('template-admin.layout.include.footer')
 
+    {{-- Ao colocar no head-js, compoente não funciona! --}}
+    <script src="{{ asset('template-admin/toastr/jquery.js') }}" ></script>
+    <script src="{{ asset('template-admin/toastr/toastr.js') }}"></script>
+    {!! Toastr::message() !!}
+
 </body>
 
 </html>

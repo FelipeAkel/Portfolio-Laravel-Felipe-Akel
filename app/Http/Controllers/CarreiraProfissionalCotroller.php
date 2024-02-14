@@ -8,6 +8,9 @@ use App\Models\TbTipoExperiencia;
 use Illuminate\Http\Request;
 use App\Http\Requests\CarreiraProfissionalFormRequest;
 
+use Brian2694\Toastr\Facades\Toastr;
+
+
 class CarreiraProfissionalCotroller extends Controller
 {
     public function index(Request $request)
@@ -35,23 +38,26 @@ class CarreiraProfissionalCotroller extends Controller
     }
 
     public function create()
-    {
+    {        
+        Toastr::success('O registro foi cadastrado', 'Sucesso');
+
         $retornoTipoExperiencia = TbTipoExperiencia::all();
-        // dd($retornoTipoExperiencia)
 ;        return view('template-admin.carreira-profissional.create', compact('retornoTipoExperiencia'));
     }
 
     public function store(CarreiraProfissionalFormRequest $request)
     {
-        // dd($request->all());
         $carreiraProfissional = new TbCarreiraProfissional();
         $retornoBanco = $carreiraProfissional->create($request->all());
 
         if($retornoBanco == true){
-            dd('sucesso');
+            Toastr::success('O registro foi cadastrado', 'Sucesso');
         } else {
-            dd('erro');
+            Toastr::error('Não foi possível cadastrar o registro', 'Erro');
         }
+
+        return redirect()->route('carreira-profissional.index');
+
     }
 
     /**
