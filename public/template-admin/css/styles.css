@@ -39,3 +39,10 @@
 .accordion-button {
     background-color: #031633;
 }
+
+.title-create-edit {
+    padding: 1em;
+}
+.padding-top-2em {
+    padding-top: 2em;
+}

@@ -22,7 +22,6 @@ class CarreiraProfissionalCotroller extends Controller
 
         $retornoCarreiraProfissional = TbCarreiraProfissional::where('id', '>=', 1)
         ->paginate(10);
-        // $retornoCarreiraProfissional = TbCarreiraProfissional::all();
 
         // Recuperando dados de um relacionamento
         foreach($retornoCarreiraProfissional AS $indice => $dadosCarreira){
@@ -40,7 +39,7 @@ class CarreiraProfissionalCotroller extends Controller
      */
     public function create()
     {
-        //
+        return view('template-admin.carreira-profissional.create');
     }
 
     /**

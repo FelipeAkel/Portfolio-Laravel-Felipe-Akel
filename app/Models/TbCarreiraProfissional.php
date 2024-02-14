@@ -19,6 +19,7 @@ class TbCarreiraProfissional extends Model
         'dt_inicio',
         'dt_final',
         'ds_formacao',
-        'nr_total_horas'
+        'nr_total_horas',
+        'ds_url'
     ];
 }

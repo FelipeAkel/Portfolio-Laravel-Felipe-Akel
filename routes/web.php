@@ -30,7 +30,8 @@ Route::prefix('admin')->group(function(){
 
     Route::controller(CarreiraProfissionalCotroller::class)->group(function () {
         Route::prefix('carreira-profissional')->group(function(){
-            Route::get('index', 'index')->name('carreira-profissional.index');
+            Route::get('/index', 'index')->name('carreira-profissional.index');
+            Route::get('/create', 'create')->name('carreira-profissional.create');
             // Route::get('/orders/{id}', 'show');
             // Route::post('/orders', 'store');
 

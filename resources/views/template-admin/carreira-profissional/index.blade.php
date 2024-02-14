@@ -8,7 +8,7 @@
         <h1 class="h2">Carreira Profissional</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
-                <button type="button" class="btn btn-success">Novo Registro <i class="bi bi-plus-lg"></i></button>
+                <a href="{{ route('carreira-profissional.create') }}" class="btn btn-success">Novo Registro <i class="bi bi-plus-lg"></i></a>
             </div>
         </div>
     </div>

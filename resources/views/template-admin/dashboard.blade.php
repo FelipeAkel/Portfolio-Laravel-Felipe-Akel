@@ -69,6 +69,28 @@
                 </div>
             </div>
 
+
+                <div class="col-md-4">
+                    <label for="id_tipo_experiencia" class="form-label">Tipo Experiência</label>
+                    <select name="id_tipo_experiencia" id="id_tipo_experiencia" class="form-select is-invalid">
+                        <option selected>.. Selecione ..</option>
+                        
+                    </select>
+                    <div class="invalid-feedback">
+                        Please choose a username.
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="autoSizingInputGroup" class="form-label">Username</label>
+                    <div class="input-group has-validation">
+                        <div class="input-group-text">@</div>
+                        <input type="text" class="form-control is-invalid" id="autoSizingInputGroup" placeholder="Username">
+                        <div class="invalid-feedback">
+                            Please choose a username.
+                        </div>
+                    </div>
+                </div>
+
         </div>
     </div>
 
