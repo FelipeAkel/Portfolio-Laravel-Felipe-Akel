@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\TbCarreiraProfissional;
 use App\Models\TbTipoExperiencia;
+
+use Illuminate\Http\Request;
+use App\Http\Requests\CarreiraProfissionalFormRequest;
 
 class CarreiraProfissionalCotroller extends Controller
 {
@@ -32,25 +34,24 @@ class CarreiraProfissionalCotroller extends Controller
         return view('template-admin.carreira-profissional.index', compact('retornoCarreiraProfissional', 'retornoTipoExperiencia'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        return view('template-admin.carreira-profissional.create');
+        $retornoTipoExperiencia = TbTipoExperiencia::all();
+        // dd($retornoTipoExperiencia)
+;        return view('template-admin.carreira-profissional.create', compact('retornoTipoExperiencia'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(CarreiraProfissionalFormRequest $request)
     {
-        //
+        // dd($request->all());
+        $carreiraProfissional = new TbCarreiraProfissional();
+        $retornoBanco = $carreiraProfissional->create($request->all());
+
+        if($retornoBanco == true){
+            dd('sucesso');
+        } else {
+            dd('erro');
+        }
     }
 
     /**

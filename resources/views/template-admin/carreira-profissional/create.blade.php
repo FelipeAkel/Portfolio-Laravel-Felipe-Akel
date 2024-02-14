@@ -25,7 +25,7 @@
             </h5>
             <div class="card-body">
 
-                @component('template-admin.carreira-profissional.component.form-create-edit')
+                @component('template-admin.carreira-profissional.component.form-create-edit', ['retornoTipoExperiencia' => $retornoTipoExperiencia])
                     
                 @endcomponent
             
