@@ -39,10 +39,8 @@ class CarreiraProfissionalCotroller extends Controller
 
     public function create()
     {        
-        Toastr::success('O registro foi cadastrado', 'Sucesso');
-
         $retornoTipoExperiencia = TbTipoExperiencia::all();
-;        return view('template-admin.carreira-profissional.create', compact('retornoTipoExperiencia'));
+        return view('template-admin.carreira-profissional.create', compact('retornoTipoExperiencia'));
     }
 
     public function store(CarreiraProfissionalFormRequest $request)
@@ -57,51 +55,48 @@ class CarreiraProfissionalCotroller extends Controller
         }
 
         return redirect()->route('carreira-profissional.index');
-
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $carreiraProfissional = TbCarreiraProfissional::find($id);
+        $tipoExperiencia = TbTipoExperiencia::find($carreiraProfissional->id_tipo_experiencia);
+        $carreiraProfissional['no_tipo_experiencia'] = $tipoExperiencia->no_tipo_experiencia;
+        return view('template-admin.carreira-profissional.show', compact('carreiraProfissional'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $carreiraProfissional = TbCarreiraProfissional::find($id);
+        $retornoTipoExperiencia = TbTipoExperiencia::all();
+        return view('template-admin.carreira-profissional.edit', compact('retornoTipoExperiencia', 'carreiraProfissional'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(CarreiraProfissionalFormRequest $request, $id)
     {
-        //
+        $carreiraProfissional = TbCarreiraProfissional::find($id);
+        $retornoBanco = $carreiraProfissional->update($request->all());
+
+        if($retornoBanco == true){
+            Toastr::success('O registro foi atualizado', 'Sucesso');
+        } else {
+            Toastr::error('Não foi possível atualizar o registro', 'Erro');
+        }
+
+        return redirect()->route('carreira-profissional.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function destroy( $id)
     {
-        //
+        $carreiraProfissional = TbCarreiraProfissional::find($id);
+        $retornoBanco = $carreiraProfissional->delete();
+
+        if($retornoBanco == true){
+            Toastr::success('O registro foi deletado', 'Sucesso');
+        } else {
+            Toastr::error('Não foi possível deletar o registro', 'Erro');
+        }
+
+        return redirect()->route('carreira-profissional.index');
     }
 }

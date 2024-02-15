@@ -33,11 +33,10 @@ Route::prefix('admin')->group(function(){
             Route::get('/index', 'index')->name('carreira-profissional.index');
             Route::get('/create', 'create')->name('carreira-profissional.create');
             Route::post('/store', 'store')->name('carreira-profissional.store');
-
-            
-            // Route::get('/orders/{id}', 'show');
-            // Route::post('/orders', 'store');
-
+            Route::get('/show/{id}', 'show')->where('id', '[0-9]+')->name('carreira-profissional.show');
+            Route::get('/edit/{id}', 'edit')->where('id', '[0-9]+')->name('carreira-profissional.edit');
+            Route::put('/update/{id}', 'update')->where('id', '[0-9]+')->name('carreira-profissional.update');
+            Route::delete('/delete/{id}', 'destroy')->where('id', '[0-9]+')->name('carreira-profissional.delete');
         });
     });
 

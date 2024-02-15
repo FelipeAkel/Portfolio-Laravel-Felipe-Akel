@@ -18,10 +18,10 @@ class CarreiraProfissionalFormRequest extends FormRequest
             'no_experiencia' => 'required | string | max:255',
             'no_empresa' => 'required | string | max:255', 
             'dt_inicio' => 'required | date',
-            'dt_final' => 'required | date',
-            'nr_total_horas' => 'required | numeric',
-            'ds_url' => 'required | url',
-            'ds_formacao' => 'required | string',
+            'dt_final' => 'nullable | date',
+            'nr_total_horas' => 'nullable | numeric',
+            'ds_url' => 'nullable | url',
+            'ds_formacao' => 'nullable | string',
         ];
     }
 

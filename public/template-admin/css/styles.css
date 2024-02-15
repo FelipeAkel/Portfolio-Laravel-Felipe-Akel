@@ -36,9 +36,9 @@
     text-decoration:none;
 }
 
-.accordion-button {
+/* .accordion-button {
     background-color: #031633;
-}
+} */
 
 .title-create-edit {
     padding: 1em;
@@ -49,4 +49,9 @@
 
 .icone {
     align-items: normal;
+}
+
+.required {
+    color: #dc3545;
+    font-weight: bold;
 }

@@ -5,10 +5,10 @@
 @section('conteudo')
 
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Carreira Profissional</h1>
+        <h2>Carreira Profissional</h2>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
-                <a href="{{ route('carreira-profissional.create') }}" class="btn btn-success">Novo Registro <i class="bi bi-plus-lg"></i></a>
+                <a href="{{ route('carreira-profissional.create') }}" class="btn btn-success">Novo Registro </a>
             </div>
         </div>
     </div>
@@ -58,7 +58,7 @@
                                     </select>
                                 </div>
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Pesquisar <i class="bi bi-search"></i></button>
+                                    <button type="submit" class="btn btn-primary">Pesquisar </button>
                                 </div>
                             </form>
 
@@ -93,28 +93,27 @@
                     <td>
                         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                             <div class="btn-group me-2" role="group" aria-label="First group">
-                                <button type="button" class="btn btn-info btn-sm" 
+                                <a href="{{ route('carreira-profissional.show', $dadosCarreiraProf->id) }}" class="btn btn-info btn-sm" 
                                     data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-info"
                                     data-bs-title="Visualizar Registro"
-                                ><i class="bi bi-card-text"></i></button>
+                                ><i class="bi bi-card-text"></i></a>
                             </div>
                             <div class="btn-group me-2" role="group" aria-label="Second group">
-                                <button type="button" class="btn btn-primary btn-sm" 
+                                <a href="{{ route('carreira-profissional.edit', $dadosCarreiraProf->id) }}" class="btn btn-primary btn-sm" 
                                     data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-edit"
                                     data-bs-title="Editar Registro"
-                                ><i class="bi bi-pencil-square"></i></button>
+                                ><i class="bi bi-pencil-square"></i></a>
                             </div>
                             <div class="btn-group me-2" role="group" aria-label="Third group">
-                                <button type="button" class="btn btn-danger btn-sm" 
-                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-delete"
-                                    data-bs-title="Deletar Registro"
-                                ><i class="bi bi-trash"></i></button>
-                            </div>
-                            <div class="btn-group" role="group" aria-label="Four group">
-                                <button type="button" class="btn btn-secondary btn-sm"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-dark"
-                                    data-bs-title="Outras Ações"
-                                ><i class="bi bi-suit-heart-fill"></i></button>
+                                <form id="form_delete_{{ $dadosCarreiraProf->id }}" action="{{ route('carreira-profissional.delete', $dadosCarreiraProf->id) }}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <a onclick="document.getElementById('form_delete_{{ $dadosCarreiraProf->id }}').submit()"
+                                        class="btn btn-danger btn-sm" 
+                                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-delete"
+                                        data-bs-title="Deletar Registro"
+                                    ><i class="bi bi-trash"></i></a>
+                                </form>
                             </div>
                         </div>
                     </td>
