@@ -16,5 +16,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call(TipoExperienciaSeeder::class);
         $this->call(CarreiraProfissionalSeeder::class);
+        $this->call(TipoHabilidadeSeeder::class);
+        $this->call(HabilidadeSeeder::class);
     }
 }

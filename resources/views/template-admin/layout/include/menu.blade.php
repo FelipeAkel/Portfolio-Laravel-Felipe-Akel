@@ -20,6 +20,12 @@
                         Carreira Profissional
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" href="{{ route('habilidade.index') }}">
+                        <i class="bi bi-apple"></i>
+                        Habilidade
+                    </a>
+                </li>
             </ul>
 
             <h6

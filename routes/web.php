@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HabilidadeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarreiraProfissionalCotroller;
 
@@ -37,6 +38,12 @@ Route::prefix('admin')->group(function(){
             Route::get('/edit/{id}', 'edit')->where('id', '[0-9]+')->name('carreira-profissional.edit');
             Route::put('/update/{id}', 'update')->where('id', '[0-9]+')->name('carreira-profissional.update');
             Route::delete('/delete/{id}', 'destroy')->where('id', '[0-9]+')->name('carreira-profissional.delete');
+        });
+    });
+
+    Route::controller(HabilidadeController::class)->group(function(){
+        Route::prefix('habilidade')->group(function(){
+            Route::get('/index', 'index')->name('habilidade.index');
         });
     });
 

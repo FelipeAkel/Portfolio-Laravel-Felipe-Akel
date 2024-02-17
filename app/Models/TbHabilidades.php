@@ -12,6 +12,6 @@ class TbHabilidades extends Model
     use softDeletes;
 
     protected $table = 'tb_habilidade';
-    protected $fillable = ['no_habilidade', 'ds_habilidade', 'nr_porcentagem'];
+    protected $fillable = ['id_tipo_habilidade', 'no_habilidade', 'ds_habilidade', 'nr_porcentagem'];
 }
 
