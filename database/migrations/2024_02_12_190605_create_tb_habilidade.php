@@ -19,6 +19,7 @@ class CreateTbHabilidade extends Migration
             $table->string('no_habilidade', 150)->nullalbe(false)->comment('Nome da habilidade, ferramenta, codificação que domina');
             $table->string('ds_habilidade', 150)->nullable(true)->comment('Descrição complementar da habilidade');
             $table->integer('nr_porcentagem')->nullable(false)->comment('Porcentagem de 0 a 100% de domínio sobre a ferramenta, codificação');
+            $table->integer('nr_ordenacao')->nullable(false)->comment('Campo responsável pela ordenação dos registros');
             $table->timestamps();
             $table->softDeletes('deleted_at', 0)->comment('Data de delete do registro');
 

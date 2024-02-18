@@ -45,8 +45,7 @@ class CarreiraProfissionalCotroller extends Controller
 
     public function store(CarreiraProfissionalFormRequest $request)
     {
-        $carreiraProfissional = new TbCarreiraProfissional();
-        $retornoBanco = $carreiraProfissional->create($request->all());
+        $retornoBanco = TbCarreiraProfissional::create($request->all());
 
         if($retornoBanco == true){
             Toastr::success('O registro foi cadastrado', 'Sucesso');

@@ -44,6 +44,11 @@ Route::prefix('admin')->group(function(){
     Route::controller(HabilidadeController::class)->group(function(){
         Route::prefix('habilidade')->group(function(){
             Route::get('/index', 'index')->name('habilidade.index');
+            Route::get('/create', 'create')->name('habilidade.create');
+            Route::post('/store', 'store')->name('habilidade.store');
+            Route::get('/edit/{id}', 'edit')->where('id', '[0-9]+')->name('habilidade.edit');
+            Route::put('/update/{id}', 'update')->where('id', '[0-9]+')->name('habilidade.update');
+            Route::delete('/delete/{id}', 'destroy')->where('id', '[0-9]+')->name('habilidade.delete');
         });
     });
 

@@ -8,7 +8,7 @@
         <h2>Habilidade</h2>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
-                <a href="" class="btn btn-success">Novo Registro</a>
+                <a href="{{ route('habilidade.create') }}" class="btn btn-success">Novo Registro</a>
             </div>
         </div>
     </div>
@@ -98,22 +98,21 @@
                     <td>
                         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                             <div class="btn-group me-2" role="group" aria-label="Second group">
-                                <button type="button" class="btn btn-primary btn-sm" 
+                                <a href="{{ route('habilidade.edit', $dadosHabilidade->id) }}" class="btn btn-primary btn-sm" 
                                     data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-edit"
                                     data-bs-title="Editar Registro"
-                                ><i class="bi bi-pencil-square"></i></button>
+                                ><i class="bi bi-pencil-square"></i></a>
                             </div>
                             <div class="btn-group me-2" role="group" aria-label="Third group">
-                                <button type="button" class="btn btn-danger btn-sm" 
-                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-delete"
-                                    data-bs-title="Deletar Registro"
-                                ><i class="bi bi-trash"></i></button>
-                            </div>
-                            <div class="btn-group" role="group" aria-label="Four group">
-                                <button type="button" class="btn btn-secondary btn-sm"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-dark"
-                                    data-bs-title="Outras Ações"
-                                ><i class="bi bi-suit-heart-fill"></i></button>
+                                <form id="form_delete_{{ $dadosHabilidade->id }}" action="{{ route('habilidade.delete', $dadosHabilidade->id) }}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <a onclick="document.getElementById('form_delete_{{ $dadosHabilidade->id }}').submit()"
+                                        class="btn btn-danger btn-sm" 
+                                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-delete"
+                                        data-bs-title="Deletar Registro"
+                                    ><i class="bi bi-trash"></i></a>
+                                </form>
                             </div>
                         </div>
                     </td>
@@ -139,19 +138,17 @@
                                 <span class="badge text-bg-success">{{ $dadosHabilidade->nr_porcentagem }}%</span>
                                 @break
                             @default
-                                
+                                {{ $dadosHabilidade->nr_porcentagem }}%
                         @endswitch
                     </td>
-
-
                     <td>{{ $dadosHabilidade->created_at }}</td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
-    {{-- <p>
-        {{ $retornoCarreiraProfissional->links() }}
-        <b>Exibindo {{ $retornoCarreiraProfissional->count() }} registros de {{ $retornoCarreiraProfissional->total() }} (De {{ $retornoCarreiraProfissional->firstItem() }} a {{ $retornoCarreiraProfissional->lastItem() }})</b>
-    </p> --}}
+    <p>
+        {{ $retornoHabilidade->links() }}
+        <b>Exibindo {{ $retornoHabilidade->count() }} registros de {{ $retornoHabilidade->total() }} (De {{ $retornoHabilidade->firstItem() }} a {{ $retornoHabilidade->lastItem() }})</b>
+    </p>
 @endsection
