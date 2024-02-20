@@ -8,7 +8,7 @@
             <ul>
                 <li>
                     <div class="list_inner">
-                        <span class="icon"><img class="svg" src="{{ asset('template-internauta/img/') }}/svg/web.svg" alt="" /></span>
+                        <span class="icon"><img class="svg" src="{{ asset('template-internauta/img/svg/') }}/web.svg" alt="" /></span>
                         <h3 class="title">Front-End</h3>
                         <p class="text">Utilizando Frameworks consolidados no mercado, como por exemplo Bootstrap e Metronic...</p>
                         <a class="iknow_tm_full_link" href="#"></a>
@@ -16,7 +16,7 @@
                             <div class="service_informations">
                                 <div class="image">
                                     <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
-                                    <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/service/1.jpg"></div>
+                                    <div class="main" data-img-url="{{ asset('template-internauta/img/service/') }}/1.jpg"></div>
                                 </div>
                                 <div class="description">
                                     <p>Utilizando Frameworks consolidados no mercado, como por exemplo Bootstrap e Metronic, para aumentar a velocidade da codificação e respeitar os prazos estabelecidos. Além disso, adoto conceitos de UX/Designer cujo objetivo é garantir que o usuário tenha a melhor experiência de uso com relação ao produto/serviço.</p>

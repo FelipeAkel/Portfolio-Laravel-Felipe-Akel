@@ -26,6 +26,13 @@
                         Habilidade
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" href="{{ route('servicos.index') }}">
+                        <i class="bi bi-apple"></i>
+                        Serviços
+                    </a>
+                </li>
+                
             </ul>
 
             <h6

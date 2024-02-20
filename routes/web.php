@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HabilidadeController;
 use App\Http\Controllers\InternautaController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarreiraProfissionalCotroller;
+use App\Http\Controllers\ServicosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,14 @@ Route::prefix('admin')->group(function(){
             Route::get('/edit/{id}', 'edit')->where('id', '[0-9]+')->name('habilidade.edit');
             Route::put('/update/{id}', 'update')->where('id', '[0-9]+')->name('habilidade.update');
             Route::delete('/delete/{id}', 'destroy')->where('id', '[0-9]+')->name('habilidade.delete');
+        });
+    });
+
+    Route::controller(ServicosController::class)->group(function(){
+        Route::prefix('servicos')->group(function(){
+            Route::get('/index', 'index')->name('servicos.index');
+
+            Route::get('/show/{id}', 'show')->where('id', '[0-9]+')->name('servicos.show');
         });
     });
 
