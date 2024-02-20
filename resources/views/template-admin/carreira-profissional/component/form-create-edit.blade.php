@@ -101,8 +101,29 @@
             @endif
         </div>
     </div>
+
+    <div class="mb-3 col-md-4">
+        <label for="st_trabalho_atual" class="form-label">Trabalho atualmente neste cargo?</label>
+        <div class="form-check">
+            <input class="form-check-input {{ $errors->has('st_trabalho_atual') ? 'is-invalid' : '' }}" type="radio" name="st_trabalho_atual" id="sim" value="1" {{ ($carreiraProfissional->st_trabalho_atual ?? old('st_trabalho_atual')) == 1 ? 'checked' : '' }}>
+            <label class="form-check-label" for="sim">
+                Sim
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input {{ $errors->has('st_trabalho_atual') ? 'is-invalid' : '' }}" type="radio" name="st_trabalho_atual" id="nao" value="0" {{ ($carreiraProfissional->st_trabalho_atual ?? old('st_trabalho_atual')) == 0 ? 'checked' : '' }}>
+            <label class="form-check-label" for="nao">
+                Não
+            </label>
+            @if ($errors->has('st_trabalho_atual'))
+                <div class="invalid-feedback">
+                    {{ $errors->first('st_trabalho_atual') }}
+                </div>
+            @endif
+        </div>
+    </div>
     
-    <div class="mb-3 col-md-12">
+    <div class="mb-3 col-md-8">
         <label for="ds_formacao" class="form-label">Descrição</label>
         <textarea class="form-control {{ $errors->has('ds_formacao') ? 'is-invalid' : '' }}" name="ds_formacao" id="ds_formacao" rows="3">{{ $carreiraProfissional->ds_formacao ?? old('ds_formacao') }}</textarea>
         @if ($errors->has('ds_formacao'))

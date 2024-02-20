@@ -18,6 +18,7 @@ class TbCarreiraProfissional extends Model
         'no_empresa',
         'dt_inicio',
         'dt_final',
+        'st_trabalho_atual',
         'ds_formacao',
         'nr_total_horas',
         'ds_url'

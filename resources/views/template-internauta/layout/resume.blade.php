@@ -7,142 +7,57 @@
         </div>
         <div class="resume_inner">
             <div class="left">
+                {{-- Loop para pegar os Tipo Experiencia --}}
+                @foreach ($tipoCarreiraProfissional AS $indice => $dadosTipoCarreiraProfissional )
                 <div class="info_list">
                     <div class="iknow_tm_resume_title">
-                        <h3>Escolaridade</h3>
+                        <h3>{{ $dadosTipoCarreiraProfissional->no_tipo_experiencia }}</h3>
                         <span class="shape"></span>
                     </div>
                     <ul>
-                        <li>
-                            <div class="list_inner">
-                                <div class="short">
-                                    <div class="job">
-                                        <h3>Segurança da Informação</h3>
-                                        <span>Centro Universitário (IESB)</span>
+                        {{-- Loop para pegar as Experiencia --}}
+                        @foreach ($carreiraProfissional AS $indice2 => $dadosCarreiraProfissional )
+                            @if($dadosCarreiraProfissional->id_tipo_experiencia == $dadosTipoCarreiraProfissional->id)
+                            <li>
+                                <div class="list_inner">
+                                    <div class="short">
+                                        <div class="job">
+                                            <h3>{{ $dadosCarreiraProfissional->no_experiencia }}</h3>
+                                            <span>{{ $dadosCarreiraProfissional->no_empresa }}</span>
+                                        </div>
+                                        <div class="year">
+                                            <span>
+                                                @php
+                                                    echo date('Y', strtotime($dadosCarreiraProfissional->dt_inicio));
+                                                @endphp 
+                                                @php
+                                                    if(!empty($dadosCarreiraProfissional->dt_final)){
+                                                    echo ' - ' . date('Y', strtotime($dadosCarreiraProfissional->dt_final));
+                                                    }
+                                                @endphp
+                                                {{ $dadosCarreiraProfissional->st_trabalho_atual == 1 ? ' - Atual' : '' }}
+                                                </span>
+                                        </div>
                                     </div>
-                                    <div class="year">
-                                        <span>2015 - 2016</span>
-                                    </div>
+                                    @empty(!$dadosCarreiraProfissional->ds_formacao)
+                                        <div class="text">
+                                            <p>{{ $dadosCarreiraProfissional->ds_formacao }}</p>
+                                        </div>
+                                    @endempty
+                                    @empty(!$dadosCarreiraProfissional->ds_url)
+                                        <div class="text">
+                                            <a href="{{ $dadosCarreiraProfissional->ds_url }}" class="certificado" target="_blank">Certificado</a>
+                                        </div>
+                                    @endempty
                                 </div>
-                                <div class="text">
-                                    <p>Pós-Graduação, Segurança da Informação, o curso é uma especialização que visa proteger a integridade das informações de empresas e desenvolver mecanismos que impeçam acessos não autorizados. 480 horas/aula.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list_inner">
-                                <div class="short">
-                                    <div class="job">
-                                        <h3>Sistema de Infomação</h3>
-                                        <span>Centro Universitário do Distrito Federal (UDF)</span>
-                                    </div>
-                                    <div class="year">
-                                        <span>2010-2014</span>
-                                    </div>
-                                </div>
-                                <div class="text">
-                                    <p>Bacharelado, Sistema de Informação, o curso forma profissionais capazes de administrar o fluxo de informações geradas e distribuídas por redes de computadores dentro e fora de uma organização. 3000 horas/aula.</p>
-                                </div>
-                            </div>
-                        </li>
+                            </li>
+                            @endif
+                        @endforeach
                     </ul>
                 </div>
-                <div class="info_list">
-                    <div class="iknow_tm_resume_title">
-                        <h3>Certificados</h3>
-                        <span class="shape"></span>
-                    </div>
-                    <ul>
-                        <li>
-                            <div class="list_inner">
-                                <div class="short">
-                                    <div class="job">
-                                        <h3>Certified Scrum Developer® (CSD®)</h3>
-                                        <span>Scrum Alliance </span>
-                                    </div>
-                                    <div class="year">
-                                        <span>2022 - 2024</span>
-                                    </div>
-                                </div>
-                                <div class="text">
-                                    <p><a href="https://bcert.me/bc/html/show-badge.html?b=yyvvmnew" target="_blank">Acesse o Certificado</a>. 16 horas/aula.</p>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="info_list">
-                    <div class="iknow_tm_resume_title">
-                        <h3>Experiência</h3>
-                        <span class="shape"></span>
-                    </div>
-                    <ul>
-                        <li>
-                            <div class="list_inner">
-                                <div class="short">
-                                    <div class="job">
-                                        <h3>Analista de Sistemas</h3>
-                                        <span>Globalweb Corp</span>
-                                    </div>
-                                    <div class="year">
-                                        <span>2021 - Atual</span>
-                                    </div>
-                                </div>
-                                {{-- <div class="text">
-                                    <p>Web Developers are build a website’s core structure using coding languages, while designers are more visually creative and user-focused.</p>
-                                </div> --}}
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list_inner">
-                                <div class="short">
-                                    <div class="job">
-                                        <h3>Web Designer</h3>
-                                        <span>Vert Integradora de TI</span>
-                                    </div>
-                                    <div class="year">
-                                        <span>2016 - 2020</span>
-                                    </div>
-                                </div>
-                                {{-- <div class="text">
-                                    <p>Web Developers are build a website’s core structure using coding languages, while designers are more visually creative and user-focused.</p>
-                                </div> --}}
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list_inner">
-                                <div class="short">
-                                    <div class="job">
-                                        <h3>Web Designer</h3>
-                                        <span>Montreal Informática S.A.</span>
-                                    </div>
-                                    <div class="year">
-                                        <span>2015 - 2016</span>
-                                    </div>
-                                </div>
-                                {{-- <div class="text">
-                                    <p>Web Developers are build a website’s core structure using coding languages, while designers are more visually creative and user-focused.</p>
-                                </div> --}}
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list_inner">
-                                <div class="short">
-                                    <div class="job">
-                                        <h3>Técnico de Suporte em TI</h3>
-                                        <span>Defensoria Pública da União</span>
-                                    </div>
-                                    <div class="year">
-                                        <span>2013 - 2014</span>
-                                    </div>
-                                </div>
-                                {{-- <div class="text">
-                                    <p>Web Developers are build a website’s core structure using coding languages, while designers are more visually creative and user-focused.</p>
-                                </div> --}}
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                @endforeach
+
+                @if ($arrayDadosTotais['totalCursoComplementar'] != 0)
                 <div class="info_list">
                     <div class="iknow_tm_resume_title">
                         <h3>Cursos Complementares</h3>
@@ -151,93 +66,71 @@
                     <ul>
                         <li>
                             <div class="list_inner">
-                                <div class="text">
-                                    <p>Cursos de aperfeiçamento ligados a área de Tecnologia com certificados. Total: 20. Saiba quais, clicando aqui!</p>
+                                <div class="short">
+                                    <div class="job">
+                                        <h3>Total: <span class="total">{{ $arrayDadosTotais['totalCursoComplementar'] }}</span> concluídos</h3>
+                                        <span>Total: <span class="total">{{ $arrayDadosTotais['totalHorasAulas'] }}</span> horas/aula</span>
+                                    </div>
+                                    <div class="ano_curso_complementar">
+                                        <span>Visualizar</span>
+                                    </div>
                                 </div>
+                                <div class="text espacamento">
+                                    <div class="iknow_tm_curso_complementar">
+                                        <a class="iknow_tm_full_link" href="#"></a>
+                                        <div class="hidden_content">
+                                            <div class="curso_complementar">
+                                                <div class="image">
+                                                    <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
+                                                    <div class="main" data-img-url="https://elements-cover-images-0.imgix.net/fe419e2a-45bb-4c36-9826-c7b9467185ca?auto=compress%2Cformat&w=900&fit=max&s=13f0a8e8e3b0000a6de3a8668b7882f0"></div>
+                                                </div>
+                                                <div class="description">
+                                                    <h3 class="titulo-modal" >Cursos Concluídos</h3>
+                                                    <ul class="list-group">
+                                                        @foreach ($cursoComplementar AS $indice => $dadosCursos )
+                                                            <a href="{{ $dadosCursos->ds_url }}" class="list-group-item" target="_blank">
+                                                                <span class="nome-curso">{{ $dadosCursos->no_experiencia }}</span>
+                                                                <br> {{  date('d/m/Y', strtotime($dadosCursos->dt_inicio)) }} - <span class="none-empresa">{{ $dadosCursos->no_empresa }}</span> - {{ $dadosCursos->nr_total_horas }} horas/aula.
+                                                            </a>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </li>
                     </ul>
                 </div>
+                @endif
+
             </div>
+
             <div class="right">
-                <div class="skills_list">
-                    <div class="iknow_tm_resume_title">
-                        <h3>Frameworks</h3>
-                        <span class="shape"></span>
-                    </div>
-                    <div class="personal">
-                        <div class="dodo_progress">
-                            <div class="progress_inner" data-value="100">
-                                <span><span class="label">Laravel <span style="color: #a7afbd;">Back-end</span></span></span>
-                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-                            </div>
-                            <div class="progress_inner" data-value="100">
-                                <span><span class="label">Bootstrap <span style="color: #a7afbd;">Front-end</span></span></span>
-                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-                            </div>
-                            <div class="progress_inner" data-value="100">
-                                <span><span class="label">Metronic <span style="color: #a7afbd;">Front-end</span></span></span>
-                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
+                {{-- Habilidade --}}
+                @foreach ($tipoHabilidade AS $indice => $dadosTipoHabilidade )
+                    <div class="skills_list">
+                        <div class="iknow_tm_resume_title">
+                            <h3>{{ $dadosTipoHabilidade->no_tipo_habilidade }}</h3>
+                            <span class="shape"></span>
+                        </div>
+                        <div class="personal">
+                            <div class="dodo_progress">
+                                @foreach ( $habilidade AS $indice => $dadosHabilidade)
+                                    @if ($dadosHabilidade->id_tipo_habilidade == $dadosTipoHabilidade->id)
+                                    <div class="progress_inner" data-value="{{ $dadosHabilidade->nr_porcentagem }}">
+                                        <span><span class="label">{{ $dadosHabilidade->no_habilidade }} <span style="color: #a7afbd;">{{ $dadosHabilidade->ds_habilidade }}</span></span></span>
+                                        <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
+                                    </div>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="skills_list">
-                    <div class="iknow_tm_resume_title">
-                        <h3>Codificação</h3>
-                        <span class="shape"></span>
-                    </div>
-                    <div class="personal">
-                        <div class="dodo_progress">
-                            <div class="progress_inner" data-value="100">
-                                <span><span class="label">PHP <span style="color: #a7afbd;">5x e 7x</span></span></span>
-                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-                            </div>
-                            <div class="progress_inner" data-value="100">
-                                <span><span class="label">HTML5 e CSS3</span></span>
-                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-                            </div>
-                            <div class="progress_inner" data-value="100">
-                                <span><span class="label">JavaScript</span></span>
-                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-                            </div>
-                            <div class="progress_inner" data-value="100">
-                                <span><span class="label">Linguagem SQL <span style="color: #a7afbd;">Oracle, MySQL, PostgreSQL</span></span></span>
-                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-                            </div>
-                            <div class="progress_inner" data-value="50">
-                                <span><span class="label">Testes Unitários e Integração</span></span>
-                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-                            </div>
-                            <div class="progress_inner" >
-                                <span><span class="label">API</span></span>
-                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skills_list">
-                    <div class="iknow_tm_resume_title">
-                        <h3>Designer</h3>
-                        <span class="shape"></span>
-                    </div>
-                    <div class="personal">
-                        <div class="dodo_progress">
-                            <div class="progress_inner" data-value="100">
-                                <span><span class="label">Lightroom</span></span>
-                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-                            </div>
-                            <div class="progress_inner" data-value="50">
-                                <span><span class="label">Photoshop</span></span>
-                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-                            </div>
-                            <div class="progress_inner" data-value="50">
-                                <span><span class="label">InDesigner</span></span>
-                                <div class="background"><div class="bar"><div class="bar_in"></div></div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+                {{-- FIM - Habilidade --}}
             </div>
         </div>
     </div>

@@ -106,6 +106,13 @@ body.dark .iknow_tm_copyright .left a:hover{
 body.dark .iknow_tm_resume .info_list ul li .short .job span{
 	color: #d3d7df;
 }
+body.dark .iknow_tm_resume .info_list ul li .short .job h3 .total{
+	color: #0087CC;
+}
+body.dark .iknow_tm_resume .info_list ul li .short .job span .total{
+	color: #0087CC;
+}
+
 body.dark .progress_inner .background{
 	background: #777a7f;
 }

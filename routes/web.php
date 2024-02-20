@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HabilidadeController;
+use App\Http\Controllers\InternautaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarreiraProfissionalCotroller;
 
@@ -14,10 +15,9 @@ use App\Http\Controllers\CarreiraProfissionalCotroller;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('template-internauta.index');
-})->name('internauta.index');
+Route::controller(InternautaController::class)->group(function () {
+    Route::get('/', 'index')->name('internauta.index');
+});
 
 Route::get('/login', function(){
     return view('login');
@@ -53,8 +53,4 @@ Route::prefix('admin')->group(function(){
     });
 
 });
-    
 
-Route::get('/login', function(){
-    return view('login');
-})->name('login');

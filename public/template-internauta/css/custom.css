@@ -1,0 +1,96 @@
+.certificado{
+    text-decoration: none;
+    color:#0087CC;
+}
+
+.certificado:hover{
+    color: #00ffff;
+}
+
+
+/* POPUP Curso_compementar */
+.iknow_tm_curso_complementar .curso_complementar { 
+	visibility: hidden;
+}
+
+.iknow_tm_modalbox .curso_complementar{
+	width: 100%;
+	height: auto;
+	clear: both;
+	float: left;
+}
+.iknow_tm_modalbox .curso_complementar .image{
+	position: relative;
+	margin-bottom: 37px;
+}
+.iknow_tm_modalbox .curso_complementar .image img{
+	position: relative;
+	opacity: 0;
+	min-width: 100%;
+}
+.iknow_tm_modalbox .curso_complementar .image .main{
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	border-radius: 15px;
+}
+.iknow_tm_modalbox .curso_complementar .title{
+	width: 100%;
+	float: left;
+	margin-bottom: 22px;
+}
+.iknow_tm_modalbox .title h3{
+	font-size: 22px;
+	font-weight: 700;
+}
+.iknow_tm_modalbox .curso_complementar .description{
+	width: 100%;
+	float: left;
+}
+.iknow_tm_modalbox .curso_complementar .description p{
+	margin-bottom: 15px;
+}
+.iknow_tm_modalbox .curso_complementar .description p:last-child{
+	margin-bottom: 0px;
+}
+
+.list-group {
+    max-width:100%;
+}
+
+.list-group a:hover {
+    background-color: #707070;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.5rem;
+    color: #dee2e6;
+    text-decoration: none;
+    /* background-color: var(--#{$prefix}list-group-bg); */
+    border: 1px solid #dee2e6;
+}
+
+.titulo-modal {
+    padding-bottom: 2rem;
+}
+
+.nome-curso {
+    color: #0087CC;
+    font-weight: bold;
+}
+
+.none-empresa {
+    color: #929292;
+}
+
+.espacamento {
+    height: 20px;
+}
+/* FIM POPUP Curso_compementar */

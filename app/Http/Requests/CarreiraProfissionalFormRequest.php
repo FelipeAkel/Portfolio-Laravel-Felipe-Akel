@@ -19,6 +19,7 @@ class CarreiraProfissionalFormRequest extends FormRequest
             'no_empresa' => 'required | string | max:255', 
             'dt_inicio' => 'required | date',
             'dt_final' => 'nullable | date',
+            'st_trabalho_atual' => 'required | numeric | between:0,1',
             'nr_total_horas' => 'nullable | numeric',
             'ds_url' => 'nullable | url',
             'ds_formacao' => 'nullable | string',
@@ -35,6 +36,7 @@ class CarreiraProfissionalFormRequest extends FormRequest
             'max' => 'O campo deve ter no máximo 255 caracteres',
             'date' => 'O campo eve ser uma data válida',
             'id_tipo_experiencia.exists' => 'Valor do ID não existe na tabela Tipo Experiência',
+            'st_trabalho_atual.between' => 'O valor deve está entre :min e :max',
             'ds_url.url' => 'O campo dever ser uma URL válida',
         ];
     }

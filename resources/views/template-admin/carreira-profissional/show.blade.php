@@ -68,8 +68,24 @@
                                 <input type="text" class="form-control" value="{{ $carreiraProfissional->ds_url }}" disabled> 
                             </div>
                         </div>
+
+                        <div class="mb-3 col-md-4">
+                            <label for="st_trabalho_atual" class="form-label">Trabalho atualmente neste cargo?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" {{ $carreiraProfissional->st_trabalho_atual == 1 ? 'checked' : '' }} disabled>
+                                <label class="form-check-label" for="sim">
+                                    Sim
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" {{ $carreiraProfissional->st_trabalho_atual == 0 ? 'checked' : '' }} disabled>
+                                <label class="form-check-label" for="nao">
+                                    Não
+                                </label>
+                            </div>
+                        </div>
                         
-                        <div class="mb-3 col-md-12">
+                        <div class="mb-3 col-md-8">
                             <label class="form-label">Descrição</label>
                             <textarea class="form-control" rows="3" disabled>{{ $carreiraProfissional->ds_formacao }}</textarea>
                         </div>

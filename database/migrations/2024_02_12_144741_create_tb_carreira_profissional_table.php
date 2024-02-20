@@ -16,6 +16,7 @@ class CreateTbCarreiraProfissionalTable extends Migration
             $table->date('dt_inicio')->nullable(false)->comment('Data Início do contrato');
             $table->date('dt_final')->nullable(true)->comment('Data Final do contrato');
             $table->text('ds_formacao')->nullable(true)->comment('Descrição da formação, atividades desempenhadas ou curso realizado');
+            $table->integer('st_trabalho_atual')->nullable(true)->comment('Trabalho atualmente neste cargo');
             $table->float('nr_total_horas', 8, 2)->nullable(true)->comment('Número totais de horas do formação ou curso realizado');
             $table->text('ds_url')->nullable(true)->comment('URL do certificado emitido no nome do aluno');
             $table->timestamps();

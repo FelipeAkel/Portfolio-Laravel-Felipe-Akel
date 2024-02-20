@@ -16,6 +16,7 @@ jQuery(document).ready(function(){
 	iknow_tm_portfolio();
 	iknow_tm_portfolio_popup();
 	iknow_tm_service_popup();
+		iknow_tm_curso_complementar_popup();
 	iknow_tm_news_popup();
 	iknow_tm_cursor();
 	iknow_tm_imgtosvg();
@@ -209,6 +210,32 @@ function iknow_tm_service_popup(){
 	
 	var modalBox		= jQuery('.iknow_tm_modalbox');
 	var button			= jQuery('.iknow_tm_services .iknow_tm_full_link');
+	var closePopup		= modalBox.find('.close');
+	
+	button.on('click',function(){
+		var element = jQuery(this);
+		var parent  = element.closest('.list_inner');
+		var title	= parent.find('.title').text();
+		var content = parent.find('.hidden_content').html();
+		modalBox.addClass('opened');
+		modalBox.find('.description_wrap').html(content);
+		iknow_tm_data_images();
+		modalBox.find('.service_informations .image').after('<div class="title"><h3>'+title+'</h3></div>');
+		return false;
+	});
+	closePopup.on('click',function(){
+		modalBox.removeClass('opened');
+		modalBox.find('.description_wrap').html('');
+		return false;
+	});
+}
+
+function iknow_tm_curso_complementar_popup(){
+	
+	"use strict";
+	
+	var modalBox		= jQuery('.iknow_tm_modalbox');
+	var button			= jQuery('.iknow_tm_curso_complementar .iknow_tm_full_link');
 	var closePopup		= modalBox.find('.close');
 	
 	button.on('click',function(){
@@ -788,6 +815,7 @@ function iknow_tm_extra_menu(){
 		progress_by_frenify(li);
 		iknow_tm_portfolio_popup();
 		iknow_tm_service_popup();
+			iknow_tm_curso_complementar_popup();
 		iknow_tm_news_popup();
 		iknow_tm_popup();
 		iknow_tm_portfolio();

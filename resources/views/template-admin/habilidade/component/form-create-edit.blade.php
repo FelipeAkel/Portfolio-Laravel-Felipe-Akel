@@ -6,7 +6,7 @@
 @endif
     @csrf
     <div class="mb-3 col-md-4">
-        <label for="id_tipo_habilidade" class="form-label">Tipo Habilidade </label>
+        <label for="id_tipo_habilidade" class="form-label">Tipo Habilidade <span class="required">*</span></label>
         <select class="form-select {{ $errors->has('id_tipo_habilidade') ? 'is-invalid' : '' }}" name="id_tipo_habilidade" id="id_tipo_habilidade" >
             <option>..Selecione..</option>
             @foreach ($retornoTipoHabilidade AS $indice => $dadosTipoHabilidade )
@@ -21,7 +21,7 @@
     </div>
 
     <div class="mb-3 col-md-4">
-        <label for="no_habilidade" class="form-label">Nome Habilidade </label>
+        <label for="no_habilidade" class="form-label">Nome Habilidade <span class="required">*</span></label>
         <input type="text" class="form-control {{ $errors->has('no_habilidade') ? 'is-invalid' : '' }}" 
             name="no_habilidade" id="no_habilidade" maxlength="150" value="{{ $habilidade->no_habilidade ?? old('no_habilidade') }}" >
         @if ($errors->has('no_habilidade'))
@@ -43,7 +43,7 @@
     </div>
 
     <div class="mb-3 col-md-3">
-        <label for="nr_porcentagem" class="form-label">Porcentagem </label>
+        <label for="nr_porcentagem" class="form-label">Porcentagem <span class="required">*</span></label>
         <select class="form-select {{ $errors->has('nr_porcentagem') ? 'is-invalid' : '' }}" name="nr_porcentagem" id="nr_porcentagem" >
             <option>.. Selecione ..</option>
             {{-- Bug Laravel ? Valores false são iguais a 0 ? está entrando na lógica do 0 --}}
@@ -62,7 +62,7 @@
     </div>
 
     <div class="mb-3 col-md-3">
-        <label for="nr_ordenacao" class="form-label">Ordenação </label>
+        <label for="nr_ordenacao" class="form-label">Ordenação <span class="required">*</span></label>
         <input type="number" class="form-control {{ $errors->has('nr_ordenacao') ? 'is-invalid' : '' }}" 
             name="nr_ordenacao" id="nr_ordenacao" value="{{ $habilidade->nr_ordenacao ?? old('nr_ordenacao') }}">
         @if ($errors->has('nr_ordenacao'))
