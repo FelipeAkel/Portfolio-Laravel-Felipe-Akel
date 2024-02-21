@@ -33,7 +33,15 @@
                             <label class="form-label">Data Criação</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text icone" ><i class="bi bi-calendar4-event"></i></span>
-                                <input type="date" class="form-control" value="{{ $servico->created_at }}" disabled>
+                                <input type="date-time" class="form-control" value="{{ $servico->created_at }}" disabled>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 col-md-3">
+                            <label class="form-label">Data de Atualização</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text icone" ><i class="bi bi-calendar4-event"></i></span>
+                                <input type="date-time" class="form-control" value="{{ $servico->updated_at }}" disabled>
                             </div>
                         </div>
 
@@ -42,12 +50,34 @@
                             <textarea class="form-control" rows="3" disabled>{{ $servico->ds_servico }}</textarea>
                         </div>
 
-                        <div class="text-center">
-                            <img src="{{ asset('template-internauta/img/service/') }}/1.jpg" class="rounded img-servico" alt="...">
+                        <div class="mb-3 col-md-6">
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIcone" aria-expanded="false" aria-controls="collapseIcone">
+                                    Imagem Icone
+                                </button>
+                            </div>
+                            <div class="collapse" id="collapseIcone">
+                                <div class="card card-body">
+                                    <div class="text-center">
+                                        <img src="{{ asset('template-internauta/img/svg/') }}/web.svg" class="rounded img-icon" alt="...">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
-                        <div class="text-center">
-                            <img src="{{ asset('template-internauta/img/svg/') }}/web.svg" class="rounded img-icon" alt="...">
+                        
+                        <div class="mb-3 col-md-6">
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseImgDestaque" aria-expanded="false" aria-controls="collapseImgDestaque">
+                                    Imagem Destaque
+                                </button>
+                            </div>
+                            <div class="collapse" id="collapseImgDestaque">
+                                <div class="card card-body">
+                                    <div class="text-center">
+                                        <img src="{{ asset('template-internauta/img/service/') }}/1.jpg" class="rounded img-servico" alt="...">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="col-12">

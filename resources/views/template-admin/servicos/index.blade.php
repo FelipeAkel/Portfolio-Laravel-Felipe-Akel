@@ -8,7 +8,7 @@
         <h2>Serviços</h2>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
-                <button type="button" class="btn btn-success">Novo Registro</button>
+                <a href="{{ route('servicos.create') }}" class="btn btn-success">Novo Registro</a>
             </div>
         </div>
     </div>
@@ -46,17 +46,23 @@
                                 ><i class="bi bi-card-text"></i></a>
                             </div>
                             <div class="btn-group me-2" role="group" aria-label="Second group">
-                                <button type="button" class="btn btn-primary btn-sm" 
+                                <a href="{{ route('servicos.edit', $dadoServico->id) }}" class="btn btn-primary btn-sm" 
                                     data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-edit"
                                     data-bs-title="Editar Registro"
-                                ><i class="bi bi-pencil-square"></i></button>
+                                ><i class="bi bi-pencil-square"></i></a>
                             </div>
                             <div class="btn-group me-2" role="group" aria-label="Third group">
-                                <button type="button" class="btn btn-danger btn-sm" 
-                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-delete"
-                                    data-bs-title="Deletar Registro"
-                                ><i class="bi bi-trash"></i></button>
+                                <form id="form_delete_{{ $dadoServico->id }}" action="{{ route('servicos.delete', $dadoServico->id) }}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <a onclick="document.getElementById('form_delete_{{ $dadoServico->id }}').submit()"
+                                        class="btn btn-danger btn-sm" 
+                                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-delete"
+                                        data-bs-title="Deletar Registro"
+                                    ><i class="bi bi-trash"></i></a>
+                                </form>
                             </div>
+
                         </div>
                     </td>
                     <td>{{ $dadoServico->id }}</td>

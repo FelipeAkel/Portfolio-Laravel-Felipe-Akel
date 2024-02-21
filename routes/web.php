@@ -56,8 +56,12 @@ Route::prefix('admin')->group(function(){
     Route::controller(ServicosController::class)->group(function(){
         Route::prefix('servicos')->group(function(){
             Route::get('/index', 'index')->name('servicos.index');
-
+            Route::get('/create', 'create')->name('servicos.create');
+            Route::post('/store', 'store')->name('servicos.store');
+            Route::get('/edit/{id}', 'edit')->where('id', '[0-9]+')->name('servicos.edit');
+            Route::put('/update/{id}', 'update')->where('id', '[0-9]+')->name('servicos.update');
             Route::get('/show/{id}', 'show')->where('id', '[0-9]+')->name('servicos.show');
+            Route::delete('/delete/{id}', 'destroy')->where('id', '[0-9]+')->name('servicos.delete');
         });
     });
 

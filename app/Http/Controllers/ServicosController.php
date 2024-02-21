@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\TbServicos;
+use App\Http\Requests\ServicosFormRequest;
+
+use Brian2694\Toastr\Facades\Toastr;
 
 class ServicosController extends Controller
 {
@@ -15,58 +18,58 @@ class ServicosController extends Controller
 
     public function create()
     {
-        //
+        return view('template-admin.servicos.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(ServicosFormRequest $request)
     {
-        //
+        $retornoBanco = TbServicos::create($request->all());
+        if($retornoBanco == true){
+            Toastr::success('O registro foi cadastrado', 'Sucesso');
+        } else {
+            Toastr::error('Não foi possível cadastrar o registro', 'Erro');
+        }
+
+        return redirect()->route('servicos.index');
     }
 
     public function show($id)
     {
-        // dd($id);
         $servico = TbServicos::find($id);
         return view('template-admin.servicos.show', compact('servico'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $servico = TbServicos::find($id);
+        return view('template-admin.servicos.edit', compact('servico'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(ServicosFormRequest $request, $id)
     {
-        //
+        $servico = TbServicos::find($id);
+        $retornoBanco = $servico->update($request->all());
+
+        if($retornoBanco == true){
+            Toastr::success('O registro foi atualizado', 'Sucesso');
+        } else {
+            Toastr::error('Não foi possível atualizado o registro', 'Erro');
+        }
+
+        return redirect()->route('servicos.show', $servico->id);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $servico = TbServicos::find($id);
+        $retornoBanco = $servico->delete();
+
+        if($retornoBanco == true){
+            Toastr::success('O registro foi deletado', 'Sucesso');
+        } else {
+            Toastr::error('Não foi possível deletado o registro', 'Erro');
+        }
+
+        return redirect()->route('servicos.index');
     }
 }
