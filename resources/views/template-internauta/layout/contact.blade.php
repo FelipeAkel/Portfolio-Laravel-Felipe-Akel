@@ -31,22 +31,28 @@
             </div>
             <div class="right">
                 <div class="fields">
-                    <form action="/" method="post" class="contact_form" id="contact_form" autocomplete="off">
-                        <div class="returnmessage" data-success="Your message has been received, We will contact you soon."></div>
-                        <div class="empty_notice"><span>Preencha os campos obrigatórios</span></div>
+                    <form action="{{ route('internauta.contato.store') }}" method="post" class="contact_form" id="form_contato" autocomplete="off">
+                        @csrf
+                        @if ($errors->has('no_contato') || $errors->has('ds_email') || $errors->has('ds_assunto') || $errors->has('ds_mensagem'))
+                        <div class="empty_notice" ><span>
+                            Todos os campos são obigatório.<br>
+                            E-mail deve ser um dado válido.<br>
+                            O campo Nome, E-mail e Assunto são limitados a 70 caracteres.
+                        </span></div>
+                        @endif
+                        
                         <div class="input_list">
                             <ul>
-                                <li><input id="name" type="text" placeholder="Seu Nome" /></li>
-                                <li><input id="email" type="text" placeholder="Seu E-mail" /></li>
-                                <li><input id="phone" type="number" placeholder="Seu Contato" /></li>
-                                <li><input id="subject" type="text" placeholder="Assunto" /></li>
+                                <li><input name="no_contato" id="no_contato" type="text" placeholder="Seu Nome" value="{{ old('no_contato') }}" required/></li>
+                                <li><input name="ds_email" id="ds_email" type="text" placeholder="Seu E-mail" value="{{ old('ds_email') }}" required/></li>
+                                <li><input name="ds_assunto" id="ds_assunto" type="text" placeholder="Assunto" value="{{ old('ds_assunto') }}" required/></li>
                             </ul>
                         </div>
                         <div class="message_area">
-                            <textarea id="message" placeholder="Sua Mensagem Aqui"></textarea>
+                            <textarea name="ds_mensagem" id="ds_mensagem" placeholder="Sua Mensagem Aqui" required>{{ old('ds_mensagem') }}</textarea>
                         </div>
                         <div class="iknow_tm_button">
-                            <a id="send_message" href="#">Enviar Agora</a>
+                            <a href="#" onClick="document.getElementById('form_contato').submit();" >Enviar</a>
                         </div>
 
                     </form>

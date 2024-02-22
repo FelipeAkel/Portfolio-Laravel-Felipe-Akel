@@ -2764,7 +2764,7 @@ input[type=number] {
 .iknow_tm_contact .empty_notice{
 	color: #F52225;
 	margin-bottom: 7px;
-	display: none;
+	display: block;
 	text-align: left;
 	font-weight: 500;
 }

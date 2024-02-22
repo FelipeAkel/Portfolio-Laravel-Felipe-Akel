@@ -5,6 +5,7 @@ use App\Http\Controllers\HabilidadeController;
 use App\Http\Controllers\InternautaController;
 use App\Http\Controllers\CarreiraProfissionalCotroller;
 use App\Http\Controllers\ServicosController;
+use App\Http\Controllers\FaleConoscoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,7 @@ use App\Http\Controllers\ServicosController;
 */
 Route::controller(InternautaController::class)->group(function () {
     Route::get('/', 'index')->name('internauta.index');
+    Route::post('/contato/store', 'store')->name('internauta.contato.store');
 });
 
 Route::get('/login', function(){
@@ -62,6 +64,15 @@ Route::prefix('admin')->group(function(){
             Route::put('/update/{id}', 'update')->where('id', '[0-9]+')->name('servicos.update');
             Route::get('/show/{id}', 'show')->where('id', '[0-9]+')->name('servicos.show');
             Route::delete('/delete/{id}', 'destroy')->where('id', '[0-9]+')->name('servicos.delete');
+        });
+    });
+
+    Route::controller(FaleConoscoController::class)->group(function(){
+        Route::prefix('fale-conosco')->group(function(){
+            Route::get('/index', 'index')->name('fale-conosco.index');
+            Route::get('/show/{id}', 'show')->where('id', '[0-9]+')->name('fale-conosco.show');
+            Route::get('/responder/{id}', 'responder')->where('id', '[0-9]+')->name('fale-conosco.responder');
+            Route::post('/resposta-store/{id}', 'responderStore')->where('id', '[0-9]+')->name('fale-conosco.resposta-store');
         });
     });
 

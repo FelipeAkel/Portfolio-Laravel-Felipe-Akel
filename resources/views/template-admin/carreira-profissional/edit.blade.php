@@ -18,7 +18,7 @@
         <div class="col-12">
 
             <div class="card">
-                <h5 class="card-header">
+                <h5 class="card-header titulo-1rem">
                     Formulário de Atualização
                 </h5>
                 <div class="card-body">

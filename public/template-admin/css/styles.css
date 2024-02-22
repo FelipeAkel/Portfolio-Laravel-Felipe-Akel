@@ -66,3 +66,17 @@
     width: 50px;
 }
 /* FIM - Servico */
+
+.titulo-1rem {
+    padding: 1rem;
+}
+
+.icon-success {
+    font-size: 25px;
+    color: #198754;
+}
+
+.icon-error {
+    font-size: 25px;
+    color: #dc3545;
+}

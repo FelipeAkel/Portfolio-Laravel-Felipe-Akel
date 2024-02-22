@@ -27,6 +27,9 @@
 	{{-- ICONS --}}
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+	{{-- Toastr --}}
+	<link rel="stylesheet" href="{{ asset('template-admin/toastr/toastr.css') }}">
+
 	<!-- SCRIPTS -->
 	<script src="{{ asset('template-internauta/js/jquery.js') }}" defer></script>
 	<script src="{{ asset('template-internauta/js/plugins.js') }}" defer></script>
@@ -130,6 +133,10 @@
 	<div class="mouse-cursor cursor-inner"></div>
 	<!-- /MAGIC CURSOR -->
 	
+	{{-- Ao colocar no head-js, compoente não funciona! --}}
+    <script src="{{ asset('template-admin/toastr/jquery.js') }}" ></script>
+    <script src="{{ asset('template-admin/toastr/toastr.js') }}"></script>
+    {!! Toastr::message() !!}
 </div>
 <!-- / WRAPPER ALL -->
 

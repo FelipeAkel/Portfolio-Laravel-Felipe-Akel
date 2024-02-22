@@ -32,6 +32,12 @@
                         Serviços
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" href="{{ route('fale-conosco.index') }}">
+                        <i class="bi bi-apple"></i>
+                        Fale Conosco
+                    </a>
+                </li>
                 
             </ul>
 

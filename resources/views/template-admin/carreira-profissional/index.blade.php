@@ -73,7 +73,7 @@
     <hr class="border border-2 opacity-50">
 
 
-    <h5 class="">Resultado</h5>
+    <h5 class="titulo-1rem">Resultado</h5>
     <div class="table-responsive ">
         <table class="table table-hover table-bordered border ">
             <thead class="table-primary">
