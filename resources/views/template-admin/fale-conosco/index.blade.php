@@ -6,11 +6,6 @@
 
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h2>Fale Conosco</h2>
-        {{-- <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group me-2">
-                <button type="button" class="btn btn-success">Novo Registro</button>
-            </div>
-        </div> --}}
     </div>
 
     <nav aria-label="breadcrumb">

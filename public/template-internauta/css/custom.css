@@ -1,12 +1,15 @@
-.certificado{
-    text-decoration: none;
-    color:#0087CC;
+.certificado, .links-portfolio{
+    text-decoration: none !important;
+    color:#0087CC !important;
 }
 
-.certificado:hover{
-    color: #00ffff;
+.certificado, .links-portfolio:hover{
+    color: #00ffff !important;
 }
 
+.branco svg{
+	color: #fff;
+}
 
 /* POPUP Curso_compementar */
 .iknow_tm_curso_complementar .curso_complementar { 

@@ -2068,6 +2068,7 @@ body.dark .loader_line:after{
 	position: relative;
 	overflow: hidden;
 	margin-bottom: 37px;
+	height: 250px;
 }
 .iknow_tm_modalbox .popup_details .top_image img{
 	position: relative;
