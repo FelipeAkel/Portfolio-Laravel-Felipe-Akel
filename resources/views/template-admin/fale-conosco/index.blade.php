@@ -81,7 +81,27 @@
             </thead>
             <tbody>
                 @foreach ($faleConosco AS $indice => $dadoFaleConosco )
-                <tr>
+                <tr 
+                    @switch($dadoFaleConosco->id_status)
+                        @case(1)
+                            class="table-primary"
+                            @break
+                        @case(2)
+                            class="table-warning"
+                            @break
+                        @case(3)
+                            class="table-dark"
+                            @break
+                        @case(4)
+                            class="table-success"
+                            @break
+                        @case(5)
+                            class="table-danger"
+                            @break
+                        @default
+                            
+                    @endswitch
+                >
                     <td>
                         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                             <div class="btn-group me-2" role="group" aria-label="First group">

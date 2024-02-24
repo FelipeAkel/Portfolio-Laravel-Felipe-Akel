@@ -17,16 +17,25 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($respostas AS $indice => $dadoResposta)
                             <tr>
-                                <td>22/02/2024</td>
-                                <td>random</td>
+                                <td>{{ $dadoResposta->created_at }}</td>
+                                <td>{{ $dadoResposta->ds_resposta }}</td>
                                 <td>
-                                    <i data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="COM envio de e-mail" class="bi bi-envelope-arrow-up-fill icon-success"></i></span>
-                                    <i data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="SEM envio de e-mail" class="bi bi-envelope-slash-fill icon-error"></i>
+                                    @if ($dadoResposta->st_notificacao_email == 1)
+                                        <i data-bs-toggle="tooltip" data-bs-custom-class="custom-tooltip-success" data-bs-placement="top" data-bs-title="COM envio de e-mail" class="bi bi-envelope-arrow-up-fill icon-success"></i></span>
+                                    @else
+                                        <i data-bs-toggle="tooltip" data-bs-custom-class="custom-tooltip-error" data-bs-placement="top" data-bs-title="SEM envio de e-mail" class="bi bi-envelope-slash-fill icon-error"></i>
+                                    @endif
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
+                    <p>
+                        {{ $respostas->links() }}
+                        <b>Exibindo {{ $respostas->count() }} registros de {{ $respostas->total() }} (De {{ $respostas->firstItem() }} a {{ $respostas->lastItem() }})</b>
+                    </p>
                 </div>
             </div>
             <div class="card-footer text-body-secondary">

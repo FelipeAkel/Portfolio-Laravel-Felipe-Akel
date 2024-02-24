@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ResponderFormRequest;
+
+use App\Models\TbRespostas;
 use App\Models\TbStatus;
 use App\Models\TbFaleConosco;
+
+use Brian2694\Toastr\Facades\Toastr;
 
 class FaleConoscoController extends Controller
 {
@@ -12,7 +17,7 @@ class FaleConoscoController extends Controller
     public function index()
     {
         $status = TbStatus::all();
-        $faleConosco = TbFaleConosco::where('id', '>=', 1)->paginate(10);
+        $faleConosco = TbFaleConosco::where('id', '>=', 1)->orderBy('created_at', 'DESC')->paginate(10);
 
         // Recuperando nome do Status pelo ID
         foreach($faleConosco AS $indice => $dadosFaleConosco){
@@ -33,8 +38,10 @@ class FaleConoscoController extends Controller
         if($recuperacaoStatus){
             $faleConosco['no_status'] = $recuperacaoStatus->no_status;
         }
+
+        $respostas = TbRespostas::where('id_fale_conosco', '=', $id)->orderBy('created_at', 'DESC')->paginate(5);
         
-        return view('template-admin.fale-conosco.show', compact('faleConosco'));
+        return view('template-admin.fale-conosco.show', compact('faleConosco', 'respostas'));
     }
 
     public function responder($id)
@@ -47,27 +54,35 @@ class FaleConoscoController extends Controller
             $faleConosco['no_status'] = $recuperacaoStatus->no_status;
         }
 
-        return view('template-admin.fale-conosco.responder', compact('status', 'faleConosco'));
+        $respostas = TbRespostas::where('id_fale_conosco', '=', $id)->orderBy('created_at', 'DESC')->paginate(5);
+
+        return view('template-admin.fale-conosco.responder', compact('status', 'faleConosco', 'respostas'));
     }
 
-    public function responderStore(Request $request, $id)
+    public function responderStore(ResponderFormRequest $request, $id)
     {
-        dd($id, $request->all());
+        // Atualizando o Status da solicitação Fale Conosco
+        $faleConosco = TbFaleConosco::find($id);
+        $retornoBancoFaleConosco = $faleConosco->update(['id_status' => $request['id_status']]);
+        
+        // Insert da resposta na tabela
+        $request['id_fale_conosco'] = $id;
+        $retornoBancoResposta = TbRespostas::create($request->all());
+
+        
+        if($retornoBancoFaleConosco == true && $retornoBancoResposta == true){
+
+            // ACRESCENTAR A FUNCIONALIDADE DE ENVIO DE E-MAIL AQUI
+            // ACRESCENTAR A FUNCIONALIDADE DE ENVIO DE E-MAIL AQUI
+            // ACRESCENTAR A FUNCIONALIDADE DE ENVIO DE E-MAIL AQUI
+            // ACRESCENTAR A FUNCIONALIDADE DE ENVIO DE E-MAIL AQUI
+            
+            Toastr::success('A resposta foi cadastrada', 'Sucesso');
+        } else {
+            Toastr::error('Não foi possível cadastrar a resposta', 'Erro');
+        }
+
+        return redirect()->route('fale-conosco.show', $id);
     }
 
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
-    }
 }

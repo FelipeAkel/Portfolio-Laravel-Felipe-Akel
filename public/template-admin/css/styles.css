@@ -30,6 +30,22 @@
     --bs-tooltip-color: var(--bs-white);
     opacity: 0;
 }
+
+.custom-tooltip-success {
+    --bd-success-bg: #198754;
+    --bs-white: #ffffff;
+    --bs-tooltip-bg: var(--bd-success-bg);
+    --bs-tooltip-color: var(--bs-white);
+    opacity: 0;
+}
+
+.custom-tooltip-error {
+    --bd-error-bg: #dc3545;
+    --bs-white: #ffffff;
+    --bs-tooltip-bg: var(--bd-error-bg);
+    --bs-tooltip-color: var(--bs-white);
+    opacity: 0;
+}
 /* END Tooltip color personalized */
 
 .breadcrumb-item a {

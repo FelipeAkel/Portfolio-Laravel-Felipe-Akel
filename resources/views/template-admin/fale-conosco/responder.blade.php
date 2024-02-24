@@ -27,35 +27,41 @@
                         @csrf
                         <div class="mb-3 col-md-3">
                             <label for="id_status" class="form-label">Status <span class="required">*</span></label>
-                            <select name="id_status" id="id_status" class="form-select is-invalid">
+                            <select name="id_status" id="id_status" class="form-select {{ $errors->has('id_status') ? 'is-invalid' : '' }}">
                                 <option value="">..Selecione..</option>
                                 @foreach ($status AS $indice => $dadoStatus )
                                     <option value="{{ $dadoStatus->id }}" {{ $faleConosco->id_status == $dadoStatus->id ? 'selected' : '' }} >{{ $dadoStatus->no_status }}</option>
                                 @endforeach
                             </select>
+                            @if ($errors->has('id_status'))
                             <div class="invalid-feedback">
-                                Please choose a username.
+                                {{ $errors->first('id_status') }}
                             </div>
+                            @endif
                         </div>
 
                         <div class="mb-3 col-md-3">
                             <label for="st_notificacao_email" class="form-label">Notificação por E-mail <span class="required">*</span></label>
-                            <select name="st_notificacao_email" id="st_notificacao_email" class="form-select is-invalid">
+                            <select name="st_notificacao_email" id="st_notificacao_email" class="form-select {{ $errors->has('st_notificacao_email') ? 'is-invalid' : '' }}">
                                 <option value="">..Selecione..</option>
                                 <option value="1">Sim</option>
-                                <option value="2">Não</option>
+                                <option value="0">Não</option>
                             </select>
+                            @if ($errors->has('st_notificacao_email'))
                             <div class="invalid-feedback">
-                                Please choose a username.
+                                {{ $errors->first('st_notificacao_email') }}
                             </div>
+                            @endif
                         </div>
 
                         <div class="mb-3 col-md-12">
-                            <label for="ds_mensagem" class="form-label">Descrição da Resposta <span class="required">*</span></label>
-                            <textarea name="ds_mensagem" id="ds_mensagem" class="form-control is-invalid" rows="3" ></textarea>
+                            <label for="ds_resposta" class="form-label">Descrição da Resposta <span class="required">*</span></label>
+                            <textarea name="ds_resposta" id="ds_resposta" class="form-control {{ $errors->has('ds_resposta') ? 'is-invalid' : '' }}" rows="3" ></textarea>
+                            @if ($errors->has('ds_resposta'))
                             <div class="invalid-feedback">
-                                Please choose a username.
+                                {{ $errors->first('ds_resposta') }}
                             </div>
+                            @endif
                         </div>
 
                         <div class="col-12">
