@@ -61,7 +61,9 @@ Route::prefix('admin')->group(function(){
             Route::get('/index', 'index')->name('portfolio.index');
             Route::get('/create', 'create')->name('portfolio.create');
             Route::post('/store', 'store')->name('portfolio.store');
-            Route::get('/show', 'show')->name('portfolio.show');
+            Route::get('/show/{id}', 'show')->where('id', '[0-9]+')->name('portfolio.show');
+            Route::get('/edit/{id}', 'edit')->where('id', '[0-9]+')->name('portfolio.edit');
+            Route::put('/update/{id}', 'update')->where('id', '[0-9]+')->name('portfolio.update');
 
         });
     });

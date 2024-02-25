@@ -23,18 +23,7 @@ class PortfolioController extends Controller
 
     public function store(PortfolioFormRequest $request)
     {
-        // mesclando os campos de checkbox em uma única variável para salvar no banco
-        $ds_tipo_projeto = null;
-        if($request->input('tipo_php_laravel')){
-            $ds_tipo_projeto .= $request->input('tipo_php_laravel') . ' ';
-        }
-        if($request->input('tipo_website')){
-            $ds_tipo_projeto .= $request->input('tipo_website') . ' ';
-        }
-        if($request->input('tipo_landing_page')){
-            $ds_tipo_projeto .= $request->input('tipo_landing_page') . ' ';
-        }
-        $request['ds_tipo_projeto'] = $ds_tipo_projeto;
+        $this->mesclarDsTipoProjeto($request);
         
         $retornoBanco = TbPortfolio::create($request->all());
         // SALVAR ARQUIVOS ANEXOS
@@ -50,42 +39,80 @@ class PortfolioController extends Controller
         return redirect()->route('portfolio.index');
     }
 
-    public function show() //$id
+    public function show($id) //
     {
-        return view('template-admin.portfolio.show');
+        $portfolio = TbPortfolio::find($id);
+
+        $this->strposDsTipoProjeto($portfolio);
+
+        return view('template-admin.portfolio.show', compact('portfolio'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
-        //
+        $portfolio = TbPortfolio::find($id);
+
+        $this->strposDsTipoProjeto($portfolio);
+
+        return view('template-admin.portfolio.edit', compact('portfolio'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $portfolio = TbPortfolio::find($id);
+
+        $this->mesclarDsTipoProjeto($request);
+
+        $retornoBanco = $portfolio->update($request->all());
+
+        // SALVAR ARQUIVOS ANEXOS
+        // SALVAR ARQUIVOS ANEXOS
+        // SALVAR ARQUIVOS ANEXOS
+
+        if($retornoBanco == true){
+            Toastr::success('O registro foi atualizado', 'Sucesso');
+        } else {
+            Toastr::error('Não foi possível atualizar o registro', 'Erro');
+        }
+
+        return redirect()->route('portfolio.show', $id);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
+    }
+
+    
+    public function mesclarDsTipoProjeto ($request){
+        // mesclando os campos de checkbox em uma única variável para salvar no banco
+        $ds_tipo_projeto = null;
+        if($request->input('tipo_php_laravel')){
+            $ds_tipo_projeto .= $request->input('tipo_php_laravel') . ' ';
+        }
+        if($request->input('tipo_website')){
+            $ds_tipo_projeto .= $request->input('tipo_website') . ' ';
+        }
+        if($request->input('tipo_landing_page')){
+            $ds_tipo_projeto .= $request->input('tipo_landing_page') . ' ';
+        }
+        $request['ds_tipo_projeto'] = $ds_tipo_projeto;
+    }
+
+    public function strposDsTipoProjeto ($portfolio){
+        // Verifica e recuperar os valores do checkbox - Tipo de Projeto
+        $verifica_php_laravel = strpos($portfolio->ds_tipo_projeto, 'php-laravel');
+        $verifica_php_laravel === false ? $tipo_php_laravel = null : $tipo_php_laravel = 'php-laravel';
+
+        $verifica_website = strpos($portfolio->ds_tipo_projeto, 'website');
+        $verifica_website === false ? $tipo_website = null : $tipo_website = 'website';
+
+        $verifica_landing_page = strpos($portfolio->ds_tipo_projeto, 'landing-page');
+        $verifica_landing_page === false ? $tipo_landing_page = null : $tipo_landing_page = 'landing-page';
+
+        $portfolio['tipo_php_laravel'] = $tipo_php_laravel;
+        $portfolio['tipo_website'] = $tipo_website;
+        $portfolio['tipo_landing_page'] = $tipo_landing_page;
     }
 }

@@ -10,7 +10,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('portfolio.index') }}">Portfólio</a></li>
-            <li class="breadcrumb-item active"><a href="{{ route('portfolio.edit') }}">Atualizar Registro</a></li>
+            <li class="breadcrumb-item active"><a href="{{ route('portfolio.edit', $portfolio->id) }}">Atualizar Registro</a></li>
         </ol>
     </nav>
 
@@ -22,7 +22,7 @@
                 </h5>
                 <div class="card-body">
 
-                    @component('template-admin.portfolio.component.form-create-edit')
+                    @component('template-admin.portfolio.component.form-create-edit', ['portfolio' => $portfolio])
                     @endcomponent
                 
                 </div>

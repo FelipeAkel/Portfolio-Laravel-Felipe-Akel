@@ -41,16 +41,16 @@
                         <td>
                             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                                 <div class="btn-group me-2" role="group" aria-label="First group">
-                                    <a href="{{ route('portfolio.show') }}" class="btn btn-info btn-sm" 
+                                    <a href="{{ route('portfolio.show', $dadoProjeto->id) }}" class="btn btn-info btn-sm" 
                                         data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-info"
                                         data-bs-title="Visualizar Registro"
                                     ><i class="bi bi-card-text"></i></a>
                                 </div>
                                 <div class="btn-group me-2" role="group" aria-label="Second group">
-                                    <button type="button" class="btn btn-primary btn-sm" 
+                                    <a href="{{ route('portfolio.edit', $dadoProjeto->id) }}" class="btn btn-primary btn-sm" 
                                         data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-edit"
                                         data-bs-title="Editar Registro"
-                                    ><i class="bi bi-pencil-square"></i></button>
+                                    ><i class="bi bi-pencil-square"></i></a>
                                 </div>
                                 <div class="btn-group me-2" role="group" aria-label="Third group">
                                     <button type="button" class="btn btn-danger btn-sm" 
