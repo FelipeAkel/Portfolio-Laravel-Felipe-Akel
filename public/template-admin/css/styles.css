@@ -96,3 +96,9 @@
     font-size: 25px;
     color: #dc3545;
 }
+
+.img-destaque {
+	background-color: #ffd700;
+	border: #ffd700;
+    box-shadow: 0 0 1em #ffd700;
+}

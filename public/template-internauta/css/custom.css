@@ -7,9 +7,6 @@
     color: #00ffff !important;
 }
 
-.branco svg{
-	color: #fff;
-}
 
 /* POPUP Curso_compementar */
 .iknow_tm_curso_complementar .curso_complementar { 
@@ -97,3 +94,12 @@
     height: 20px;
 }
 /* FIM POPUP Curso_compementar */
+
+
+/* PORTFOLIO */
+.titulo-portfolio {
+	font-weight: 700;
+    font-size: 21px;
+	padding-bottom: 1rem;
+}
+/* FIM PORTFOLIO */

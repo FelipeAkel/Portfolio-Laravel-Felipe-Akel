@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HabilidadeController;
 use App\Http\Controllers\InternautaController;
 use App\Http\Controllers\CarreiraProfissionalCotroller;
+use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServicosController;
 use App\Http\Controllers\FaleConoscoController;
 
@@ -55,6 +56,16 @@ Route::prefix('admin')->group(function(){
         });
     });
 
+    Route::controller(PortfolioController::class)->group(function(){
+        Route::prefix('portfolio')->group(function(){
+            Route::get('/index', 'index')->name('portfolio.index');
+            Route::get('/create', 'create')->name('portfolio.create');
+            Route::post('/store', 'store')->name('portfolio.store');
+            Route::get('/show', 'show')->name('portfolio.show');
+
+        });
+    });
+
     Route::controller(ServicosController::class)->group(function(){
         Route::prefix('servicos')->group(function(){
             Route::get('/index', 'index')->name('servicos.index');
@@ -75,6 +86,7 @@ Route::prefix('admin')->group(function(){
             Route::post('/resposta-store/{id}', 'responderStore')->where('id', '[0-9]+')->name('fale-conosco.resposta-store');
         });
     });
+
 
 });
 

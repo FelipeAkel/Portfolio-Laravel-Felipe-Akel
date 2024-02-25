@@ -9,14 +9,14 @@
             <ul>
                 <li><a href="#" class="current" data-filter="*">Todos</a></li>
                 <li><a href="#" data-filter=".php_laravel">PHP | Laravel</a></li>
-                <li><a href="#" data-filter=".landing_page">Landing Page</a></li>
                 <li><a href="#" data-filter=".website">Website</a></li>
+                <li><a href="#" data-filter=".landing_page">Landing Page</a></li>
             </ul>
         </div>
         <div class="portfolio_list">
             <ul class="gallery_zoom">
 
-                <li class="website website">
+                <li class="website">
                     <div class="list_inner">
                         <div class="image">
                             <img src="{{ asset('template-internauta/img/') }}/thumbs/1-1.jpg" alt="" />
@@ -36,6 +36,8 @@
                                     <div class="textbox" > {{-- style="width: 100%;" --}}
                                         <p>Sistema Gestão Musical - GM Sistema Gestão Musical - GM ur ideas as flexibly as possible. Building mockups strikes the ideal balance ease of modification.</p>
                                         <p>Sistema Gestão Musical - GM Sistema Gestão Musical - GM project - for instance when you're trying to figure out your user flows or the proper visual hierarchy - and the production phase when they will represent the target product.</p>
+                                        <h5 class="titulo-portfolio" > Tecnologias </h5>
+                                        <p>Laravel; PHP; Bootstrap; JavaScript;</p>
                                     </div>
                                     <div class="detailbox">
                                         <ul>
