@@ -10,64 +10,71 @@
             <ul class="nav flex-column">
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="{{ route('admin.dashboard') }}">
-                        <i class="bi bi-apple"></i>
+                        <i class="bi bi-bar-chart-fill"></i>
                         Dashboard
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="{{ route('carreira-profissional.index') }}">
-                        <i class="bi bi-apple"></i>
-                        Carreira Profissional
+                    <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="">
+                        <i class="bi bi-person-vcard"></i>
+                        Sobre Mim
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="{{ route('habilidade.index') }}">
-                        <i class="bi bi-apple"></i>
-                        Habilidade
-                    </a>
-                </li>
+            </ul>
+
+{{-- sidebar-heading mt-4 --}}
+            <h6 class="d-flex justify-content-between align-items-center px-3 mt-2 mb-1 text-body-secondary"
+                data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="true"
+            >
+                <span >Resumo</span>
+                <a class="link-secondary" href="#" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                    </svg>
+                </a>
+            </h6>
+            <div class="collapse show" id="account-collapse" style="">
+                <ul class="nav flex-column mb-auto" >
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center gap-2" href="{{ route('carreira-profissional.index') }}">
+                            <i class="bi bi-award-fill"></i>
+                            Carreira Profissional
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center gap-2" href="{{ route('habilidade.index') }}">
+                            <i class="bi bi-graph-up-arrow"></i>
+                            Habilidade
+                        </a>
+                    </li>
+
+                </ul>
+                <hr class="my-3">
+            </div>
+
+            <ul class="nav flex-column">
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2" href="{{ route('portfolio.index') }}">
-                        <i class="bi bi-apple"></i>
+                        <i class="bi bi-journal-richtext"></i>
                         Portfólio
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2" href="{{ route('servicos.index') }}">
-                        <i class="bi bi-apple"></i>
+                        <i class="bi bi-stack-overflow"></i>
                         Serviços
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2" href="{{ route('fale-conosco.index') }}">
-                        <i class="bi bi-apple"></i>
+                        <i class="bi bi-wechat"></i>
                         Fale Conosco
                     </a>
                 </li>
-                
+
             </ul>
 
-            <h6
-                class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
-                <span>Saved reports</span>
-                <a class="link-secondary" href="#" aria-label="Add a new report">
-                    <i class="bi bi-apple"></i>
-                </a>
-            </h6>
-            <ul class="nav flex-column mb-auto">
-                <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="#">
-                        <i class="bi bi-apple"></i>
-                        Current month
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="#">
-                        <i class="bi bi-apple"></i>
-                        Last quarter
-                    </a>
-                </li>
-            </ul>
+            
 
             <hr class="my-3">
 
@@ -78,11 +85,11 @@
                         Felipe Akel
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" style="">
-                        <li><a class="dropdown-item" href="#">New project...</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="{{ route('carreira-profissional.create') }}">Nova Experiência</a></li>
+                        <li><a class="dropdown-item" href="{{ route('habilidade.create') }}">Nova Habilidade</a></li>
+                        <li><a class="dropdown-item" href="{{ route('portfolio.create') }}">Novo Projeto</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        <li><a class="dropdown-item" href="#">Sair</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">

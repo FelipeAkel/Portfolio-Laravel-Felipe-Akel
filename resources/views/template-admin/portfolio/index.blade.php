@@ -53,16 +53,15 @@
                                     ><i class="bi bi-pencil-square"></i></a>
                                 </div>
                                 <div class="btn-group me-2" role="group" aria-label="Third group">
-                                    <button type="button" class="btn btn-danger btn-sm" 
-                                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-delete"
-                                        data-bs-title="Deletar Registro"
-                                    ><i class="bi bi-trash"></i></button>
-                                </div>
-                                <div class="btn-group" role="group" aria-label="Four group">
-                                    <button type="button" class="btn btn-secondary btn-sm"
-                                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-dark"
-                                        data-bs-title="Outras Ações"
-                                    ><i class="bi bi-suit-heart-fill"></i></button>
+                                    <form id="form_delete_{{ $dadoProjeto->id }}" action="{{ route('portfolio.delete', $dadoProjeto->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <a onclick="document.getElementById('form_delete_{{ $dadoProjeto->id }}').submit()"
+                                            class="btn btn-danger btn-sm" 
+                                            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-delete"
+                                            data-bs-title="Deletar Registro"
+                                        ><i class="bi bi-trash"></i></a>
+                                    </form>
                                 </div>
                             </div>
                         </td>
@@ -71,7 +70,7 @@
                         <td>{{ $dadoProjeto->ds_tipo_projeto }}</td>
                         <td><a href="{{ $dadoProjeto->ds_url_projeto }}" target="_blank">Link</a></td>
                         <td><a href="{{ $dadoProjeto->ds_url_repositorio }}" target="_blank">Link</a></td>
-                        <td>IMG</td>
+                        <td><a href="{{ asset('template-internauta/img/portfolio/') }}/1.jpg" target="_blank">IMG</a></td>
                     </tr>
                 @endforeach
             </tbody>
@@ -81,4 +80,5 @@
         {{ $portfolio->links() }}
         <b>Exibindo {{ $portfolio->count() }} registros de {{ $portfolio->total() }} (De {{ $portfolio->firstItem() }} a {{ $portfolio->lastItem() }})</b>
     </p>
+
 @endsection

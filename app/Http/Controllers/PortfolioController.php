@@ -81,7 +81,17 @@ class PortfolioController extends Controller
 
     public function destroy($id)
     {
-        //
+        $portfolio = TbPortfolio::find($id);
+
+        $retornoBanco = $portfolio->delete();
+
+        if($retornoBanco == true){
+            Toastr::success('O registro foi deletado', 'Sucesso');
+        } else {
+            Toastr::error('Não foi possível deletar o registro', 'Erro');
+        }
+
+        return redirect()->route('portfolio.index');
     }
 
     

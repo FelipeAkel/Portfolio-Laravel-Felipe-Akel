@@ -64,7 +64,7 @@ Route::prefix('admin')->group(function(){
             Route::get('/show/{id}', 'show')->where('id', '[0-9]+')->name('portfolio.show');
             Route::get('/edit/{id}', 'edit')->where('id', '[0-9]+')->name('portfolio.edit');
             Route::put('/update/{id}', 'update')->where('id', '[0-9]+')->name('portfolio.update');
-
+            Route::delete('/delete/{id}', 'destroy')->where('id', '[0-9]+')->name('portfolio.delete');
         });
     });
 
