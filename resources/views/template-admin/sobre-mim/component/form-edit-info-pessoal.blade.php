@@ -94,7 +94,7 @@
     </div>
 
     <div class="col-12">
-        <a href="{{ route('sobre-mim.visao-geral') }}" class="btn btn-secondary">Cancelar</a>
-        <a href="{{ route('sobre-mim.visao-geral') }}" class="btn btn-primary">Atualizar</a>
+        <a href="{{ route('sobre-mim.informacao-pessoal-show') }}" class="btn btn-secondary">Cancelar</a>
+        <a href="{{ route('sobre-mim.informacao-pessoal-show') }}" class="btn btn-primary">Atualizar</a>
     </div>
 </form>

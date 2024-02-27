@@ -1,6 +1,6 @@
 @extends('template-admin.sobre-mim.index')
 
-@section('menu-informacao-pessoal', 'active')
+@section('active-informacao-pessoal', 'active')
 
 @section('conteudo-sobre-mim')
 
