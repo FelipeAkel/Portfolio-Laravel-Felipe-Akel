@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SobreMimController;
 use App\Http\Controllers\HabilidadeController;
 use App\Http\Controllers\InternautaController;
 use App\Http\Controllers\CarreiraProfissionalCotroller;
@@ -32,6 +33,20 @@ Route::prefix('admin')->group(function(){
     Route::get('/dashboard', function(){
         return view('template-admin.dashboard');
     })->name('admin.dashboard');
+
+    Route::controller(SobreMimController::class)->group(function () {
+        Route::prefix('sobre-mim')->group(function () {
+            Route::get('/visao-geral', 'visaoGeral')->name('sobre-mim.visao-geral');
+            Route::get('/informacao-pessoal-show', 'informacaoPessoalShow')->name('sobre-mim.informacao-pessoal-show');
+            Route::get('/informacao-pessoal-edit', 'informacaoPessoalEdit')->name('sobre-mim.informacao-pessoal-edit');
+            // Route::put('/informacao-pessoal-edit', 'informacaoPessoalUpdate')->name('sobre-mim.informacao-pessoal-upddate');
+            Route::get('/mudar-foto', 'mudarFoto')->name('sobre-mim.mudar-foto');
+            // Route::put('/mudar-foto', 'mudarFotoUpdate')->name('sobre-mim.mudar-foto-update');
+            Route::get('/alterar-login-senha', 'alterarLoginSenha')->name('sobre-mim.alterar-login-senha');
+            // Route::put('/alterar-login-senha', 'alterarLoginSenhaUpdate')->name('sobre-mim.alterar-login-senha-update');
+
+        });
+    });
 
     Route::controller(CarreiraProfissionalCotroller::class)->group(function () {
         Route::prefix('carreira-profissional')->group(function(){
