@@ -22,9 +22,7 @@
                 <div class="card-body">
 
                     @component('template-admin.sobre-mim.component.form-edit-info-pessoal')
-                        
                     @endcomponent
-
                 
                 </div>
                 <div class="card-footer text-body-secondary">

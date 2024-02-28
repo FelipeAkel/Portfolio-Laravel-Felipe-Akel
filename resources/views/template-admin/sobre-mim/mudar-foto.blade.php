@@ -29,7 +29,7 @@
                     </div>
 
                     <div class="col-12">
-                        <a href="{{ route('sobre-mim.visao-geral') }}" class="btn btn-primary">Atualizar</a>
+                        <a href="{{ route('sobre-mim.logs-sistema') }}" class="btn btn-primary">Atualizar</a>
                     </div>
                 </form>
             

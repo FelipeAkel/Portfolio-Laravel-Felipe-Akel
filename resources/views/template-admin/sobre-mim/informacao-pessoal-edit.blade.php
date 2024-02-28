@@ -10,16 +10,14 @@
 
 <div class="row padding-top-2em">
     <div class="col-12">
-        <div class="card">
+        <div class="card bg-info bg-opacity-10 border-info">
             <h5 class="card-header titulo-1rem">
                 Formulário de Atualização
             </h5>
             <div class="card-body">
 
                 @component('template-admin.sobre-mim.component.form-edit-info-pessoal')
-                    
                 @endcomponent
-
             
             </div>
             <div class="card-footer text-body-secondary">

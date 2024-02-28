@@ -15,7 +15,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="{{ route('sobre-mim.visao-geral') }}">
+                    <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="{{ route('sobre-mim.logs-sistema') }}">
                         <i class="bi bi-person-vcard"></i>
                         Sobre Mim
                     </a>

@@ -36,7 +36,7 @@ Route::prefix('admin')->group(function(){
 
     Route::controller(SobreMimController::class)->group(function () {
         Route::prefix('sobre-mim')->group(function () {
-            Route::get('/visao-geral', 'visaoGeral')->name('sobre-mim.visao-geral');
+            Route::get('/logs-sistema', 'logsSistema')->name('sobre-mim.logs-sistema');
             Route::get('/informacao-pessoal-show', 'informacaoPessoalShow')->name('sobre-mim.informacao-pessoal-show');
             Route::get('/informacao-pessoal-edit', 'informacaoPessoalEdit')->name('sobre-mim.informacao-pessoal-edit');
             // Route::put('/informacao-pessoal-edit', 'informacaoPessoalUpdate')->name('sobre-mim.informacao-pessoal-upddate');
