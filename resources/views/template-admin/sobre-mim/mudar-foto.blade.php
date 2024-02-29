@@ -15,8 +15,31 @@
             </h5>
             <div class="card-body">
 
-                <form class="row g-3" >
-                    <div class="mb-3 col-md-12">
+                <form class="row g-3" enctype="multipart/form-data">
+                    
+
+
+                    <div class="mb-3 col-md-6">
+                        <h5 class="titulo-1rem">Currículo</h5>
+
+                        <a href="{{ asset('template-internauta/file/curriculo-felipe-akel.pdf') }}" class="btn btn-outline-info" target="_blank">Visualizar PDF</a>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <h5 class="titulo-1rem">Foto</h5>
+                        <a href="{{ asset('template-internauta/img/about/felipe-akel.jpg') }}" class="btn btn-outline-info" target="_blank">Visualizar Imagem</a>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="file_pdf_curriculo" class="form-label">Arquivo PDF <span class="required">*</span></label>
+                        <input class="form-control {{ $errors->has('file_pdf_curriculo') ? 'is-invalid' : 'is-invalid' }}" type="file" 
+                            name="file_pdf_curriculo" id="file_pdf_curriculo">
+                        @error('file_pdf_curriculo')
+                            <div class="invalid-feedback">
+                                {{ $errors->first('file_pdf_curriculo') }}
+                            </div>
+                        @enderror
+                    </div>
+
+                    <div class="mb-3 col-md-6">
                         <label for="file_img_destaque" class="form-label">Arquivo IMG <span class="required">*</span></label>
                         <input class="form-control is-invalid" type="file" name="file_img_destaque" id="file_img_destaque">
                         <div id="passwordHelpBlock" class="form-text">

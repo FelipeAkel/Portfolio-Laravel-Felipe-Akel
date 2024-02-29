@@ -39,7 +39,7 @@ Route::prefix('admin')->group(function(){
             Route::get('/logs-sistema', 'logsSistema')->name('sobre-mim.logs-sistema');
             Route::get('/informacao-pessoal-show', 'informacaoPessoalShow')->name('sobre-mim.informacao-pessoal-show');
             Route::get('/informacao-pessoal-edit', 'informacaoPessoalEdit')->name('sobre-mim.informacao-pessoal-edit');
-            // Route::put('/informacao-pessoal-edit', 'informacaoPessoalUpdate')->name('sobre-mim.informacao-pessoal-upddate');
+            Route::put('/informacao-pessoal-edit/{id}', 'informacaoPessoalUpdate')->where('id', '[0-9]+')->name('sobre-mim.informacao-pessoal-update');
             Route::get('/mudar-foto', 'mudarFoto')->name('sobre-mim.mudar-foto');
             // Route::put('/mudar-foto', 'mudarFotoUpdate')->name('sobre-mim.mudar-foto-update');
             Route::get('/alterar-login-senha', 'alterarLoginSenha')->name('sobre-mim.alterar-login-senha');

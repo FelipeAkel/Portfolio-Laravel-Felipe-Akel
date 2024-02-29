@@ -3,68 +3,103 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\InformacaoPessoalFormRequest;
 use Illuminate\Support\Facades\DB;
+use App\Models\TbSobreMim;
+
+use Brian2694\Toastr\Facades\Toastr;
 
 class SobreMimController extends Controller
 {
     public function logsSistema()
     {
+        $infoSobreMim = $this->infoSobreMim();
         $totalCarreiraProfissional = $this->totalCarreiraProfissional();
         $totalHabilidade = $this->totalHabilidade();
         $totalPortfolio = $this->totalPortfolio();
         $totalServicos = $this->totalServicos();
         
         return view('template-admin.sobre-mim.logs-sistema', compact(
-            'totalCarreiraProfissional', 'totalHabilidade', 'totalPortfolio', 'totalServicos'
+            'infoSobreMim', 'totalCarreiraProfissional', 'totalHabilidade', 'totalPortfolio', 'totalServicos'
         ));
     }
 
     public function informacaoPessoalShow() 
     {
+        $infoSobreMim = $this->infoSobreMim();
         $totalCarreiraProfissional = $this->totalCarreiraProfissional();
         $totalHabilidade = $this->totalHabilidade();
         $totalPortfolio = $this->totalPortfolio();
         $totalServicos = $this->totalServicos();
 
+        $sobreMim = TbSobreMim::all()->first();
+
         return view('template-admin.sobre-mim.informacao-pessoal-show', compact(
-            'totalCarreiraProfissional', 'totalHabilidade', 'totalPortfolio', 'totalServicos'
+            'infoSobreMim', 'totalCarreiraProfissional', 'totalHabilidade', 'totalPortfolio', 'totalServicos', 'sobreMim'
         ));
     }
 
     public function informacaoPessoalEdit() 
     {
+        $infoSobreMim = $this->infoSobreMim();
         $totalCarreiraProfissional = $this->totalCarreiraProfissional();
         $totalHabilidade = $this->totalHabilidade();
         $totalPortfolio = $this->totalPortfolio();
         $totalServicos = $this->totalServicos();
 
+        $sobreMim = TbSobreMim::all()->first();
+        // $sobreMim = TbSobreMim::where('id', '=', 2)->get();
+
+
         return view('template-admin.sobre-mim.informacao-pessoal-edit', compact(
-            'totalCarreiraProfissional', 'totalHabilidade', 'totalPortfolio', 'totalServicos'
+            'infoSobreMim', 'totalCarreiraProfissional', 'totalHabilidade', 'totalPortfolio', 'totalServicos', 'sobreMim'
         ));
+    }
+
+    public function informacaoPessoalUpdate(InformacaoPessoalFormRequest $request, $id)
+    {
+        $sobreMim = TbSobreMim::find($id);
+        $retornoBanco = $sobreMim->update($request->all());
+
+        if($retornoBanco == true){
+            Toastr::success('O registro foi atualizado', 'Sucesso');
+        } else {
+            Toastr::error('Não foi possível atualizado o registro', 'Erro');
+        }
+
+        return redirect()->route('sobre-mim.informacao-pessoal-show');
+        // dd($request->all(), $id, $retornoBanco);
     }
 
     public function mudarFoto()
     {
+        $infoSobreMim = $this->infoSobreMim();
         $totalCarreiraProfissional = $this->totalCarreiraProfissional();
         $totalHabilidade = $this->totalHabilidade();
         $totalPortfolio = $this->totalPortfolio();
         $totalServicos = $this->totalServicos();
 
         return view('template-admin.sobre-mim.mudar-foto', compact(
-            'totalCarreiraProfissional', 'totalHabilidade', 'totalPortfolio', 'totalServicos'
+            'infoSobreMim', 'totalCarreiraProfissional', 'totalHabilidade', 'totalPortfolio', 'totalServicos',
         ));
     }
 
     public function alterarLoginSenha()
     {
+        $infoSobreMim = $this->infoSobreMim();
         $totalCarreiraProfissional = $this->totalCarreiraProfissional();
         $totalHabilidade = $this->totalHabilidade();
         $totalPortfolio = $this->totalPortfolio();
         $totalServicos = $this->totalServicos();
         
         return view('template-admin.sobre-mim.alterar-login-senha', compact(
-            'totalCarreiraProfissional', 'totalHabilidade', 'totalPortfolio', 'totalServicos'
+            'infoSobreMim', 'totalCarreiraProfissional', 'totalHabilidade', 'totalPortfolio', 'totalServicos'
         ));
+    }
+
+    public function infoSobreMim()
+    {
+        return TbSobreMim::all()->first();
     }
 
     public function totalCarreiraProfissional() 

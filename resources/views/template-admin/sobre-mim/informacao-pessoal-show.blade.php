@@ -21,7 +21,7 @@
                 </h5>
                 <div class="card-body">
 
-                    @component('template-admin.sobre-mim.component.form-edit-info-pessoal')
+                    @component('template-admin.sobre-mim.component.form-edit-info-pessoal', ['update' => false, 'sobreMim' => $sobreMim])
                     @endcomponent
                 
                 </div>

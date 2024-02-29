@@ -20,12 +20,12 @@
                 <div class="card text-center pt-3" style="width: 18rem;">
                     <img src="{{ asset('template-internauta/img/about/') }}/felipe-akel.jpg" class="card-img-top rounded" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title text-info-emphasis">Felipe Akel Carvalho Florentino</h5>
-                        <p class="card-text">Programador PHP | Laravel</p>
+                        <h5 class="card-title text-info-emphasis">{{ $infoSobreMim->no_usuario }}</h5>
+                        <p class="card-text">{{ $infoSobreMim->ds_funcao }}</p>
                     </div>
                     <div class="card-body">
-                        <a href="#" class="card-link">Currículo</a>
-                        <a href="#" class="card-link">Linkedin</a>
+                        <a href="{{ asset('template-internauta/file/curriculo-felipe-akel.pdf') }}" class="card-link" target="_blank">Currículo</a>
+                        <a href="{{ $infoSobreMim->ds_url_linkedin }}" class="card-link" target="_blank">Linkedin</a>
                     </div>
                 </div>
             </div>
