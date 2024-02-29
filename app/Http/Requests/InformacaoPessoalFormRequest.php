@@ -25,8 +25,6 @@ class InformacaoPessoalFormRequest extends FormRequest
             'ds_perfil' => 'required', 
             'ds_url_linkedin' => 'nullable | max:255 | url', 
             'ds_url_github' => 'nullable | max:255 | url', 
-            // 'no_login' => 'required | max:50', 
-            // 'ds_senha' => 'required | max:255', 
         ];
     }
 
@@ -41,8 +39,6 @@ class InformacaoPessoalFormRequest extends FormRequest
             'ds_telefone.max' => 'O campo deve ter no máximo 15 caracteres',
             'ds_url_linkedin.max' => 'O campo deve ter no máximo 255 caracteres',
             'ds_url_github.max' => 'O campo deve ter no máximo 255 caracteres',
-            // 'no_login.max' => 'O campo deve ter no máximo 50 caracteres',
-            // 'ds_senha.max' => 'O campo deve ter no máximo 255 caracteres',
         ];
     }
 }

@@ -43,7 +43,7 @@ Route::prefix('admin')->group(function(){
             Route::get('/mudar-foto', 'mudarFoto')->name('sobre-mim.mudar-foto');
             // Route::put('/mudar-foto', 'mudarFotoUpdate')->name('sobre-mim.mudar-foto-update');
             Route::get('/alterar-login-senha', 'alterarLoginSenha')->name('sobre-mim.alterar-login-senha');
-            // Route::put('/alterar-login-senha', 'alterarLoginSenhaUpdate')->name('sobre-mim.alterar-login-senha-update');
+            Route::patch('/alterar-login-senha/{id}', 'alterarLoginSenhaUpdate')->where('id', '[0-9]+')->name('sobre-mim.alterar-login-senha-update');
 
         });
     });

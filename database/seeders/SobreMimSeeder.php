@@ -22,7 +22,7 @@ class SobreMimSeeder extends Seeder
             'ds_url_linkedin' => 'https://www.linkedin.com/', 
             'ds_url_github' => 'https://github.com/', 
             'no_login' => 'fulano.silva', 
-            'ds_senha' => '0123456789',
+            'ds_senha' => 'dd977e91ecd57d23703b9bb27dab6943',
         ]);
     }
 }

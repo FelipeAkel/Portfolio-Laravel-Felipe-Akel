@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\InformacaoPessoalFormRequest;
+use App\Http\Requests\LoginSenhaFormRequest;
 use Illuminate\Support\Facades\DB;
 use App\Models\TbSobreMim;
+
+use Illuminate\Support\Facades\Hash;
+
 
 use Brian2694\Toastr\Facades\Toastr;
 
@@ -48,8 +52,6 @@ class SobreMimController extends Controller
         $totalServicos = $this->totalServicos();
 
         $sobreMim = TbSobreMim::all()->first();
-        // $sobreMim = TbSobreMim::where('id', '=', 2)->get();
-
 
         return view('template-admin.sobre-mim.informacao-pessoal-edit', compact(
             'infoSobreMim', 'totalCarreiraProfissional', 'totalHabilidade', 'totalPortfolio', 'totalServicos', 'sobreMim'
@@ -68,7 +70,6 @@ class SobreMimController extends Controller
         }
 
         return redirect()->route('sobre-mim.informacao-pessoal-show');
-        // dd($request->all(), $id, $retornoBanco);
     }
 
     public function mudarFoto()
@@ -92,9 +93,42 @@ class SobreMimController extends Controller
         $totalPortfolio = $this->totalPortfolio();
         $totalServicos = $this->totalServicos();
         
+        $sobreMim = TbSobreMim::all()->first();
+
         return view('template-admin.sobre-mim.alterar-login-senha', compact(
-            'infoSobreMim', 'totalCarreiraProfissional', 'totalHabilidade', 'totalPortfolio', 'totalServicos'
+            'infoSobreMim', 'totalCarreiraProfissional', 'totalHabilidade', 'totalPortfolio', 'totalServicos', 'sobreMim'
         ));
+    }
+
+    public function alterarLoginSenhaUpdate(LoginSenhaFormRequest $request, $id)
+    {
+        $sobreMim = TbSobreMim::find($id);
+
+        // Verificando se a senha antiga é igual
+        $ds_senha_antiga = $this->criandoHashSenha($request['ds_senha_antiga']);
+        if($ds_senha_antiga != $sobreMim->ds_senha){
+            Toastr::warning('A Senha Antiga não corresponde ao que está cadastrado', 'Atenção');
+            return redirect()->route('sobre-mim.alterar-login-senha');
+        }
+
+        // Atribuindo o hash da senha nova
+        $request['ds_senha']= $this->criandoHashSenha($request['ds_senha']);
+
+        $retornoBanco = $sobreMim->update($request->all());
+
+        if($retornoBanco == true){
+            Toastr::success('O registro foi atualizado', 'Sucesso');
+        } else {
+            Toastr::error('Não foi possível atualizado o registro', 'Erro');
+        }
+
+        return redirect()->route('sobre-mim.alterar-login-senha');
+    }
+
+    public function criandoHashSenha ($variavel)
+    {
+        $md5 = 'P0rtf0l10Felipe@kel' . $variavel . '01_CriandoUmaHashMaisForte_10';
+        return md5($md5);
     }
 
     public function infoSobreMim()
@@ -128,7 +162,8 @@ class SobreMimController extends Controller
         return $totalPortfolio = $totalPortfolio[0];
     }
 
-    public function totalServicos() {
+    public function totalServicos() 
+    {
         $totalServicos = DB::select('SELECT COUNT(*) AS total_servicos
                                      FROM tb_servicos
                                      WHERE deleted_at IS NULL');
