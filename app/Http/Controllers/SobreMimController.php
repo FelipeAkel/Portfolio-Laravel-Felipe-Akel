@@ -8,9 +8,6 @@ use App\Http\Requests\LoginSenhaFormRequest;
 use Illuminate\Support\Facades\DB;
 use App\Models\TbSobreMim;
 
-use Illuminate\Support\Facades\Hash;
-
-
 use Brian2694\Toastr\Facades\Toastr;
 
 class SobreMimController extends Controller

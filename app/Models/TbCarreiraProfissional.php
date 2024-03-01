@@ -23,4 +23,10 @@ class TbCarreiraProfissional extends Model
         'nr_total_horas',
         'ds_url'
     ];
+
+    public function tipoExperiencia()
+    {
+        return $this->hasOne(TbTipoExperiencia::class, 'id', 'id_tipo_experiencia');
+    }
+
 }

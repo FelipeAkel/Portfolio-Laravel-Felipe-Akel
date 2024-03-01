@@ -10,7 +10,7 @@
                     <div class="mb-3 col-md-3">
                         <label class="form-label">Status </label>
                         <select class="form-select" disabled>
-                            <option >{{ $faleConosco->no_status }}</option>
+                            <option >{{ $faleConosco->status->no_status }}</option>
                         </select>
                     </div>
 

@@ -58,7 +58,7 @@ class PortfolioController extends Controller
         return view('template-admin.portfolio.edit', compact('portfolio'));
     }
 
-    public function update(Request $request, $id)
+    public function update(PortfolioFormRequest $request, $id)
     {
         $portfolio = TbPortfolio::find($id);
 

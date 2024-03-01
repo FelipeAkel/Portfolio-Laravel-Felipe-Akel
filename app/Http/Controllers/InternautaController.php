@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\TbSobreMim;
 use App\Models\TbTipoExperiencia;
 use App\Models\TbTipoHabilidade;
 use App\Models\TbCarreiraProfissional;
 use App\Models\TbHabilidades;
+use App\Models\TbPortfolio;
 use App\Models\TbServicos;
 use App\Models\TbFaleConosco;
 use App\Http\Requests\InternautaFormRequest;
@@ -15,6 +17,12 @@ use Brian2694\Toastr\Facades\Toastr;
 class InternautaController extends Controller
 {
     public function index(){
+
+        // Sobre Mim
+        $sobreMim = TbSobreMim::all()->first();
+            // dd($sobreMim);
+        // FIM - Sobre Mim
+
         // Experiencia de Trabalho
         $tipoCarreiraProfissional = TbTipoExperiencia::whereIn('id', [1, 2, 3])->get();
         $carreiraProfissional = TbCarreiraProfissional::all();
@@ -38,17 +46,28 @@ class InternautaController extends Controller
             ->get();
         // FIM - Habilidades
 
+        // Portfólio
+        $portfolio = TbPortfolio::all();
+        // foreach($portfolio AS $indice => $dadosProjeto){
+        //     dd($portfolio);
+        //     $this->strposDsTipoProjeto($indice, $dadosProjeto->ds_tipo_projeto);
+        // }
+        // dd($portfolio);
+        // FIM - Portfólio
+
         // Serviços
         $servicos = TbServicos::all();
         // FIM - Serviços
 
         return view('template-internauta.index', compact(
+            'sobreMim',
             'tipoCarreiraProfissional',
             'carreiraProfissional', 
             'arrayDadosTotais', 
             'cursoComplementar', 
             'tipoHabilidade', 
             'habilidade',
+            'portfolio',
             'servicos'
         ));
     }
@@ -67,4 +86,22 @@ class InternautaController extends Controller
 
         return redirect()->route('internauta.index');
     }
+
+    // public function strposDsTipoProjeto ($indice, $portfolio){
+    //     // Verifica e recuperar os valores do checkbox - Tipo de Projeto
+    //     $verifica_php_laravel = strpos($portfolio->ds_tipo_projeto, 'php-laravel');
+    //     $verifica_php_laravel === false ? $tipo_php_laravel = null : $tipo_php_laravel = 'php-laravel';
+
+    //     $verifica_website = strpos($portfolio->ds_tipo_projeto, 'website');
+    //     $verifica_website === false ? $tipo_website = null : $tipo_website = 'website';
+
+    //     $verifica_landing_page = strpos($portfolio->ds_tipo_projeto, 'landing-page');
+    //     $verifica_landing_page === false ? $tipo_landing_page = null : $tipo_landing_page = 'landing-page';
+
+    //     $portfolio[$indice]['tipo_php_laravel'] = $tipo_php_laravel;
+    //     $portfolio[$indice]['tipo_website'] = $tipo_website;
+    //     $portfolio[$indice]['tipo_landing_page'] = $tipo_landing_page;
+
+
+    // }
 }

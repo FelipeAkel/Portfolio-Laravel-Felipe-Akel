@@ -16,14 +16,7 @@ class HabilidadeController extends Controller
     public function index()
     {
         $retornoTipoHabilidade = TbTipoHabilidade::all();
-        $retornoHabilidade = TbHabilidades::where('id', '>=', 1)->paginate(10);
-
-        foreach($retornoHabilidade AS $indice => $dadosHabilidade){
-            $tipoHabilidade = TbTipoHabilidade::where('id', '=', $dadosHabilidade->id_tipo_habilidade)->first();
-            if($tipoHabilidade->id){
-                $retornoHabilidade[$indice]['no_tipo_habilidade'] = $tipoHabilidade->no_tipo_habilidade;
-            }
-        }
+        $retornoHabilidade = TbHabilidades::with('tipoHabilidade')->where('id', '>=', 1)->paginate(10);
 
         return view('template-admin.habilidade.index', compact('retornoTipoHabilidade', 'retornoHabilidade'));
     }

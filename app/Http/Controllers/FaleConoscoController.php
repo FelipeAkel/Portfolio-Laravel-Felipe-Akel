@@ -17,28 +17,14 @@ class FaleConoscoController extends Controller
     public function index()
     {
         $status = TbStatus::all();
-        $faleConosco = TbFaleConosco::where('id', '>=', 1)->orderBy('created_at', 'DESC')->paginate(10);
-
-        // Recuperando nome do Status pelo ID
-        foreach($faleConosco AS $indice => $dadosFaleConosco){
-            $recuperacaoStatus = TbStatus::where('id', '=', $dadosFaleConosco->id_status)->first();
-            if($recuperacaoStatus){
-                $faleConosco[$indice]['no_status'] = $recuperacaoStatus->no_status;
-            }
-        }
+        $faleConosco = TbFaleConosco::with('status')->where('id', '>=', 1)->orderBy('created_at', 'DESC')->paginate(10);
 
         return view('template-admin.fale-conosco.index', compact('status', 'faleConosco'));
     }
 
     public function show($id)
     {
-        $faleConosco = TbFaleConosco::find($id);
-        // Recuperando nome do Status pelo ID
-        $recuperacaoStatus = TbStatus::where('id', '=', $faleConosco->id_status)->first();
-        if($recuperacaoStatus){
-            $faleConosco['no_status'] = $recuperacaoStatus->no_status;
-        }
-
+        $faleConosco = TbFaleConosco::with('status')->find($id);
         $respostas = TbRespostas::where('id_fale_conosco', '=', $id)->orderBy('created_at', 'DESC')->paginate(5);
         
         return view('template-admin.fale-conosco.show', compact('faleConosco', 'respostas'));
@@ -47,13 +33,7 @@ class FaleConoscoController extends Controller
     public function responder($id)
     {
         $status = TbStatus::all();
-        $faleConosco = TbFaleConosco::find($id);
-        // Recuperando nome do Status pelo ID
-        $recuperacaoStatus = TbStatus::where('id', '=', $faleConosco->id_status)->first();
-        if($recuperacaoStatus){
-            $faleConosco['no_status'] = $recuperacaoStatus->no_status;
-        }
-
+        $faleConosco = TbFaleConosco::with('status')->find($id);
         $respostas = TbRespostas::where('id_fale_conosco', '=', $id)->orderBy('created_at', 'DESC')->paginate(5);
 
         return view('template-admin.fale-conosco.responder', compact('status', 'faleConosco', 'respostas'));

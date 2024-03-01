@@ -118,7 +118,7 @@
                         </div>
                     </td>
                     <td>{{ $dadosCarreiraProf->id }}</td>
-                    <td>{{ $dadosCarreiraProf->no_tipo_experiencia }}</td>
+                    <td>{{ $dadosCarreiraProf->tipoExperiencia->no_tipo_experiencia }}</td>
                     <td>{{ $dadosCarreiraProf->no_experiencia }}</td>
                     <td>{{ $dadosCarreiraProf->no_empresa }}</td>
                     <td>{{ $dadosCarreiraProf->dt_inicio }}</td>

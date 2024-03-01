@@ -117,7 +117,7 @@
                         </div>
                     </td>
                     <td>{{ $dadosHabilidade->id }}</td>
-                    <td>{{ $dadosHabilidade->no_tipo_habilidade }}</td>
+                    <td>{{ $dadosHabilidade->tipoHabilidade->no_tipo_habilidade }}</td>
                     <td>{{ $dadosHabilidade->no_habilidade }}</td>
                     <td>{{ $dadosHabilidade->ds_habilidade }}</td>
                     <td>

@@ -11,19 +11,19 @@
                     <ul>
                         <li>
                             <h3>Nome</h3>
-                            <span>Felipe Akel</span>
+                            <span>{{ $sobreMim->no_usuario }}</span>
                         </li>
                         <li>
                             <h3>E-mail</h3>
-                            <span>felipe.akel01@gmail.com</span>
+                            <span>{{ $sobreMim->ds_email }}</span>
                         </li>
                         <li>
                             <h3>Telefone</h3>
-                            <span>+55 (61) 9 9193-9043</span>
+                            <span>+55 {{ $sobreMim->ds_telefone }}</span>
                         </li>
                         <li>
                             <h3>Estado</h3>
-                            <span>Brasília, Distrito Federal</span>
+                            <span>{{ $sobreMim->ds_cidade_uf }}</span>
                         </li>
                     </ul>
                 </div>
@@ -32,17 +32,13 @@
         <div class="right">
             <div class="iknow_tm_main_title">
                 <span>Sobre Mim</span>
-                <h3>Programador PHP | Laravel</h3>
+                <h3>{{ $sobreMim->ds_funcao }}</h3>
             </div>
             <div class="bigger_text">
-                <p>Apaixonado por programação front e back-end</p>
+                <p>{{ $sobreMim->ds_subtitulo }}</p>
             </div>
             <div class="text">
-                <p>Olá! Eu sou Felipe Akel, sou profissional com formação superior completa na área de Tecnologia da
-                    Informação o qual contemplo o bacharelado em Sistema de Informação, pela faculdade UDF, e com
-                    pós-graduação em Segurança da Informação pela IESB. Além disso, contemplo outros cursos
-                    complementares realizados ao longo da minha carreira e importantes para o desenvolvimento
-                    profissional e pessoal. </p>
+                <p>{{ $sobreMim->ds_perfil }}</p>
             </div>
             <div class="iknow_tm_button">
                 <a href="{{ asset('template-internauta/file/curriculo-felipe-akel.pdf') }}" download>Download CV</a>

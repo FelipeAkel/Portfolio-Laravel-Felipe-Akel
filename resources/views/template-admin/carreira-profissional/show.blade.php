@@ -26,7 +26,7 @@
                         <div class="mb-3 col-md-4">
                             <label class="form-label">Tipo Experiência </label>
                             <select class="form-select" disabled>
-                                <option >{{ $carreiraProfissional->no_tipo_experiencia }}</option>
+                                <option >{{ $carreiraProfissional->tipoExperiencia->no_tipo_experiencia }}</option>
                             </select>
                         </div>
 

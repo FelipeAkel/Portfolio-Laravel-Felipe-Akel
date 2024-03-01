@@ -25,14 +25,8 @@ class CarreiraProfissionalCotroller extends Controller
     
         $retornoTipoExperiencia = TbTipoExperiencia::all();
 
-        $retornoCarreiraProfissional = TbCarreiraProfissional::where('id', '>=', 1)
+        $retornoCarreiraProfissional = TbCarreiraProfissional::with("tipoExperiencia")->where('id', '>=', 1)
         ->paginate(10);
-
-        // Recuperando dados de um relacionamento
-        foreach($retornoCarreiraProfissional AS $indice => $dadosCarreira){
-            $tipoExperiencia = TbTipoExperiencia::where('id', '=', $dadosCarreira->id_tipo_experiencia)->first();
-            $retornoCarreiraProfissional[$indice]['no_tipo_experiencia'] = $tipoExperiencia->no_tipo_experiencia;
-        }
 
         return view('template-admin.carreira-profissional.index', compact('retornoCarreiraProfissional', 'retornoTipoExperiencia'));
     }
@@ -58,9 +52,8 @@ class CarreiraProfissionalCotroller extends Controller
 
     public function show($id)
     {
-        $carreiraProfissional = TbCarreiraProfissional::find($id);
-        $tipoExperiencia = TbTipoExperiencia::find($carreiraProfissional->id_tipo_experiencia);
-        $carreiraProfissional['no_tipo_experiencia'] = $tipoExperiencia->no_tipo_experiencia;
+        $carreiraProfissional = TbCarreiraProfissional::with("tipoExperiencia")->find($id);
+        
         return view('template-admin.carreira-profissional.show', compact('carreiraProfissional'));
     }
 

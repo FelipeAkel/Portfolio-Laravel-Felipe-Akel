@@ -114,7 +114,7 @@
                         </div>
                     </td>
                     <td>{{ $dadoFaleConosco->id }}</td>
-                    <td>{{ $dadoFaleConosco->no_status }}</td>
+                    <td>{{ $dadoFaleConosco->status->no_status }}</td>
                     <td>{{ $dadoFaleConosco->no_contato }}</td>
                     <td>{{ $dadoFaleConosco->ds_assunto }}</td>
                     <td>{{ $dadoFaleConosco->created_at }}</td>

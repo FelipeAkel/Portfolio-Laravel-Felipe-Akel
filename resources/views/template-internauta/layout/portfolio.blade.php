@@ -8,223 +8,105 @@
         <div class="portfolio_filter">
             <ul>
                 <li><a href="#" class="current" data-filter="*">Todos</a></li>
-                <li><a href="#" data-filter=".php_laravel">PHP | Laravel</a></li>
+                <li><a href="#" data-filter=".php-laravel">PHP | Laravel</a></li>
                 <li><a href="#" data-filter=".website">Website</a></li>
-                <li><a href="#" data-filter=".landing_page">Landing Page</a></li>
+                <li><a href="#" data-filter=".landing-page">Landing Page</a></li>
             </ul>
         </div>
         <div class="portfolio_list">
             <ul class="gallery_zoom">
+                @foreach ($portfolio AS $indice => $dadosProjeto)
+                    @if (isset($dadosProjeto->no_cliente) || isset(($dadosProjeto->ds_url_projeto)) || isset($dadosProjeto->ds_url_repositorio))
+                        @php $width_100_boolean = false; @endphp
+                    @else
+                        @php $width_100_boolean = true; @endphp
+                    @endif
+                    @php
+                        // Imagem icone
+                        $verifica_php_laravel = strpos($dadosProjeto->ds_tipo_projeto, 'php-laravel');
+                        $verifica_php_laravel === false ? $img_svg = 'website-one-page' : $img_svg = 'laravel-2';
+                    @endphp
 
-                <li class="website">
-                    <div class="list_inner">
-                        <div class="image">
-                            <img src="{{ asset('template-internauta/img/') }}/thumbs/1-1.jpg" alt="" />
-                            <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/portfolio/8.jpg"></div>
-                        </div>
-                        <div class="overlay"></div>
-                        <img class="svg" src="{{ asset('template-internauta/img/svg/') }}/website-mult-page.svg" alt="" />
-                        <div class="details">
-                            <span>Detalhes</span>
-                            <h3> Sistema Gestão Musical - GM </h3>
-                        </div>
-                        <a class="iknow_tm_full_link portfolio_popup" href="#"></a>
-                        
-                        <div class="hidden_content">
-                            <div class="popup_details">
-                                <div class="main_details">
-                                    <div class="textbox" > {{-- style="width: 100%;" --}}
-                                        <p>Sistema Gestão Musical - GM Sistema Gestão Musical - GM ur ideas as flexibly as possible. Building mockups strikes the ideal balance ease of modification.</p>
-                                        <p>Sistema Gestão Musical - GM Sistema Gestão Musical - GM project - for instance when you're trying to figure out your user flows or the proper visual hierarchy - and the production phase when they will represent the target product.</p>
-                                        <h5 class="titulo-portfolio" > Tecnologias </h5>
-                                        <p>Laravel; PHP; Bootstrap; JavaScript;</p>
+                    <li class="{{ $dadosProjeto->ds_tipo_projeto }}">
+                        <div class="list_inner">
+                            <div class="image">
+                                <img src="{{ asset('template-internauta/img/') }}/thumbs/1-1.jpg" alt="" />
+                                <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/portfolio/8.jpg"></div>
+                            </div>
+                            <div class="overlay"></div>
+                            <img class="svg" src="{{ asset('template-internauta/img/svg/') }}/{{ $img_svg }}.svg" alt="" />
+                            <div class="details">
+                                <span>Detalhes</span>
+                                <h3> {{ $dadosProjeto->no_projeto }} </h3>
+                            </div>
+                            <a class="iknow_tm_full_link portfolio_popup" href="#"></a>
+                            
+                            <div class="hidden_content">
+                                <div class="popup_details">
+                                    <div class="main_details">
+                                        <div class="textbox" style="{{ $width_100_boolean == true ? 'width: 100%;' : '' }}" >
+                                            <p>{{ $dadosProjeto->ds_projeto }}</p>
+                                            <h5 class="titulo-portfolio" > Tecnologias </h5>
+                                            <p>{{ $dadosProjeto->ds_tecnologia }}</p>
+                                        </div>
+                                        @if ( $width_100_boolean == false)
+                                            <div class="detailbox">
+                                                <ul>
+                                                    @if (isset($dadosProjeto->no_cliente))
+                                                        <li>
+                                                            <span class="first">Cliente</span>
+                                                            <span>{{ $dadosProjeto->no_cliente }}</span>
+                                                        </li>
+                                                    @endif
+                                                    @if (isset($dadosProjeto->ds_url_projeto))
+                                                        <li>
+                                                            <span class="first">Projeto</span>
+                                                            <span><a class="links-portfolio" href="{{ $dadosProjeto->ds_url_projeto }}" target="_blank">Visualizar</a></span>
+                                                        </li>
+                                                    @endif
+                                                    @if (isset($dadosProjeto->ds_url_repositorio))
+                                                        <li>
+                                                            <span class="first">Repositório</span>
+                                                            <span><a class="links-portfolio" href="{{ $dadosProjeto->ds_url_repositorio }}" target="_blank">GitHub</a></span>
+                                                        </li>
+                                                    @endif
+                                                </ul>
+                                            </div>
+                                        @endif
                                     </div>
-                                    <div class="detailbox">
+                                    <div class="additional_images">
                                         <ul>
                                             <li>
-                                                <span class="first">Projeto</span>
-                                                <span><a class="links-portfolio" href="#">Visualizar</a></span>
+                                                <div class="list_inner">
+                                                    <div class="my_image">
+                                                        <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
+                                                        <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/portfolio/1.jpg"></div>
+                                                    </div>
+                                                </div>
                                             </li>
                                             <li>
-                                                <span class="first">Repositório</span>
-                                                <span><a class="links-portfolio" href="#">GitHub</a></span>
+                                                <div class="list_inner">
+                                                    <div class="my_image">
+                                                        <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
+                                                        <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/portfolio/2.jpg"></div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="list_inner">
+                                                    <div class="my_image">
+                                                        <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
+                                                        <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/portfolio/3.jpg"></div>
+                                                    </div>
+                                                </div>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="additional_images">
-                                    <ul>
-                                        <li>
-                                            <div class="list_inner">
-                                                <div class="my_image">
-                                                    <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
-                                                    <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/portfolio/1.jpg"></div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="list_inner">
-                                                <div class="my_image">
-                                                    <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
-                                                    <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/portfolio/2.jpg"></div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="list_inner">
-                                                <div class="my_image">
-                                                    <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
-                                                    <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/portfolio/3.jpg"></div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
-                    </div>
-                </li>
-
-                <li class="website landing_page">
-                    <div class="list_inner">
-                        <div class="image">
-                            <img src="{{ asset('template-internauta/img/') }}/thumbs/1-1.jpg" alt="" />
-                            <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/portfolio/8.jpg"></div>
-                        </div>
-                        <div class="overlay"></div>
-                        <img class="svg branco" src="{{ asset('template-internauta/img/') }}/svg/website-one-page.svg" alt="" />
-                        <div class="details">
-                            <span>Detalhes</span>
-                            <h3> Super Gestão - SG </h3>
-                        </div>
-                        <a class="iknow_tm_full_link portfolio_popup" href="#"></a>
-                        
-                        <div class="hidden_content">
-                            <div class="popup_details">
-                                <div class="main_details">
-                                    <div class="textbox">
-                                        <p>Super Gestão - SG Super Gestão - SG ideas as flexibly as possible. Building mockups strikes the ideal balance ease of modification.</p>
-                                        <p>Super Gestão - SG Super Gestão - SG or instance when you're trying to figure out your user flows or the proper visual hierarchy - and the production phase when they will represent the target product.</p>
-                                    </div>
-                                    <div class="detailbox">
-                                        <ul>
-                                            <li>
-                                                <span class="first">Client</span>
-                                                <span>Alvaro Morata</span>
-                                            </li>
-                                            <li>
-                                                <span class="first">Category</span>
-                                                <span><a href="#">Detail</a></span>
-                                            </li>
-                                            <li>
-                                                <span class="first">Date</span>
-                                                <span>March 07, 2021</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="additional_images">
-                                    <ul>
-                                        <li>
-                                            <div class="list_inner">
-                                                <div class="my_image">
-                                                    <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
-                                                    <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/portfolio/1.jpg"></div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="list_inner">
-                                                <div class="my_image">
-                                                    <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
-                                                    <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/portfolio/2.jpg"></div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="list_inner">
-                                                <div class="my_image">
-                                                    <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
-                                                    <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/portfolio/3.jpg"></div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="website landing_page">
-                    <div class="list_inner">
-                        <div class="image">
-                            <img src="{{ asset('template-internauta/img/') }}/thumbs/1-1.jpg" alt="" />
-                            <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/portfolio/8.jpg"></div>
-                        </div>
-                        <div class="overlay"></div>
-                        <img class="svg" src="{{ asset('template-internauta/img/') }}/svg/laravel-2.svg" alt="" />
-                        <div class="details">
-                            <span>Detalhes</span>
-                            <h3> Super Gestão - SG </h3>
-                        </div>
-                        <a class="iknow_tm_full_link portfolio_popup" href="#"></a>
-                        
-                        <div class="hidden_content">
-                            <div class="popup_details">
-                                <div class="main_details">
-                                    <div class="textbox">
-                                        <p>Super Gestão - SG Super Gestão - SG ideas as flexibly as possible. Building mockups strikes the ideal balance ease of modification.</p>
-                                        <p>Super Gestão - SG Super Gestão - SG or instance when you're trying to figure out your user flows or the proper visual hierarchy - and the production phase when they will represent the target product.</p>
-                                    </div>
-                                    <div class="detailbox">
-                                        <ul>
-                                            <li>
-                                                <span class="first">Client</span>
-                                                <span>Alvaro Morata</span>
-                                            </li>
-                                            <li>
-                                                <span class="first">Category</span>
-                                                <span><a href="#">Detail</a></span>
-                                            </li>
-                                            <li>
-                                                <span class="first">Date</span>
-                                                <span>March 07, 2021</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="additional_images">
-                                    <ul>
-                                        <li>
-                                            <div class="list_inner">
-                                                <div class="my_image">
-                                                    <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
-                                                    <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/portfolio/1.jpg"></div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="list_inner">
-                                                <div class="my_image">
-                                                    <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
-                                                    <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/portfolio/2.jpg"></div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="list_inner">
-                                                <div class="my_image">
-                                                    <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
-                                                    <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/portfolio/3.jpg"></div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+                    </li>
+                @endforeach
 
             </ul>
         </div>
