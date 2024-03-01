@@ -8,6 +8,11 @@
 
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h2>Dashboard</h2>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+                <button type="button" class="btn btn-success">Novo Registro</button>
+            </div>
+        </div>
     </div>
 
     <nav aria-label="breadcrumb">
@@ -18,62 +23,74 @@
 
     <div class="row">
         <div class="col-12">
-            <div class="card-group">
-                <div class="card text-center">
-                    <h5 class="card-header titulo-1rem"><i class="bi bi-award-fill"></i> Carreira Profissional</h5>
-                    <div class="card-body">
-                    <h5 class="card-title">Resultados</h5>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item d-flex justify-content-between">
-                            Escolaridade
-                            <span class="badge text-bg-primary rounded-pill">5</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            Escolaridade
-                            <span class="badge text-bg-primary rounded-pill">5</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            Escolaridade
-                            <span class="badge text-bg-primary rounded-pill">5</span>
-                        </li>
-                    </ul>
-                    </div>
-                    <div class="card-footer">
-                        <a href="{{ route('carreira-profissional.index') }}"><small class="text-body-secondary">Veja Registros</small></a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                    </div>
-                    <div class="card-footer">
-                    <small class="text-body-secondary">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    </div>
-                    <div class="card-footer">
-                    <small class="text-body-secondary">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    </div>
-                    <div class="card-footer">
-                    <small class="text-body-secondary">Last updated 3 mins ago</small>
+
+            <div class="accordion" id="accordionFiltro">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFiltro" aria-expanded="false" aria-controls="collapseFiltro">
+                            Filtros
+                        </button>
+                    </h2>
+                    <div id="collapseFiltro" class="accordion-collapse collapse" data-bs-parent="#accordionFiltro">
+                        <div class="accordion-body">
+
+                            <form class="row g-3">
+                                <div class="col-md-4">
+                                    <label for="inputEmail4" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="inputEmail4">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="inputPassword4" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="inputPassword4">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="inputState" class="form-label">State</label>
+                                    <select id="inputState" class="form-select">
+                                        <option selected>Choose...</option>
+                                        <option>...</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                                        <label class="form-check-label" for="gridCheck">
+                                            Check me out
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary">Pesquisar </button>
+                                </div>
+                            </form>
+
+                        </div>
                     </div>
                 </div>
             </div>
-                
+
+
+                <div class="col-md-4">
+                    <label for="id_tipo_experiencia" class="form-label">Tipo Experiência</label>
+                    <select name="id_tipo_experiencia" id="id_tipo_experiencia" class="form-select is-invalid">
+                        <option selected>.. Selecione ..</option>
+                        
+                    </select>
+                    <div class="invalid-feedback">
+                        Please choose a username.
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="autoSizingInputGroup" class="form-label">Username</label>
+                    <div class="input-group has-validation">
+                        <div class="input-group-text">@</div>
+                        <input type="text" class="form-control is-invalid" id="autoSizingInputGroup" placeholder="Username">
+                        <div class="invalid-feedback">
+                            Please choose a username.
+                        </div>
+                    </div>
+                </div>
+
         </div>
     </div>
 

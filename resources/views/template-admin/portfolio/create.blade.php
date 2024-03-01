@@ -1,5 +1,7 @@
 @extends('template-admin.layout.index')
 
+@section('active-portfolio', 'active')
+
 @section('titulo-pag', 'Cadastrar Registro - Portfólio')
 
 @section('conteudo')

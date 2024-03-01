@@ -1,5 +1,7 @@
 @extends('template-admin.sobre-mim.index')
 
+@section('active-sobre-mim', 'active')
+
 @section('active-informacao-pessoal', 'active')
 
 @section('conteudo-sobre-mim')

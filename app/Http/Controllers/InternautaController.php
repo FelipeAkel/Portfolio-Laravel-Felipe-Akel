@@ -20,7 +20,6 @@ class InternautaController extends Controller
 
         // Sobre Mim
         $sobreMim = TbSobreMim::all()->first();
-            // dd($sobreMim);
         // FIM - Sobre Mim
 
         // Experiencia de Trabalho
@@ -48,11 +47,6 @@ class InternautaController extends Controller
 
         // Portfólio
         $portfolio = TbPortfolio::all();
-        // foreach($portfolio AS $indice => $dadosProjeto){
-        //     dd($portfolio);
-        //     $this->strposDsTipoProjeto($indice, $dadosProjeto->ds_tipo_projeto);
-        // }
-        // dd($portfolio);
         // FIM - Portfólio
 
         // Serviços
@@ -87,21 +81,4 @@ class InternautaController extends Controller
         return redirect()->route('internauta.index');
     }
 
-    // public function strposDsTipoProjeto ($indice, $portfolio){
-    //     // Verifica e recuperar os valores do checkbox - Tipo de Projeto
-    //     $verifica_php_laravel = strpos($portfolio->ds_tipo_projeto, 'php-laravel');
-    //     $verifica_php_laravel === false ? $tipo_php_laravel = null : $tipo_php_laravel = 'php-laravel';
-
-    //     $verifica_website = strpos($portfolio->ds_tipo_projeto, 'website');
-    //     $verifica_website === false ? $tipo_website = null : $tipo_website = 'website';
-
-    //     $verifica_landing_page = strpos($portfolio->ds_tipo_projeto, 'landing-page');
-    //     $verifica_landing_page === false ? $tipo_landing_page = null : $tipo_landing_page = 'landing-page';
-
-    //     $portfolio[$indice]['tipo_php_laravel'] = $tipo_php_laravel;
-    //     $portfolio[$indice]['tipo_website'] = $tipo_website;
-    //     $portfolio[$indice]['tipo_landing_page'] = $tipo_landing_page;
-
-
-    // }
 }

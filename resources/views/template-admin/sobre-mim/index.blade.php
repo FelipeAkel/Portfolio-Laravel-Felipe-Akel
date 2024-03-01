@@ -1,5 +1,7 @@
 @extends('template-admin.layout.index')
 
+@section('active-sobre-mim', 'active')
+
 @section('titulo-pag', 'Sobre Mim')
 
 @section('conteudo')

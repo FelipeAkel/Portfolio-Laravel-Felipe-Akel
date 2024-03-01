@@ -9,13 +9,13 @@
         <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="{{ route('admin.dashboard') }}">
+                    <a class="nav-link d-flex align-items-center gap-2 @yield('active-dashboard')" aria-current="page" href="{{ route('admin.dashboard') }}">
                         <i class="bi bi-bar-chart-fill"></i>
                         Dashboard
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="{{ route('sobre-mim.logs-sistema') }}">
+                    <a class="nav-link d-flex align-items-center gap-2 @yield('active-sobre-mim')" aria-current="page" href="{{ route('sobre-mim.logs-sistema') }}">
                         <i class="bi bi-person-vcard"></i>
                         Sobre Mim
                     </a>
@@ -36,13 +36,13 @@
             <div class="collapse show" id="account-collapse" style="">
                 <ul class="nav flex-column mb-auto" >
                     <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center gap-2" href="{{ route('carreira-profissional.index') }}">
+                        <a class="nav-link d-flex align-items-center gap-2 @yield('active-carreira-profissional')" href="{{ route('carreira-profissional.index') }}">
                             <i class="bi bi-award-fill"></i>
                             Carreira Profissional
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center gap-2" href="{{ route('habilidade.index') }}">
+                        <a class="nav-link d-flex align-items-center gap-2 @yield('active-habilidade')" href="{{ route('habilidade.index') }}">
                             <i class="bi bi-graph-up-arrow"></i>
                             Habilidade
                         </a>
@@ -54,27 +54,24 @@
 
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="{{ route('portfolio.index') }}">
+                    <a class="nav-link d-flex align-items-center gap-2 @yield('active-portfolio')" href="{{ route('portfolio.index') }}">
                         <i class="bi bi-journal-richtext"></i>
                         Portfólio
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="{{ route('servicos.index') }}">
+                    <a class="nav-link d-flex align-items-center gap-2 @yield('active-servicos')" href="{{ route('servicos.index') }}">
                         <i class="bi bi-stack-overflow"></i>
                         Serviços
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="{{ route('fale-conosco.index') }}">
+                    <a class="nav-link d-flex align-items-center gap-2 @yield('active-fale-conosco')" href="{{ route('fale-conosco.index') }}">
                         <i class="bi bi-wechat"></i>
                         Fale Conosco
                     </a>
                 </li>
-
             </ul>
-
-            
 
             <hr class="my-3">
 

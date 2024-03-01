@@ -1,5 +1,7 @@
 @extends('template-admin.layout.index')
 
+@section('active-servicos', 'active')
+
 @section('titulo-pag', 'Visualizar Registro - Serviço')
 
 @section('conteudo')

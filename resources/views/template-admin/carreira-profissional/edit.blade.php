@@ -1,5 +1,7 @@
 @extends('template-admin.layout.index')
 
+@section('active-carreira-profissional', 'active')
+
 @section('titulo-pag', 'Atualizar Registro - Carreira Profissional')
 
 @section('conteudo')

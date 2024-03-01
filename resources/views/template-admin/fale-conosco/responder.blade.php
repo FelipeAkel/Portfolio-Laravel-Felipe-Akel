@@ -1,5 +1,7 @@
 @extends('template-admin.layout.index')
 
+@section('active-fale-conosco', 'active')
+
 @section('titulo-pag', 'Visualizar Registro - Responder')
 
 @section('conteudo')
