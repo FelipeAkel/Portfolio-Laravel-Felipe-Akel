@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SobreMimController;
 use App\Http\Controllers\HabilidadeController;
 use App\Http\Controllers\InternautaController;
@@ -30,9 +31,10 @@ Route::get('/login', function(){
 
 Route::prefix('admin')->group(function(){
 
-    Route::get('/dashboard', function(){
-        return view('template-admin.dashboard');
-    })->name('admin.dashboard');
+    Route::controller(DashboardController::class)->group(function () {
+        Route::get('/dashboard', 'index')->name('admin.dashboard');
+    });
+    
 
     Route::controller(SobreMimController::class)->group(function () {
         Route::prefix('sobre-mim')->group(function () {

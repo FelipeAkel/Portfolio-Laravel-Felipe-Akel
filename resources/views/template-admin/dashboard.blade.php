@@ -20,56 +20,63 @@
         <div class="col-12">
             <div class="card-group">
                 <div class="card text-center">
-                    <h5 class="card-header titulo-1rem"><i class="bi bi-award-fill"></i> Carreira Profissional</h5>
+                    <h5 class="card-header titulo-1rem text-info-emphasis">Carreira Profissional</h5>
                     <div class="card-body">
-                    <h5 class="card-title">Resultados</h5>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item d-flex justify-content-between">
-                            Escolaridade
-                            <span class="badge text-bg-primary rounded-pill">5</span>
+                        @php $countCarreiraProfissional = 0; @endphp
+                        @foreach ($totalCarreiraProfissional AS $indice => $totalExperiencia )
+                            <li type="button" class="list-group-item d-flex justify-content-between align-items-center"
+                                data-bs-toggle="popover" data-bs-title="Descrição" 
+                                data-bs-content="{{ $totalExperiencia->ds_tipo_experiencia }}"
+                            >
+                                {{ $totalExperiencia->no_tipo_experiencia }}
+                                <span class="badge text-bg-primary rounded-pill">{{ $totalExperiencia->total_quantidade }}</span>
+                            </li>
+                            @php $countCarreiraProfissional = $countCarreiraProfissional + $totalExperiencia->total_quantidade; @endphp
+                        @endforeach
+                    </ul>
+                    </div>
+                    <div class="card-footer">
+                        <p class="bold">Total: <span class="text-info">{{ $countCarreiraProfissional }}</span></p>
+                    </div>
+                </div>
+                <div class="card text-center">
+                    <h5 class="card-header titulo-1rem text-info-emphasis">Habilidades</h5>
+                    <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        @php $countHabilidades = 0; @endphp
+                        @foreach ($totalHabilidade AS $indice => $totalHab )
+                            <li type="button" class="list-group-item d-flex justify-content-between align-items-center"
+                                data-bs-toggle="popover" data-bs-title="Descrição" 
+                                data-bs-content="{{ $totalHab->ds_tipo_habilidade }}"
+                            >
+                                {{ $totalHab->no_tipo_habilidade }}
+                                <span class="badge text-bg-primary rounded-pill">{{ $totalHab->total_quantidade }}</span>
+                            </li>
+                            @php $countHabilidades = $countHabilidades + $totalHab->total_quantidade; @endphp
+                        @endforeach
+                    </ul>
+                    </div>
+                    <div class="card-footer">
+                        <p class="bold">Total: <span class="text-info">{{ $countHabilidades }}</span></p>
+                    </div>
+                </div>
+                <div class="card text-center">
+                    <h5 class="card-header titulo-1rem text-info-emphasis">Portfólio e Serviços</h5>
+                    <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Portfólio
+                            <span class="badge text-bg-primary rounded-pill">{{ $totalPortfolio->total_portfolio > 0 ? $totalPortfolio->total_portfolio : 0 }}</span>
                         </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            Escolaridade
-                            <span class="badge text-bg-primary rounded-pill">5</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                            Escolaridade
-                            <span class="badge text-bg-primary rounded-pill">5</span>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Serviços
+                            <span class="badge text-bg-primary rounded-pill">{{ $totalServicos->total_servicos > 0 ? $totalServicos->total_servicos : 0 }}</span>
                         </li>
                     </ul>
                     </div>
                     <div class="card-footer">
-                        <a href="{{ route('carreira-profissional.index') }}"><small class="text-body-secondary">Veja Registros</small></a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                    </div>
-                    <div class="card-footer">
-                    <small class="text-body-secondary">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    </div>
-                    <div class="card-footer">
-                    <small class="text-body-secondary">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    </div>
-                    <div class="card-footer">
-                    <small class="text-body-secondary">Last updated 3 mins ago</small>
+                        <p class="bold font-cinza">.</p>
                     </div>
                 </div>
             </div>
@@ -78,164 +85,80 @@
     </div>
 
     <hr class="border border-2 opacity-50">
-
-    <h5 class="">Resultado</h5>
-    <div class="table-responsive ">
-        <table class="table table-hover table-bordered border ">
-            <thead class="table-primary">
-                <tr>
-                    <th scope="col" width="200px">Ações</th>
-                    <th scope="col">ID</th>
-                    <th scope="col">Header</th>
-                    <th scope="col">Header</th>
-                    <th scope="col">Header</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                            <div class="btn-group me-2" role="group" aria-label="First group">
-                                <button type="button" class="btn btn-info btn-sm" 
-                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-info"
-                                    data-bs-title="Visualizar Registro"
-                                ><i class="bi bi-card-text"></i></button>
-                            </div>
-                            <div class="btn-group me-2" role="group" aria-label="Second group">
-                                <button type="button" class="btn btn-primary btn-sm" 
-                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-edit"
-                                    data-bs-title="Editar Registro"
-                                ><i class="bi bi-pencil-square"></i></button>
-                            </div>
-                            <div class="btn-group me-2" role="group" aria-label="Third group">
-                                <button type="button" class="btn btn-danger btn-sm" 
-                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-delete"
-                                    data-bs-title="Deletar Registro"
-                                ><i class="bi bi-trash"></i></button>
-                            </div>
-                            <div class="btn-group" role="group" aria-label="Four group">
-                                <button type="button" class="btn btn-secondary btn-sm"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-dark"
-                                    data-bs-title="Outras Ações"
-                                ><i class="bi bi-suit-heart-fill"></i></button>
+   
+   <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <h5 class="card-header titulo-1rem text-info-emphasis">Fale Conosco</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8 order-2">
+                            <div class="list-group">
+                                @php $countFaleConosco = 0; @endphp
+                                @foreach ($totalFaleConosco AS $indice => $dadoFaleConosco )
+                                    @switch($dadoFaleConosco->id_status)
+                                        @case(1)
+                                            <a type="button" class="list-group-item  list-group-item-action list-group-item-primary"
+                                                data-bs-toggle="popover" data-bs-title="Descrição Status" 
+                                                data-bs-content="{{ $dadoFaleConosco->ds_status }}"
+                                            >
+                                                <span class="badge text-bg-primary rounded-pill">{{ $dadoFaleConosco->total_status }}</span>
+                                                Total com o status: <b>{{ $dadoFaleConosco->no_status }}</b>
+                                            </a>
+                                            @php $countFaleConosco = $countFaleConosco + $dadoFaleConosco->total_status; @endphp
+                                            @break
+                                        @case(2)
+                                            <a type="button" class="list-group-item  list-group-item-action list-group-item-warning"
+                                                data-bs-toggle="popover" data-bs-title="Descrição Status" 
+                                                data-bs-content="{{ $dadoFaleConosco->ds_status }}"
+                                            >
+                                                <span class="badge text-bg-warning rounded-pill">{{ $dadoFaleConosco->total_status }}</span>
+                                                Total com o status: <b>{{ $dadoFaleConosco->no_status }}</b>
+                                            </a>
+                                            @php $countFaleConosco = $countFaleConosco + $dadoFaleConosco->total_status; @endphp
+                                            @break
+                                        @case(3)
+                                            <a type="button" class="list-group-item  list-group-item-action list-group-item-dark"
+                                                data-bs-toggle="popover" data-bs-title="Descrição Status" 
+                                                data-bs-content="{{ $dadoFaleConosco->ds_status }}"
+                                            >
+                                                <span class="badge text-bg-dark rounded-pill">{{ $dadoFaleConosco->total_status }}</span>
+                                                Total com o status: <b>{{ $dadoFaleConosco->no_status }}</b>
+                                            </a>
+                                            @php $countFaleConosco = $countFaleConosco + $dadoFaleConosco->total_status; @endphp
+                                            @break
+                                        @case(4)
+                                            <a type="button" class="list-group-item  list-group-item-action list-group-item-success"
+                                                data-bs-toggle="popover" data-bs-title="Descrição Status" 
+                                                data-bs-content="{{ $dadoFaleConosco->ds_status }}"
+                                            >
+                                                <span class="badge text-bg-success rounded-pill">{{ $dadoFaleConosco->total_status }}</span>
+                                                Total com o status: <b>{{ $dadoFaleConosco->no_status }}</b>
+                                            </a>
+                                            @php $countFaleConosco = $countFaleConosco + $dadoFaleConosco->total_status; @endphp
+                                            @break
+                                        @case(5)
+                                            <a type="button" class="list-group-item  list-group-item-action list-group-item-danger"
+                                                data-bs-toggle="popover" data-bs-title="Descrição Status" 
+                                                data-bs-content="{{ $dadoFaleConosco->ds_status }}"
+                                            >
+                                                <span class="badge text-bg-danger rounded-pill">{{ $dadoFaleConosco->total_status }}</span>
+                                                Total com o status: <b>{{ $dadoFaleConosco->no_status }}</b>
+                                            </a>
+                                            @php $countFaleConosco = $countFaleConosco + $dadoFaleConosco->total_status; @endphp
+                                            @break
+                                        @default
+                                            
+                                    @endswitch
+                                @endforeach
                             </div>
                         </div>
-                    </td>
-                    <td>1,001</td>
-                    <td>random</td>
-                    <td>data</td>
-                    <td>placeholder</td>
-                </tr>
-                <tr>
-                    <td>1,002</td>
-                    <td>placeholder</td>
-                    <td>irrelevant</td>
-                    <td>visual</td>
-                    <td>layout</td>
-                </tr>
-                <tr>
-                    <td>1,003</td>
-                    <td>data</td>
-                    <td>rich</td>
-                    <td>dashboard</td>
-                    <td>tabular</td>
-                </tr>
-                <tr>
-                    <td>1,003</td>
-                    <td>information</td>
-                    <td>placeholder</td>
-                    <td>illustrative</td>
-                    <td>data</td>
-                </tr>
-                <tr>
-                    <td>1,004</td>
-                    <td>text</td>
-                    <td>random</td>
-                    <td>layout</td>
-                    <td>dashboard</td>
-                </tr>
-                <tr>
-                    <td>1,005</td>
-                    <td>dashboard</td>
-                    <td>irrelevant</td>
-                    <td>text</td>
-                    <td>placeholder</td>
-                </tr>
-                <tr>
-                    <td>1,006</td>
-                    <td>dashboard</td>
-                    <td>illustrative</td>
-                    <td>rich</td>
-                    <td>data</td>
-                </tr>
-                <tr>
-                    <td>1,007</td>
-                    <td>placeholder</td>
-                    <td>tabular</td>
-                    <td>information</td>
-                    <td>irrelevant</td>
-                </tr>
-                <tr>
-                    <td>1,008</td>
-                    <td>random</td>
-                    <td>data</td>
-                    <td>placeholder</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td>1,009</td>
-                    <td>placeholder</td>
-                    <td>irrelevant</td>
-                    <td>visual</td>
-                    <td>layout</td>
-                </tr>
-                <tr>
-                    <td>1,010</td>
-                    <td>data</td>
-                    <td>rich</td>
-                    <td>dashboard</td>
-                    <td>tabular</td>
-                </tr>
-                <tr>
-                    <td>1,011</td>
-                    <td>information</td>
-                    <td>placeholder</td>
-                    <td>illustrative</td>
-                    <td>data</td>
-                </tr>
-                <tr>
-                    <td>1,012</td>
-                    <td>text</td>
-                    <td>placeholder</td>
-                    <td>layout</td>
-                    <td>dashboard</td>
-                </tr>
-                <tr>
-                    <td>1,013</td>
-                    <td>dashboard</td>
-                    <td>irrelevant</td>
-                    <td>text</td>
-                    <td>visual</td>
-                </tr>
-                <tr>
-                    <td>1,014</td>
-                    <td>dashboard</td>
-                    <td>illustrative</td>
-                    <td>rich</td>
-                    <td>data</td>
-                </tr>
-                <tr>
-                    <td>1,015</td>
-                    <td>random</td>
-                    <td>tabular</td>
-                    <td>information</td>
-                    <td>text</td>
-                </tr>
-            </tbody>
-        </table>
+                        <div class="col-md-4 d-flex justify-content-center align-self-center order-1">
+                            <h4 class="text-center">Quantidade Total de<br> Registros <span class="text-info">{{ $countFaleConosco }}</span></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    {{-- <p>
-        {{ $retornoCarreiraProfissional->links() }}
-        <b>Exibindo {{ $retornoCarreiraProfissional->count() }} registros de {{ $retornoCarreiraProfissional->total() }} (De {{ $retornoCarreiraProfissional->firstItem() }} a {{ $retornoCarreiraProfissional->lastItem() }})</b>
-    </p> --}}
 @endsection
