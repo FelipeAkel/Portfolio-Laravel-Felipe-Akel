@@ -98,58 +98,31 @@
                                 @foreach ($totalFaleConosco AS $indice => $dadoFaleConosco )
                                     @switch($dadoFaleConosco->id_status)
                                         @case(1)
-                                            <a type="button" class="list-group-item  list-group-item-action list-group-item-primary"
-                                                data-bs-toggle="popover" data-bs-title="Descrição Status" 
-                                                data-bs-content="{{ $dadoFaleConosco->ds_status }}"
-                                            >
-                                                <span class="badge text-bg-primary rounded-pill">{{ $dadoFaleConosco->total_status }}</span>
-                                                Total com o status: <b>{{ $dadoFaleConosco->no_status }}</b>
-                                            </a>
-                                            @php $countFaleConosco = $countFaleConosco + $dadoFaleConosco->total_status; @endphp
+                                            @php $class = 'primary'; @endphp
                                             @break
                                         @case(2)
-                                            <a type="button" class="list-group-item  list-group-item-action list-group-item-warning"
-                                                data-bs-toggle="popover" data-bs-title="Descrição Status" 
-                                                data-bs-content="{{ $dadoFaleConosco->ds_status }}"
-                                            >
-                                                <span class="badge text-bg-warning rounded-pill">{{ $dadoFaleConosco->total_status }}</span>
-                                                Total com o status: <b>{{ $dadoFaleConosco->no_status }}</b>
-                                            </a>
-                                            @php $countFaleConosco = $countFaleConosco + $dadoFaleConosco->total_status; @endphp
+                                            @php $class = 'warning'; @endphp
                                             @break
                                         @case(3)
-                                            <a type="button" class="list-group-item  list-group-item-action list-group-item-dark"
-                                                data-bs-toggle="popover" data-bs-title="Descrição Status" 
-                                                data-bs-content="{{ $dadoFaleConosco->ds_status }}"
-                                            >
-                                                <span class="badge text-bg-dark rounded-pill">{{ $dadoFaleConosco->total_status }}</span>
-                                                Total com o status: <b>{{ $dadoFaleConosco->no_status }}</b>
-                                            </a>
-                                            @php $countFaleConosco = $countFaleConosco + $dadoFaleConosco->total_status; @endphp
+                                            @php $class = 'dark'; @endphp
                                             @break
                                         @case(4)
-                                            <a type="button" class="list-group-item  list-group-item-action list-group-item-success"
-                                                data-bs-toggle="popover" data-bs-title="Descrição Status" 
-                                                data-bs-content="{{ $dadoFaleConosco->ds_status }}"
-                                            >
-                                                <span class="badge text-bg-success rounded-pill">{{ $dadoFaleConosco->total_status }}</span>
-                                                Total com o status: <b>{{ $dadoFaleConosco->no_status }}</b>
-                                            </a>
-                                            @php $countFaleConosco = $countFaleConosco + $dadoFaleConosco->total_status; @endphp
+                                            @php $class = 'success'; @endphp
                                             @break
                                         @case(5)
-                                            <a type="button" class="list-group-item  list-group-item-action list-group-item-danger"
-                                                data-bs-toggle="popover" data-bs-title="Descrição Status" 
-                                                data-bs-content="{{ $dadoFaleConosco->ds_status }}"
-                                            >
-                                                <span class="badge text-bg-danger rounded-pill">{{ $dadoFaleConosco->total_status }}</span>
-                                                Total com o status: <b>{{ $dadoFaleConosco->no_status }}</b>
-                                            </a>
-                                            @php $countFaleConosco = $countFaleConosco + $dadoFaleConosco->total_status; @endphp
+                                            @php $class = 'danger'; @endphp
                                             @break
                                         @default
-                                            
+                                            @php $class = 'info'; @endphp
                                     @endswitch
+                                    <a type="button" class="list-group-item  list-group-item-action list-group-item-{{ $class }}"
+                                        data-bs-toggle="popover" data-bs-title="Descrição Status" 
+                                        data-bs-content="{{ $dadoFaleConosco->ds_status }}"
+                                    >
+                                        <span class="badge text-bg-{{ $class }} rounded-pill">{{ $dadoFaleConosco->total_status }}</span>
+                                        Total com o status: <b>{{ $dadoFaleConosco->no_status }}</b>
+                                    </a>
+                                    @php $countFaleConosco = $countFaleConosco + $dadoFaleConosco->total_status; @endphp
                                 @endforeach
                             </div>
                         </div>
