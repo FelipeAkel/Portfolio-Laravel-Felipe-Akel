@@ -66,7 +66,7 @@
                     <div class="card-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Portfólio
+                            Projetos
                             <span class="badge text-bg-primary rounded-pill">{{ $totalPortfolio->total_portfolio > 0 ? $totalPortfolio->total_portfolio : 0 }}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">

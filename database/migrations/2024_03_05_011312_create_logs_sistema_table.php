@@ -4,17 +4,16 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTbStatusTable extends Migration
+class CreateLogsSistemaTable extends Migration
 {
+
     public function up()
     {
-        Schema::create('tb_status', function (Blueprint $table) {
-            $table->id()->nullable(false)->comment('Chave Primária da tabela');
+        Schema::create('tb_logs_sistema', function (Blueprint $table) {
+            $table->id()->nullable(false)->comment('Chave Primária da tabela tb_logs_sistema');
             $table->unsignedBigInteger('id_funcionalidade')->nullable(false)->comment('Chave Estrangeira da tabela tb_funcionalidades');
-            $table->string('no_status', 50)->nullable(false)->comment('Nome do status');
-            $table->string('ds_status', 255)->nullable(false)->comment('Descrição do status');
+            $table->string('ds_log_executado', 70)->nullable(false)->comment('Descrição do log executado pelo usuário');
             $table->timestamps();
-            $table->softDeletes()->nullable(true)->comment('Data de delete do registro');
 
             // Constraint
             $table->foreign('id_funcionalidade')->references('id')->on('tb_funcionalidades');
@@ -23,6 +22,6 @@ class CreateTbStatusTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('tb_status');
+        Schema::dropIfExists('tb_logs_sistema');
     }
 }

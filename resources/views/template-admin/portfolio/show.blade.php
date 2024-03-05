@@ -104,19 +104,19 @@
 
                         <div class="mb-3 col-md-3">
                             <figure class="figure">
-                                <img src="{{ asset('template-internauta/img/portfolio/') }}/1.jpg" class="img-thumbnail img-destaque" alt="...">
+                                <img src="https://github.com/FelipeAkel/super-mario-bros/blob/main/src/img/super-mario-bros.png?raw=true" class="img-thumbnail img-destaque" alt="...">
                                 <figcaption class="figure-caption">Destaque</figcaption>
                             </figure>
                         </div>
                         <div class="mb-3 col-md-3">
                             <figure class="figure">
-                                <img src="{{ asset('template-internauta/img/portfolio/') }}/1.jpg" class="img-thumbnail" alt="...">
+                                <img src="https://github.com/FelipeAkel/Laravel-Super-Gestao/blob/main/public/img/github/dasboard.png?raw=true" class="img-thumbnail" alt="...">
                                 <figcaption class="figure-caption">Modal</figcaption>
                             </figure>
                         </div>
                         <div class="mb-3 col-md-3">
                             <figure class="figure">
-                                <img src="{{ asset('template-internauta/img/portfolio/') }}/1.jpg" class="img-thumbnail" alt="...">
+                                <img src="https://github.com/FelipeAkel/Laravel-Super-Gestao/blob/main/public/img/github/dasboard.png?raw=true" class="img-thumbnail" alt="...">
                                 <figcaption class="figure-caption">Modal</figcaption>
                             </figure>
                         </div>
