@@ -15,7 +15,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2 @yield('active-sobre-mim')" aria-current="page" href="{{ route('sobre-mim.logs-sistema') }}">
+                    <a class="nav-link d-flex align-items-center gap-2 @yield('active-sobre-mim')" aria-current="page" href="{{ route('sobre-mim.informacao-pessoal-show') }}">
                         <i class="bi bi-person-vcard"></i>
                         Sobre Mim
                     </a>

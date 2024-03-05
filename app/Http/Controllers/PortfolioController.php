@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\PortfolioFormRequest;
 use App\Models\TbPortfolio;
+use App\Models\TbLogsSistema;
 
 use Brian2694\Toastr\Facades\Toastr;
 
@@ -31,6 +32,8 @@ class PortfolioController extends Controller
         // SALVAR ARQUIVOS ANEXOS
 
         if($retornoBanco == true){
+            $this->logsSistemaStore(6, 'Portfólio: Projeto');
+
             Toastr::success('O registro foi cadastrado', 'Sucesso');
         } else {
             Toastr::error('Não foi possível cadastrar o registro', 'Erro');
@@ -71,6 +74,8 @@ class PortfolioController extends Controller
         // SALVAR ARQUIVOS ANEXOS
 
         if($retornoBanco == true){
+            $this->logsSistemaStore(7, 'Portfólio: Projeto - ID: ' . $id);
+
             Toastr::success('O registro foi atualizado', 'Sucesso');
         } else {
             Toastr::error('Não foi possível atualizar o registro', 'Erro');
@@ -82,10 +87,11 @@ class PortfolioController extends Controller
     public function destroy($id)
     {
         $portfolio = TbPortfolio::find($id);
-
         $retornoBanco = $portfolio->delete();
 
         if($retornoBanco == true){
+            $this->logsSistemaStore(8, 'Portfólio: Projeto - ID: ' . $id);
+
             Toastr::success('O registro foi deletado', 'Sucesso');
         } else {
             Toastr::error('Não foi possível deletar o registro', 'Erro');
@@ -124,5 +130,10 @@ class PortfolioController extends Controller
         $portfolio['tipo_php_laravel'] = $tipo_php_laravel;
         $portfolio['tipo_website'] = $tipo_website;
         $portfolio['tipo_landing_page'] = $tipo_landing_page;
+    }
+
+    public function logsSistemaStore ($id_status, $ds_log_executado)
+    {
+        return TbLogsSistema::create(['id_status' => $id_status, 'ds_log_executado' => $ds_log_executado]);
     }
 }

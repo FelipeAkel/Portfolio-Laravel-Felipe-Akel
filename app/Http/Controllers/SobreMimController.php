@@ -7,6 +7,7 @@ use App\Http\Requests\InformacaoPessoalFormRequest;
 use App\Http\Requests\LoginSenhaFormRequest;
 use Illuminate\Support\Facades\DB;
 use App\Models\TbSobreMim;
+use App\Models\TbLogsSistema;
 
 use Brian2694\Toastr\Facades\Toastr;
 
@@ -19,9 +20,11 @@ class SobreMimController extends Controller
         $totalHabilidade = $this->totalHabilidade();
         $totalPortfolio = $this->totalPortfolio();
         $totalServicos = $this->totalServicos();
+
+        $logsSistema = TbLogsSistema::orderBy('created_at', 'DESC')->skip(0)->take(50)->paginate(10); // Recuperando 50 últimos logs
         
         return view('template-admin.sobre-mim.logs-sistema', compact(
-            'infoSobreMim', 'totalCarreiraProfissional', 'totalHabilidade', 'totalPortfolio', 'totalServicos'
+            'infoSobreMim', 'totalCarreiraProfissional', 'totalHabilidade', 'totalPortfolio', 'totalServicos', 'logsSistema'
         ));
     }
 
@@ -61,6 +64,8 @@ class SobreMimController extends Controller
         $retornoBanco = $sobreMim->update($request->all());
 
         if($retornoBanco == true){
+            $this->logsSistemaStore(7, 'Sobre Mim - Informação Pessoal');
+
             Toastr::success('O registro foi atualizado', 'Sucesso');
         } else {
             Toastr::error('Não foi possível atualizado o registro', 'Erro');
@@ -114,6 +119,8 @@ class SobreMimController extends Controller
         $retornoBanco = $sobreMim->update($request->all());
 
         if($retornoBanco == true){
+            $this->logsSistemaStore(7, 'Sobre Mim - Login e Senha');
+
             Toastr::success('O registro foi atualizado', 'Sucesso');
         } else {
             Toastr::error('Não foi possível atualizado o registro', 'Erro');
@@ -167,4 +174,8 @@ class SobreMimController extends Controller
         return $totalServicos = $totalServicos[0];
     }
         
+    public function logsSistemaStore ($id_status, $ds_log_executado)
+    {
+        return TbLogsSistema::create(['id_status' => $id_status, 'ds_log_executado' => $ds_log_executado]);
+    }
 }

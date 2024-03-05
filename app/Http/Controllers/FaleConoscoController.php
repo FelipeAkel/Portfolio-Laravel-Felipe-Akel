@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ResponderFormRequest;
-
 use App\Models\TbRespostas;
 use App\Models\TbStatus;
 use App\Models\TbFaleConosco;
+use App\Models\TbLogsSistema;
 
 use Brian2694\Toastr\Facades\Toastr;
 
@@ -16,7 +16,7 @@ class FaleConoscoController extends Controller
 
     public function index()
     {
-        $status = TbStatus::all();
+        $status = TbStatus::find([1, 2, 3, 4, 5]);
         $faleConosco = TbFaleConosco::with('status')->where('id', '>=', 1)->orderBy('created_at', 'DESC')->paginate(10);
 
         return view('template-admin.fale-conosco.index', compact('status', 'faleConosco'));
@@ -32,7 +32,7 @@ class FaleConoscoController extends Controller
 
     public function responder($id)
     {
-        $status = TbStatus::all();
+        $status = TbStatus::find([1, 2, 3, 4, 5]);
         $faleConosco = TbFaleConosco::with('status')->find($id);
         $respostas = TbRespostas::where('id_fale_conosco', '=', $id)->orderBy('created_at', 'DESC')->paginate(5);
 
@@ -56,13 +56,20 @@ class FaleConoscoController extends Controller
             // ACRESCENTAR A FUNCIONALIDADE DE ENVIO DE E-MAIL AQUI
             // ACRESCENTAR A FUNCIONALIDADE DE ENVIO DE E-MAIL AQUI
             // ACRESCENTAR A FUNCIONALIDADE DE ENVIO DE E-MAIL AQUI
-            
+
+            $this->logsSistemaStore(9, 'Fale Conosco - ID: ' . $id);
+
             Toastr::success('A resposta foi cadastrada', 'Sucesso');
         } else {
             Toastr::error('Não foi possível cadastrar a resposta', 'Erro');
         }
 
         return redirect()->route('fale-conosco.show', $id);
+    }
+
+    public function logsSistemaStore ($id_status, $ds_log_executado)
+    {
+        return TbLogsSistema::create(['id_status' => $id_status, 'ds_log_executado' => $ds_log_executado]);
     }
 
 }

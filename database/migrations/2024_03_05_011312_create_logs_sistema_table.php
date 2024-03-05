@@ -11,12 +11,12 @@ class CreateLogsSistemaTable extends Migration
     {
         Schema::create('tb_logs_sistema', function (Blueprint $table) {
             $table->id()->nullable(false)->comment('Chave Primária da tabela tb_logs_sistema');
-            $table->unsignedBigInteger('id_funcionalidade')->nullable(false)->comment('Chave Estrangeira da tabela tb_funcionalidades');
+            $table->unsignedBigInteger('id_status')->nullable(false)->comment('Chave Estrangeira da tabela tb_status');
             $table->string('ds_log_executado', 70)->nullable(false)->comment('Descrição do log executado pelo usuário');
             $table->timestamps();
 
             // Constraint
-            $table->foreign('id_funcionalidade')->references('id')->on('tb_funcionalidades');
+            $table->foreign('id_status')->references('id')->on('tb_status');
         });
     }
 

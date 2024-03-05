@@ -86,18 +86,18 @@
             <div class="card ">
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs">
-                    <li class="nav-item">
-                        <a class="nav-link @yield('active-logs-sistema')" href="{{ route('sobre-mim.logs-sistema') }}">Logs do Sistema</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link @yield('active-informacao-pessoal')" href="{{ route('sobre-mim.informacao-pessoal-show') }}">Informação pessoal</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link @yield('active-mudar-foto')" href="{{ route('sobre-mim.mudar-foto') }}">Mudar Foto</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link @yield('active-login-senha')" href="{{ route('sobre-mim.alterar-login-senha') }}">Alterar login e senha</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link @yield('active-informacao-pessoal')" href="{{ route('sobre-mim.informacao-pessoal-show') }}">Informação pessoal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @yield('active-mudar-foto')" href="{{ route('sobre-mim.mudar-foto') }}">Mudar Foto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @yield('active-login-senha')" href="{{ route('sobre-mim.alterar-login-senha') }}">Alterar login e senha</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @yield('active-logs-sistema')" href="{{ route('sobre-mim.logs-sistema') }}">Logs do Sistema</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="card-body">

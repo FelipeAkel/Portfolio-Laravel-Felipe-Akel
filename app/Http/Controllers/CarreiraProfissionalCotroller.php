@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TbCarreiraProfissional;
 use App\Models\TbTipoExperiencia;
-
+use App\Models\TbLogsSistema;
 use Illuminate\Http\Request;
 use App\Http\Requests\CarreiraProfissionalFormRequest;
 
@@ -42,6 +42,8 @@ class CarreiraProfissionalCotroller extends Controller
         $retornoBanco = TbCarreiraProfissional::create($request->all());
 
         if($retornoBanco == true){
+            $this->logsSistemaStore(6, 'Carreira Profissional');
+
             Toastr::success('O registro foi cadastrado', 'Sucesso');
         } else {
             Toastr::error('Não foi possível cadastrar o registro', 'Erro');
@@ -53,7 +55,6 @@ class CarreiraProfissionalCotroller extends Controller
     public function show($id)
     {
         $carreiraProfissional = TbCarreiraProfissional::with("tipoExperiencia")->find($id);
-        
         return view('template-admin.carreira-profissional.show', compact('carreiraProfissional'));
     }
 
@@ -70,6 +71,8 @@ class CarreiraProfissionalCotroller extends Controller
         $retornoBanco = $carreiraProfissional->update($request->all());
 
         if($retornoBanco == true){
+            $this->logsSistemaStore(7, 'Carreira Profissional - ID: ' . $id);
+
             Toastr::success('O registro foi atualizado', 'Sucesso');
         } else {
             Toastr::error('Não foi possível atualizar o registro', 'Erro');
@@ -84,11 +87,18 @@ class CarreiraProfissionalCotroller extends Controller
         $retornoBanco = $carreiraProfissional->delete();
 
         if($retornoBanco == true){
+            $this->logsSistemaStore(8, 'Carreira Profissional - ID: ' . $id);
+
             Toastr::success('O registro foi deletado', 'Sucesso');
         } else {
             Toastr::error('Não foi possível deletar o registro', 'Erro');
         }
 
         return redirect()->route('carreira-profissional.index');
+    }
+
+    public function logsSistemaStore ($id_status, $ds_log_executado)
+    {
+        return TbLogsSistema::create(['id_status' => $id_status, 'ds_log_executado' => $ds_log_executado]);
     }
 }
