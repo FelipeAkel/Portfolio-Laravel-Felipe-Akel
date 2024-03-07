@@ -106,6 +106,7 @@ class SobreMimController extends Controller
     {
         $sobreMim = TbSobreMim::find($id);
 
+        // MELHORIA: Buscar melhorar o criandoHashSenha em um único arquivo. Atualmente está em LoginController e SobreMimController
         // Verificando se a senha antiga é igual
         $ds_senha_antiga = $this->criandoHashSenha($request['ds_senha_antiga']);
         if($ds_senha_antiga != $sobreMim->ds_senha){
@@ -129,6 +130,7 @@ class SobreMimController extends Controller
         return redirect()->route('sobre-mim.alterar-login-senha');
     }
 
+    // MELHORIA: Buscar melhorar o criandoHashSenha em um único arquivo. Atualmente está em LoginController e SobreMimController
     public function criandoHashSenha ($variavel)
     {
         $md5 = 'P0rtf0l10Felipe@kel' . $variavel . '01_CriandoUmaHashMaisForte_10';

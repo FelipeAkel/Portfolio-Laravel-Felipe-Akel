@@ -9,13 +9,13 @@
         <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2 @yield('active-dashboard')" aria-current="page" href="{{ route('admin.dashboard') }}">
+                    <a class="nav-link d-flex align-items-center gap-2 link-menu @yield('active-dashboard')" aria-current="page" href="{{ route('admin.dashboard') }}">
                         <i class="bi bi-bar-chart-fill"></i>
                         Dashboard
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2 @yield('active-sobre-mim')" aria-current="page" href="{{ route('sobre-mim.informacao-pessoal-show') }}">
+                    <a class="nav-link d-flex align-items-center gap-2 link-menu @yield('active-sobre-mim')" aria-current="page" href="{{ route('sobre-mim.informacao-pessoal-show') }}">
                         <i class="bi bi-person-vcard"></i>
                         Sobre Mim
                     </a>
@@ -36,13 +36,13 @@
             <div class="collapse show" id="account-collapse" style="">
                 <ul class="nav flex-column mb-auto" >
                     <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center gap-2 @yield('active-carreira-profissional')" href="{{ route('carreira-profissional.index') }}">
+                        <a class="nav-link d-flex align-items-center gap-2 link-menu @yield('active-carreira-profissional')" href="{{ route('carreira-profissional.index') }}">
                             <i class="bi bi-award-fill"></i>
                             Carreira Profissional
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center gap-2 @yield('active-habilidade')" href="{{ route('habilidade.index') }}">
+                        <a class="nav-link d-flex align-items-center gap-2 link-menu @yield('active-habilidade')" href="{{ route('habilidade.index') }}">
                             <i class="bi bi-graph-up-arrow"></i>
                             Habilidade
                         </a>
@@ -54,19 +54,19 @@
 
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2 @yield('active-portfolio')" href="{{ route('portfolio.index') }}">
+                    <a class="nav-link d-flex align-items-center gap-2 link-menu @yield('active-portfolio')" href="{{ route('portfolio.index') }}">
                         <i class="bi bi-journal-richtext"></i>
                         Portfólio
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2 @yield('active-servicos')" href="{{ route('servicos.index') }}">
+                    <a class="nav-link d-flex align-items-center gap-2 link-menu @yield('active-servicos')" href="{{ route('servicos.index') }}">
                         <i class="bi bi-stack-overflow"></i>
                         Serviços
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2 @yield('active-fale-conosco')" href="{{ route('fale-conosco.index') }}">
+                    <a class="nav-link d-flex align-items-center gap-2 link-menu @yield('active-fale-conosco')" href="{{ route('fale-conosco.index') }}">
                         <i class="bi bi-wechat"></i>
                         Fale Conosco
                     </a>
@@ -77,20 +77,20 @@
 
             <ul class="nav flex-column mb-auto">
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2 dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-                        Felipe Akel
+                    <a class="nav-link d-flex align-items-center gap-2 dropdown-toggle link-menu" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="{{ asset('template-internauta/img/about/') }}/felipe-akel.jpg" alt="mdo" width="32" height="32" class="rounded-circle">
+                        {{ $_SESSION['no_usuario_portfolio'] }}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" style="">
                         <li><a class="dropdown-item" href="{{ route('carreira-profissional.create') }}">Nova Experiência</a></li>
                         <li><a class="dropdown-item" href="{{ route('habilidade.create') }}">Nova Habilidade</a></li>
                         <li><a class="dropdown-item" href="{{ route('portfolio.create') }}">Novo Projeto</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Sair</a></li>
+                        <li><a class="dropdown-item" href="{{ route('admin.logoff') }}">Sair</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="#">
+                    <a class="nav-link d-flex align-items-center gap-2 link-menu" href="{{ route('admin.logoff') }}">
                         <i class="bi bi-box-arrow-right"></i>
                         Sair
                     </a>

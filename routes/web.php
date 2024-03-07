@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SobreMimController;
 use App\Http\Controllers\HabilidadeController;
@@ -25,17 +26,23 @@ Route::controller(InternautaController::class)->group(function () {
     Route::post('/contato/store', 'store')->name('internauta.contato.store');
 });
 
-Route::get('/login', function(){
-    return view('login');
-})->name('login');
+// Validação de Login para Área Admin
+Route::controller(LoginController::class)->group(function () {
+    Route::get('/login', 'login')->name('admin.login');
+    Route::post('/login', 'loginValidacao')->name('admin.login-validacao');
+});
 
-Route::prefix('admin')->group(function(){
+
+Route::middleware('autenticacao')->prefix('admin')->group(function(){
+
+    Route::controller(LoginController::class)->group(function () {
+        Route::get('/logoff', 'logoff')->name('admin.logoff');
+    });
 
     Route::controller(DashboardController::class)->group(function () {
         Route::get('/dashboard', 'index')->name('admin.dashboard');
     });
     
-
     Route::controller(SobreMimController::class)->group(function () {
         Route::prefix('sobre-mim')->group(function () {
             Route::get('/logs-sistema', 'logsSistema')->name('sobre-mim.logs-sistema');

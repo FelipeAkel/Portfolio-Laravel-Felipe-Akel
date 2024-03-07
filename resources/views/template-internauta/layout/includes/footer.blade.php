@@ -7,7 +7,7 @@
             </div>
             <div class="right">
                 <ul>
-                    <li><a href="{{ route('login') }}">Login</a></li>
+                    <li><a href="{{ route('admin.login') }}">Login</a></li>
                 </ul>
             </div>
         </div>
