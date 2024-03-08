@@ -17,17 +17,16 @@
 
     <div class="row padding-top-2em justify-content-center">
         <div class="col col-md-4 ">
-
             <div class="row justify-content-center">
                 <div class="card text-center pt-3" style="width: 18rem;">
-                    <img src="{{ asset('template-internauta/img/about/') }}/felipe-akel.jpg" class="card-img-top rounded" alt="...">
+                    <img src="{{ asset('storage/') }}/{{ $infoSobreMim->ds_url_foto_usuario }}" class="card-img-top rounded" alt="Foto do Usuário">
                     <div class="card-body">
                         <h5 class="card-title text-info-emphasis">{{ $infoSobreMim->no_usuario }}</h5>
                         <p class="card-text">{{ $infoSobreMim->ds_funcao }}</p>
                     </div>
                     <div class="card-body">
-                        <a href="{{ asset('template-internauta/file/curriculo-felipe-akel.pdf') }}" class="card-link" target="_blank">Currículo</a>
-                        <a href="{{ $infoSobreMim->ds_url_linkedin }}" class="card-link" target="_blank">Linkedin</a>
+                        <a href="{{ asset('storage/') }}/{{ $infoSobreMim->ds_url_curriculo }}" class="card-link link-menu" target="_blank">Currículo</a>
+                        <a href="{{ $infoSobreMim->ds_url_linkedin }}" class="card-link link-menu" target="_blank">Linkedin</a>
                     </div>
                 </div>
             </div>
@@ -87,16 +86,16 @@
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs">
                         <li class="nav-item">
-                            <a class="nav-link @yield('active-informacao-pessoal')" href="{{ route('sobre-mim.informacao-pessoal-show') }}">Informação pessoal</a>
+                            <a class="nav-link link-menu @yield('active-informacao-pessoal')" href="{{ route('sobre-mim.informacao-pessoal-show') }}">Informação pessoal</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @yield('active-mudar-foto')" href="{{ route('sobre-mim.mudar-foto') }}">Mudar Foto</a>
+                            <a class="nav-link link-menu @yield('active-mudar-arquivos')" href="{{ route('sobre-mim.mudar-arquivos') }}">Mudar Arquivos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @yield('active-login-senha')" href="{{ route('sobre-mim.alterar-login-senha') }}">Alterar login e senha</a>
+                            <a class="nav-link link-menu @yield('active-login-senha')" href="{{ route('sobre-mim.alterar-login-senha') }}">Alterar login e senha</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @yield('active-logs-sistema')" href="{{ route('sobre-mim.logs-sistema') }}">Logs do Sistema</a>
+                            <a class="nav-link link-menu @yield('active-logs-sistema')" href="{{ route('sobre-mim.logs-sistema') }}">Logs do Sistema</a>
                         </li>
                     </ul>
                 </div>

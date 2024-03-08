@@ -7,7 +7,7 @@
             </div>
             <div class="right">
                 <div class="iknow_tm_button">
-                    <a href="{{ asset('template-internauta/file/curriculo-felipe-akel.pdf') }}" download>Download CV</a>
+                    <a href="{{ asset('storage/') }}/{{ $sobreMim->ds_url_curriculo }}" download>Download CV</a>
                 </div>
             </div>
         </div>

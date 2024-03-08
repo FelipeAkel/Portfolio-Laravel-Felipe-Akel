@@ -5,7 +5,7 @@
             <div class="left_inner">
                 <div class="image">
                     <img src="{{ asset('template-internauta/img/') }}/thumbs/35-44.jpg" alt="" />
-                    <div class="main" data-img-url="{{ asset('template-internauta/img/about/felipe-akel.jpg') }}"></div>
+                    <div class="main" data-img-url="{{ asset('storage/') }}/{{ $sobreMim->ds_url_foto_usuario }}"></div>
                 </div>
                 <div class="details">
                     <ul>

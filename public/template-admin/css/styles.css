@@ -130,6 +130,11 @@
     color: #6ea8fe;
 }
 
+.active-sobre-mim {
+    /* text-decoration: none; */
+    color: #E33F34;
+}
+
 .link-menu:hover{
     color: #E33F34;
 }

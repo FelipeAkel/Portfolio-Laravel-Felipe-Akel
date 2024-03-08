@@ -49,8 +49,8 @@ Route::middleware('autenticacao')->prefix('admin')->group(function(){
             Route::get('/informacao-pessoal-show', 'informacaoPessoalShow')->name('sobre-mim.informacao-pessoal-show');
             Route::get('/informacao-pessoal-edit', 'informacaoPessoalEdit')->name('sobre-mim.informacao-pessoal-edit');
             Route::put('/informacao-pessoal-edit/{id}', 'informacaoPessoalUpdate')->where('id', '[0-9]+')->name('sobre-mim.informacao-pessoal-update');
-            Route::get('/mudar-foto', 'mudarFoto')->name('sobre-mim.mudar-foto');
-            // Route::put('/mudar-foto', 'mudarFotoUpdate')->name('sobre-mim.mudar-foto-update');
+            Route::get('/mudar-arquivos', 'mudarArquivos')->name('sobre-mim.mudar-arquivos');
+            Route::put('/mudar-arquivos/{id}', 'mudarArquivosUpdate')->where('id', '[0-9]+')->name('sobre-mim.mudar-arquivos-update');
             Route::get('/alterar-login-senha', 'alterarLoginSenha')->name('sobre-mim.alterar-login-senha');
             Route::patch('/alterar-login-senha/{id}', 'alterarLoginSenhaUpdate')->where('id', '[0-9]+')->name('sobre-mim.alterar-login-senha-update');
 

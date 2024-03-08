@@ -20,6 +20,8 @@ class CreateTbSobreMimTable extends Migration
             $table->text('ds_perfil')->nullable(false)->comment('Descrição do perfil do portfólio');
             $table->string('ds_url_linkedin', 255)->nullable(true)->comment('URL do Linkedin do usuário');
             $table->string('ds_url_github', 255)->nullable(true)->comment('URL do GitHub do usuário');
+            $table->string('ds_url_curriculo', 255)->nullable(true)->comment('URL do currículo do usuário');
+            $table->string('ds_url_foto_usuario', 255)->nullable(true)->comment('URL do foto do usuário');
             $table->string('no_login', 50)->nullable(false)->comment('Nome do login do usuário do sistema');
             $table->string('ds_senha', 255)->nullable(false)->comment('Hash da senha do usuário do sistema');
             $table->timestamps();

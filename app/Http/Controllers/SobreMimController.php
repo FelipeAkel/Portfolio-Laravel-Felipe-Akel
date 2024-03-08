@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\InformacaoPessoalFormRequest;
+use App\Http\Requests\ArquivosFormRequest;
 use App\Http\Requests\LoginSenhaFormRequest;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use App\Models\TbSobreMim;
 use App\Models\TbLogsSistema;
 
@@ -57,7 +59,6 @@ class SobreMimController extends Controller
             'infoSobreMim', 'totalCarreiraProfissional', 'totalHabilidade', 'totalPortfolio', 'totalServicos', 'sobreMim'
         ));
     }
-
     public function informacaoPessoalUpdate(InformacaoPessoalFormRequest $request, $id)
     {
         $sobreMim = TbSobreMim::find($id);
@@ -74,7 +75,7 @@ class SobreMimController extends Controller
         return redirect()->route('sobre-mim.informacao-pessoal-show');
     }
 
-    public function mudarFoto()
+    public function mudarArquivos()
     {
         $infoSobreMim = $this->infoSobreMim();
         $totalCarreiraProfissional = $this->totalCarreiraProfissional();
@@ -82,9 +83,55 @@ class SobreMimController extends Controller
         $totalPortfolio = $this->totalPortfolio();
         $totalServicos = $this->totalServicos();
 
-        return view('template-admin.sobre-mim.mudar-foto', compact(
-            'infoSobreMim', 'totalCarreiraProfissional', 'totalHabilidade', 'totalPortfolio', 'totalServicos',
+        $sobreMim = TbSobreMim::all()->first();
+
+        return view('template-admin.sobre-mim.mudar-arquivos', compact(
+            'infoSobreMim', 'totalCarreiraProfissional', 'totalHabilidade', 'totalPortfolio', 'totalServicos', 'sobreMim'
         ));
+    }
+
+    public function mudarArquivosUpdate(ArquivosFormRequest $request, $id)
+    {
+        $sobreMim = TbSobreMim::find($id);
+        $urlCurriculo = $sobreMim->ds_url_curriculo;
+        $urlFoto = $sobreMim->ds_url_foto_usuario;
+
+//Verificando se arquivo foi adicionado
+        if($request->file('ds_url_curriculo')){
+// Lendo informações do arquivo selecionado
+            $curriculo = $request->file('ds_url_curriculo');
+
+// Armazenando o arquivo na pasta storage do Laravel. 
+    // 1º parametro 'sobre-mim 'se refere a pasta criada/existente.
+    // 2º parametro 'public' se refere ao arquivo de configuração Disk - config/filesystems.php o qual define o diretório configurado do Store.
+            $urlCurriculo = $curriculo->store('sobre-mim', 'public');
+
+// Delete Arquivos Antigos ---- Adicionar na controller: use Illuminate\Support\Facades\Storage;
+            Storage::disk('public')->delete($sobreMim->ds_url_curriculo);
+        }
+
+// Criando um link simbólico para a disco public. Dessa forma, será possível recuperar os arquivos pelo asset('public/store/...') 
+// prompt: php artisan storage:link
+
+        if($request->file('ds_url_foto_usuario')){
+            $foto = $request->file('ds_url_foto_usuario');
+            $urlFoto = $foto->store('sobre-mim', 'public');
+            Storage::disk('public')->delete($sobreMim->ds_url_foto_usuario);
+        }
+
+        $retornoBanco = $sobreMim->update([
+            'ds_url_curriculo' => $urlCurriculo,
+            'ds_url_foto_usuario' => $urlFoto,
+        ]);
+
+        if($retornoBanco == true){
+            $this->logsSistemaStore(7, 'Sobre Mim - Arquivos PDF ou Foto ');
+            Toastr::success('O registro foi atualizado', 'Sucesso');
+        } else {
+            Toastr::error('Não foi possível atualizado o registro', 'Erro');
+        }
+
+        return redirect()->route('sobre-mim.mudar-arquivos');
     }
 
     public function alterarLoginSenha()
