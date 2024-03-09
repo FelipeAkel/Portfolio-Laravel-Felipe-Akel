@@ -61,7 +61,7 @@
                             <div class="collapse" id="collapseIcone">
                                 <div class="card card-body">
                                     <div class="text-center">
-                                        <img src="{{ asset('template-internauta/img/svg/') }}/web.svg" class="rounded img-icon" alt="...">
+                                        <img src="{{ asset('storage/') }}/{{$servico->ds_url_icon_svg }}" class="rounded img-icon" alt="...">
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
                             <div class="collapse" id="collapseImgDestaque">
                                 <div class="card card-body">
                                     <div class="text-center">
-                                        <img src="{{ asset('template-internauta/img/service/') }}/1.jpg" class="rounded img-servico" alt="...">
+                                        <img src="{{ asset('storage/') }}/{{$servico->ds_url_img }}" class="img-fluid " alt="...">
                                     </div>
                                 </div>
                             </div>

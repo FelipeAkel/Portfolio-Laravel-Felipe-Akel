@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Models\TbServicos;
 use App\Models\TbLogsSistema;
 use App\Http\Requests\ServicosFormRequest;
@@ -24,6 +25,16 @@ class ServicosController extends Controller
 
     public function store(ServicosFormRequest $request)
     {
+        // Arquivos
+        $icone = $request->file('file_icon_svg');
+        $imagem = $request->file('file_img');
+
+        $urlIcone = $icone->store('servicos/icones', 'public');
+        $urlImagem = $imagem->store('servicos', 'public');
+
+        $request['ds_url_icon_svg'] = $urlIcone;
+        $request['ds_url_img'] = $urlImagem;
+
         $retornoBanco = TbServicos::create($request->all());
         if($retornoBanco == true){
             $this->logsSistemaStore(6, 'Serviço');
@@ -51,6 +62,23 @@ class ServicosController extends Controller
     public function update(ServicosFormRequest $request, $id)
     {
         $servico = TbServicos::find($id);
+        $urlIcone = $servico->ds_url_icon_svg;
+        $urlImagem = $servico->ds_url_img;
+
+        // Arquivos
+        if($request->file('file_icon_svg')){
+            $icone = $request->file('file_icon_svg');
+            $urlIcone = $icone->store('servicos/icones', 'public');
+            Storage::disk('public')->delete($servico->ds_url_icon_svg);    // Delete arquivo antigo
+            $request['ds_url_icon_svg'] = $urlIcone;
+        }
+        if($request->file('file_img')){
+            $imagem = $request->file('file_img');
+            $urlImagem = $imagem->store('servicos', 'public');
+            Storage::disk('public')->delete($servico->ds_url_img);
+            $request['ds_url_img'] = $urlImagem;
+        }
+
         $retornoBanco = $servico->update($request->all());
 
         if($retornoBanco == true){
@@ -69,6 +97,9 @@ class ServicosController extends Controller
     {
         $servico = TbServicos::find($id);
         $retornoBanco = $servico->delete();
+
+        Storage::disk('public')->delete($servico->ds_url_icon_svg);
+        Storage::disk('public')->delete($servico->ds_url_img);
 
         if($retornoBanco == true){
             $this->logsSistemaStore(8, 'Serviço - ID: ' . $id);

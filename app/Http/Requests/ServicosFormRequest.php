@@ -17,8 +17,8 @@ class ServicosFormRequest extends FormRequest
         return [
             'no_servico' => 'required | max:100',
             'ds_servico' => 'required | max:600',
-            'ds_url_icon_svg' => 'required',    // image    file|size:512   dimensions:min_width=100,min_height=200
-            'ds_url_img' => 'required',         // image    file|size:512   dimensions:min_width=100,min_height=200
+            'file_icon_svg' => 'required | file | mimes:svg',    // image    file|size:512   dimensions:min_width=100,min_height=200
+            'file_img' => 'required | file | mimes:png,jpg,jpeg',         // image    file|size:512   dimensions:min_width=100,min_height=200
         ];
     }
     
@@ -27,9 +27,11 @@ class ServicosFormRequest extends FormRequest
     {
         return [
             'required' => 'O campo é obrigatório',
-            // 'image' => 'Somente arquivos (jpeg, png, bmp, gif, svg, ou webp)',
+            'file' => 'Deve-se enviar um arquivo',
             'no_servico.max' => 'O campo deve ter no máximo 100 caracteres',
             'ds_servico.max' => 'O campo deve ter no máximo 600 caracteres',
+            'file_icon_svg.mimes' => 'O arquivo deve ter extensão: svg',
+            'file_img.mimes' => 'O arquivo deve ter extensão: png, jpg ou jpeg',
         ];
     }
 }

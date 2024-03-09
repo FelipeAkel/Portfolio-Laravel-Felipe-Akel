@@ -103,7 +103,7 @@
     </div>
 
     <div class="mb-3 col-md-4">
-        <label for="st_trabalho_atual" class="form-label">Trabalho atualmente neste cargo?</label>
+        <label for="st_trabalho_atual" class="form-label">Trabalho atualmente neste cargo? <span class="required">*</span></label>
         <div class="form-check">
             <input class="form-check-input {{ $errors->has('st_trabalho_atual') ? 'is-invalid' : '' }}" type="radio" name="st_trabalho_atual" id="sim" value="1" {{ ($carreiraProfissional->st_trabalho_atual ?? old('st_trabalho_atual')) == 1 ? 'checked' : '' }}>
             <label class="form-check-label" for="sim">

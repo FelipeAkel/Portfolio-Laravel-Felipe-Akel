@@ -31,8 +31,8 @@
                     <th scope="col" width="200px">Ações</th>
                     <th scope="col">ID</th>
                     <th scope="col">Serviço</th>
-                    <th scope="col">Icone</th>
-                    <th scope="col">Imagem</th>
+                    <th scope="col" class="text-center">Icone</th>
+                    <th scope="col" class="text-center">Imagem</th>
                     <th scope="col">Data Criação</th>
                 </tr>
             </thead>
@@ -69,8 +69,8 @@
                     </td>
                     <td>{{ $dadoServico->id }}</td>
                     <td>{{ $dadoServico->no_servico }}</td>
-                    <td>{{ $dadoServico->ds_url_icon_svg }}</td>
-                    <td>{{ $dadoServico->ds_url_img }}</td>
+                    <td class="text-center"><img src="{{ asset('storage/') }}/{{$dadoServico->ds_url_icon_svg }}" style="width:30px;" class="rounded img-icon" alt="..."></td>
+                    <td class="text-center"><a href="{{ asset('storage/') }}/{{$dadoServico->ds_url_img }}" target="_blank" >Imagem</a></td>
                     <td>{{ $dadoServico->created_at }}</td>
                 </tr>
                 @endforeach
