@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\PortfolioFormRequest;
+use Illuminate\Support\Facades\Storage;
+use App\Models\TbArquivos;
 use App\Models\TbPortfolio;
 use App\Models\TbLogsSistema;
 
@@ -25,11 +27,29 @@ class PortfolioController extends Controller
     public function store(PortfolioFormRequest $request)
     {
         $this->mesclarDsTipoProjeto($request);
-        
+
+        if($request->file('file_img_destaque')){
+            $imgDestaque = $request->file('file_img_destaque');
+            $urlImgDestaque = $imgDestaque->store('portfolio', 'public');
+            $request['ds_url_img_destaque'] = $urlImgDestaque;
+        }
+        if($request->file('file_img_1_galeria')){
+            $img1Galeria = $request->file('file_img_1_galeria');
+            $urlImg1Galeria = $img1Galeria->store('portfolio', 'public');
+            $request['ds_url_img_1_galeria'] = $urlImg1Galeria;
+        }
+        if($request->file('file_img_2_galeria')){
+            $img2Galeria = $request->file('file_img_2_galeria');
+            $urlImg2Galeria = $img2Galeria->store('portfolio', 'public');
+            $request['ds_url_img_2_galeria'] = $urlImg2Galeria;
+        }
+        if($request->file('file_img_3_galeria')){
+            $img3Galeria = $request->file('file_img_3_galeria');
+            $urlImg3Galeria = $img3Galeria->store('portfolio', 'public');
+            $request['ds_url_img_3_galeria'] = $urlImg3Galeria;
+        }
+
         $retornoBanco = TbPortfolio::create($request->all());
-        // SALVAR ARQUIVOS ANEXOS
-        // SALVAR ARQUIVOS ANEXOS
-        // SALVAR ARQUIVOS ANEXOS
 
         if($retornoBanco == true){
             $this->logsSistemaStore(6, 'Portfólio: Projeto');
@@ -67,11 +87,32 @@ class PortfolioController extends Controller
 
         $this->mesclarDsTipoProjeto($request);
 
-        $retornoBanco = $portfolio->update($request->all());
+        if($request->file('file_img_destaque')){
+            $imgDestaque = $request->file('file_img_destaque');
+            $urlImgDestaque = $imgDestaque->store('portfolio', 'public');
+            Storage::disk('public')->delete($portfolio->ds_url_img_destaque);
+            $request['ds_url_img_destaque'] = $urlImgDestaque;
+        }
+        if($request->file('file_img_1_galeria')){
+            $img1Galeria = $request->file('file_img_1_galeria');
+            $urlImg1Galeria = $img1Galeria->store('portfolio', 'public');
+            Storage::disk('public')->delete($portfolio->ds_url_img_1_galeria);
+            $request['ds_url_img_1_galeria'] = $urlImg1Galeria;
+        }
+        if($request->file('file_img_2_galeria')){
+            $img2Galeria = $request->file('file_img_2_galeria');
+            $urlImg2Galeria = $img2Galeria->store('portfolio', 'public');
+            Storage::disk('public')->delete($portfolio->ds_url_img_2_galeria);
+            $request['ds_url_img_2_galeria'] = $urlImg2Galeria;
+        }
+        if($request->file('file_img_3_galeria')){
+            $img3Galeria = $request->file('file_img_3_galeria');
+            $urlImg3Galeria = $img3Galeria->store('portfolio', 'public');
+            Storage::disk('public')->delete($portfolio->ds_url_img_3_galeria);
+            $request['ds_url_img_3_galeria'] = $urlImg3Galeria;
+        }
 
-        // SALVAR ARQUIVOS ANEXOS
-        // SALVAR ARQUIVOS ANEXOS
-        // SALVAR ARQUIVOS ANEXOS
+        $retornoBanco = $portfolio->update($request->all());
 
         if($retornoBanco == true){
             $this->logsSistemaStore(7, 'Portfólio: Projeto - ID: ' . $id);
@@ -87,6 +128,12 @@ class PortfolioController extends Controller
     public function destroy($id)
     {
         $portfolio = TbPortfolio::find($id);
+
+        Storage::disk('public')->delete($portfolio->ds_url_img_destaque);
+        Storage::disk('public')->delete($portfolio->ds_url_img_1_galeria);
+        Storage::disk('public')->delete($portfolio->ds_url_img_2_galeria);
+        Storage::disk('public')->delete($portfolio->ds_url_img_3_galeria);
+
         $retornoBanco = $portfolio->delete();
 
         if($retornoBanco == true){

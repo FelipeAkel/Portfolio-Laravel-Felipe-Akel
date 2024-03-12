@@ -72,7 +72,7 @@
                         <td>{{ $dadoProjeto->ds_tipo_projeto }}</td>
                         <td><a href="{{ $dadoProjeto->ds_url_projeto }}" target="_blank">Link</a></td>
                         <td><a href="{{ $dadoProjeto->ds_url_repositorio }}" target="_blank">Link</a></td>
-                        <td><a href="{{ asset('template-internauta/img/portfolio/') }}/1.jpg" target="_blank">IMG</a></td>
+                        <td><a href="{{ asset('storage/') }}/{{ $dadoProjeto->ds_url_img_destaque }}" target="_blank">IMG</a></td>
                     </tr>
                 @endforeach
             </tbody>

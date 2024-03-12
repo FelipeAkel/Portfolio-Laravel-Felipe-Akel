@@ -154,7 +154,10 @@
 
     <div class="mb-3 col-md-6">
         <label for="file_img_destaque" class="form-label">Upload IMG - Destaque <span class="required">*</span></label>
-        <input class="form-control {{ $errors->has('file_img_destaque') ? 'is-invalid' : 'is-invalid' }}" type="file" name="file_img_destaque" id="file_img_destaque">
+        <input class="form-control {{ $errors->has('file_img_destaque') ? 'is-invalid' : '' }}" type="file" name="file_img_destaque" id="file_img_destaque">
+        <div id="file_img_destaque" class="form-text">
+            Extensão: png, jpg ou jpeg
+        </div>
         @error('file_img_destaque')
             <div class="invalid-feedback">
                 {{ $errors->first('file_img_destaque') }}
@@ -163,14 +166,40 @@
     </div>
 
     <div class="mb-3 col-md-6">
-        <label for="file_img_modal" class="form-label">Upload IMG - Modal</label>
-        <input class="form-control {{ $errors->has('file_img_modal') ? 'is-invalid' : 'is-invalid' }}" type="file" name="file_img_modal" id="file_img_modal" multiple>
-        <div class="form-text">
-            Recomendável até 3 imagens.
+        <label for="file_img_1_galeria" class="form-label">Upload IMG - 1º Imagem</label>
+        <input class="form-control {{ $errors->has('file_img_1_galeria') ? 'is-invalid' : '' }}" type="file" name="file_img_1_galeria" id="file_img_1_galeria" multiple>
+        <div id="file_img_1_galeria" class="form-text">
+            Extensão: png, jpg ou jpeg
         </div>
-        @error('file_img_modal')
+        @error('file_img_1_galeria')
             <div class="invalid-feedback">
-                {{ $errors->first('file_img_modal') }}
+                {{ $errors->first('file_img_1_galeria') }}
+            </div>
+        @enderror
+    </div>
+
+    <div class="mb-3 col-md-6">
+        <label for="file_img_2_galeria" class="form-label">Upload IMG - 2º Imagem</label>
+        <input class="form-control {{ $errors->has('file_img_2_galeria') ? 'is-invalid' : '' }}" type="file" name="file_img_2_galeria" id="file_img_2_galeria" multiple>
+        <div id="file_img_2_galeria" class="form-text">
+            Extensão: png, jpg ou jpeg
+        </div>
+        @error('file_img_2_galeria')
+            <div class="invalid-feedback">
+                {{ $errors->first('file_img_2_galeria') }}
+            </div>
+        @enderror
+    </div>
+
+    <div class="mb-3 col-md-6">
+        <label for="file_img_3_galeria" class="form-label">Upload IMG - 3º Imagem</label>
+        <input class="form-control {{ $errors->has('file_img_3_galeria') ? 'is-invalid' : '' }}" type="file" name="file_img_3_galeria" id="file_img_3_galeria" multiple>
+        <div id="file_img_3_galeria" class="form-text">
+            Extensão: png, jpg ou jpeg
+        </div>
+        @error('file_img_3_galeria')
+            <div class="invalid-feedback">
+                {{ $errors->first('file_img_3_galeria') }}
             </div>
         @enderror
     </div>
@@ -178,26 +207,26 @@
     @if (isset($portfolio->id))
         <div class="mb-3 col-md-3">
             <figure class="figure">
-                <img src="{{ asset('template-internauta/img/portfolio/') }}/1.jpg" class="img-thumbnail img-destaque" alt="...">
-                <figcaption class="figure-caption">Destaque</figcaption>
+                <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_destaque }}" class="img-thumbnail img-destaque" alt="...">
+                <figcaption class="figure-caption">Imagem Destaque</figcaption>
             </figure>
         </div>
         <div class="mb-3 col-md-3">
             <figure class="figure">
-                <img src="{{ asset('template-internauta/img/portfolio/') }}/1.jpg" class="img-thumbnail" alt="...">
-                <figcaption class="figure-caption">Modal</figcaption>
+                <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_1_galeria }}" class="img-thumbnail" alt="...">
+                <figcaption class="figure-caption">1º Imagem</figcaption>
             </figure>
         </div>
         <div class="mb-3 col-md-3">
             <figure class="figure">
-                <img src="{{ asset('template-internauta/img/portfolio/') }}/1.jpg" class="img-thumbnail" alt="...">
-                <figcaption class="figure-caption">Modal</figcaption>
+                <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_2_galeria }}" class="img-thumbnail" alt="...">
+                <figcaption class="figure-caption">2º Imagem</figcaption>
             </figure>
         </div>
         <div class="mb-3 col-md-3">
             <figure class="figure">
-                <img src="{{ asset('template-internauta/img/portfolio/') }}/1.jpg" class="img-thumbnail" alt="...">
-                <figcaption class="figure-caption">Modal</figcaption>
+                <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_3_galeria }}" class="img-thumbnail" alt="...">
+                <figcaption class="figure-caption">3º Imagem</figcaption>
             </figure>
         </div>
     @endif

@@ -27,13 +27,14 @@ class ServicosController extends Controller
     {
         // Arquivos
         $icone = $request->file('file_icon_svg');
-        $imagem = $request->file('file_img');
-
         $urlIcone = $icone->store('servicos/icones', 'public');
-        $urlImagem = $imagem->store('servicos', 'public');
-
         $request['ds_url_icon_svg'] = $urlIcone;
-        $request['ds_url_img'] = $urlImagem;
+
+        if($request->file('file_img')){
+            $imagem = $request->file('file_img');
+            $urlImagem = $imagem->store('servicos', 'public');
+            $request['ds_url_img'] = $urlImagem;
+        }
 
         $retornoBanco = TbServicos::create($request->all());
         if($retornoBanco == true){

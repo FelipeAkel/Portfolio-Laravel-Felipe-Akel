@@ -104,26 +104,26 @@
 
                         <div class="mb-3 col-md-3">
                             <figure class="figure">
-                                <img src="https://github.com/FelipeAkel/super-mario-bros/blob/main/src/img/super-mario-bros.png?raw=true" class="img-thumbnail img-destaque" alt="...">
-                                <figcaption class="figure-caption">Destaque</figcaption>
+                                <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_destaque }}" class="img-thumbnail img-destaque" alt="...">
+                                <figcaption class="figure-caption">Imagem Destaque</figcaption>
                             </figure>
                         </div>
                         <div class="mb-3 col-md-3">
                             <figure class="figure">
-                                <img src="https://github.com/FelipeAkel/Laravel-Super-Gestao/blob/main/public/img/github/dasboard.png?raw=true" class="img-thumbnail" alt="...">
-                                <figcaption class="figure-caption">Modal</figcaption>
+                                <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_1_galeria }}" class="img-thumbnail" alt="...">
+                                <figcaption class="figure-caption">1º Imagem</figcaption>
                             </figure>
                         </div>
                         <div class="mb-3 col-md-3">
                             <figure class="figure">
-                                <img src="https://github.com/FelipeAkel/Laravel-Super-Gestao/blob/main/public/img/github/dasboard.png?raw=true" class="img-thumbnail" alt="...">
-                                <figcaption class="figure-caption">Modal</figcaption>
+                                <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_2_galeria }}" class="img-thumbnail" alt="...">
+                                <figcaption class="figure-caption">2º Imagem</figcaption>
                             </figure>
                         </div>
                         <div class="mb-3 col-md-3">
                             <figure class="figure">
-                                <img src="{{ asset('template-internauta/img/portfolio/') }}/1.jpg" class="img-thumbnail" alt="...">
-                                <figcaption class="figure-caption">Modal</figcaption>
+                                <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_3_galeria }}" class="img-thumbnail" alt="...">
+                                <figcaption class="figure-caption">3º Imagem</figcaption>
                             </figure>
                         </div>
 

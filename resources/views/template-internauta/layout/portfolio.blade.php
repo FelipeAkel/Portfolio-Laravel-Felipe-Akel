@@ -31,7 +31,7 @@
                         <div class="list_inner">
                             <div class="image">
                                 <img src="{{ asset('template-internauta/img/') }}/thumbs/1-1.jpg" alt="" />
-                                <div class="main" data-img-url="https://github.com/FelipeAkel/Laravel-Super-Gestao/blob/main/public/img/github/dasboard.png?raw=true"></div>
+                                <div class="main" data-img-url="{{ asset('storage/') }}/{{ $dadosProjeto->ds_url_img_destaque }}"></div>
                             </div>
                             <div class="overlay"></div>
                             <img class="svg" src="{{ asset('template-internauta/img/svg/') }}/{{ $img_svg }}.svg" alt="" />
@@ -80,7 +80,7 @@
                                                 <div class="list_inner">
                                                     <div class="my_image">
                                                         <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
-                                                        <div class="main" data-img-url="https://github.com/FelipeAkel/super-mario-bros/blob/main/src/img/super-mario-bros.png?raw=true"></div>
+                                                        <div class="main" data-img-url="{{ asset('storage/') }}/{{ $dadosProjeto->ds_url_img_1_galeria }}"></div>
                                                     </div>
                                                 </div>
                                             </li>
@@ -88,7 +88,7 @@
                                                 <div class="list_inner">
                                                     <div class="my_image">
                                                         <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
-                                                        <div class="main" data-img-url="https://github.com/FelipeAkel/Laravel-Super-Gestao/blob/main/public/img/github/dasboard.png?raw=true"></div>
+                                                        <div class="main" data-img-url="{{ asset('storage/') }}/{{ $dadosProjeto->ds_url_img_2_galeria }}"></div>
                                                     </div>
                                                 </div>
                                             </li>
@@ -96,7 +96,7 @@
                                                 <div class="list_inner">
                                                     <div class="my_image">
                                                         <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
-                                                        <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/portfolio/3.jpg"></div>
+                                                        <div class="main" data-img-url="{{ asset('storage/') }}/{{ $dadosProjeto->ds_url_img_3_galeria }}"></div>
                                                     </div>
                                                 </div>
                                             </li>

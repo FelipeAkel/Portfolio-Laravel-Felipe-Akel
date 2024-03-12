@@ -39,7 +39,7 @@
     </div>
 
     <div class="mb-3 col-md-6">
-        <label for="file_img" class="form-label">Imagem <span class="required">*</span></label>
+        <label for="file_img" class="form-label">Imagem </label>
         <input class="form-control {{ $errors->has('file_img') ? 'is-invalid' : '' }}" type="file" name="file_img" id="file_img">
         <div id="file_img" class="form-text">
             Extensão: png, jpg ou jpeg

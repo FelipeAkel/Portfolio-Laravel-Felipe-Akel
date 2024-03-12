@@ -16,8 +16,10 @@
                         <div class="hidden_content">
                             <div class="service_informations">
                                 <div class="image">
-                                    <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
-                                    <div class="main" data-img-url="{{ asset('storage/') }}/{{ $dadoServico->ds_url_img }}"></div>
+                                    @if ($dadoServico->ds_url_img != '')
+                                        <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
+                                        <div class="main" data-img-url="{{ asset('storage/') }}/{{ $dadoServico->ds_url_img }}"></div>
+                                    @endif
                                 </div>
                                 <div class="description">
                                     <p>{{ $dadoServico->ds_servico }}</p>

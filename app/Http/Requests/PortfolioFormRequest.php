@@ -25,8 +25,10 @@ class PortfolioFormRequest extends FormRequest
             'ds_url_repositorio' => 'nullable | url',
             'ds_projeto' => 'required ',
             'ds_tecnologia' => 'required | max:100',
-            'file_img_destaque' => 'nullable | image',
-            'file_img_modal' => 'nullable | image',
+            'file_img_destaque' => 'required | file | mimes:png,jpg,jpeg',
+            'file_img_1_galeria' => 'nullable | file | mimes:png,jpg,jpeg',
+            'file_img_2_galeria' => 'nullable | file | mimes:png,jpg,jpeg',
+            'file_img_3_galeria' => 'nullable | file | mimes:png,jpg,jpeg',
         ];
     }
 
@@ -37,7 +39,8 @@ class PortfolioFormRequest extends FormRequest
             'nullable' => 'O campo é opcional',
             'date' => 'O campo deve ser uma data',
             'url' => 'O campo deve ser uma URL válida',
-            'image' => 'O arquivo deve ter a extensão: jpeg, png, bmp, gif, svg, or webp',
+            'file' => 'Deve-se enviar um arquivo',
+            'mimes' => 'O arquivo deve ter extensão: png, jpg ou jpeg',
             'tipo_php_laravel.min' => 'Não alterar o valor: php-laravel',
             'tipo_php_laravel.max' => 'Não alterar o valor: php-laravel',
             'tipo_website.min' => 'Não alterar o valor: website',

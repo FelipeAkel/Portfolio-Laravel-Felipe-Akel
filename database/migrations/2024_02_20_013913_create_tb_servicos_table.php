@@ -13,7 +13,7 @@ class CreateTbServicosTable extends Migration
             $table->string('no_servico', 100)->nullable(false)->comment('Nome do serviço');
             $table->text('ds_servico')->nullable(false)->comment('Descrição do serviço');
             $table->text('ds_url_icon_svg')->nullable(false)->comment('Código do icone Bootstrap do serviço');
-            $table->text('ds_url_img')->nullable(false)->comment('URL da imagem do serviço');
+            $table->text('ds_url_img')->nullable(true)->comment('URL da imagem do serviço');
             $table->timestamps();
             $table->softDeletes()->nullable(true)->comment('Data de delete do registro');
         });
