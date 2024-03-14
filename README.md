@@ -2,7 +2,7 @@
 
 ## Sobre o Portfolio Felipe Akel em Laravel
 
-> [!ATENÇÃO]
+> [!CAUTION]
 > Sistema em fase de Desenvolvimento
 
 O portifólio Felipe Akel trata-se de um website para apresentar as informações do desenvolvedor. 
@@ -19,8 +19,6 @@ Destaca-se, que o sistema é composto de 2 layouts distintos responsáveis por m
 - Em breve todas as telas...
 
 ## Tecnologias utilizadas
-
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="200"></p>
 
 ### Laravel
 - **[Laravel Versão 8.x](https://laravel.com/docs/8.x)**
