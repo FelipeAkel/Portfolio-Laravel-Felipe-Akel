@@ -4,7 +4,7 @@
     <ul class="navbar-nav flex-row">
         <li class="nav-item text-nowrap">
             <button class="nav-link px-3 link-menu-header">
-                <img src="{{ asset('template-internauta/img/about/') }}/felipe-akel.jpg" alt="mdo" width="32" height="32" class="rounded-circle">
+                <img src="{{ asset('storage/') }}/{{ $_SESSION['ds_url_foto_usuario'] }}" alt="mdo" width="32" height="32" class="rounded-circle">
                 {{ $_SESSION['no_usuario_portfolio'] }}
             </button>
         </li>

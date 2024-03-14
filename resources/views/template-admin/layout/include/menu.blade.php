@@ -78,7 +78,7 @@
             <ul class="nav flex-column mb-auto">
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2 dropdown-toggle link-menu" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="{{ asset('template-internauta/img/about/') }}/felipe-akel.jpg" alt="mdo" width="32" height="32" class="rounded-circle">
+                        <img src="{{ asset('storage/') }}/{{ $_SESSION['ds_url_foto_usuario'] }}" alt="mdo" width="32" height="32" class="rounded-circle">
                         {{ $_SESSION['no_usuario_portfolio'] }}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" style="">

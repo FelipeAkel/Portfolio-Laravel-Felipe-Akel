@@ -33,5 +33,13 @@ class HabilidadeSeeder extends Seeder
             'nr_ordenacao' => 10
         ]);
 
+        TbHabilidades::create([
+            'id_tipo_habilidade' => 3,
+            'no_habilidade' => 'InDesigner',
+            'ds_habilidade' => '', 
+            'nr_porcentagem' => 50,
+            'nr_ordenacao' => 10
+        ]);
+
     }
 }

@@ -46,6 +46,18 @@ class CarreiraProfissionalSeeder extends Seeder
         ]);
 
         TbCarreiraProfissional::create([
+            'id_tipo_experiencia' => '3',
+            'no_experiencia' => 'Analista Desenvolvedor PHP Jr',
+            'no_empresa' => 'Global Web',
+            'dt_inicio' => '2021-12-16',
+            'dt_final' => null,
+            'st_trabalho_atual' => '1',
+            'ds_formacao' => '- Realizar atividades de manutenção e desenvolvimento de sistemas utilizando linguagem PHP - Laravel...',
+            'nr_total_horas' => null,
+            'ds_url' => null
+        ]);
+
+        TbCarreiraProfissional::create([
             'id_tipo_experiencia' => '4',
             'no_experiencia' => 'Testes Unitários e TD com PHP e PHPUnit',
             'no_empresa' => 'Udemy',

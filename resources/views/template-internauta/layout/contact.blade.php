@@ -35,7 +35,7 @@
                         @csrf
                         @if ($errors->has('no_contato') || $errors->has('ds_email') || $errors->has('ds_assunto') || $errors->has('ds_mensagem'))
                         <div class="empty_notice" ><span>
-                            Todos os campos são obigatório.<br>
+                            Todos os campos são obrigatório.<br>
                             E-mail deve ser um dado válido.<br>
                             O campo Nome, E-mail e Assunto são limitados a 70 caracteres.
                         </span></div>

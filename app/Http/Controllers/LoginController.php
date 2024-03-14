@@ -33,6 +33,7 @@ class LoginController extends Controller
                 $_SESSION['no_login'] = $sobreMim->no_login;
                 $_SESSION['ds_url_linkedin'] = $sobreMim->ds_url_linkedin;
                 $_SESSION['ds_url_github'] = $sobreMim->ds_url_github;
+                $_SESSION['ds_url_foto_usuario'] = $sobreMim->ds_url_foto_usuario;
 
                 return redirect()->route('admin.dashboard');
 
