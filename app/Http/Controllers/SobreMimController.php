@@ -103,14 +103,14 @@ class SobreMimController extends Controller
 
 // Armazenando o arquivo na pasta storage do Laravel. 
     // 1º parametro 'sobre-mim 'se refere a pasta criada/existente.
-    // 2º parametro 'public' se refere ao arquivo de configuração Disk - config/filesystems.php o qual define o diretório configurado do Store.
+    // 2º parametro 'public' se refere ao arquivo de configuração Disk - config/filesystems.php o qual define o diretório configurado do Storage.
             $urlCurriculo = $curriculo->store('sobre-mim', 'public');
 
 // Delete Arquivos Antigos ---- Adicionar na controller: use Illuminate\Support\Facades\Storage;
             Storage::disk('public')->delete($sobreMim->ds_url_curriculo);
         }
 
-// Criando um link simbólico para a disco public. Dessa forma, será possível recuperar os arquivos pelo asset('public/store/...') 
+// Criando um link simbólico para a disco public. Dessa forma, será possível recuperar os arquivos pelo asset('public/storage/...') 
 // prompt: php artisan storage:link
 
         if($request->file('ds_url_foto_usuario')){
