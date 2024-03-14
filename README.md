@@ -1,8 +1,9 @@
-<p align="center"><img src="public/img/template/desktop-mobile.png" width="400"></p>
+<p align="center"><img src="public/readme/desktop-mobile.png" width="400"></p>
 
 ## Sobre o Portfolio Felipe Akel em Laravel
 
-`#ff0000`**Sistema em fase de Desenvolvimento**`#ff0000`
+> [!ATENÇÃO]
+> Sistema em fase de Desenvolvimento
 
 O portifólio Felipe Akel trata-se de um website para apresentar as informações do desenvolvedor. 
 
