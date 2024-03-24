@@ -8,6 +8,8 @@ use App\Models\TbRespostas;
 use App\Models\TbStatus;
 use App\Models\TbFaleConosco;
 use App\Models\TbLogsSistema;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\respostaFaleConoscoEmail;
 
 use Brian2694\Toastr\Facades\Toastr;
 
@@ -48,15 +50,28 @@ class FaleConoscoController extends Controller
         // Insert da resposta na tabela
         $request['id_fale_conosco'] = $id;
         $retornoBancoResposta = TbRespostas::create($request->all());
-
         
         if($retornoBancoFaleConosco == true && $retornoBancoResposta == true){
 
-            // ACRESCENTAR A FUNCIONALIDADE DE ENVIO DE E-MAIL AQUI
-            // ACRESCENTAR A FUNCIONALIDADE DE ENVIO DE E-MAIL AQUI
-            // ACRESCENTAR A FUNCIONALIDADE DE ENVIO DE E-MAIL AQUI
-            // ACRESCENTAR A FUNCIONALIDADE DE ENVIO DE E-MAIL AQUI
+            // Notificação do internauta por e-mail
+            if($request->st_notificacao_email == 1){
 
+                $status = TbStatus::find($request['id_status']);
+
+                $parametrosEmail = [
+                    'nomeContato' => $faleConosco->no_contato,
+                    'assunto' => $faleConosco->ds_assunto,
+                    'mensagem' => $faleConosco->ds_mensagem,
+                    'status' => $status->no_status,
+                    'resposta' => $request->ds_resposta,
+                ];
+    
+                Mail::to($faleConosco->ds_email)->send(new respostaFaleConoscoEmail($parametrosEmail));
+
+                Toastr::info('Internauta notificado por e-mail', 'Informe');
+
+            }
+            
             $this->logsSistemaStore(9, 'Fale Conosco - ID: ' . $id);
 
             Toastr::success('A resposta foi cadastrada', 'Sucesso');
