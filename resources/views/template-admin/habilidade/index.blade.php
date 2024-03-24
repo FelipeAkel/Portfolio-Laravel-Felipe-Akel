@@ -143,7 +143,7 @@
                                 {{ $dadosHabilidade->nr_porcentagem }}%
                         @endswitch
                     </td>
-                    <td>{{ $dadosHabilidade->created_at }}</td>
+                    <td>{{ \Carbon\Carbon::parse($dadosHabilidade->created_at)->format('d/m/Y - H:i')}}</td>
                 </tr>
                 @endforeach
             </tbody>

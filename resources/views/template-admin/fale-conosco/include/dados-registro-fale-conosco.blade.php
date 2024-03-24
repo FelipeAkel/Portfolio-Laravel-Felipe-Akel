@@ -28,7 +28,7 @@
                         <label class="form-label">Data Registro </label>
                         <div class="input-group mb-3">
                             <span class="input-group-text icone" ><i class="bi bi-calendar4-event"></i></span>
-                            <input type="text" class="form-control" value="{{ $faleConosco->created_at }}" disabled>
+                            <input type="text" class="form-control" value="{{ \Carbon\Carbon::parse($faleConosco->created_at)->format('d/m/Y - H:i')}}" disabled>
                         </div>
                     </div>
 

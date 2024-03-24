@@ -71,7 +71,7 @@
                     <td>{{ $dadoServico->no_servico }}</td>
                     <td class="text-center"><img src="{{ asset('storage/') }}/{{$dadoServico->ds_url_icon_svg }}" style="width:30px;" class="rounded img-icon" alt="..."></td>
                     <td class="text-center"><a href="{{ asset('storage/') }}/{{$dadoServico->ds_url_img }}" target="_blank" >Imagem</a></td>
-                    <td>{{ $dadoServico->created_at }}</td>
+                    <td>{{ \Carbon\Carbon::parse( $dadoServico->created_at)->format('d/m/Y - H:i')}} </td>
                 </tr>
                 @endforeach
             </tbody>

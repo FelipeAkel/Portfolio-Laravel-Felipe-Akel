@@ -123,8 +123,8 @@
                     <td>{{ $dadosCarreiraProf->tipoExperiencia->no_tipo_experiencia }}</td>
                     <td>{{ $dadosCarreiraProf->no_experiencia }}</td>
                     <td>{{ $dadosCarreiraProf->no_empresa }}</td>
-                    <td>{{ $dadosCarreiraProf->dt_inicio }}</td>
-                    <td>{{ $dadosCarreiraProf->dt_final }}</td>
+                    <td>{{ \Carbon\Carbon::parse($dadosCarreiraProf->dt_inicio)->format('d/m/Y')}}</td>
+                    <td>{{ \Carbon\Carbon::parse($dadosCarreiraProf->dt_final)->format('d/m/Y')}}</td>
                 </tr>
                 @endforeach
             </tbody>

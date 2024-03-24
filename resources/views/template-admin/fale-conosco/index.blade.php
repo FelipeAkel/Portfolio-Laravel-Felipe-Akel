@@ -119,7 +119,7 @@
                     <td>{{ $dadoFaleConosco->status->no_status }}</td>
                     <td>{{ $dadoFaleConosco->no_contato }}</td>
                     <td>{{ $dadoFaleConosco->ds_assunto }}</td>
-                    <td>{{ $dadoFaleConosco->created_at }}</td>
+                    <td>{{ \Carbon\Carbon::parse($dadoFaleConosco->created_at)->format('d/m/Y - H:i')}}</td>
                 </tr>
                 @endforeach
             </tbody>

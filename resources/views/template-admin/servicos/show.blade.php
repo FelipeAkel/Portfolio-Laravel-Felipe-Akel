@@ -35,7 +35,7 @@
                             <label class="form-label">Data Criação</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text icone" ><i class="bi bi-calendar4-event"></i></span>
-                                <input type="date-time" class="form-control" value="{{ $servico->created_at }}" disabled>
+                                <input type="date-time" class="form-control" value="{{ \Carbon\Carbon::parse($servico->created_at)->format('d/m/Y - H:i')}}" disabled>
                             </div>
                         </div>
 
@@ -43,7 +43,7 @@
                             <label class="form-label">Data de Atualização</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text icone" ><i class="bi bi-calendar4-event"></i></span>
-                                <input type="date-time" class="form-control" value="{{ $servico->updated_at }}" disabled>
+                                <input type="date-time" class="form-control" value="{{ \Carbon\Carbon::parse($servico->updated_at)->format('d/m/Y - H:i')}}" disabled>
                             </div>
                         </div>
 

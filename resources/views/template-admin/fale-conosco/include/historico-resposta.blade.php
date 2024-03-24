@@ -19,7 +19,7 @@
                         <tbody>
                             @foreach ($respostas AS $indice => $dadoResposta)
                             <tr>
-                                <td>{{ $dadoResposta->created_at }}</td>
+                                <td>{{ \Carbon\Carbon::parse($dadoResposta->created_at)->format('d/m/Y - H:i')}}</td>
                                 <td>{{ $dadoResposta->ds_resposta }}</td>
                                 <td>
                                     @if ($dadoResposta->st_notificacao_email == 1)
