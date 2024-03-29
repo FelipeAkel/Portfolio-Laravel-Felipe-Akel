@@ -86,7 +86,6 @@
             <thead class="table-primary">
                 <tr>
                     <th scope="col" width="200px">Ações</th>
-                    <th scope="col">ID</th>
                     <th scope="col">Tipo Habilidade</th>
                     <th scope="col">Habilidade</th>
                     <th scope="col">Descrição</th>
@@ -118,7 +117,6 @@
                             </div>
                         </div>
                     </td>
-                    <td>{{ $dadosHabilidade->id }}</td>
                     <td>{{ $dadosHabilidade->tipoHabilidade->no_tipo_habilidade }}</td>
                     <td>{{ $dadosHabilidade->no_habilidade }}</td>
                     <td>{{ $dadosHabilidade->ds_habilidade }}</td>

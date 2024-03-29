@@ -81,7 +81,6 @@
             <thead class="table-primary">
                 <tr>
                     <th scope="col" width="200px">Ações</th>
-                    <th scope="col">ID</th>
                     <th scope="col">Tipo Experiência</th>
                     <th scope="col">Nome Experiência</th>
                     <th scope="col">Empresa</th>
@@ -119,7 +118,6 @@
                             </div>
                         </div>
                     </td>
-                    <td>{{ $dadosCarreiraProf->id }}</td>
                     <td>{{ $dadosCarreiraProf->tipoExperiencia->no_tipo_experiencia }}</td>
                     <td>{{ $dadosCarreiraProf->no_experiencia }}</td>
                     <td>{{ $dadosCarreiraProf->no_empresa }}</td>
