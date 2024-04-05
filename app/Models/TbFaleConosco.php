@@ -19,4 +19,9 @@ class TbFaleConosco extends Model
     {
         return $this->hasOne(TbStatus::class, 'id', 'id_status');
     }
+
+    public function resposta()
+    {
+        return $this->hasMany(TbRespostas::class, 'id', 'id_fale_conosco');
+    }
 }

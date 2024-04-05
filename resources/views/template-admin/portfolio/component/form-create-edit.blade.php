@@ -206,29 +206,63 @@
 
     @if (isset($portfolio->id))
         <div class="mb-3 col-md-3">
-            <figure class="figure">
-                <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_destaque }}" class="img-thumbnail img-destaque" alt="...">
-                <figcaption class="figure-caption">Imagem Destaque</figcaption>
-            </figure>
+            <div class="card text-center border-warning" style="width: 18rem;">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#modalImgDestaque">
+                    <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_destaque }}" class="card-img-top img-proporcao" alt="Imagem em Destaque">
+                </a>
+                <div class="card-body text-warning">
+                    <p class="card-text">Imagem em Destaque</p>
+                    <a href="#" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalImgDestaque">
+                        <i class="bi bi-search"></i> Ampliar
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="mb-3 col-md-3">
-            <figure class="figure">
-                <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_1_galeria }}" class="img-thumbnail" alt="...">
-                <figcaption class="figure-caption">1º Imagem</figcaption>
-            </figure>
-        </div>
-        <div class="mb-3 col-md-3">
-            <figure class="figure">
-                <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_2_galeria }}" class="img-thumbnail" alt="...">
-                <figcaption class="figure-caption">2º Imagem</figcaption>
-            </figure>
-        </div>
-        <div class="mb-3 col-md-3">
-            <figure class="figure">
-                <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_3_galeria }}" class="img-thumbnail" alt="...">
-                <figcaption class="figure-caption">3º Imagem</figcaption>
-            </figure>
-        </div>
+        @if (isset($portfolio->ds_url_img_1_galeria))
+            <div class="mb-3 col-md-3">
+                <div class="card text-center" style="width: 18rem;">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#modalImgGaleria1">
+                        <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_1_galeria }}" class="card-img-top img-proporcao" alt="1º Imagem Galeria Modal">
+                    </a>
+                    <div class="card-body">
+                        <p class="card-text">1º Imagem da Galeria Modal</p>
+                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalImgGaleria1">
+                            <i class="bi bi-search"></i> Ampliar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        @endif
+        @if (isset($portfolio->ds_url_img_2_galeria))
+            <div class="mb-3 col-md-3">
+                <div class="card text-center" style="width: 18rem;">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#modalImgGaleria2">
+                        <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_2_galeria }}" class="card-img-top img-proporcao" alt="2º Imagem Galeria Modal">
+                    </a>
+                    <div class="card-body">
+                        <p class="card-text">2º Imagem da Galeria Modal</p>
+                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalImgGaleria2">
+                            <i class="bi bi-search"></i> Ampliar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        @endif
+        @if (isset($portfolio->ds_url_img_3_galeria))
+            <div class="mb-3 col-md-3">
+                <div class="card text-center" style="width: 18rem;">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#modalImgGaleria3">
+                        <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_3_galeria }}" class="card-img-top img-proporcao" alt="3º Imagem Galeria Modal">
+                    </a>
+                    <div class="card-body">
+                        <p class="card-text">3º Imagem da Galeria Modal</p>
+                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalImgGaleria3">
+                            <i class="bi bi-search"></i> Ampliar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        @endif
     @endif
 
     <div class="col-12">
@@ -236,3 +270,89 @@
         <button type="submit" class="btn {{ isset($portfolio->id) ? 'btn-primary' : 'btn-success' }}">{{ isset($portfolio->id) ? 'Atualizar' : 'Cadastrar' }}</button>
     </div>
 </form>
+
+<!-- Modal -->
+@if (isset($portfolio->id))
+<div class="modal fade" id="modalImgDestaque" tabindex="-1" aria-labelledby="modalImgDestaqueLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="modalImgDestaqueLabel">Imagem em Destaque</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <figure class="figure">
+                <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_destaque }}" class="figure-img img-fluid rounded" alt="Imagem em Destaque">
+                <figcaption class="figure-caption">Imagem em Destaque</figcaption>
+            </figure>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        </div>
+        </div>
+    </div>
+</div>
+@endif
+@if (isset($portfolio->ds_url_img_1_galeria))
+<div class="modal fade" id="modalImgGaleria1" tabindex="-1" aria-labelledby="modalImgGaleria1Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="modalImgGaleria1Label">1º Imagem Galeria Modal</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <figure class="figure">
+                <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_1_galeria }}" class="figure-img img-fluid rounded" alt="1º Imagem Galeria Modal">
+                <figcaption class="figure-caption">1º Imagem Galeria Modal</figcaption>
+            </figure>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        </div>
+        </div>
+    </div>
+</div>
+@endif
+@if (isset($portfolio->ds_url_img_2_galeria))
+<div class="modal fade" id="modalImgGaleria2" tabindex="-1" aria-labelledby="modalImgGaleria2Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="modalImgGaleria2Label">2º Imagem Galeria Modal</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <figure class="figure">
+                <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_2_galeria }}" class="figure-img img-fluid rounded" alt="2º Imagem Galeria Modal">
+                <figcaption class="figure-caption">2º Imagem Galeria Modal</figcaption>
+            </figure>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        </div>
+        </div>
+    </div>
+</div>
+@endif
+@if (isset($portfolio->ds_url_img_3_galeria))
+<div class="modal fade" id="modalImgGaleria3" tabindex="-1" aria-labelledby="modalImgGaleria3Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="modalImgGaleria3Label">3º Imagem Galeria Modal</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <figure class="figure">
+                <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_3_galeria }}" class="figure-img img-fluid rounded" alt="3º Imagem Galeria Modal">
+                <figcaption class="figure-caption">3º Imagem Galeria Modal</figcaption>
+            </figure>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        </div>
+        </div>
+    </div>
+</div>
+@endif

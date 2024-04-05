@@ -70,9 +70,35 @@
                     <td>{{ $dadoServico->id }}</td>
                     <td>{{ $dadoServico->no_servico }}</td>
                     <td class="text-center"><img src="{{ asset('storage/') }}/{{$dadoServico->ds_url_icon_svg }}" style="width:30px;" class="rounded img-icon" alt="..."></td>
-                    <td class="text-center"><a href="{{ asset('storage/') }}/{{$dadoServico->ds_url_img }}" target="_blank" >Imagem</a></td>
+                    <td class="text-center">
+                        @if (isset($dadoServico->ds_url_img))
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#modalImgDestaque{{ $indice }}" >Imagem</a>
+                        @endif
+                    </td>
                     <td>{{ \Carbon\Carbon::parse( $dadoServico->created_at)->format('d/m/Y - H:i')}} </td>
                 </tr>
+
+                @if (isset($dadoServico->ds_url_img))
+                    <div class="modal fade" id="modalImgDestaque{{ $indice }}" tabindex="-1" aria-labelledby="modalImgDestaqueLabel{{ $indice }}" aria-hidden="true">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="modalImgDestaqueLabel{{ $indice }}">Imagem em Destaque</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <figure class="figure">
+                                    <img src="{{ asset('storage/') }}/{{ $dadoServico->ds_url_img }}" class="figure-img img-fluid rounded" alt="Imagem em Destaque">
+                                    <figcaption class="figure-caption">Imagem em Destaque</figcaption>
+                                </figure>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
                 @endforeach
             </tbody>
         </table>

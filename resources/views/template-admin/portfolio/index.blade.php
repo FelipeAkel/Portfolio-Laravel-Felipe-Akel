@@ -72,8 +72,28 @@
                         <td>{{ $dadoProjeto->ds_tipo_projeto }}</td>
                         <td><a href="{{ $dadoProjeto->ds_url_projeto }}" target="_blank">Link</a></td>
                         <td><a href="{{ $dadoProjeto->ds_url_repositorio }}" target="_blank">Link</a></td>
-                        <td><a href="{{ asset('storage/') }}/{{ $dadoProjeto->ds_url_img_destaque }}" target="_blank">IMG</a></td>
+                        <td><a href="#" data-bs-toggle="modal" data-bs-target="#modalImgDestaque{{ $indice }}">IMG</a></td>
                     </tr>
+
+                    <div class="modal fade" id="modalImgDestaque{{ $indice }}" tabindex="-1" aria-labelledby="modalImgDestaqueLabel{{ $indice }}" aria-hidden="true">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="modalImgDestaqueLabel{{ $indice }}">Imagem em Destaque</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <figure class="figure">
+                                    <img src="{{ asset('storage/') }}/{{ $dadoProjeto->ds_url_img_destaque }}" class="figure-img img-fluid rounded" alt="Imagem em Destaque">
+                                    <figcaption class="figure-caption">Imagem em Destaque</figcaption>
+                                </figure>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
             </tbody>
         </table>

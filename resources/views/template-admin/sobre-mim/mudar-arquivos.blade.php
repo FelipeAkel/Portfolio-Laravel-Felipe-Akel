@@ -25,7 +25,7 @@
                     </div>
                     <div class="mb-3 col-md-6">
                         <h5 class="titulo-1rem">Foto Usuário</h5>
-                        <a href="{{ asset('storage/') }}/{{ $sobreMim->ds_url_foto_usuario }}" class="btn btn-outline-info" target="_blank"><i class="bi bi-file-earmark-image"></i> - Visualizar Imagem</a>
+                        <a href="#" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#modalFotoUsuario"><i class="bi bi-file-earmark-image"></i> - Visualizar Imagem</a>
                     </div>
                     <div class="mb-3 col-md-6">
                         <label for="ds_url_curriculo" class="form-label">Arquivo PDF </label>
@@ -65,5 +65,27 @@
             </div>
         </div>
     </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalFotoUsuario" tabindex="-1" aria-labelledby="modalFotoUsuarioLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modalFotoUsuarioLabel">Foto Usuário</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <figure class="figure">
+            <img src="{{ asset('storage/') }}/{{ $sobreMim->ds_url_foto_usuario }}" class="figure-img img-fluid rounded" alt="Imagem do Usuário Portfólio">
+            <figcaption class="figure-caption">Imagem do Usuário Portfólio</figcaption>
+        </figure>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
 </div>
 @endsection

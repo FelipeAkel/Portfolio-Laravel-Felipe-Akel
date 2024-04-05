@@ -52,35 +52,31 @@
                             <textarea class="form-control" rows="3" disabled>{{ $servico->ds_servico }}</textarea>
                         </div>
 
-                        <div class="mb-3 col-md-6">
-                            <div class="d-grid gap-2">
-                                <button class="btn btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIcone" aria-expanded="false" aria-controls="collapseIcone">
-                                    Imagem Icone
-                                </button>
-                            </div>
-                            <div class="collapse" id="collapseIcone">
-                                <div class="card card-body">
-                                    <div class="text-center">
-                                        <img src="{{ asset('storage/') }}/{{$servico->ds_url_icon_svg }}" class="rounded img-icon" alt="...">
-                                    </div>
+                        <h5 class="titulo-1rem">Imagens do Projeto</h5>
+
+                        <div class="mb-3 col-md-3">
+                            <div class="card text-center" style="width: 18rem;">
+                                <img src="{{ asset('storage/') }}/{{ $servico->ds_url_icon_svg }}" class="card-img-top img-proporcao-icon" alt="Icone de Serviço">
+                                <div class="card-body">
+                                    <p class="card-text">Icone de Serviço</p>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="mb-3 col-md-6">
-                            <div class="d-grid gap-2">
-                                <button class="btn btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseImgDestaque" aria-expanded="false" aria-controls="collapseImgDestaque">
-                                    Imagem Destaque
-                                </button>
-                            </div>
-                            <div class="collapse" id="collapseImgDestaque">
-                                <div class="card card-body">
-                                    <div class="text-center">
-                                        <img src="{{ asset('storage/') }}/{{$servico->ds_url_img }}" class="img-fluid " alt="...">
+                            @if (isset($servico->ds_url_img))
+                            <div class="mb-3 col-md-3">
+                                <div class="card text-center" style="width: 18rem;">
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modalImgDestaque">
+                                        <img src="{{ asset('storage/') }}/{{ $servico->ds_url_img }}" class="card-img-top img-proporcao" alt="Imagem em Destaque">
+                                    </a>
+                                    <div class="card-body">
+                                        <p class="card-text">Imagem em Destaque</p>
+                                        <a href="#" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalImgDestaque">
+                                            <i class="bi bi-search"></i> Ampliar
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                            @endif
 
                         <div class="col-12">
                             <a href="{{ route('servicos.index') }}" class="btn btn-secondary">Voltar</a>
@@ -93,4 +89,27 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    @if (isset($servico->ds_url_img))
+    <div class="modal fade" id="modalImgDestaque" tabindex="-1" aria-labelledby="modalImgDestaqueLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalImgDestaqueLabel">Imagem em Destaque</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <figure class="figure">
+                    <img src="{{ asset('storage/') }}/{{ $servico->ds_url_img }}" class="figure-img img-fluid rounded" alt="Imagem em Destaque">
+                    <figcaption class="figure-caption">Imagem em Destaque</figcaption>
+                </figure>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    @endif
 @endsection
