@@ -68,16 +68,17 @@
         <table class="table table-hover table-bordered border ">
             <thead class="table-primary">
                 <tr>
-                    <th scope="col" width="200px">Ações</th>
-                    <th scope="col">ID</th>
+                    <th scope="col" width="100px">Ações</th>
                     <th scope="col">Status</th>
                     <th scope="col">Internauta</th>
                     <th scope="col">Assunto</th>
                     <th scope="col">Data Criação</th>
+                    <th scope="col">Respostas</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($faleConosco AS $indice => $dadoFaleConosco )
+                    
                 <tr 
                     @switch($dadoFaleConosco->id_status)
                         @case(1)
@@ -104,7 +105,7 @@
                             <div class="btn-group me-2" role="group" aria-label="First group">
                                 <a href="{{ route('fale-conosco.show', $dadoFaleConosco->id) }}" class="btn btn-info btn-sm" 
                                     data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-info"
-                                    data-bs-title="Visualizar Registro"
+                                    data-bs-title="Visualizar Registro e Respostas"
                                 ><i class="bi bi-card-text"></i></a>
                             </div>
                             <div class="btn-group" role="group" aria-label="Four group">
@@ -115,12 +116,49 @@
                             </div>
                         </div>
                     </td>
-                    <td>{{ $dadoFaleConosco->id }}</td>
                     <td>{{ $dadoFaleConosco->status->no_status }}</td>
                     <td>{{ $dadoFaleConosco->no_contato }}</td>
                     <td>{{ $dadoFaleConosco->ds_assunto }}</td>
                     <td>{{ \Carbon\Carbon::parse($dadoFaleConosco->created_at)->format('d/m/Y - H:i')}}</td>
+                    <td>
+                    @if(count($dadoFaleConosco->respostas) != 0)
+                        <span class="badge rounded-pill text-bg-info">Existem</span> <b>{{ count($dadoFaleConosco->respostas) }}</b> registro(s) de resposta(s).
+                    @else 
+                        <span class="badge rounded-pill text-bg-danger">Não exitem</span> registro de respostas.
+                    @endif
+                    </td>
                 </tr>
+
+                    {{-- Listando as resposta desta solicitação! --}}
+                    {{-- <tr>
+                        <td colspan="6">
+                        <table class="table table-hover table-bordered border ">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th>Data Resposta</th>
+                                    <th>Descrição da Resposta</th>
+                                    <th>Notificação por E-mail</th>
+                                </tr>
+                            </thead>
+                            </tbody>
+                                @foreach($dadoFaleConosco->respostas AS $indice => $dadoResposta)
+                                <tr>
+                                    <td>{{ \Carbon\Carbon::parse( $dadoResposta->created_at)->format('d/m/Y - H:i') }}</td>
+                                    <td>{{ $dadoResposta->ds_resposta }}</td>
+                                    <td>
+                                        @if ($dadoResposta->st_notificacao_email == 1)
+                                            <i data-bs-toggle="tooltip" data-bs-custom-class="custom-tooltip-success" data-bs-placement="top" data-bs-title="COM envio de e-mail" class="bi bi-envelope-arrow-up-fill icon-success"></i></span>
+                                        @else
+                                            <i data-bs-toggle="tooltip" data-bs-custom-class="custom-tooltip-error" data-bs-placement="top" data-bs-title="SEM envio de e-mail" class="bi bi-envelope-slash-fill icon-error"></i>
+                                        @endif
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        </td>
+                    </tr> --}}
+                
                 @endforeach
             </tbody>
         </table>

@@ -19,7 +19,9 @@ class FaleConoscoController extends Controller
     public function index()
     {
         $status = TbStatus::find([1, 2, 3, 4, 5]);
-        $faleConosco = TbFaleConosco::with('status')->where('id', '>=', 1)->orderBy('created_at', 'DESC')->paginate(10);
+        $faleConosco = TbFaleConosco::with('status', 'respostas')->where('id', '>=', 1)->orderBy('created_at', 'DESC')->paginate(10);
+
+        // dd($faleConosco);
 
         return view('template-admin.fale-conosco.index', compact('status', 'faleConosco'));
     }
