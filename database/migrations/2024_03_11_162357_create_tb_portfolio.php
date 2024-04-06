@@ -20,7 +20,7 @@ class CreateTbPortfolio extends Migration
             $table->text('ds_url_repositorio')->nullable(true)->comment('Link URL do repositório');
             $table->text('ds_projeto')->nullable(false)->comment('Descrição do projeto');
             $table->string('ds_tecnologia', 100)->nullable(false)->comment('Descrição de tecnologias utilizadas');
-            $table->string('ds_url_img_destaque', 255)->nullable(false)->comment('URL imagem em destaque do projeto');
+            $table->string('ds_url_img_destaque', 255)->nullable(true)->comment('URL imagem em destaque do projeto');
             $table->string('ds_url_img_1_galeria', 255)->nullable(true)->comment('URL 1º imagem da galeria');
             $table->string('ds_url_img_2_galeria', 255)->nullable(true)->comment('URL 2º imagem da galeria');
             $table->string('ds_url_img_3_galeria', 255)->nullable(true)->comment('URL 3º imagem da galeria');

@@ -13,7 +13,6 @@ class TbPortfolio extends Model
 
     protected $table = 'tb_portfolio';
     protected $fillable = [
-        'id_arquivos',
         'ds_tipo_projeto',
         'no_projeto', 
         'no_cliente', 
