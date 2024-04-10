@@ -51,10 +51,24 @@ Para configurar o ambiente local do Sistema, é essecial seguir o passa a passo 
     8. Crie um novo banco de dados com o nome 'bd_portfolio_felipe_akel';
     9. Execute o comando 'php artisan migrate' para criar as tabelas;
     10. Execute o comando 'php artisan db:seed' para carregar os dados as tabelas;
-    11. Execute o comando 'php artisan serve' ou 'php artisan serve --port=9090';
-    12. Acesse em seu navegador o endereço criado, ou ('http://127.0.0.1:9090/'), ou na porta em que sua máquina estiver configurada.
-    13. Para logar na área administrativa clique no botão 'login' localizado no canto direito inferior da tela. Os dados de acesso são login 'felipe.florentino' senha '0123456789'. 
+    11. Execute o comando 'php artisan storage:link' para gerar um link simbólico na pasta 'public';
+    12. Execute o comando 'php artisan serve' ou 'php artisan serve --port=9090';
+    13. Acesse em seu navegador o endereço criado, ou ('http://127.0.0.1:9090/'), ou na porta em que sua máquina estiver configurada.
+    14. Para logar na área administrativa clique no botão 'login' localizado no canto direito inferior da tela. Os dados de acesso são login 'felipe.florentino' senha '0123456789'. 
 
+Para configurar o envio de e-mail do Portfólio Felipe Akel, é essecial seguir o passo a passo abaixo:
+
+    1. Necessário ter uma conta Gmail com autenticação de 2 fatores ativas.
+    2. Acesse as configurações de sua conta:
+    2.1. Busque por "Senhas de app", geralmente está dentro de "Verificação em duas etapas", crie um registro com o nome Portfólio Felipe Akel, por exemplo. Copie/salve a senha gerada.
+    3. Abra o arquivo .env e altere o valor contido na variável:
+    3.1. 'MAIL_HOST=smtp.gmail.com', atualize para este dado;
+    3.2. 'MAIL_PORT=1025', altere para esta porta;
+    3.3. 'MAIL_USERNAME=SEU_EMAIL@gmail.com', coloque o e-mail responsável por enviar as mensagens aos usuários.
+    3.4. 'MAIL_PASSWORD=SENHA_GERADA_GMAIL', coloque a senha gerada do Gmail, não coloque espaços.
+    3.5. 'MAIL_ENCRYPTION=tls', atualize para este dado;
+    3.6. "MAIL_FROM_ADDRESS='SEU_EMAIL@gmail.com'", repita o e-mail responsável por enviar as mensagens aos usuários dentro de aspas simples.
+    
 
 ## Vulnerabilidades de segurança
 
