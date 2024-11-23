@@ -10,13 +10,16 @@ use App\Models\TbLogsSistema;
 
 use Brian2694\Toastr\Facades\Toastr;
 
-
+// TO DO - Arquitetura - Criar uma Service e Repository de Habilidades
 class HabilidadeController extends Controller
 {
     public function index()
     {
         $retornoTipoHabilidade = TbTipoHabilidade::all();
-        $retornoHabilidade = TbHabilidades::with('tipoHabilidade')->where('id', '>=', 1)->paginate(10);
+        $retornoHabilidade = TbHabilidades::with('tipoHabilidade')
+            ->orderBy('id_tipo_habilidade', 'ASC')
+            ->orderBy('nr_ordenacao', 'ASC')
+            ->paginate(10);
 
         return view('template-admin.habilidade.index', compact('retornoTipoHabilidade', 'retornoHabilidade'));
     }
@@ -82,6 +85,7 @@ class HabilidadeController extends Controller
         return redirect()->route('habilidade.index');
     }
 
+    // TO DO - Arquitetura - Colocar logsSistemaStore para acesso geral, para não criar em cada controller
     public function logsSistemaStore ($id_status, $ds_log_executado)
     {
         return TbLogsSistema::create(['id_status' => $id_status, 'ds_log_executado' => $ds_log_executado]);

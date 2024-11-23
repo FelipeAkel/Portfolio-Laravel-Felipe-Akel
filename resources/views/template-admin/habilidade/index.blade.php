@@ -23,7 +23,7 @@
 
     <div class="row">
         <div class="col-12">
-
+            {{-- TO DO - Realizar o filtros dos registros de Habilidades --}}
             <div class="accordion" id="accordionFiltro">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
@@ -37,7 +37,7 @@
 
                             <form class="row g-3">
                                 <div class="mb-3 col-md-3">
-                                    <label for="id_tipo_habilidade" class="form-label">Tipo Experiência</label>
+                                    <label for="id_tipo_habilidade" class="form-label">Tipo Habilidade</label>
                                     <select name="id_tipo_habilidade" id="id_tipo_habilidade" class="form-select">
                                         <option>.. Selecione ..</option>
                                         @foreach ($retornoTipoHabilidade AS $indice => $tipoHabilidade )
@@ -87,10 +87,12 @@
                 <tr>
                     <th scope="col" width="200px">Ações</th>
                     <th scope="col">Tipo Habilidade</th>
-                    <th scope="col">Habilidade</th>
+                    <th scope="col">Nome Habilidade</th>
                     <th scope="col">Descrição</th>
                     <th scope="col">Porcentagem</th>
-                    <th scope="col">Data de Criação</th>
+                    <th scope="col">Ordenação</th>
+                    <th scope="col">Dt Criação</th>
+                    <th scope="col">Dt Atualização</th>
                 </tr>
             </thead>
             <tbody>
@@ -141,7 +143,9 @@
                                 {{ $dadosHabilidade->nr_porcentagem }}%
                         @endswitch
                     </td>
+                    <td>{{ $dadosHabilidade->nr_ordenacao }}</td>
                     <td>{{ \Carbon\Carbon::parse($dadosHabilidade->created_at)->format('d/m/Y - H:i')}}</td>
+                    <td>{{ \Carbon\Carbon::parse($dadosHabilidade->updated_at)->format('d/m/Y - H:i') }}</td>
                 </tr>
                 @endforeach
             </tbody>
