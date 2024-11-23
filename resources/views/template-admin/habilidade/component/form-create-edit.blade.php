@@ -14,7 +14,12 @@
         >
             <option value="">..Selecione..</option>
             @foreach ($retornoTipoHabilidade AS $indice => $dadosTipoHabilidade )
-                <option value="{{ $dadosTipoHabilidade->id }}" {{ ($habilidade->id_tipo_habilidade ?? old('id_tipo_habilidade')) == $dadosTipoHabilidade->id ? 'selected' : '' }}>{{ $dadosTipoHabilidade->no_tipo_habilidade }}</option>
+                <option 
+                    value="{{ $dadosTipoHabilidade->id }}" 
+                    {{ ($habilidade->id_tipo_habilidade ?? old('id_tipo_habilidade')) == $dadosTipoHabilidade->id ? 'selected' : '' }}
+                >
+                    {{ $dadosTipoHabilidade->no_tipo_habilidade }}
+                </option>
             @endforeach
         </select>
         @if ($errors->has('id_tipo_habilidade'))
@@ -66,9 +71,7 @@
             id="nr_porcentagem" 
         >
             <option value="">.. Selecione ..</option>
-            {{-- Bug Laravel ? Valores false são iguais a 0 ? está entrando na lógica do 0 --}}
-            {{-- @dd($errors->has('nr_porcentagem')) --}}
-            <option value="0" >0%</option>
+            <option value="0" {{ ($habilidade->nr_porcentagem ?? old('nr_porcentagem')) == 0 ? 'selected' : '' }}>0%</option>
             <option value="25" {{ ($habilidade->nr_porcentagem ?? old('nr_porcentagem')) == 25 ? 'selected' : '' }}>25%</option>
             <option value="50" {{ ($habilidade->nr_porcentagem ?? old('nr_porcentagem')) == 50 ? 'selected' : '' }}>50%</option>
             <option value="75" {{ ($habilidade->nr_porcentagem ?? old('nr_porcentagem')) == 75 ? 'selected' : '' }}>75%</option>
