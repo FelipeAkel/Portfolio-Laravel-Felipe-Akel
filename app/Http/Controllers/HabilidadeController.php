@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\HabilidadeFormRequest;
+use App\Http\Requests\Habilidade\StoreUpdateFormRequest;
+use App\Http\Requests\Habilidade\IndexFormRequest;
 use App\Models\TbTipoHabilidade;
 use App\Models\TbHabilidades;
 use App\Models\TbLogsSistema;
@@ -13,14 +14,37 @@ use Brian2694\Toastr\Facades\Toastr;
 // TO DO - Arquitetura - Criar uma Service e Repository de Habilidades
 class HabilidadeController extends Controller
 {
-    public function index()
-    {
-        $retornoTipoHabilidade = TbTipoHabilidade::all();
-        $retornoHabilidade = TbHabilidades::with('tipoHabilidade')
-            ->orderBy('id_tipo_habilidade', 'ASC')
-            ->orderBy('nr_ordenacao', 'ASC')
-            ->paginate(10);
 
+    // TO DO - Melhoria: A URL está passando todos os valores no filtro
+    public function index(IndexFormRequest $request)
+    {
+        $filtros = $request->only(['id_tipo_habilidade', 'nr_porcentagem', 'dt_created_inicio', 'dt_created_final']);
+        
+        $query = TbHabilidades::with('tipoHabilidade');
+        
+        if(!empty($filtros['id_tipo_habilidade'])) {
+            $query->where('id_tipo_habilidade', '=', $filtros['id_tipo_habilidade']);
+        }
+        
+        if(!empty($filtros['nr_porcentagem'])) {
+            $query->where('nr_porcentagem', '=', $filtros['nr_porcentagem']);
+        }
+        
+        if(!empty($filtros['dt_created_inicio'])) {
+            $query->whereDate('created_at', '>=', $filtros['dt_created_inicio']);
+        }
+
+        if(!empty($filtros['dt_created_final'])) {
+            $query->whereDate('created_at', '<=', $filtros['dt_created_final']);
+        }
+        
+        $retornoHabilidade = $query
+        ->orderBy('id_tipo_habilidade', 'ASC')
+        ->orderBy('nr_ordenacao', 'ASC')
+        ->paginate(10);
+        
+        $retornoTipoHabilidade = TbTipoHabilidade::all();
+        
         return view('template-admin.habilidade.index', compact('retornoTipoHabilidade', 'retornoHabilidade'));
     }
 
@@ -30,7 +54,7 @@ class HabilidadeController extends Controller
         return view('template-admin.habilidade.create', compact('retornoTipoHabilidade'));
     }
 
-    public function store(HabilidadeFormRequest $request)
+    public function store(StoreUpdateFormRequest $request)
     {
         $retornoBanco = TbHabilidades::create($request->all());
 
@@ -53,7 +77,7 @@ class HabilidadeController extends Controller
         return view('template-admin.habilidade.edit', compact('habilidade', 'retornoTipoHabilidade'));
     }
 
-    public function update(HabilidadeFormRequest $request, $id)
+    public function update(StoreUpdateFormRequest $request, $id)
     {
         $habilidade = TbHabilidades::find($id);
         $retornoBanco = $habilidade->update($request->all());

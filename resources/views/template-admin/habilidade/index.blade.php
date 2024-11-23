@@ -23,47 +23,77 @@
 
     <div class="row">
         <div class="col-12">
-            {{-- TO DO - Realizar o filtros dos registros de Habilidades --}}
             <div class="accordion" id="accordionFiltro">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseFiltro" aria-expanded="false" aria-controls="collapseFiltro">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFiltro" aria-expanded="true" aria-controls="collapseFiltro">
                             Filtros
                         </button>
                     </h2>
-                    <div id="collapseFiltro" class="accordion-collapse collapse" data-bs-parent="#accordionFiltro">
+                    <div id="collapseFiltro" class="accordion-collapse collapse show" data-bs-parent="#accordionFiltro">
                         <div class="accordion-body">
 
-                            <form class="row g-3">
+                            <form class="row g-3" 
+                                action="{{ route('habilidade.index') }}" 
+                                method="GET"
+                            >
+                                @csrf
                                 <div class="mb-3 col-md-3">
                                     <label for="id_tipo_habilidade" class="form-label">Tipo Habilidade</label>
-                                    <select name="id_tipo_habilidade" id="id_tipo_habilidade" class="form-select">
-                                        <option>.. Selecione ..</option>
+                                    <select 
+                                        class="form-select {{ $errors->has('id_tipo_habilidade') ? 'is-invalid' : '' }}"
+                                        name="id_tipo_habilidade" id="id_tipo_habilidade" 
+                                    >
+                                        <option value="">.. Selecione ..</option>
                                         @foreach ($retornoTipoHabilidade AS $indice => $tipoHabilidade )
                                             <option value="{{ $tipoHabilidade->id }}">{{ $tipoHabilidade->no_tipo_habilidade }}</option>
                                         @endforeach
                                     </select>
+
+                                    @if ($errors->has('id_tipo_habilidade'))
+                                        <div class="invalid-feedback">
+                                            {{ $errors->first('id_tipo_habilidade') }}
+                                        </div>
+                                    @endif
+
                                 </div>
                                 <div class="mb-3 col-md-3">
                                     <label for="nr_porcentagem" class="form-label">Porcentagem</label>
-                                    <select name="nr_porcentagem" id="nr_porcentagem" class="form-select">
-                                        <option>.. Selecione ..</option>
+                                    <select 
+                                        class="form-select {{ $errors->has('nr_porcentagem') ? 'is-invalid' : '' }}"
+                                        name="nr_porcentagem" id="nr_porcentagem" 
+                                    >
+                                        <option value="">.. Selecione ..</option>
                                         <option value="0">0%</option>
                                         <option value="25">25%</option>
                                         <option value="50">50%</option>
                                         <option value="75">75%</option>
                                         <option value="100">100%</option>
                                     </select>
+
+                                    @if($errors->has('nr_porcentagem'))
+                                        <div class="invalid-feedback">
+                                            {{ $errors->first('nr_porcentagem') }}
+                                        </div>
+                                    @endif
+
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Data Criação</label>
                                     <div class="input-group mb-3">
-                                        <input type="date" class="form-control" name="dt_created_inicio" >
-                                        <span class="input-group-text icone"><i class="bi bi-calendar4-week"></i></span>
-                                        <input type="date" class="form-control" name="dt_created_final">
+                                        <input type="date" class="form-control {{ $errors->has('dt_created_inicio') ? 'is-invalid' : '' }}" name="dt_created_inicio" >
+                                        <span class="input-group-text icone block" >Até</span>
+                                        <input type="date" class="form-control {{ $errors->has('dt_created_final') ? 'is-invalid' : '' }}" name="dt_created_final">
+                                        
+                                        @if($errors->has('dt_created_inicio') || $errors->has('dt_created_final'))
+                                            <div class="invalid-feedback">
+                                                {{ $errors->first('dt_created_inicio') }}
+                                                {{ $errors->first('dt_created_final') }}
+                                            </div>
+                                        @endif
+                                        
                                     </div>
-                                    {{-- <div class="form-text" >Entre as data X e Y</div> --}}
                                 </div>
                                 <div class="mb-3 col-12">
                                     <button type="submit" class="btn btn-primary">Pesquisar</button>
@@ -96,7 +126,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($retornoHabilidade AS $indice => $dadosHabilidade)
+                @forelse ($retornoHabilidade AS $indice => $dadosHabilidade)
                 <tr>
                     <td>
                         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
@@ -144,10 +174,16 @@
                         @endswitch
                     </td>
                     <td>{{ $dadosHabilidade->nr_ordenacao }}</td>
-                    <td>{{ \Carbon\Carbon::parse($dadosHabilidade->created_at)->format('d/m/Y - H:i')}}</td>
+                    <td>{{ \Carbon\Carbon::parse($dadosHabilidade->created_at)->format('d/m/Y - H:i') }}</td>
                     <td>{{ \Carbon\Carbon::parse($dadosHabilidade->updated_at)->format('d/m/Y - H:i') }}</td>
                 </tr>
-                @endforeach
+                @empty
+                <tr>
+                    <td colspan="8">
+                        Nenhum dado encontrado
+                    </td>
+                </tr>
+                @endforelse
             </tbody>
         </table>
     </div>

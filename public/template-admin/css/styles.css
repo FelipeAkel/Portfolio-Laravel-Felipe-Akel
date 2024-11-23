@@ -153,3 +153,8 @@
     object-fit: contain; 
     /* contain cover scale-down*/
 }
+
+/* Correção data inicial e final com texto */
+.block {
+    display: block;
+}
