@@ -14,11 +14,11 @@ class StoreUpdateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_tipo_habilidade' => 'required | exists:tb_tipo_habilidade,id', 
-            'no_habilidade' => 'required | max:150', 
-            'ds_habilidade' => 'nullable | max:150', 
-            'nr_porcentagem' => 'required | numeric | between:0,100', 
-            'nr_ordenacao' => 'required | numeric',
+            'id_tipo_habilidade' => 'required|exists:tb_tipo_habilidade,id', 
+            'no_habilidade' => 'required|max:150', 
+            'ds_habilidade' => 'nullable|max:150', 
+            'nr_porcentagem' => 'required|numeric|between:0,100', 
+            'nr_ordenacao' => 'required|numeric',
         ];
     }
 

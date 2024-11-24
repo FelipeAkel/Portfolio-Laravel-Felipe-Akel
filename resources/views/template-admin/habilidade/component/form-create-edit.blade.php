@@ -71,7 +71,7 @@
             id="nr_porcentagem" 
         >
             <option value="">.. Selecione ..</option>
-            <option value="0" {{ ($habilidade->nr_porcentagem ?? old('nr_porcentagem')) == 0 ? 'selected' : '' }}>0%</option>
+            <option value="0" {{ ($habilidade->nr_porcentagem ?? old('nr_porcentagem')) === 0 ? 'selected' : '' }}>0%</option>
             <option value="25" {{ ($habilidade->nr_porcentagem ?? old('nr_porcentagem')) == 25 ? 'selected' : '' }}>25%</option>
             <option value="50" {{ ($habilidade->nr_porcentagem ?? old('nr_porcentagem')) == 50 ? 'selected' : '' }}>50%</option>
             <option value="75" {{ ($habilidade->nr_porcentagem ?? old('nr_porcentagem')) == 75 ? 'selected' : '' }}>75%</option>
