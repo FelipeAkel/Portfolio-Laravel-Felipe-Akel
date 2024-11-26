@@ -8,32 +8,35 @@ use App\Models\TbLogsSistema;
 use Illuminate\Http\Request;
 use App\Http\Requests\CarreiraProfissionalFormRequest;
 
-use Brian2694\Toastr\Facades\Toastr;
+use App\Repositories\CarreiraProfissional\TipoExperienciaRepository;
+use App\Repositories\CarreiraProfissional\CarreiraProfissionalRepository;
 
+use Brian2694\Toastr\Facades\Toastr;
 
 class CarreiraProfissionalCotroller extends Controller
 {
+    protected $carreiraProfissionalRepository;
+    protected $tipoExperienciaRepository;
+
+    public function __construct(
+        CarreiraProfissionalRepository $carreiraProfissionalRepository,
+        TipoExperienciaRepository $tipoExperienciaRepository
+    ) {
+        $this->carreiraProfissionalRepository = $carreiraProfissionalRepository;
+        $this->tipoExperienciaRepository = $tipoExperienciaRepository;
+    }
+
     public function index(Request $request)
     {
-        // "no_experiencia" => "teste"
-        // "dt_inicio" => "2024-02-13"
-        // "dt_final" => "2024-02-14"
-        // $dataInicio = '';
-        // if($request->input('dt_inicio')){
-        //     dd($request->all());
-        // }
-    
-        $retornoTipoExperiencia = TbTipoExperiencia::all();
-
-        $retornoCarreiraProfissional = TbCarreiraProfissional::with("tipoExperiencia")->where('id', '>=', 1)
-        ->paginate(10);
+        $retornoTipoExperiencia = $this->tipoExperienciaRepository::all();
+        $retornoCarreiraProfissional = $this->carreiraProfissionalRepository::index($request);
 
         return view('template-admin.carreira-profissional.index', compact('retornoCarreiraProfissional', 'retornoTipoExperiencia'));
     }
 
     public function create()
     {        
-        $retornoTipoExperiencia = TbTipoExperiencia::all();
+        $retornoTipoExperiencia = $this->tipoExperienciaRepository::all();
         return view('template-admin.carreira-profissional.create', compact('retornoTipoExperiencia'));
     }
 
@@ -61,7 +64,7 @@ class CarreiraProfissionalCotroller extends Controller
     public function edit($id)
     {
         $carreiraProfissional = TbCarreiraProfissional::find($id);
-        $retornoTipoExperiencia = TbTipoExperiencia::all();
+        $retornoTipoExperiencia = $this->tipoExperienciaRepository::all();
         return view('template-admin.carreira-profissional.edit', compact('retornoTipoExperiencia', 'carreiraProfissional'));
     }
 
