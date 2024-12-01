@@ -16,7 +16,7 @@ class StoreUpdateFormRequest extends FormRequest
         return [
             'id_tipo_habilidade' => 'required|exists:tb_tipo_habilidade,id', 
             'no_habilidade' => 'required|max:150', 
-            'ds_habilidade' => 'nullable|max:150', 
+            'ds_habilidade' => 'nullable|max:255', 
             'nr_porcentagem' => 'required|numeric|between:0,100', 
             'nr_ordenacao' => 'required|numeric',
         ];
@@ -27,9 +27,10 @@ class StoreUpdateFormRequest extends FormRequest
         return [
             'required' => 'O campo é obrigatório',
             'nullable' => 'O campo é opcional',
-            'max' => 'O campo deve ter no máximo 150 caracteres',
             'numeric' => 'O campo deve ser numérico',
             'id_tipo_habilidade.exists' => 'Valor do ID não existe na tabela Tipo Habilidade',
+            'no_habilidade.max' => 'O campo deve ter no máximo 150 caracteres',
+            'ds_habilidade.max' => 'O campo deve ter no máximo 255 caracteres',
             'nr_porcentagem.between' => 'O valor deve está entre :min e :max',
         ];
     }

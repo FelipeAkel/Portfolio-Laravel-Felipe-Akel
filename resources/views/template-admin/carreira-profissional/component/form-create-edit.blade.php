@@ -22,9 +22,13 @@
     </div>
     <div class="mb-3 col-md-4">
         <label for="no_experiencia" class="form-label">Nome Experiência <span class="required">*</span></label>
-        <input type="text" class="form-control {{ $errors->has('no_experiencia') ? 'is-invalid' : '' }}" 
-            name="no_experiencia" id="no_experiencia" maxlength="255" value="{{ $carreiraProfissional->no_experiencia ?? old('no_experiencia') }}"
-            placeholder="Dica: Formação, curso, cargo">
+        <input 
+            type="text" 
+            class="form-control {{ $errors->has('no_experiencia') ? 'is-invalid' : '' }}" 
+            name="no_experiencia" id="no_experiencia" 
+            maxlength="255" value="{{ $carreiraProfissional->no_experiencia ?? old('no_experiencia') }}"
+        >
+        <div class="form-text">Dica: Nome do curso, certificado, cargo</div>
         @if ($errors->has('no_experiencia'))
             <div class="invalid-feedback">
                 {{ $errors->first('no_experiencia') }}
@@ -33,9 +37,13 @@
     </div>
     <div class="mb-3 col-md-4">
         <label for="no_empresa" class="form-label">Nome Empresa <span class="required">*</span></label>
-        <input type="text" class="form-control {{ $errors->has('no_empresa') ? 'is-invalid' : '' }}" 
-            name="no_empresa" id="no_empresa" maxlength="255" value="{{ $carreiraProfissional->no_empresa ?? old('no_empresa') }}"
-            placeholder="Dica: Empresa prestadora do serviço, contratada">
+        <input 
+            type="text" 
+            class="form-control {{ $errors->has('no_empresa') ? 'is-invalid' : '' }}" 
+            name="no_empresa" id="no_empresa" 
+            maxlength="255" value="{{ $carreiraProfissional->no_empresa ?? old('no_empresa') }}"
+        >
+        <div class="form-text">Dica: Empresa prestadora do serviço, contratada</div>
         @if ($errors->has('no_empresa'))
             <div class="invalid-feedback">
                 {{ $errors->first('no_empresa') }}

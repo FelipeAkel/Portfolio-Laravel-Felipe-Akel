@@ -6,7 +6,9 @@ use App\Models\TbCarreiraProfissional;
 use App\Models\TbTipoExperiencia;
 use App\Models\TbLogsSistema;
 use Illuminate\Http\Request;
-use App\Http\Requests\CarreiraProfissionalFormRequest;
+
+use App\Http\Requests\CarreiraProfissional\CarreiraProfissionalFormRequest;
+use App\Http\Requests\CarreiraProfissional\IndexFormRequest;
 
 use App\Repositories\CarreiraProfissional\TipoExperienciaRepository;
 use App\Repositories\CarreiraProfissional\CarreiraProfissionalRepository;
@@ -26,7 +28,7 @@ class CarreiraProfissionalCotroller extends Controller
         $this->tipoExperienciaRepository = $tipoExperienciaRepository;
     }
 
-    public function index(Request $request)
+    public function index(IndexFormRequest $request)
     {
         $retornoTipoExperiencia = $this->tipoExperienciaRepository::all();
         $retornoCarreiraProfissional = $this->carreiraProfissionalRepository::index($request);

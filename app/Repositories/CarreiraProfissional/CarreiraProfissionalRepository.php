@@ -23,17 +23,15 @@
             if(!empty($filtros['dt_inicio'])) {
                 $query->whereDate('dt_inicio', '>=', $filtros['dt_inicio']);
             }
-
-
+            if(!empty($filtros['dt_final'])) {
+                $query->whereDate('dt_final', '<=', $filtros['dt_final']);
+            }
+            if(!empty($filtros['id_tipo_experiencia'])) {
+                $query->where('id_tipo_experiencia', '=', $filtros['id_tipo_experiencia']);
+            }
+            
             $retornoCarreiraProfissional = $query
-                // ->toSql();
                 ->paginate(10);
-
-            // dd($request->all(), $filtros, $retornoCarreiraProfissional);
-            // "no_experiencia" => "sdads sadsad"
-            // "dt_inicio" => "2024-11-18"
-            // "dt_final" => "2024-11-28"
-            // "id_tipo_experiencia" => "3"
 
             return $retornoCarreiraProfissional;
         }

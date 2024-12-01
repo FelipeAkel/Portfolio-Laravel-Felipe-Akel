@@ -27,40 +27,85 @@
             <div class="accordion" id="accordionFiltro">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseFiltro" aria-expanded="false" aria-controls="collapseFiltro">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFiltro" aria-expanded="true" aria-controls="collapseFiltro">
                             Filtros
                         </button>
                     </h2>
-                    <div id="collapseFiltro" class="accordion-collapse collapse" data-bs-parent="#accordionFiltro">
+                    <div id="collapseFiltro" class="accordion-collapse collapse show" data-bs-parent="#accordionFiltro">
                         <div class="accordion-body">
 
                             <form action="{{ route('carreira-profissional.index') }}" method="GET" class="row g-3">
-                                <div class="col-md-4">
-                                    <label for="no_experiencia" class="form-label">Nome Experiência</label>
-                                    <input type="text" class="form-control" name="no_experiencia" id="no_experiencia">
-                                    <div class="form-text">Dica: Nome do curso, certificado, cargo</div>
-
-                                </div>
-                                <div class="col-md-2">
-                                    <label for="dt_inicio" class="form-label">Data Início</label>
-                                    <input type="date" class="form-control" name="dt_inicio" id="dt_inicio">
-                                </div>
-                                <div class="col-md-2">
-                                    <label for="dt_final" class="form-label">Data Final</label>
-                                    <input type="date" class="form-control" name="dt_final" id="dt_final">
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="id_tipo_experiencia" class="form-label">Tipo Experiência</label>
-                                    <select name="id_tipo_experiencia" id="id_tipo_experiencia" class="form-select">
-                                        <option selected>.. Selecione ..</option>
+                                <div class="col-3">
+                                    <label for="id_tipo_experiencia" class="form-label"> Tipo Experiência </label>
+                                    <select 
+                                        class="form-select {{ $errors->has('id_tipo_experiencia') ? 'is-invalid' : '' }}"
+                                        name="id_tipo_experiencia" id="id_tipo_experiencia" 
+                                    >
+                                        <option value="">.. Selecione ..</option>
                                         @foreach ($retornoTipoExperiencia as $indice => $dadosTipoExp)
                                             <option value="{{ $dadosTipoExp->id }}">{{ $dadosTipoExp->no_tipo_experiencia }}</option>
                                         @endforeach
                                     </select>
+                                    
+                                    @if ($errors->has('id_tipo_experiencia'))
+                                        <div class="invalid-feedback">
+                                            {{ $errors->first('id_tipo_experiencia') }}
+                                        </div>
+                                    @endif
+                                    
+                                </div>                                
+                                <div class="col-3">
+                                    <label for="no_experiencia" class="form-label"> Nome Experiência </label>
+                                    <input 
+                                        type="text" 
+                                        class="form-control {{ $errors->has('id_tipo_experiencia') ? 'is-invalid' : '' }}" 
+                                        name="no_experiencia" id="no_experiencia"
+                                        maxlength="150"
+                                    >
+                                    
+                                    @if ($errors->has('no_experiencia'))
+                                        <div class="invalid-feedback">
+                                            {{ $errors->first('no_experiencia') }}
+                                        </div>
+                                    @endif
+
+                                    <div class="form-text">Dica: Nome do curso, certificado, cargo</div>
                                 </div>
+                                <div class="col-3">
+                                    <label for="dt_inicio" class="form-label"> Data Início </label>
+                                    <input 
+                                        type="date" 
+                                        class="form-control {{ $errors->has('dt_inicio') ? 'is-invalid' : '' }}" 
+                                        name="dt_inicio" id="dt_inicio"
+                                    >
+
+                                    @if ($errors->has('dt_inicio'))
+                                        <div class="invalid-feedback">
+                                            {{ $errors->first('dt_inicio') }}
+                                        </div>
+                                    @endif
+
+                                </div>
+                                <div class="col-3">
+                                    <label for="dt_final" class="form-label"> Data Final </label>
+                                    <input 
+                                        type="date" 
+                                        class="form-control {{ $errors->has('dt_final') ? 'is-invalid' : '' }}" 
+                                        name="dt_final" id="dt_final"
+                                    >
+
+                                    @if ($errors->has('dt_final'))
+                                        <div class="invalid-feedback">
+                                            {{ $errors->first('dt_final') }}
+                                        </div>
+                                    @endif
+
+                                </div>
+
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Pesquisar </button>
+                                    <button type="submit" class="btn btn-primary"> Pesquisar </button>
+                                    <button type="reset" class="btn btn-secondary"> Limpar </button>
                                 </div>
                             </form>
 
