@@ -52,8 +52,16 @@
 
         public function update($request, $id)
         {
-            $carreiraProfissional = TbCarreiraProfissional::find($id);
-            return $carreiraProfissional->update($request->all());
+            try {
+                DB::beginTransaction();
+                    $retornoCarreira = TbCarreiraProfissional::find($id)->update($request->all());                    
+                    $retornoLog = TbLogsSistema::create(['id_status' => 7, 'ds_log_executado' => "Carreira Profissional - ID: $id"]);
+                DB::commit();
+                return true;
+            } catch(Exception $e) {
+                DB::rollback();
+                return false;
+            }
         }
 
         public function destroy($id)
