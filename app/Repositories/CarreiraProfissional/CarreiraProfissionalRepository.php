@@ -3,7 +3,11 @@
     namespace App\Repositories\CarreiraProfissional;
 
     use App\Models\TbCarreiraProfissional;
-
+    use App\Models\TbLogsSistema;
+    use Illuminate\Http\Request;
+    use Illuminate\Support\Facades\DB;
+    use Illuminate\Database\QueryException;
+    use Exception;
     class CarreiraProfissionalRepository
     {
         public function all()
@@ -34,6 +38,36 @@
                 ->paginate(10);
 
             return $retornoCarreiraProfissional;
+        }
+
+        public function store($request)
+        {
+            return TbCarreiraProfissional::create($request->all());
+        }
+
+        public function find($id)
+        {
+            return TbCarreiraProfissional::with("tipoExperiencia")->find($id);
+        }
+
+        public function update($request, $id)
+        {
+            $carreiraProfissional = TbCarreiraProfissional::find($id);
+            return $carreiraProfissional->update($request->all());
+        }
+
+        public function destroy($id)
+        {
+            try {
+                DB::beginTransaction();
+                    $retornoCarreira = TbCarreiraProfissional::find($id)->delete();                    
+                    $retornoLog = TbLogsSistema::create(['id_status' => 8, 'ds_log_executado' => "Carreira Profissional - ID: $id"]);
+                DB::commit();
+                return true;
+            } catch(Exception $e) {
+                DB::rollback();
+                return false;
+            }
         }
 
     }

@@ -44,7 +44,7 @@ class CarreiraProfissionalCotroller extends Controller
 
     public function store(CarreiraProfissionalFormRequest $request)
     {
-        $retornoBanco = TbCarreiraProfissional::create($request->all());
+        $retornoBanco = $this->carreiraProfissionalRepository::store($request);
 
         if($retornoBanco == true){
             $this->logsSistemaStore(6, 'Carreira Profissional');
@@ -59,21 +59,20 @@ class CarreiraProfissionalCotroller extends Controller
 
     public function show($id)
     {
-        $carreiraProfissional = TbCarreiraProfissional::with("tipoExperiencia")->find($id);
+        $carreiraProfissional = $this->carreiraProfissionalRepository::find($id);
         return view('template-admin.carreira-profissional.show', compact('carreiraProfissional'));
     }
 
     public function edit($id)
     {
-        $carreiraProfissional = TbCarreiraProfissional::find($id);
+        $carreiraProfissional = $this->carreiraProfissionalRepository::find($id);
         $retornoTipoExperiencia = $this->tipoExperienciaRepository::all();
         return view('template-admin.carreira-profissional.edit', compact('retornoTipoExperiencia', 'carreiraProfissional'));
     }
 
     public function update(CarreiraProfissionalFormRequest $request, $id)
     {
-        $carreiraProfissional = TbCarreiraProfissional::find($id);
-        $retornoBanco = $carreiraProfissional->update($request->all());
+        $retornoBanco = $this->carreiraProfissionalRepository::update($request, $id);
 
         if($retornoBanco == true){
             $this->logsSistemaStore(7, 'Carreira Profissional - ID: ' . $id);
@@ -88,12 +87,9 @@ class CarreiraProfissionalCotroller extends Controller
 
     public function destroy( $id)
     {
-        $carreiraProfissional = TbCarreiraProfissional::find($id);
-        $retornoBanco = $carreiraProfissional->delete();
+        $retornoBanco = $this->carreiraProfissionalRepository::destroy($id);
 
         if($retornoBanco == true){
-            $this->logsSistemaStore(8, 'Carreira Profissional - ID: ' . $id);
-
             Toastr::success('O registro foi deletado', 'Sucesso');
         } else {
             Toastr::error('Não foi possível deletar o registro', 'Erro');
