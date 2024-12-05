@@ -47,7 +47,12 @@
                                     >
                                         <option value="">.. Selecione ..</option>
                                         @foreach ($retornoTipoHabilidade AS $indice => $tipoHabilidade )
-                                            <option value="{{ $tipoHabilidade->id }}">{{ $tipoHabilidade->no_tipo_habilidade }}</option>
+                                            <option 
+                                                value="{{ $tipoHabilidade->id }}"
+                                                {{ old("id_tipo_habilidade") == $tipoHabilidade->id ? 'selected' : '' }}
+                                            >
+                                                {{ $tipoHabilidade->no_tipo_habilidade }}
+                                            </option>
                                         @endforeach
                                     </select>
 
@@ -65,11 +70,11 @@
                                         name="nr_porcentagem" id="nr_porcentagem" 
                                     >
                                         <option value="">.. Selecione ..</option>
-                                        <option value="0">0%</option>
-                                        <option value="25">25%</option>
-                                        <option value="50">50%</option>
-                                        <option value="75">75%</option>
-                                        <option value="100">100%</option>
+                                        <option value="0" {{ old("nr_porcentagem") === '0' ? 'selected' : ''}} >0%</option>
+                                        <option value="25" {{ old("nr_porcentagem") === '25' ? 'selected' : ''}} >25%</option>
+                                        <option value="50" {{ old("nr_porcentagem") === '50' ? 'selected' : ''}} >50%</option>
+                                        <option value="75" {{ old("nr_porcentagem") === '75' ? 'selected' : ''}} >75%</option>
+                                        <option value="100" {{ old("nr_porcentagem") === '100' ? 'selected' : '' }} >100%</option>
                                     </select>
 
                                     @if($errors->has('nr_porcentagem'))
@@ -82,9 +87,21 @@
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Data Criação</label>
                                     <div class="input-group mb-3">
-                                        <input type="date" class="form-control {{ $errors->has('dt_created_inicio') ? 'is-invalid' : '' }}" name="dt_created_inicio" >
+                                        <input 
+                                            type="date" 
+                                            class="form-control 
+                                            {{ $errors->has('dt_created_inicio') ? 'is-invalid' : '' }}" 
+                                            name="dt_created_inicio" 
+                                            value="{{ old("dt_created_inicio") }}"
+                                        >
                                         <span class="input-group-text icone block" >Até</span>
-                                        <input type="date" class="form-control {{ $errors->has('dt_created_final') ? 'is-invalid' : '' }}" name="dt_created_final">
+                                        <input 
+                                            type="date" 
+                                            class="form-control 
+                                            {{ $errors->has('dt_created_final') ? 'is-invalid' : '' }}" 
+                                            name="dt_created_final"
+                                            value="{{ old("dt_created_final") }}"
+                                        >
                                         
                                         @if($errors->has('dt_created_inicio') || $errors->has('dt_created_final'))
                                             <div class="invalid-feedback">

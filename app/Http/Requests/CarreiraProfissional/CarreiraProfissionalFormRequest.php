@@ -18,7 +18,7 @@ class CarreiraProfissionalFormRequest extends FormRequest
             'no_experiencia' => 'required|string|max:150',
             'no_empresa' => 'required|string|max:255', 
             'dt_inicio' => 'required|date',
-            'dt_final' => 'nullable|date',
+            'dt_final' => 'nullable|date|after:dt_inicio',
             'st_trabalho_atual' => 'required|numeric|between:0,1',
             'nr_total_horas' => 'nullable|numeric',
             'ds_url' => 'nullable|url',
@@ -38,6 +38,7 @@ class CarreiraProfissionalFormRequest extends FormRequest
             'no_experiencia.max' => 'O campo deve ter no máximo 150 caracteres',
             'no_empresa.max' => 'O campo deve ter no máximo 255 caracteres',
             'st_trabalho_atual.between' => 'O valor deve está entre :min e :max',
+            'dt_final.after' => 'A Data Final deve ser maior que a Data Início',
             'ds_url.url' => 'O campo dever ser uma URL válida',
         ];
     }

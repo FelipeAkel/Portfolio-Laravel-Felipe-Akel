@@ -17,7 +17,7 @@ class IndexFormRequest extends FormRequest
             'id_tipo_experiencia' => 'nullable|exists:tb_tipo_experiencia,id',
             'no_experiencia' => 'nullable|string|max:150',
             'dt_inicio' => 'nullable|date',
-            'dt_final' => 'nullable|date',
+            'dt_final' => 'nullable|date|after:dt_inicio',
         ];
     }
 
@@ -30,6 +30,7 @@ class IndexFormRequest extends FormRequest
             'id_tipo_experiencia.exists' => 'Valor do ID não existe na tabela Tipo Habilidade',
             'no_experiencia.string' => 'O campo deve ser uma string',
             'no_experiencia.max' => 'O campo deve ter no máximo 150 caracteres',
+            'dt_final.after' => 'A Data Final deve ser maior que a Data Início',
         ];
     }
 }

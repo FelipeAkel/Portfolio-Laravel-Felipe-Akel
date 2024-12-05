@@ -21,11 +21,11 @@
                     @method('PUT')
                     <div class="mb-3 col-md-6">
                         <h5 class="titulo-1rem">Currículo</h5>
-                        <a href="{{ asset('storage/') }}/{{ $sobreMim->ds_url_curriculo }}" class="btn btn-outline-info" target="_blank"><i class="bi bi-filetype-pdf"></i> - Visualizar PDF</a>
+                        <a href="{{ asset('storage/') }}/{{ $sobreMim->ds_url_curriculo }}" class="btn btn-info" target="_blank"><i class="bi bi-filetype-pdf"></i> - Visualizar PDF</a>
                     </div>
                     <div class="mb-3 col-md-6">
                         <h5 class="titulo-1rem">Foto Usuário</h5>
-                        <a href="#" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#modalFotoUsuario"><i class="bi bi-file-earmark-image"></i> - Visualizar Imagem</a>
+                        <a href="#" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalFotoUsuario"><i class="bi bi-file-earmark-image"></i> - Visualizar Imagem</a>
                     </div>
                     <div class="mb-3 col-md-6">
                         <label for="ds_url_curriculo" class="form-label">Arquivo PDF </label>

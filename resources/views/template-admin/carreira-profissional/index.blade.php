@@ -44,7 +44,12 @@
                                     >
                                         <option value="">.. Selecione ..</option>
                                         @foreach ($retornoTipoExperiencia as $indice => $dadosTipoExp)
-                                            <option value="{{ $dadosTipoExp->id }}">{{ $dadosTipoExp->no_tipo_experiencia }}</option>
+                                            <option 
+                                                value="{{ $dadosTipoExp->id }}" 
+                                                {{ old("id_tipo_experiencia") == $dadosTipoExp->id ? 'selected' : '' }}
+                                            >
+                                                {{ $dadosTipoExp->no_tipo_experiencia }}
+                                            </option>
                                         @endforeach
                                     </select>
                                     
@@ -62,6 +67,7 @@
                                         class="form-control {{ $errors->has('id_tipo_experiencia') ? 'is-invalid' : '' }}" 
                                         name="no_experiencia" id="no_experiencia"
                                         maxlength="150"
+                                        value="{{ old("no_experiencia") }}"
                                     >
                                     
                                     @if ($errors->has('no_experiencia'))
@@ -78,6 +84,7 @@
                                         type="date" 
                                         class="form-control {{ $errors->has('dt_inicio') ? 'is-invalid' : '' }}" 
                                         name="dt_inicio" id="dt_inicio"
+                                        value="{{ old("dt_inicio") }}"
                                     >
 
                                     @if ($errors->has('dt_inicio'))
@@ -93,6 +100,7 @@
                                         type="date" 
                                         class="form-control {{ $errors->has('dt_final') ? 'is-invalid' : '' }}" 
                                         name="dt_final" id="dt_final"
+                                        value="{{ old("dt_final") }}"
                                     >
 
                                     @if ($errors->has('dt_final'))
