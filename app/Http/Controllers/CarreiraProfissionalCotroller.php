@@ -44,8 +44,6 @@ class CarreiraProfissionalCotroller extends Controller
         $retornoBanco = $this->carreiraProfissionalRepository::store($request);
 
         if($retornoBanco == true){
-            $this->logsSistemaStore(6, 'Carreira Profissional');
-
             Toastr::success('O registro foi cadastrado', 'Sucesso');
         } else {
             Toastr::error('Não foi possível cadastrar o registro', 'Erro');

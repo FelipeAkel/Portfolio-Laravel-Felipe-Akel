@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\Habilidade\StoreUpdateFormRequest;
 use App\Http\Requests\Habilidade\IndexFormRequest;
-use App\Models\TbTipoHabilidade;
-use App\Models\TbHabilidades;
-use App\Models\TbLogsSistema;
+
 use App\Repositories\Habilidade\HabilidadeRepository;
 use App\Repositories\Habilidade\TipoHabilidadeRepository;
 
@@ -38,6 +36,7 @@ class HabilidadeController extends Controller
     public function create()
     {
         $retornoTipoHabilidade = $this->tipoHabilidadeRepository::all();
+        
         return view('template-admin.habilidade.create', compact('retornoTipoHabilidade'));
     }
 
@@ -46,8 +45,6 @@ class HabilidadeController extends Controller
         $retornoBanco = $this->habilidadeRepository::store($request);
 
         if($retornoBanco == true){
-            $this->logsSistemaStore(6, 'Habilidade');
-
             Toastr::success('O registro foi cadastrado', 'Sucesso');
         } else {
             Toastr::error('Não foi possível cadastrar o registro', 'Erro');
@@ -69,8 +66,6 @@ class HabilidadeController extends Controller
         $retornoBanco = $this->habilidadeRepository::update($id, $request);
 
         if($retornoBanco == true){
-            $this->logsSistemaStore(7, 'Habilidade - ID: ' . $id);
-
             Toastr::success('O registro foi atualizados', 'Sucesso');
         } else {
             Toastr::error('Não foi possível atualizar o registro', 'Erro');
@@ -84,8 +79,6 @@ class HabilidadeController extends Controller
         $retornoBanco = $this->habilidadeRepository::destroy($id);
 
         if($retornoBanco == true){
-            $this->logsSistemaStore(8, 'Habilidade - ID: ' . $id);
-
             Toastr::success('O registro foi deletado', 'Sucesso');
         } else {
             Toastr::error('Não foi possível deletar o registro', 'Erro');
@@ -94,9 +87,4 @@ class HabilidadeController extends Controller
         return redirect()->route('habilidade.index');
     }
 
-    // TO DO - Arquitetura - Colocar logsSistemaStore para acesso geral, para não criar em cada controller, criar no __construct algo similar
-    public function logsSistemaStore ($id_status, $ds_log_executado)
-    {
-        return TbLogsSistema::create(['id_status' => $id_status, 'ds_log_executado' => $ds_log_executado]);
-    }
 }

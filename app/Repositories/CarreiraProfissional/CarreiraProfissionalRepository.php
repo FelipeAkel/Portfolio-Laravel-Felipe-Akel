@@ -42,7 +42,16 @@
 
         public function store($request)
         {
-            return TbCarreiraProfissional::create($request->all());
+            try {
+                DB::beginTransaction();
+                    $retornoCarreira = TbCarreiraProfissional::create($request->all());                  
+                    $retornoLog = TbLogsSistema::create(['id_status' => 6, 'ds_log_executado' => "Carreira Profissional"]);
+                DB::commit();
+                return true;
+            } catch(Exception $e) {
+                DB::rollback();
+                return false;
+            }
         }
 
         public function find($id)
