@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\PortfolioFormRequest;
+use App\Http\Requests\Portfolio\PortfolioFormRequest;
 use Illuminate\Support\Facades\Storage;
 use App\Models\TbArquivos;
 use App\Models\TbPortfolio;

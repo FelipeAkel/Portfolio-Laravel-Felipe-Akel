@@ -11,7 +11,7 @@ class CreateTbPortfolio extends Migration
         Schema::create('tb_portfolio', function (Blueprint $table) {
             $table->id()->nullable(false)->comment('Chave Primária da tabela tb_portfolio');
             // $table->unsignedBigInteger('id_arquivos')->nullable(false)->comment('Chave Estrangeira da tabela tb_arquivos');
-            $table->char('ds_tipo_projeto', 40)->nullable(true)->comment('Classe que define qual o tipo de projeto');
+            $table->char('ds_tipo_projeto', 40)->nullable(true)->comment('Classe CSS que define qual o tipo de projeto');
             $table->string('no_projeto', 70)->nullable(false)->comment('Nome do projeto');
             $table->string('no_cliente', 70)->nullable(true)->comment('Nome do cliente ou empresa');
             $table->date('dt_inicio')->nullable(true)->comment('Data de início do projeto');
@@ -27,6 +27,7 @@ class CreateTbPortfolio extends Migration
             $table->timestamps();
             $table->softDeletes()->nullable(true)->comment('Data de delete do registro');
 
+            // TO DO - Melhoria: Colocar todos os arquivos imagens, PDF... uma uma tabela separada.
             // Constraint
             // $table->foreign('id_arquivos')->references('id')->on('tb_arquivos');
         });
