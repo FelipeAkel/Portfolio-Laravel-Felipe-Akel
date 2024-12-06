@@ -9,13 +9,28 @@ use App\Models\TbArquivos;
 use App\Models\TbPortfolio;
 use App\Models\TbLogsSistema;
 
+use App\Services\Portfolio\PortfolioService;
+
+use App\Repositories\PortfolioRepository;
+
 use Brian2694\Toastr\Facades\Toastr;
 
 class PortfolioController extends Controller
 {
+    protected $portfolioService;
+    protected $portfolioRepository;
+
+    public function __construct(
+        PortfolioService $portfolioService,
+        PortfolioRepository $portfolioRepository
+    ) {
+        $this->portfolioService = $portfolioService;
+        $this->portfolioRepository = $portfolioRepository;
+    }
+
     public function index()
     {
-        $portfolio = TbPortfolio::where('id', '>=', 1)->paginate(10);
+        $portfolio = $this->portfolioRepository::index();
         return view('template-admin.portfolio.index', compact('portfolio'));
     }
 
@@ -26,39 +41,15 @@ class PortfolioController extends Controller
 
     public function store(PortfolioFormRequest $request)
     {
-        $this->mesclarDsTipoProjeto($request);
-
-        if($request->file('file_img_destaque')){
-            $imgDestaque = $request->file('file_img_destaque');
-            $urlImgDestaque = $imgDestaque->store('portfolio', 'public');
-            $request['ds_url_img_destaque'] = $urlImgDestaque;
-        }
-        if($request->file('file_img_1_galeria')){
-            $img1Galeria = $request->file('file_img_1_galeria');
-            $urlImg1Galeria = $img1Galeria->store('portfolio', 'public');
-            $request['ds_url_img_1_galeria'] = $urlImg1Galeria;
-        }
-        if($request->file('file_img_2_galeria')){
-            $img2Galeria = $request->file('file_img_2_galeria');
-            $urlImg2Galeria = $img2Galeria->store('portfolio', 'public');
-            $request['ds_url_img_2_galeria'] = $urlImg2Galeria;
-        }
-        if($request->file('file_img_3_galeria')){
-            $img3Galeria = $request->file('file_img_3_galeria');
-            $urlImg3Galeria = $img3Galeria->store('portfolio', 'public');
-            $request['ds_url_img_3_galeria'] = $urlImg3Galeria;
-        }
-
-        $retornoBanco = TbPortfolio::create($request->all());
-
+        $this->portfolioService::mesclarDsTipoProjeto($request);
+        $retornoBanco = $this->portfolioRepository::store($request);
+        
         if($retornoBanco == true){
-            $this->logsSistemaStore(6, 'Portfólio: Projeto');
-
             Toastr::success('O registro foi cadastrado', 'Sucesso');
         } else {
             Toastr::error('Não foi possível cadastrar o registro', 'Erro');
         }
-
+        
         return redirect()->route('portfolio.index');
     }
 
@@ -85,7 +76,7 @@ class PortfolioController extends Controller
     {
         $portfolio = TbPortfolio::find($id);
 
-        $this->mesclarDsTipoProjeto($request);
+        $this->portfolioService::mesclarDsTipoProjeto($request);
 
         if($request->file('file_img_destaque')){
             $imgDestaque = $request->file('file_img_destaque');
@@ -145,22 +136,6 @@ class PortfolioController extends Controller
         }
 
         return redirect()->route('portfolio.index');
-    }
-
-    
-    public function mesclarDsTipoProjeto ($request){
-        // mesclando os campos de checkbox em uma única variável para salvar no banco
-        $ds_tipo_projeto = null;
-        if($request->input('tipo_php_laravel')){
-            $ds_tipo_projeto .= $request->input('tipo_php_laravel') . ' ';
-        }
-        if($request->input('tipo_website')){
-            $ds_tipo_projeto .= $request->input('tipo_website') . ' ';
-        }
-        if($request->input('tipo_landing_page')){
-            $ds_tipo_projeto .= $request->input('tipo_landing_page') . ' ';
-        }
-        $request['ds_tipo_projeto'] = $ds_tipo_projeto;
     }
 
     public function strposDsTipoProjeto ($portfolio){
