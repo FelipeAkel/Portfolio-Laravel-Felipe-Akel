@@ -3,18 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use App\Models\TbServicos;
-use App\Models\TbLogsSistema;
+    use Illuminate\Support\Facades\Storage;
+    use App\Models\TbServicos;
+    use App\Models\TbLogsSistema;
 use App\Http\Requests\ServicosFormRequest;
 
 use Brian2694\Toastr\Facades\Toastr;
 
+use App\Services\Servicos\ServicosService;
+
+use App\Repositories\ServicosRepository;
+
 class ServicosController extends Controller
 {
+    protected $servicosService;
+    protected $servicosRepository;
+
+    public function __construct(
+        ServicosService $servicosService,
+        ServicosRepository $servicosRepository
+    ){
+        $this->servicosService = $servicosService;
+        $this->servicosRepository = $servicosRepository;
+    }
+
     public function index()
     {
-        $servicos = TbServicos::where('id', '>=', '1')->orderBy('no_servico', 'ASC')->paginate(10);
+        $servicos = $this->servicosRepository::index();
         return view('template-admin.servicos.index', compact('servicos'));
     }
 
@@ -25,21 +40,11 @@ class ServicosController extends Controller
 
     public function store(ServicosFormRequest $request)
     {
-        // Arquivos
-        $icone = $request->file('file_icon_svg');
-        $urlIcone = $icone->store('servicos/icones', 'public');
-        $request['ds_url_icon_svg'] = $urlIcone;
-
-        if($request->file('file_img')){
-            $imagem = $request->file('file_img');
-            $urlImagem = $imagem->store('servicos', 'public');
-            $request['ds_url_img'] = $urlImagem;
-        }
-
-        $retornoBanco = TbServicos::create($request->all());
+        $this->servicosService::arquivosImgs($request, null);
+        
+        $retornoBanco = $this->servicosRepository::store($request);
+        
         if($retornoBanco == true){
-            $this->logsSistemaStore(6, 'Serviço');
-
             Toastr::success('O registro foi cadastrado', 'Sucesso');
         } else {
             Toastr::error('Não foi possível cadastrar o registro', 'Erro');
@@ -50,42 +55,25 @@ class ServicosController extends Controller
 
     public function show($id)
     {
-        $servico = TbServicos::find($id);
+        $servico = $this->servicosRepository::find($id);
         return view('template-admin.servicos.show', compact('servico'));
     }
 
     public function edit($id)
     {
-        $servico = TbServicos::find($id);
+        $servico = $this->servicosRepository::find($id);
         return view('template-admin.servicos.edit', compact('servico'));
     }
 
     public function update(ServicosFormRequest $request, $id)
     {
-        $servico = TbServicos::find($id);
-        $urlIcone = $servico->ds_url_icon_svg;
-        $urlImagem = $servico->ds_url_img;
+        $servico = $this->servicosRepository::find($id);
 
-        // Arquivos
-        if($request->file('file_icon_svg')){
-            $icone = $request->file('file_icon_svg');
-            $urlIcone = $icone->store('servicos/icones', 'public');
-            Storage::disk('public')->delete($servico->ds_url_icon_svg);    // Delete arquivo antigo
-            $request['ds_url_icon_svg'] = $urlIcone;
-        }
-        if($request->file('file_img')){
-            $imagem = $request->file('file_img');
-            $urlImagem = $imagem->store('servicos', 'public');
-            Storage::disk('public')->delete($servico->ds_url_img);
-            $request['ds_url_img'] = $urlImagem;
-        }
+        $this->servicosService::arquivosImgs($request, $servico);
 
-        $retornoBanco = $servico->update($request->all());
+        $retornoBanco = $this->servicosRepository::update($id, $request);
 
         if($retornoBanco == true){
-
-            $this->logsSistemaStore(7, 'Serviço - ID: ' . $id);
-
             Toastr::success('O registro foi atualizado', 'Sucesso');
         } else {
             Toastr::error('Não foi possível atualizado o registro', 'Erro');
@@ -96,15 +84,13 @@ class ServicosController extends Controller
 
     public function destroy($id)
     {
-        $servico = TbServicos::find($id);
-        $retornoBanco = $servico->delete();
+        $servico = $this->servicosRepository::find($id);
+        $retornoBanco = $this->servicosRepository::destroy($id);
 
-        Storage::disk('public')->delete($servico->ds_url_icon_svg);
-        Storage::disk('public')->delete($servico->ds_url_img);
+        $countImgDeletadas = $this->servicosService::deleteImgsPasta($servico);
+        Toastr::info("Total de $countImgDeletadas imagens deletadas", 'Informação');
 
         if($retornoBanco == true){
-            $this->logsSistemaStore(8, 'Serviço - ID: ' . $id);
-
             Toastr::success('O registro foi deletado', 'Sucesso');
         } else {
             Toastr::error('Não foi possível deletado o registro', 'Erro');
@@ -113,8 +99,4 @@ class ServicosController extends Controller
         return redirect()->route('servicos.index');
     }
 
-    public function logsSistemaStore ($id_status, $ds_log_executado)
-    {
-        return TbLogsSistema::create(['id_status' => $id_status, 'ds_log_executado' => $ds_log_executado]);
-    }
 }

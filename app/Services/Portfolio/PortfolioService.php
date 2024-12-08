@@ -47,25 +47,33 @@ class PortfolioService
         if($request->file('file_img_destaque')){
             $imgDestaque = $request->file('file_img_destaque');
             $urlImgDestaque = $imgDestaque->store('portfolio', 'public');
-            Storage::disk('public')->delete($portfolio->ds_url_img_destaque);
+            if($portfolio !== null){
+                Storage::disk('public')->delete($portfolio->ds_url_img_destaque);
+            }
             $request['ds_url_img_destaque'] = $urlImgDestaque;
         }
         if($request->file('file_img_1_galeria')){
             $img1Galeria = $request->file('file_img_1_galeria');
             $urlImg1Galeria = $img1Galeria->store('portfolio', 'public');
-            Storage::disk('public')->delete($portfolio->ds_url_img_1_galeria);
+            if($portfolio !== null){
+                Storage::disk('public')->delete($portfolio->ds_url_img_1_galeria);
+            }
             $request['ds_url_img_1_galeria'] = $urlImg1Galeria;
         }
         if($request->file('file_img_2_galeria')){
             $img2Galeria = $request->file('file_img_2_galeria');
             $urlImg2Galeria = $img2Galeria->store('portfolio', 'public');
-            Storage::disk('public')->delete($portfolio->ds_url_img_2_galeria);
+            if($portfolio !== null){
+                Storage::disk('public')->delete($portfolio->ds_url_img_2_galeria);
+            }
             $request['ds_url_img_2_galeria'] = $urlImg2Galeria;
         }
         if($request->file('file_img_3_galeria')){
             $img3Galeria = $request->file('file_img_3_galeria');
             $urlImg3Galeria = $img3Galeria->store('portfolio', 'public');
-            Storage::disk('public')->delete($portfolio->ds_url_img_3_galeria);
+            if($portfolio !== null){
+                Storage::disk('public')->delete($portfolio->ds_url_img_3_galeria);
+            }
             $request['ds_url_img_3_galeria'] = $urlImg3Galeria;
         }
         return $request;

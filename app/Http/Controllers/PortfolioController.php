@@ -38,6 +38,8 @@ class PortfolioController extends Controller
     public function store(PortfolioFormRequest $request)
     {
         $this->portfolioService::mesclarDsTipoProjeto($request);
+        $this->portfolioService::arquivosImgs($request, null);
+        
         $retornoBanco = $this->portfolioRepository::store($request);
         
         if($retornoBanco == true){
