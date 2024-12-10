@@ -4,12 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ServicosFormRequest;
-
-use Brian2694\Toastr\Facades\Toastr;
-
 use App\Services\Servicos\ServicosService;
-
 use App\Repositories\ServicosRepository;
+use Brian2694\Toastr\Facades\Toastr;
 
 class ServicosController extends Controller
 {
