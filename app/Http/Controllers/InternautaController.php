@@ -19,7 +19,7 @@ class InternautaController extends Controller
 
     public function index()
     {
-        $sobreMim = $this->internautaRepository::first();
+        $sobreMim = $this->internautaRepository::find(1);
         
         // Experiencia de Trabalho
         $tipoCarreiraProfissional = $this->internautaRepository::tipoExperiencia();

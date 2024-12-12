@@ -17,9 +17,9 @@ use App\Models\TbLogsSistema;
 
 class InternautaRepository {
     
-    public function first()
+    public function find($id)
     {
-        return TbSobreMim::all()->first();
+        return TbSobreMim::find($id);
     }
 
     public function tipoExperiencia()
