@@ -14,10 +14,10 @@ class InternautaFormRequest extends FormRequest
     public function rules()
     {
         return [
-            "no_contato" => 'required | max:70',
-            "ds_email" => 'required | email | max:70',
-            "ds_assunto" => 'required | max:70',
-            "ds_mensagem" => 'required',
+            'no_contato' => 'required|max:70',
+            'ds_email' => 'required|email|max:70',
+            'ds_assunto' => 'required|max:70',
+            'ds_mensagem' => 'required',
         ];
     }
 

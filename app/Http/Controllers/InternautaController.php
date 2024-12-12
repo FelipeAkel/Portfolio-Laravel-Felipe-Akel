@@ -3,31 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\TbSobreMim;
-use App\Models\TbTipoExperiencia;
-use App\Models\TbTipoHabilidade;
-use App\Models\TbCarreiraProfissional;
-use App\Models\TbHabilidades;
-use App\Models\TbPortfolio;
-use App\Models\TbServicos;
-use App\Models\TbFaleConosco;
 use App\Http\Requests\InternautaFormRequest;
+use App\Repositories\InternautaRepository;
 use Brian2694\Toastr\Facades\Toastr;
 
 class InternautaController extends Controller
 {
-    public function index(){
+    protected $internautaRepository;
 
-        // Sobre Mim
-        $sobreMim = TbSobreMim::all()->first();
-        // FIM - Sobre Mim
+    public function __construct(
+        InternautaRepository $internautaRepository
+    ){
+        $this->internautaRepository = $internautaRepository;
+    }
 
+    public function index()
+    {
+        $sobreMim = $this->internautaRepository::first();
+        
         // Experiencia de Trabalho
-        $tipoCarreiraProfissional = TbTipoExperiencia::whereIn('id', [1, 2, 3])->get();
-        $carreiraProfissional = TbCarreiraProfissional::all();
+        $tipoCarreiraProfissional = $this->internautaRepository::tipoExperiencia();
+        
+        $carreiraProfissional = $this->internautaRepository::carreiraProfissionalAll();
 
-        $cursoComplementar = TbCarreiraProfissional::where('id_tipo_experiencia', '=', 4)->orderBy('dt_inicio', 'DESC')->get();
+        $cursoComplementar = $this->internautaRepository::cursosComplementares();
         $totalCursoComplementar = count($cursoComplementar);
+        
         $totalHorasAulas = null;
         if($totalCursoComplementar != 0){
             foreach($cursoComplementar AS $indice => $dadosCursoComplementar){
@@ -37,21 +38,12 @@ class InternautaController extends Controller
         $arrayDadosTotais = ['totalCursoComplementar' => $totalCursoComplementar, 'totalHorasAulas' => $totalHorasAulas];
         // FIM - Experiencia de Trabalho
 
-        // Habilidades
-        $tipoHabilidade = TbTipoHabilidade::all();
-        $habilidade = TbHabilidades::where('id', '>=', 1)
-            ->orderBy('id_tipo_habilidade', 'ASC')
-            ->orderBy('nr_ordenacao', 'ASC')
-            ->get();
-        // FIM - Habilidades
+        $tipoHabilidade = $this->internautaRepository::tipoHabilidadeAll();
+        $habilidade = $this->internautaRepository::habilidades();
 
-        // Portfólio
-        $portfolio = TbPortfolio::all();
-        // FIM - Portfólio
+        $portfolio = $this->internautaRepository::portfolioAll();
 
-        // Serviços
-        $servicos = TbServicos::all();
-        // FIM - Serviços
+        $servicos = $this->internautaRepository::servicosAll();
 
         return view('template-internauta.index', compact(
             'sobreMim',
@@ -70,15 +62,15 @@ class InternautaController extends Controller
     public function store(InternautaFormRequest $request)
     {
         $request['id_status'] = 1; // Requisição Recebida
-        $retornoBanco = TbFaleConosco::create($request->all());
-
+        $retornoBanco = $this->internautaRepository::faleConoscoCreate($request);
+        
         if($retornoBanco == true){
             Toastr::success('Sua mensagem Fale Conosco foi cadastrada', 'Sucesso');
         } else {
             Toastr::error('Não foi possível cadastrar sua mensagem do Fale Conosco, desculpe!', 'Erro');
         }
-
         return redirect()->route('internauta.index');
     }
+    // FIM - Cadastro das mensagem do Fale Conosco, página internauta Contato.
 
 }
