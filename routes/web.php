@@ -60,6 +60,7 @@ Route::middleware('autenticacao')->prefix('admin')->group(function(){
     Route::controller(CarreiraProfissionalCotroller::class)->group(function () {
         Route::prefix('carreira-profissional')->group(function(){
             Route::get('/index', 'index')->name('carreira-profissional.index');
+            Route::post('/index', 'index')->name('carreira-profissional.index');
             Route::get('/create', 'create')->name('carreira-profissional.create');
             Route::post('/store', 'store')->name('carreira-profissional.store');
             Route::get('/show/{id}', 'show')->where('id', '[0-9]+')->name('carreira-profissional.show');
@@ -72,6 +73,7 @@ Route::middleware('autenticacao')->prefix('admin')->group(function(){
     Route::controller(HabilidadeController::class)->group(function(){
         Route::prefix('habilidade')->group(function(){
             Route::get('/index', 'index')->name('habilidade.index');
+            Route::post('/index', 'index')->name('habilidade.index');
             Route::get('/create', 'create')->name('habilidade.create');
             Route::post('/store', 'store')->name('habilidade.store');
             Route::get('/edit/{id}', 'edit')->where('id', '[0-9]+')->name('habilidade.edit');

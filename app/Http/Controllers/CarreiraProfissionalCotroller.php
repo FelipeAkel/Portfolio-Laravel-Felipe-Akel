@@ -25,7 +25,6 @@ class CarreiraProfissionalCotroller extends Controller
         $this->tipoExperienciaRepository = $tipoExperienciaRepository;
     }
 
-    // TO DO - Melhoria: A URL está passando todos os valores no filtro
     public function index(IndexFormRequest $request)
     {
         $retornoTipoExperiencia = $this->tipoExperienciaRepository::all();

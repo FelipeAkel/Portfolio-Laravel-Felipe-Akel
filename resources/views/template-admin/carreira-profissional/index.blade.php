@@ -35,7 +35,11 @@
                     <div id="collapseFiltro" class="accordion-collapse collapse show" data-bs-parent="#accordionFiltro">
                         <div class="accordion-body">
 
-                            <form action="{{ route('carreira-profissional.index') }}" method="GET" class="row g-3">
+                            <form class="row g-3"
+                                action="{{ route('carreira-profissional.index') }}" 
+                                method="POST" 
+                            >
+                                @csrf
                                 <div class="col-3">
                                     <label for="id_tipo_experiencia" class="form-label"> Tipo Experiência </label>
                                     <select 
@@ -142,7 +146,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ( $retornoCarreiraProfissional as $indice => $dadosCarreiraProf)
+                @forelse ( $retornoCarreiraProfissional as $indice => $dadosCarreiraProf)
                     <tr>
                         <td>
                             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
@@ -183,7 +187,7 @@
                             <span class="text-warning fw-bold fs-6"> <i class="bi bi-exclamation-diamond-fill"></i> Nenhum dado encontrado</span> 
                         </td>
                     </tr>
-                @endforeach
+                @endforelse
             </tbody>
         </table>
     </div>

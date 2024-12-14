@@ -24,7 +24,6 @@ class HabilidadeController extends Controller
         $this->habilidadeRepository = $habilidadeRepository;
     }
 
-    // TO DO - Melhoria: A URL está passando todos os valores no filtro
     public function index(IndexFormRequest $request)
     {
         $retornoHabilidade = $this->habilidadeRepository::index($request);

@@ -36,7 +36,7 @@
 
                             <form class="row g-3" 
                                 action="{{ route('habilidade.index') }}" 
-                                method="GET"
+                                method="POST"
                             >
                                 @csrf
                                 <div class="mb-3 col-md-3">
