@@ -143,40 +143,46 @@
             </thead>
             <tbody>
                 @foreach ( $retornoCarreiraProfissional as $indice => $dadosCarreiraProf)
-                <tr>
-                    <td>
-                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                            <div class="btn-group me-2" role="group" aria-label="First group">
-                                <a href="{{ route('carreira-profissional.show', $dadosCarreiraProf->id) }}" class="btn btn-info btn-sm" 
-                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-info"
-                                    data-bs-title="Visualizar Registro"
-                                ><i class="bi bi-card-text"></i></a>
+                    <tr>
+                        <td>
+                            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                <div class="btn-group me-2" role="group" aria-label="First group">
+                                    <a href="{{ route('carreira-profissional.show', $dadosCarreiraProf->id) }}" class="btn btn-info btn-sm" 
+                                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-info"
+                                        data-bs-title="Visualizar Registro"
+                                    ><i class="bi bi-card-text"></i></a>
+                                </div>
+                                <div class="btn-group me-2" role="group" aria-label="Second group">
+                                    <a href="{{ route('carreira-profissional.edit', $dadosCarreiraProf->id) }}" class="btn btn-primary btn-sm" 
+                                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-edit"
+                                        data-bs-title="Editar Registro"
+                                    ><i class="bi bi-pencil-square"></i></a>
+                                </div>
+                                <div class="btn-group me-2" role="group" aria-label="Third group">
+                                    <form id="form_delete_{{ $dadosCarreiraProf->id }}" action="{{ route('carreira-profissional.delete', $dadosCarreiraProf->id) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <a onclick="document.getElementById('form_delete_{{ $dadosCarreiraProf->id }}').submit()"
+                                            class="btn btn-danger btn-sm" 
+                                            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-delete"
+                                            data-bs-title="Deletar Registro"
+                                        ><i class="bi bi-trash"></i></a>
+                                    </form>
+                                </div>
                             </div>
-                            <div class="btn-group me-2" role="group" aria-label="Second group">
-                                <a href="{{ route('carreira-profissional.edit', $dadosCarreiraProf->id) }}" class="btn btn-primary btn-sm" 
-                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-edit"
-                                    data-bs-title="Editar Registro"
-                                ><i class="bi bi-pencil-square"></i></a>
-                            </div>
-                            <div class="btn-group me-2" role="group" aria-label="Third group">
-                                <form id="form_delete_{{ $dadosCarreiraProf->id }}" action="{{ route('carreira-profissional.delete', $dadosCarreiraProf->id) }}" method="POST">
-                                    @method('DELETE')
-                                    @csrf
-                                    <a onclick="document.getElementById('form_delete_{{ $dadosCarreiraProf->id }}').submit()"
-                                        class="btn btn-danger btn-sm" 
-                                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-delete"
-                                        data-bs-title="Deletar Registro"
-                                    ><i class="bi bi-trash"></i></a>
-                                </form>
-                            </div>
-                        </div>
-                    </td>
-                    <td>{{ $dadosCarreiraProf->tipoExperiencia->no_tipo_experiencia }}</td>
-                    <td>{{ $dadosCarreiraProf->no_experiencia }}</td>
-                    <td>{{ $dadosCarreiraProf->no_empresa }}</td>
-                    <td>{{ \Carbon\Carbon::parse($dadosCarreiraProf->dt_inicio)->format('d/m/Y')}}</td>
-                    <td>{{ \Carbon\Carbon::parse($dadosCarreiraProf->dt_final)->format('d/m/Y')}}</td>
-                </tr>
+                        </td>
+                        <td>{{ $dadosCarreiraProf->tipoExperiencia->no_tipo_experiencia }}</td>
+                        <td>{{ $dadosCarreiraProf->no_experiencia }}</td>
+                        <td>{{ $dadosCarreiraProf->no_empresa }}</td>
+                        <td>{{ \Carbon\Carbon::parse($dadosCarreiraProf->dt_inicio)->format('d/m/Y')}}</td>
+                        <td>{{ \Carbon\Carbon::parse($dadosCarreiraProf->dt_final)->format('d/m/Y')}}</td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="6" class="text-center">
+                            <span class="text-warning fw-bold fs-6"> <i class="bi bi-exclamation-diamond-fill"></i> Nenhum dado encontrado</span> 
+                        </td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>

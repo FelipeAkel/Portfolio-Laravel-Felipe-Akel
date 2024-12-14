@@ -144,62 +144,62 @@
             </thead>
             <tbody>
                 @forelse ($retornoHabilidade AS $indice => $dadosHabilidade)
-                <tr>
-                    <td>
-                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                            <div class="btn-group me-2" role="group" aria-label="Second group">
-                                <a href="{{ route('habilidade.edit', $dadosHabilidade->id) }}" class="btn btn-primary btn-sm" 
-                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-edit"
-                                    data-bs-title="Editar Registro"
-                                ><i class="bi bi-pencil-square"></i></a>
+                    <tr>
+                        <td>
+                            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                <div class="btn-group me-2" role="group" aria-label="Second group">
+                                    <a href="{{ route('habilidade.edit', $dadosHabilidade->id) }}" class="btn btn-primary btn-sm" 
+                                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-edit"
+                                        data-bs-title="Editar Registro"
+                                    ><i class="bi bi-pencil-square"></i></a>
+                                </div>
+                                <div class="btn-group me-2" role="group" aria-label="Third group">
+                                    <form id="form_delete_{{ $dadosHabilidade->id }}" action="{{ route('habilidade.delete', $dadosHabilidade->id) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <a onclick="document.getElementById('form_delete_{{ $dadosHabilidade->id }}').submit()"
+                                            class="btn btn-danger btn-sm" 
+                                            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-delete"
+                                            data-bs-title="Deletar Registro"
+                                        ><i class="bi bi-trash"></i></a>
+                                    </form>
+                                </div>
                             </div>
-                            <div class="btn-group me-2" role="group" aria-label="Third group">
-                                <form id="form_delete_{{ $dadosHabilidade->id }}" action="{{ route('habilidade.delete', $dadosHabilidade->id) }}" method="POST">
-                                    @method('DELETE')
-                                    @csrf
-                                    <a onclick="document.getElementById('form_delete_{{ $dadosHabilidade->id }}').submit()"
-                                        class="btn btn-danger btn-sm" 
-                                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip-delete"
-                                        data-bs-title="Deletar Registro"
-                                    ><i class="bi bi-trash"></i></a>
-                                </form>
-                            </div>
-                        </div>
-                    </td>
-                    <td>{{ $dadosHabilidade->tipoHabilidade->no_tipo_habilidade }}</td>
-                    <td>{{ $dadosHabilidade->no_habilidade }}</td>
-                    <td>{{ $dadosHabilidade->ds_habilidade }}</td>
-                    <td>
-                        @switch($dadosHabilidade->nr_porcentagem)
-                            @case(0)
-                                <span class="badge text-bg-danger">{{ $dadosHabilidade->nr_porcentagem }}%</span>
-                                @break
-                            @case(25)
-                                <span class="badge text-bg-danger">{{ $dadosHabilidade->nr_porcentagem }}%</span>
-                                @break
-                            @case(50)
-                                <span class="badge text-bg-warning">{{ $dadosHabilidade->nr_porcentagem }}%</span>
-                                @break
-                            @case(75)
-                                <span class="badge text-bg-success">{{ $dadosHabilidade->nr_porcentagem }}%</span>
-                                @break
-                            @case(100)
-                                <span class="badge text-bg-success">{{ $dadosHabilidade->nr_porcentagem }}%</span>
-                                @break
-                            @default
-                                {{ $dadosHabilidade->nr_porcentagem }}%
-                        @endswitch
-                    </td>
-                    <td>{{ $dadosHabilidade->nr_ordenacao }}</td>
-                    <td>{{ \Carbon\Carbon::parse($dadosHabilidade->created_at)->format('d/m/Y - H:i') }}</td>
-                    <td>{{ \Carbon\Carbon::parse($dadosHabilidade->updated_at)->format('d/m/Y - H:i') }}</td>
-                </tr>
+                        </td>
+                        <td>{{ $dadosHabilidade->tipoHabilidade->no_tipo_habilidade }}</td>
+                        <td>{{ $dadosHabilidade->no_habilidade }}</td>
+                        <td>{{ $dadosHabilidade->ds_habilidade }}</td>
+                        <td>
+                            @switch($dadosHabilidade->nr_porcentagem)
+                                @case(0)
+                                    <span class="badge text-bg-danger">{{ $dadosHabilidade->nr_porcentagem }}%</span>
+                                    @break
+                                @case(25)
+                                    <span class="badge text-bg-danger">{{ $dadosHabilidade->nr_porcentagem }}%</span>
+                                    @break
+                                @case(50)
+                                    <span class="badge text-bg-warning">{{ $dadosHabilidade->nr_porcentagem }}%</span>
+                                    @break
+                                @case(75)
+                                    <span class="badge text-bg-success">{{ $dadosHabilidade->nr_porcentagem }}%</span>
+                                    @break
+                                @case(100)
+                                    <span class="badge text-bg-success">{{ $dadosHabilidade->nr_porcentagem }}%</span>
+                                    @break
+                                @default
+                                    {{ $dadosHabilidade->nr_porcentagem }}%
+                            @endswitch
+                        </td>
+                        <td>{{ $dadosHabilidade->nr_ordenacao }}</td>
+                        <td>{{ \Carbon\Carbon::parse($dadosHabilidade->created_at)->format('d/m/Y - H:i') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($dadosHabilidade->updated_at)->format('d/m/Y - H:i') }}</td>
+                    </tr>
                 @empty
-                <tr>
-                    <td colspan="8">
-                        Nenhum dado encontrado
-                    </td>
-                </tr>
+                    <tr>
+                        <td colspan="8" class="text-center">
+                            <span class="text-warning fw-bold fs-6"> <i class="bi bi-exclamation-diamond-fill"></i> Nenhum dado encontrado</span> 
+                        </td>
+                    </tr>
                 @endforelse
             </tbody>
         </table>

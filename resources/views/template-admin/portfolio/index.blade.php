@@ -38,7 +38,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($portfolio AS $indice => $dadoProjeto )
+                @forelse ($portfolio AS $indice => $dadoProjeto )
                     <tr>
                         <td>
                             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
@@ -94,7 +94,13 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="7" class="text-center">
+                            <span class="text-warning fw-bold fs-6"> <i class="bi bi-exclamation-diamond-fill"></i> Nenhum dado encontrado</span> 
+                        </td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
