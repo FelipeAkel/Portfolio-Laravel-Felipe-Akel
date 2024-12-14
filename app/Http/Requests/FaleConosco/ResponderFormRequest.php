@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\FaleConosco;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -14,8 +14,8 @@ class ResponderFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_status' => 'required | numeric | exists:tb_status,id', 
-            'st_notificacao_email' => 'required | numeric | between:0,1', 
+            'id_status' => 'required|numeric|exists:tb_status,id', 
+            'st_notificacao_email' => 'required|numeric|between:0,1', 
             'ds_resposta' => 'required',
         ];
     }

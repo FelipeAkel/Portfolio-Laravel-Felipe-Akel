@@ -11,9 +11,25 @@ use App\Models\TbLogsSistema;
 
 class FaleConoscoRepository {
     
-    public function index()
+    public function index($request)
     {
-        return TbFaleConosco::with('status', 'respostas')->where('id', '>=', 1)->orderBy('created_at', 'DESC')->paginate(10);
+        $filtros = $request->only(['id_status', 'dt_created_inicio', 'dt_created_final']);
+        
+        $query =  TbFaleConosco::with('status', 'respostas')->where('id', '>=', 1);
+        if(!empty($filtros['id_status'])) {
+            $query->where('id_status', '=', $filtros['id_status']);
+        }
+        if(!empty($filtros['dt_created_inicio'])) {
+            $query->whereDate('created_at', '>=', $filtros['dt_created_inicio']);
+        }
+        if(!empty($filtros['dt_created_final'])) {
+            $query->whereDate('created_at', '<=', $filtros['dt_created_final']);
+        }
+        $retornoFaleConosco = $query;
+
+        return $retornoFaleConosco
+            ->orderBy('created_at', 'DESC')
+            ->paginate(10);
     }
 
     public function find($id)

@@ -107,6 +107,7 @@ Route::middleware('autenticacao')->prefix('admin')->group(function(){
     Route::controller(FaleConoscoController::class)->group(function(){
         Route::prefix('fale-conosco')->group(function(){
             Route::get('/index', 'index')->name('fale-conosco.index');
+            Route::post('/index', 'index')->name('fale-conosco.index');
             Route::get('/show/{id}', 'show')->where('id', '[0-9]+')->name('fale-conosco.show');
             Route::get('/responder/{id}', 'responder')->where('id', '[0-9]+')->name('fale-conosco.responder');
             Route::post('/resposta-store/{id}', 'responderStore')->where('id', '[0-9]+')->name('fale-conosco.resposta-store');

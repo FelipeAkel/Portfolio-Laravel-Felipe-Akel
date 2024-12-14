@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Http\Requests\ResponderFormRequest;
+use App\Http\Requests\FaleConosco\ResponderFormRequest;
+use App\Http\Requests\FaleConosco\IndexFormRequest;
 use App\Mail\respostaFaleConoscoEmail;
 use App\Repositories\FaleConosco\FaleConoscoRepository;
 use App\Repositories\FaleConosco\StatusRepository;
@@ -27,10 +28,10 @@ class FaleConoscoController extends Controller
         $this->respostasRepository = $respostasRepository;
     }
 
-    public function index()
+    public function index(IndexFormRequest $request)
     {
         $status = $this->statusRepository::statusFaleConosco();
-        $faleConosco = $this->faleConoscoRepository::index();
+        $faleConosco = $this->faleConoscoRepository::index($request);
         
         return view('template-admin.fale-conosco.index', compact('status', 'faleConosco'));
     }
@@ -61,7 +62,7 @@ class FaleConoscoController extends Controller
 
             // Notificação do internauta por e-mail
             if($request->st_notificacao_email == 1){
-
+                
                 $status = $this->statusRepository::find($request['id_status']);
 
                 $parametrosEmail = [
@@ -71,11 +72,9 @@ class FaleConoscoController extends Controller
                     'status' => $status->no_status,
                     'resposta' => $request->ds_resposta,
                 ];
-
                 Mail::to($faleConosco->ds_email)->send(new respostaFaleConoscoEmail($parametrosEmail));
 
                 Toastr::info('Internauta notificado por e-mail', 'Informe');
-
             }
             
             Toastr::success('A resposta foi cadastrada', 'Sucesso');
