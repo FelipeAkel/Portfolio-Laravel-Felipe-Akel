@@ -15,8 +15,8 @@ class ArquivosFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'ds_url_curriculo' => 'nullable | file | mimes:pdf',
-            'ds_url_foto_usuario' => 'nullable | file | mimes:png,jpg,jpeg',
+            'ds_url_curriculo' => 'nullable|file|mimes:pdf',
+            'ds_url_foto_usuario' => 'nullable|file|mimes:png,jpg,jpeg',
         ];
     }
 

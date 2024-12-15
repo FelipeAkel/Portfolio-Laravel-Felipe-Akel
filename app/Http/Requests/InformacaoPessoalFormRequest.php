@@ -15,16 +15,16 @@ class InformacaoPessoalFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'no_usuario' => 'required | max:70', 
-            'no_usuario_portfolio' => 'required | max:70', 
-            'ds_email' => 'required | max:70 | email', 
-            'ds_telefone' => 'required | max:15', 
-            'ds_cidade_uf' => 'required | max:70', 
-            'ds_funcao' => 'required | max:70', 
-            'ds_subtitulo' => 'required | max:70', 
+            'no_usuario' => 'required|max:70', 
+            'no_usuario_portfolio' => 'required|max:70', 
+            'ds_email' => 'required|max:70|email', 
+            'ds_telefone' => 'required|max:15', 
+            'ds_cidade_uf' => 'required|max:70', 
+            'ds_funcao' => 'required|max:70', 
+            'ds_subtitulo' => 'required|max:70', 
             'ds_perfil' => 'required', 
-            'ds_url_linkedin' => 'nullable | max:255 | url', 
-            'ds_url_github' => 'nullable | max:255 | url', 
+            'ds_url_linkedin' => 'nullable|max:255|url', 
+            'ds_url_github' => 'nullable|max:255|url', 
         ];
     }
 

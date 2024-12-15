@@ -13,11 +13,12 @@ class LoginSenhaFormRequest extends FormRequest
 
     public function rules()
     {
+        // TO DO - Obrigar o usuário a colocar uma senha com caracteres especiais... mais forte!
         return [
             'no_login' => 'required',
-            'ds_senha_antiga' => 'required | min:10',
-            'ds_senha' => 'required | min:10 | confirmed',
-            'ds_senha_confirmation' => 'required | min:10',
+            'ds_senha_antiga' => 'required|min:10',
+            'ds_senha' => 'required|min:10|confirmed',
+            'ds_senha_confirmation' => 'required|min:10',
         ];
     }
 
@@ -30,4 +31,3 @@ class LoginSenhaFormRequest extends FormRequest
         ];
     }
 }
-

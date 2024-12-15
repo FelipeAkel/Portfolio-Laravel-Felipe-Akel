@@ -19,19 +19,19 @@
         <div class="col col-md-4 ">
             <div class="row justify-content-center">
                 <div class="card text-center pt-3" style="width: 18rem;">
-                    <img src="{{ asset('storage/') }}/{{ $infoSobreMim->ds_url_foto_usuario }}" class="card-img-top rounded" alt="Foto do Usuário">
+                    <img src="{{ asset('storage/') }}/{{ $sobreMim->ds_url_foto_usuario }}" class="card-img-top rounded" alt="Foto do Usuário">
                     <div class="card-body">
-                        <h5 class="card-title text-info-emphasis">{{ $infoSobreMim->no_usuario }}</h5>
-                        <p class="card-text">{{ $infoSobreMim->ds_funcao }}</p>
+                        <h5 class="card-title text-info-emphasis">{{ $sobreMim->no_usuario }}</h5>
+                        <p class="card-text">{{ $sobreMim->ds_funcao }}</p>
                     </div>
                     <div class="card-body">
-                        <a href="{{ asset('storage/') }}/{{ $infoSobreMim->ds_url_curriculo }}" class="card-link link-menu" target="_blank">Currículo</a>
-                        <a href="{{ $infoSobreMim->ds_url_linkedin }}" class="card-link link-menu" target="_blank">Linkedin</a>
+                        <a href="{{ asset('storage/') }}/{{ $sobreMim->ds_url_curriculo }}" class="card-link link-menu" target="_blank">Currículo</a>
+                        <a href="{{ $sobreMim->ds_url_linkedin }}" class="card-link link-menu" target="_blank">Linkedin</a>
                     </div>
                 </div>
             </div>
 
-             <div class="row justify-content-center pt-5">
+            <div class="row justify-content-center pt-5">
                 <div class="card text-center" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title text-info-emphasis">Carreira Profissional</h5>
