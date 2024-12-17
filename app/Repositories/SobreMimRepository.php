@@ -49,7 +49,20 @@ class SobreMimRepository {
             DB::rollback();
             return false;
         }
+    }
 
+    public function alterarLoginSenhaUpdate($id, $request)
+    {
+        try {
+            DB::beginTransaction();
+                $sobreMim = TbSobreMim::find($id)->update($request->all());
+                $logsSistema = TbLogsSistema::create(['id_status' => 7, 'ds_log_executado' => 'Sobre Mim - Login e Senha']);
+            DB::commit();
+            return true;
+        } catch(Exception $e) {
+            DB::rollback();
+            return false;
+        }
     }
 
 }
