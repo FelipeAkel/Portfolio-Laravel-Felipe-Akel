@@ -15,10 +15,10 @@ class ServicosFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'no_servico' => 'required | max:100',
-            'ds_servico' => 'required | max:600',
-            'file_icon_svg' => 'required | file | mimes:svg',    // image    file|size:512   dimensions:min_width=100,min_height=200
-            'file_img' => 'nullable | file | mimes:png,jpg,jpeg',         // image    file|size:512   dimensions:min_width=100,min_height=200
+            'no_servico' => 'required|max:100',
+            'ds_servico' => 'required|max:600',
+            'file_icon_svg' => 'required|file|mimes:svg',       // image    file|size:512   dimensions:min_width=100,min_height=200
+            'file_img' => 'nullable|file|mimes:png,jpg,jpeg',   // image    file|size:512   dimensions:min_width=100,min_height=200
         ];
     }
     

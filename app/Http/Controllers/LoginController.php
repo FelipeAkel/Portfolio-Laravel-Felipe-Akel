@@ -8,9 +8,18 @@ use App\Models\TbSobreMim;
 use App\Models\TbLogsSistema;
 use Brian2694\Toastr\Facades\Toastr;
 
+use App\Services\SegurancaService;
 
 class LoginController extends Controller
 {
+    protected $segurancaService;
+
+    public function __construct(
+        SegurancaService $segurancaService
+    ){
+        $this->segurancaService = $segurancaService;
+    }
+    
     public function login()
     {
         $sobreMim = TbSobreMim::find(1);
@@ -18,9 +27,9 @@ class LoginController extends Controller
         return view('template-admin.login', compact('sobreMim'));
     }
 
-    public function loginValidacao(LoginFormRequest $request){
-        // MELHORIA: Buscar melhorar o criandoHashSenha em um único arquivo. Atualmente está em LoginController e SobreMimController
-        $hashSenha = $this->criandoHashSenha($request['ds_senha']);
+    public function loginValidacao(LoginFormRequest $request)
+    {
+        $hashSenha = $this->segurancaService::criandoHashSenha($request['ds_senha']);
         $sobreMim = TbSobreMim::whereRaw('no_login = ? AND ds_senha = ? ', [$request['no_login'], $hashSenha])->first();
 
         if(isset($sobreMim->no_usuario)){
@@ -49,13 +58,9 @@ class LoginController extends Controller
         
     }
 
-    public function logoff(){
+    public function logoff()
+    {
         session_destroy();
         return redirect()->route('admin.login');
-    }
-    public function criandoHashSenha ($variavel)
-    {
-        $md5 = 'P0rtf0l10Felipe@kel' . $variavel . '01_CriandoUmaHashMaisForte_10';
-        return md5($md5);
     }
 }

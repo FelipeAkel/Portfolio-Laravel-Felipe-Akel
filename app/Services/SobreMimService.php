@@ -14,6 +14,7 @@ class SobreMimService
 
         $deleteCurriculo = false;
         $deleteFoto = false;
+        
         //Verificando se arquivo foi adicionado
         if($request->file('ds_url_curriculo')){
             // Lendo informações do arquivo selecionado
@@ -33,8 +34,6 @@ class SobreMimService
             $urlFoto = $foto->store('sobre-mim', 'public');
             $deleteFoto = Storage::disk('public')->delete($sobreMim->ds_url_foto_usuario);
         }
-
-        // dd($deleteFoto);
 
         $countDeletes = 0;
         if($deleteCurriculo === true){

@@ -15,6 +15,7 @@ use App\Repositories\DashboardRepository;
 use App\Repositories\SobreMimRepository;
 
 use App\Services\SobreMimService;
+use App\Services\SegurancaService;
 
 use Brian2694\Toastr\Facades\Toastr;
 
@@ -23,15 +24,18 @@ class SobreMimController extends Controller
     protected $sobreMimRepository;
     protected $dashboardRepository;
     protected $sobreMimService;
+    protected $segurancaService;
 
     public function __construct(
         DashboardRepository $dashboardRepository,
         SobreMimRepository $sobreMimRepository,
-        SobreMimService $sobreMimService
+        SobreMimService $sobreMimService,
+        SegurancaService $segurancaService
     ){
         $this->dashboardRepository = $dashboardRepository;
         $this->sobreMimRepository = $sobreMimRepository;
         $this->sobreMimService = $sobreMimService;
+        $this->segurancaService = $segurancaService;
     }
 
             public function totalRegistros()
@@ -138,14 +142,15 @@ class SobreMimController extends Controller
 
         // MELHORIA: Buscar melhorar o criandoHashSenha em um único arquivo. Atualmente está em LoginController e SobreMimController
         // Verificando se a senha antiga é igual
-        $ds_senha_antiga = $this->criandoHashSenha($request['ds_senha_antiga']);
+        $ds_senha_antiga = $this->segurancaService::criandoHashSenha($request['ds_senha_antiga']);
+
         if($ds_senha_antiga != $sobreMim->ds_senha){
             Toastr::warning('A Senha Antiga não corresponde ao que está cadastrado', 'Atenção');
             return redirect()->route('sobre-mim.alterar-login-senha');
         }
 
         // Atribuindo o hash da senha nova
-        $request['ds_senha']= $this->criandoHashSenha($request['ds_senha']);
+        $request['ds_senha']= $this->segurancaService::criandoHashSenha($request['ds_senha']);
 
         $retornoBanco = $sobreMim->update($request->all());
 
@@ -158,13 +163,6 @@ class SobreMimController extends Controller
         }
 
         return redirect()->route('sobre-mim.alterar-login-senha');
-    }
-
-    // MELHORIA: Buscar melhorar o criandoHashSenha em um único arquivo. Atualmente está em LoginController e SobreMimController
-    public function criandoHashSenha ($variavel)
-    {
-        $md5 = 'P0rtf0l10Felipe@kel' . $variavel . '01_CriandoUmaHashMaisForte_10';
-        return md5($md5);
     }
 
                             // public function infoSobreMim()
