@@ -15,8 +15,8 @@ class LoginFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'no_login' => 'required',
-            'ds_senha' => 'required',
+            'no_login' => 'required|string',
+            'ds_senha' => 'required|string|min:10',
         ];
     }
 
@@ -24,6 +24,8 @@ class LoginFormRequest extends FormRequest
     {
         return [
             'required' => 'O campo é obrigatório',
+            'string' => 'O campo deve ser uma string',
+            'ds_senha.min' => 'A senha deve ter no mínimo :min caracteres',
         ];
     }
 }
