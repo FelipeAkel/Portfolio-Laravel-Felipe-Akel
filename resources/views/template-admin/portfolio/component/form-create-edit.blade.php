@@ -10,7 +10,7 @@
     <div class="mb-3 col-md-4">
         <label class="form-label">Tipo de Projeto <span class="required">*</span></label>
         <div class="form-check">
-            <input class="form-check-input {{ $errors->has('tipo_php_laravel') ? 'is-invalid' : '' }}" 
+            <input class="form-check-input {{ $errors->has('tipo_projeto') || $errors->has('php-laravel') ? 'is-invalid' : '' }}" 
                 name="tipo_php_laravel" id="tipo_php_laravel" value="php-laravel" type="checkbox" 
                 {{ ($portfolio->tipo_php_laravel ?? old('tipo_php_laravel')) == 'php-laravel' ? 'checked' : '' }} >
             <label class="form-check-label " for="tipo_php_laravel">
@@ -23,7 +23,7 @@
             @enderror
         </div>
         <div class="form-check">
-            <input class="form-check-input {{ $errors->has('tipo_website') ? 'is-invalid' : '' }}"
+            <input class="form-check-input {{ $errors->has('tipo_projeto') || $errors->has('tipo_website') ? 'is-invalid' : '' }}"
                 name="tipo_website" id="tipo_website" value="website" type="checkbox" 
                 {{ ($portfolio->tipo_website ?? old('tipo_website')) == 'website' ? 'checked' : '' }} >
             <label class="form-check-label" for="tipo_website">
@@ -36,7 +36,7 @@
             @enderror
         </div>
         <div class="form-check">
-            <input class="form-check-input {{ $errors->has('tipo_landing_page') ? 'is-invalid' : '' }}" 
+            <input class="form-check-input {{ $errors->has('tipo_projeto') || $errors->has('tipo_landing_page') ? 'is-invalid' : '' }}" 
                 name="tipo_landing_page" id="tipo_landing_page" value="landing-page" type="checkbox" 
                 {{ ($portfolio->tipo_landing_page ?? old('tipo_landing_page')) == 'landing-page' ? 'checked' : '' }} >
             <label class="form-check-label" for="tipo_landing_page">
@@ -48,6 +48,26 @@
                 </div>
             @enderror
         </div>
+        <div class="form-check">
+            <input class="form-check-input {{ $errors->has('tipo_projeto') || $errors->has('tipo_angular') ? 'is-invalid' : '' }}" 
+                name="tipo_angular" id="tipo_angular" value="angular" type="checkbox" 
+                {{ ($portfolio->tipo_angular ?? old('tipo_angular')) == 'angular' ? 'checked' : '' }} >
+            <label class="form-check-label" for="tipo_angular">
+                Angular
+            </label>
+            @error('tipo_angular')
+                <div class="invalid-feedback">
+                    {{ $errors->first('tipo_angular') }}
+                </div>
+            @enderror
+        </div>
+
+        @if ($errors->has('tipo_projeto'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('tipo_projeto') }}
+            </div>
+        @endif
+        
     </div>
 
     <div class="mb-3 col-md-4">

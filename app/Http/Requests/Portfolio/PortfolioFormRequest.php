@@ -17,6 +17,7 @@ class PortfolioFormRequest extends FormRequest
             'tipo_php_laravel' => 'nullable|regex:/^php-laravel$/',
             'tipo_website' => 'nullable|regex:/^website$/',
             'tipo_landing_page' => 'nullable|regex:/^landing-page$/',
+            'tipo_angular' => 'nullable|regex:/^angular$/',
             'no_projeto' => 'required|max:70',
             'no_cliente' => 'nullable|max:70',
             'dt_inicio' => 'nullable|date',
@@ -44,10 +45,29 @@ class PortfolioFormRequest extends FormRequest
             'tipo_php_laravel.regex' => 'O campo deve conter exatamente a palavra: php-laravel',
             'tipo_website.regex' => 'O campo deve conter exatamente a palavra: website',
             'tipo_landing_page.regex' => 'O campo deve conter exatamente a palavra: landing-page',
+            'tipo_angular.regex' => 'O campo deve conter exatamente a palavra: angular',
             'no_projeto.max' => 'O campo deve ter no máximo 70 caracteres',
             'no_cliente.max' => 'O campo deve ter no máximo 70 caracteres',
             'dt_finalizacao.after' => 'A data deve ser maior que a Data Início',
             'ds_tecnologia.max' => 'O campo deve ter no máximo 100 caracteres',
         ];
+    }
+
+    public function withValidator($validator)
+    {
+        $validator->after(function ($validator) {
+            // Verificar se pelo menos um checkbox está selecionado
+            if (!$this->hasAnyChecked()) {
+                $validator->errors()->add('tipo_projeto', 'Pelo menos um tipo de projeto deve ser selecionado');
+            }
+        });
+    }
+
+    protected function hasAnyChecked()
+    {
+        return $this->filled('tipo_php_laravel') || 
+            $this->filled('tipo_website') || 
+            $this->filled('tipo_landing_page') ||
+            $this->filled('tipo_angular');
     }
 }

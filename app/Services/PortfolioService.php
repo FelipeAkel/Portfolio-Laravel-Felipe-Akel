@@ -18,6 +18,9 @@ class PortfolioService
         if($request->input('tipo_landing_page')){
             $ds_tipo_projeto .= $request->input('tipo_landing_page') . ' ';
         }
+        if($request->input('tipo_angular')){
+            $ds_tipo_projeto .= $request->input('tipo_angular') . ' ';
+        }
         $request['ds_tipo_projeto'] = $ds_tipo_projeto;
         return $request;
     }
@@ -34,9 +37,14 @@ class PortfolioService
         $verifica_landing_page = strpos($portfolio->ds_tipo_projeto, 'landing-page');
         $verifica_landing_page === false ? $tipo_landing_page = null : $tipo_landing_page = 'landing-page';
 
+        $verifica_angular = strpos($portfolio->ds_tipo_projeto, 'angular');
+        $verifica_angular === false ? $tipo_angular = null : $tipo_angular = 'angular';
+
+
         $portfolio['tipo_php_laravel'] = $tipo_php_laravel;
         $portfolio['tipo_website'] = $tipo_website;
         $portfolio['tipo_landing_page'] = $tipo_landing_page;
+        $portfolio['tipo_angular'] = $tipo_angular;
         return $portfolio;
     }
 

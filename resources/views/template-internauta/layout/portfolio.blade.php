@@ -11,6 +11,7 @@
                 <li><a href="#" data-filter=".php-laravel">PHP | Laravel</a></li>
                 <li><a href="#" data-filter=".website">Website</a></li>
                 <li><a href="#" data-filter=".landing-page">Landing Page</a></li>
+                <li><a href="#" data-filter=".angular">Angular</a></li>
             </ul>
         </div>
         <div class="portfolio_list">
@@ -25,6 +26,9 @@
                         // Imagem icone
                         $verifica_php_laravel = strpos($dadosProjeto->ds_tipo_projeto, 'php-laravel');
                         $verifica_php_laravel === false ? $img_svg = 'website-one-page' : $img_svg = 'laravel-2';
+
+                        $verifica_angular = strpos($dadosProjeto->ds_tipo_projeto, 'angular');
+                        $verifica_angular === false ? $img_svg = 'website-one-page' : $img_svg = 'angular';
                     @endphp
 
                     <li class="{{ $dadosProjeto->ds_tipo_projeto }}">

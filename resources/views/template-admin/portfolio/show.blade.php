@@ -46,6 +46,12 @@
                                     Landing Page
                                 </label>
                             </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" {{ $portfolio->tipo_angular == 'angular' ? 'checked' : '' }} disabled>
+                                <label class="form-check-label" for="tipo_angular">
+                                    Angular
+                                </label>
+                            </div>
                         </div>
 
                         <div class="mb-3 col-md-4">
