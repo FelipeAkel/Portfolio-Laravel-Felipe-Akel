@@ -5,10 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\Habilidade\StoreUpdateFormRequest;
 use App\Http\Requests\Habilidade\IndexFormRequest;
-
 use App\Repositories\Habilidade\HabilidadeRepository;
 use App\Repositories\Habilidade\TipoHabilidadeRepository;
-
 use Brian2694\Toastr\Facades\Toastr;
 
 class HabilidadeController extends Controller

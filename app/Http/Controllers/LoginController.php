@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\LoginFormRequest;
 use App\Models\TbSobreMim;
 use App\Models\TbLogsSistema;
+use App\Repositories\SobreMimRepository;
 use Brian2694\Toastr\Facades\Toastr;
 
 use App\Services\SegurancaService;
@@ -13,28 +14,30 @@ use App\Services\SegurancaService;
 class LoginController extends Controller
 {
     protected $segurancaService;
+    protected $sobreMimRepository;
 
     public function __construct(
-        SegurancaService $segurancaService
+        SegurancaService $segurancaService,
+        SobreMimRepository $sobreMimRepository
     ){
         $this->segurancaService = $segurancaService;
+        $this->sobreMimRepository = $sobreMimRepository;
     }
     
     public function login()
     {
-        $sobreMim = TbSobreMim::find(1);
-        // dd($sobreMim);
+        $sobreMim = $this->sobreMimRepository::find(1);
         return view('template-admin.login', compact('sobreMim'));
     }
 
     public function loginValidacao(LoginFormRequest $request)
     {
         $hashSenha = $this->segurancaService::criandoHashSenha($request['ds_senha']);
-        $sobreMim = TbSobreMim::whereRaw('no_login = ? AND ds_senha = ? ', [$request['no_login'], $hashSenha])->first();
-
+        $sobreMim = $this->sobreMimRepository::loginValidacao($request, $hashSenha);
+        
         if(isset($sobreMim->no_usuario)){
 
-            $retornoBanco = TbLogsSistema::create(['id_status' => 10, 'ds_log_executado' => 'Login no sistema']);
+            $retornoBanco = $this->sobreMimRepository::logSistemaLogin();
             if($retornoBanco == true){
                 session_start();
                 $_SESSION['no_usuario'] = $sobreMim->no_usuario;

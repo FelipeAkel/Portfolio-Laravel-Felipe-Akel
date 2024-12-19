@@ -4,7 +4,6 @@ namespace App\Repositories;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
 use Exception;
-
 use App\Models\TbSobreMim;
 use App\Models\TbLogsSistema;
 
@@ -63,6 +62,16 @@ class SobreMimRepository {
             DB::rollback();
             return false;
         }
+    }
+
+    public function loginValidacao($request, $hashSenha)
+    {
+        return TbSobreMim::whereRaw('no_login = ? AND ds_senha = ? ', [$request['no_login'], $hashSenha])->first();
+    }
+
+    public function logSistemaLogin()
+    {
+        return TbLogsSistema::create(['id_status' => 10, 'ds_log_executado' => 'Login no sistema']);
     }
 
 }

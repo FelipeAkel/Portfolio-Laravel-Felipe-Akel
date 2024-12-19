@@ -6,10 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests\CarreiraProfissional\CarreiraProfissionalFormRequest;
 use App\Http\Requests\CarreiraProfissional\IndexFormRequest;
-
 use App\Repositories\CarreiraProfissional\TipoExperienciaRepository;
 use App\Repositories\CarreiraProfissional\CarreiraProfissionalRepository;
-
 use Brian2694\Toastr\Facades\Toastr;
 
 class CarreiraProfissionalCotroller extends Controller
