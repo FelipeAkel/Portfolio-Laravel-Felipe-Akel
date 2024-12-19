@@ -7,25 +7,21 @@ use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\FaleConosco\ResponderFormRequest;
 use App\Http\Requests\FaleConosco\IndexFormRequest;
 use App\Mail\respostaFaleConoscoEmail;
-use App\Repositories\FaleConosco\FaleConoscoRepository;
-use App\Repositories\FaleConosco\StatusRepository;
-use App\Repositories\FaleConosco\RespostasRepository;
+use App\Repositories\FaleConoscoRepository;
+use App\Repositories\StatusRepository;
 use Brian2694\Toastr\Facades\Toastr;
 
 class FaleConoscoController extends Controller
 {
     protected $faleConoscoRepository;
     protected $statusRepository;
-    protected $respostasRepository;
 
     public function __construct(
         FaleConoscoRepository $faleConoscoRepository,
-        StatusRepository $statusRepository,
-        RespostasRepository $respostasRepository
+        StatusRepository $statusRepository
     ){
         $this->faleConoscoRepository = $faleConoscoRepository;
         $this->statusRepository = $statusRepository;
-        $this->respostasRepository = $respostasRepository;
     }
 
     public function index(IndexFormRequest $request)
@@ -39,7 +35,7 @@ class FaleConoscoController extends Controller
     public function show($id)
     {
         $faleConosco = $this->faleConoscoRepository::find($id);
-        $respostas = $this->respostasRepository::faleConosco($id);
+        $respostas = $this->faleConoscoRepository::faleConosco($id);
         
         return view('template-admin.fale-conosco.show', compact('faleConosco', 'respostas'));
     }
@@ -48,7 +44,7 @@ class FaleConoscoController extends Controller
     {
         $status = $this->statusRepository::statusFaleConosco();
         $faleConosco = $this->faleConoscoRepository::find($id);
-        $respostas = $this->respostasRepository::faleConosco($id);
+        $respostas = $this->faleConoscoRepository::faleConosco($id);
         
         return view('template-admin.fale-conosco.responder', compact('status', 'faleConosco', 'respostas'));
     }

@@ -1,5 +1,5 @@
 <?php
-namespace App\Repositories\FaleConosco;
+namespace App\Repositories;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
@@ -51,6 +51,11 @@ class FaleConoscoRepository {
             DB::rollback();
             return false;
         }
+    }
+
+    public function faleConosco($id)
+    {
+        return TbRespostas::where('id_fale_conosco', '=', $id)->orderBy('created_at', 'DESC')->paginate(5);
     }
     
 }

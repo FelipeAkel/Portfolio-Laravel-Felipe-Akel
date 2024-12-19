@@ -6,26 +6,22 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests\CarreiraProfissional\CarreiraProfissionalFormRequest;
 use App\Http\Requests\CarreiraProfissional\IndexFormRequest;
-use App\Repositories\CarreiraProfissional\TipoExperienciaRepository;
-use App\Repositories\CarreiraProfissional\CarreiraProfissionalRepository;
+use App\Repositories\CarreiraProfissionalRepository;
 use Brian2694\Toastr\Facades\Toastr;
 
 class CarreiraProfissionalCotroller extends Controller
 {
     protected $carreiraProfissionalRepository;
-    protected $tipoExperienciaRepository;
 
     public function __construct(
-        CarreiraProfissionalRepository $carreiraProfissionalRepository,
-        TipoExperienciaRepository $tipoExperienciaRepository
+        CarreiraProfissionalRepository $carreiraProfissionalRepository
     ) {
         $this->carreiraProfissionalRepository = $carreiraProfissionalRepository;
-        $this->tipoExperienciaRepository = $tipoExperienciaRepository;
     }
 
     public function index(IndexFormRequest $request)
     {
-        $retornoTipoExperiencia = $this->tipoExperienciaRepository::all();
+        $retornoTipoExperiencia = $this->carreiraProfissionalRepository::tipoExperienciaAll();
         $retornoCarreiraProfissional = $this->carreiraProfissionalRepository::index($request);
 
         return view('template-admin.carreira-profissional.index', compact('retornoCarreiraProfissional', 'retornoTipoExperiencia'));
@@ -33,7 +29,7 @@ class CarreiraProfissionalCotroller extends Controller
 
     public function create()
     {        
-        $retornoTipoExperiencia = $this->tipoExperienciaRepository::all();
+        $retornoTipoExperiencia = $this->carreiraProfissionalRepository::tipoExperienciaAll();
         return view('template-admin.carreira-profissional.create', compact('retornoTipoExperiencia'));
     }
 
@@ -59,7 +55,7 @@ class CarreiraProfissionalCotroller extends Controller
     public function edit($id)
     {
         $carreiraProfissional = $this->carreiraProfissionalRepository::find($id);
-        $retornoTipoExperiencia = $this->tipoExperienciaRepository::all();
+        $retornoTipoExperiencia = $this->carreiraProfissionalRepository::tipoExperienciaAll();
         return view('template-admin.carreira-profissional.edit', compact('retornoTipoExperiencia', 'carreiraProfissional'));
     }
 

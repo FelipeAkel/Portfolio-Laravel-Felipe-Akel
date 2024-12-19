@@ -1,5 +1,5 @@
 <?php 
-namespace App\Repositories\FaleConosco;
+namespace App\Repositories;
 
 use App\Models\TbStatus;
 

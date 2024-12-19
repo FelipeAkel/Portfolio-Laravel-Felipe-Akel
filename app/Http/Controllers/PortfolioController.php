@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\Portfolio\PortfolioFormRequest;
-use App\Services\Portfolio\PortfolioService;
+use App\Services\PortfolioService;
 use App\Repositories\PortfolioRepository;
 use Brian2694\Toastr\Facades\Toastr;
 

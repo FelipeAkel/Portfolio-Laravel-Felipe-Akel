@@ -1,9 +1,10 @@
 <?php
 
-    namespace App\Repositories\Habilidade;
+    namespace App\Repositories;
 
     use App\Models\TbHabilidades;
     use App\Models\TbLogsSistema;
+    use App\Models\TbTipoHabilidade;
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\DB;
     use Illuminate\Database\QueryException;
@@ -90,5 +91,10 @@
             }
         }
 
+        public function tipoHabilidadeAll()
+        {
+            return TbTipoHabilidade::all();
+        }
+        
     }
 ?>

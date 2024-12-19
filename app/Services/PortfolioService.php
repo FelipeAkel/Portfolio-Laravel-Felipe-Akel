@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\Portfolio;
+namespace App\Services;
 
 use Illuminate\Support\Facades\Storage;
 

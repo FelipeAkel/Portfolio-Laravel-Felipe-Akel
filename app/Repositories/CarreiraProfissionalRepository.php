@@ -1,9 +1,10 @@
 <?php
 
-    namespace App\Repositories\CarreiraProfissional;
+    namespace App\Repositories;
 
     use App\Models\TbCarreiraProfissional;
     use App\Models\TbLogsSistema;
+    use App\Models\TbTipoExperiencia;
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\DB;
     use Illuminate\Database\QueryException;
@@ -86,6 +87,11 @@
                 DB::rollback();
                 return false;
             }
+        }
+
+        public function tipoExperienciaAll()
+        {
+            return TbTipoExperiencia::all();
         }
 
     }

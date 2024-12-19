@@ -5,34 +5,30 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\Habilidade\StoreUpdateFormRequest;
 use App\Http\Requests\Habilidade\IndexFormRequest;
-use App\Repositories\Habilidade\HabilidadeRepository;
-use App\Repositories\Habilidade\TipoHabilidadeRepository;
+use App\Repositories\HabilidadeRepository;
 use Brian2694\Toastr\Facades\Toastr;
 
 class HabilidadeController extends Controller
 {
-    protected $tipoHabilidadeRepository;
     protected $habilidadeRepository;
 
     public function __construct(
-        TipoHabilidadeRepository $tipoHabilidadeRepository, 
         HabilidadeRepository $habilidadeRepository
     ) {
-        $this->tipoHabilidadeRepository = $tipoHabilidadeRepository;
         $this->habilidadeRepository = $habilidadeRepository;
     }
 
     public function index(IndexFormRequest $request)
     {
         $retornoHabilidade = $this->habilidadeRepository::index($request);
-        $retornoTipoHabilidade = $this->tipoHabilidadeRepository::all();
+        $retornoTipoHabilidade = $this->habilidadeRepository::tipoHabilidadeAll();
         
         return view('template-admin.habilidade.index', compact('retornoTipoHabilidade', 'retornoHabilidade'));
     }
 
     public function create()
     {
-        $retornoTipoHabilidade = $this->tipoHabilidadeRepository::all();
+        $retornoTipoHabilidade = $this->habilidadeRepository::tipoHabilidadeAll();
         
         return view('template-admin.habilidade.create', compact('retornoTipoHabilidade'));
     }
@@ -53,8 +49,8 @@ class HabilidadeController extends Controller
     public function edit($id)
     {
         $habilidade = $this->habilidadeRepository::find($id);
-        $retornoTipoHabilidade = $this->tipoHabilidadeRepository::all();
-
+        $retornoTipoHabilidade = $this->habilidadeRepository::tipoHabilidadeAll();
+        
         return view('template-admin.habilidade.edit', compact('habilidade', 'retornoTipoHabilidade'));
     }
 
