@@ -4,7 +4,6 @@ namespace App\Repositories;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
 use Exception;
-
 use App\Models\TbSobreMim;
 use App\Models\TbTipoExperiencia;
 use App\Models\TbTipoHabilidade;

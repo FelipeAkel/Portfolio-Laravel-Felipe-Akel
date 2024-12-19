@@ -8,6 +8,7 @@
     use Illuminate\Support\Facades\DB;
     use Illuminate\Database\QueryException;
     use Exception;
+    
     class CarreiraProfissionalRepository
     {
         public function all()

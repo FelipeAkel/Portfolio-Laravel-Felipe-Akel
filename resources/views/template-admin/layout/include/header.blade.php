@@ -3,6 +3,13 @@
 
     <ul class="navbar-nav flex-row">
         <li class="nav-item text-nowrap">
+            <a class="nav-link px-3 link-menu-header" 
+                data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="custom-tooltip-dark"
+                data-bs-title="Data e Hora Último Acesso: {{ date('d/m/Y - H:i', strtotime($_SESSION['dt_ultimo_acesso'])) }} ">
+                <i class="bi bi-person-walking"></i>
+            </a>
+        </li>
+        <li class="nav-item text-nowrap">
             <button class="nav-link px-3 link-menu-header">
                 <img src="{{ asset('storage/') }}/{{ $_SESSION['ds_url_foto_usuario'] }}" alt="mdo" width="32" height="32" class="rounded-circle">
                 {{ $_SESSION['no_usuario_portfolio'] }}

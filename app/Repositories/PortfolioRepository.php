@@ -5,7 +5,6 @@ namespace App\Repositories;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
 use Exception;
-
 use App\Models\TbPortfolio;
 use App\Models\TbLogsSistema;
 

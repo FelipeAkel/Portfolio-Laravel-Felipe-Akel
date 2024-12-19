@@ -35,9 +35,13 @@ class LoginController extends Controller
         $hashSenha = $this->segurancaService::criandoHashSenha($request['ds_senha']);
         $sobreMim = $this->sobreMimRepository::loginValidacao($request, $hashSenha);
         
+        
         if(isset($sobreMim->no_usuario)){
+            
+            $dataUltimoAcesso = $this->dataUltimoAcesso();
 
             $retornoBanco = $this->sobreMimRepository::logSistemaLogin();
+
             if($retornoBanco == true){
                 session_start();
                 $_SESSION['no_usuario'] = $sobreMim->no_usuario;
@@ -46,6 +50,7 @@ class LoginController extends Controller
                 $_SESSION['ds_url_linkedin'] = $sobreMim->ds_url_linkedin;
                 $_SESSION['ds_url_github'] = $sobreMim->ds_url_github;
                 $_SESSION['ds_url_foto_usuario'] = $sobreMim->ds_url_foto_usuario;
+                $_SESSION['dt_ultimo_acesso'] = $dataUltimoAcesso;
 
                 return redirect()->route('admin.dashboard');
 
@@ -59,6 +64,15 @@ class LoginController extends Controller
             return redirect()->route('admin.login');
         }
         
+    }
+
+    public function dataUltimoAcesso()
+    {
+        $retornoBanco = $this->sobreMimRepository::dataUltimoAcesso();
+        $dataUltimoAcesso = $retornoBanco === null 
+            ? now()
+            : $retornoBanco->created_at;
+        return $dataUltimoAcesso;
     }
 
     public function logoff()

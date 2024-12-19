@@ -4,7 +4,6 @@ namespace App\Repositories\FaleConosco;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
 use Exception;
-
 use App\Models\TbRespostas;
 use App\Models\TbFaleConosco;
 use App\Models\TbLogsSistema;

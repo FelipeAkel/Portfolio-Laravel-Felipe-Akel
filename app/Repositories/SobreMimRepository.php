@@ -74,4 +74,9 @@ class SobreMimRepository {
         return TbLogsSistema::create(['id_status' => 10, 'ds_log_executado' => 'Login no sistema']);
     }
 
+    public function dataUltimoAcesso()
+    {
+        return TbLogsSistema::where('id_status', '=', 10)->orderBy('id', 'DESC')->get()->first();
+    }
+
 }
