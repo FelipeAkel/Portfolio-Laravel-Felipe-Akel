@@ -81,7 +81,7 @@
         </div>
 
         <div class="col col-md-8">
-           
+            
             <div class="card ">
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs">
@@ -89,10 +89,10 @@
                             <a class="nav-link link-menu @yield('active-informacao-pessoal')" href="{{ route('sobre-mim.informacao-pessoal-show') }}">Informação pessoal</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link link-menu @yield('active-mudar-arquivos')" href="{{ route('sobre-mim.mudar-arquivos') }}">Mudar Arquivos</a>
+                            <a class="nav-link link-menu @yield('active-mudar-arquivos')" href="{{ route('sobre-mim.mudar-arquivos-show') }}">Mudar Arquivos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link link-menu @yield('active-login-senha')" href="{{ route('sobre-mim.alterar-login-senha') }}">Alterar login e senha</a>
+                            <a class="nav-link link-menu @yield('active-login-senha')" href="{{ route('sobre-mim.alterar-login-senha-show') }}">Alterar login e senha</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link link-menu @yield('active-logs-sistema')" href="{{ route('sobre-mim.logs-sistema') }}">Logs do Sistema</a>

@@ -5,12 +5,11 @@
 @section('active-logs-sistema', 'active')
 
 @section('conteudo-sobre-mim')
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h2>Logs do Sistema</h2>
-</div>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h2>Logs do Sistema</h2>
+    </div>
     
     <div class="list-group">
-    {{-- @dd($logsSistema) --}}
         @foreach ($logsSistema AS $indice => $dadoLog )
             @switch($dadoLog->id_status)
                 @case(6)

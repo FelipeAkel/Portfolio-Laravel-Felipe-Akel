@@ -88,12 +88,20 @@ class SobreMimController extends Controller
         return redirect()->route('sobre-mim.informacao-pessoal-show');
     }
 
-    public function mudarArquivos()
+    public function mudarArquivosShow()
+    {
+        $sobreMim = $this->sobreMimRepository::find(1); 
+        $totalRegistros = $this->totalRegistros();
+        
+        return view('template-admin.sobre-mim.mudar-arquivos-show', 
+            compact('sobreMim'), $totalRegistros);
+    }
+        public function mudarArquivosEdit()
     {
         $sobreMim = $this->sobreMimRepository::find(1); 
         $totalRegistros = $this->totalRegistros();
 
-        return view('template-admin.sobre-mim.mudar-arquivos', 
+        return view('template-admin.sobre-mim.mudar-arquivos-edit', 
             compact('sobreMim'), $totalRegistros);
     }
 
@@ -120,15 +128,24 @@ class SobreMimController extends Controller
         } else {
             Toastr::error('Não foi possível atualizado o registro', 'Erro');
         }
-        return redirect()->route('sobre-mim.mudar-arquivos');
+        return redirect()->route('sobre-mim.mudar-arquivos-show');
     }
 
-    public function alterarLoginSenha()
+    public function alterarLoginSenhaShow()
     {
         $sobreMim = $this->sobreMimRepository::find(1); 
         $totalRegistros = $this->totalRegistros();
 
-        return view('template-admin.sobre-mim.alterar-login-senha', 
+        return view('template-admin.sobre-mim.alterar-login-senha-show', 
+            compact('sobreMim'), $totalRegistros);
+    }
+
+    public function alterarLoginSenhaEdit()
+    {
+        $sobreMim = $this->sobreMimRepository::find(1); 
+        $totalRegistros = $this->totalRegistros();
+
+        return view('template-admin.sobre-mim.alterar-login-senha-edit', 
             compact('sobreMim'), $totalRegistros);
     }
 
@@ -140,7 +157,7 @@ class SobreMimController extends Controller
         $ds_senha_antiga = $this->segurancaService::criandoHashSenha($request['ds_senha_antiga']);
         if($ds_senha_antiga != $sobreMim->ds_senha){
             Toastr::warning('A Senha Antiga não corresponde ao que está cadastrado', 'Atenção');
-            return redirect()->route('sobre-mim.alterar-login-senha');
+            return redirect()->route('sobre-mim.alterar-login-senha-edit');
         }
 
         // Atribuindo o hash da senha nova
@@ -154,6 +171,6 @@ class SobreMimController extends Controller
             Toastr::error('Não foi possível atualizado o registro', 'Erro');
         }
 
-        return redirect()->route('sobre-mim.alterar-login-senha');
+        return redirect()->route('sobre-mim.alterar-login-senha-show');
     }
 }

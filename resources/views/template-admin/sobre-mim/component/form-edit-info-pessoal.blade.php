@@ -108,7 +108,7 @@
         </div>
     </div>
 
-        <div class="mb-3 col-md-6">
+    <div class="mb-3 col-md-6">
         <label for="ds_url_github" class="form-label">URL do GitHub</label>
         <div class="input-group">
             <a class="btn btn-outline-secondary {{ $sobreMim->ds_url_github ? '' : 'disabled' }}" href="{{ $sobreMim->ds_url_github }}" target="_blank">Acessar URL</a>

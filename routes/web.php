@@ -48,12 +48,13 @@ Route::middleware('autenticacao')->prefix('admin')->group(function(){
             Route::get('/logs-sistema', 'logsSistema')->name('sobre-mim.logs-sistema');
             Route::get('/informacao-pessoal-show', 'informacaoPessoalShow')->name('sobre-mim.informacao-pessoal-show');
             Route::get('/informacao-pessoal-edit', 'informacaoPessoalEdit')->name('sobre-mim.informacao-pessoal-edit');
-            Route::put('/informacao-pessoal-edit/{id}', 'informacaoPessoalUpdate')->where('id', '[0-9]+')->name('sobre-mim.informacao-pessoal-update');
-            Route::get('/mudar-arquivos', 'mudarArquivos')->name('sobre-mim.mudar-arquivos');
-            Route::put('/mudar-arquivos/{id}', 'mudarArquivosUpdate')->where('id', '[0-9]+')->name('sobre-mim.mudar-arquivos-update');
-            Route::get('/alterar-login-senha', 'alterarLoginSenha')->name('sobre-mim.alterar-login-senha');
-            Route::patch('/alterar-login-senha/{id}', 'alterarLoginSenhaUpdate')->where('id', '[0-9]+')->name('sobre-mim.alterar-login-senha-update');
-
+            Route::put('/informacao-pessoal-update/{id}', 'informacaoPessoalUpdate')->where('id', '[0-9]+')->name('sobre-mim.informacao-pessoal-update');
+            Route::get('/mudar-arquivos-show', 'mudarArquivosShow')->name('sobre-mim.mudar-arquivos-show');
+            Route::get('/mudar-arquivos-edit', 'mudarArquivosEdit')->name('sobre-mim.mudar-arquivos-edit');
+            Route::put('/mudar-arquivos-update/{id}', 'mudarArquivosUpdate')->where('id', '[0-9]+')->name('sobre-mim.mudar-arquivos-update');
+            Route::get('/alterar-login-senha-show', 'alterarLoginSenhaShow')->name('sobre-mim.alterar-login-senha-show');
+            Route::get('/alterar-login-senha-edit', 'alterarLoginSenhaEdit')->name('sobre-mim.alterar-login-senha-edit');
+            Route::patch('/alterar-login-senha-update/{id}', 'alterarLoginSenhaUpdate')->where('id', '[0-9]+')->name('sobre-mim.alterar-login-senha-update');
         });
     });
 
