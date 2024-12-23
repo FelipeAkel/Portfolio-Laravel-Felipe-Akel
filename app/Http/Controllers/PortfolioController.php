@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\Portfolio\IndexFormRequest;
 use App\Http\Requests\Portfolio\PortfolioFormRequest;
 use App\Services\PortfolioService;
 use App\Repositories\PortfolioRepository;
@@ -21,9 +22,9 @@ class PortfolioController extends Controller
         $this->portfolioRepository = $portfolioRepository;
     }
 
-    public function index()
+    public function index(IndexFormRequest $request)
     {
-        $portfolio = $this->portfolioRepository::index();
+        $portfolio = $this->portfolioRepository::index($request);
         return view('template-admin.portfolio.index', compact('portfolio'));
     }
 

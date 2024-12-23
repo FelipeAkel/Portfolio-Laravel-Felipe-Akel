@@ -63,7 +63,7 @@
                                             name="dt_created_inicio" 
                                             value="{{ old('dt_created_inicio') }}"
                                         >
-                                        <span class="input-group-text icone"><i class="bi bi-calendar4-week"></i></span>
+                                        <span class="input-group-text icone"> Até </span>
                                         <input 
                                             type="date" 
                                             class="form-control {{ $errors->has('dt_created_final') ? 'is-invalid' : '' }}" 
@@ -82,7 +82,8 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Pesquisar </button>
+                                    <button type="reset" class="btn btn-secondary"> Limpar </button>
+                                    <button type="submit" class="btn btn-primary"> Pesquisar </button>
                                 </div>
                             </form>
 

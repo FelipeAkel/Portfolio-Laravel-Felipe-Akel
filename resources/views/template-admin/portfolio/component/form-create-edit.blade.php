@@ -163,6 +163,9 @@
         <label for="ds_tecnologia" class="form-label">Descrição Tecnologias <span class="required">*</span></label>
         <textarea class="form-control {{ $errors->has('ds_tecnologia') ? 'is-invalid' : '' }}" 
             name="ds_tecnologia" id="ds_tecnologia" rows="3" >{{ $portfolio->ds_tecnologia ?? old('ds_tecnologia') }}</textarea>
+        <div class="form-text">
+            Exemplos: HTML | CSS | PHP | Laravel | Angular | Bootstrap | MySQL...
+        </div>
         @error('ds_tecnologia')
             <div class="invalid-feedback">
                 {{ $errors->first('ds_tecnologia') }}
@@ -188,7 +191,7 @@
     <div class="mb-3 col-md-6">
         <label for="file_img_1_galeria" class="form-label">Upload IMG - 1º Imagem</label>
         <input class="form-control {{ $errors->has('file_img_1_galeria') ? 'is-invalid' : '' }}" type="file" name="file_img_1_galeria" id="file_img_1_galeria" multiple>
-        <div id="file_img_1_galeria" class="form-text">
+        <div class="form-text">
             Extensão: png, jpg ou jpeg
         </div>
         @error('file_img_1_galeria')
@@ -201,7 +204,7 @@
     <div class="mb-3 col-md-6">
         <label for="file_img_2_galeria" class="form-label">Upload IMG - 2º Imagem</label>
         <input class="form-control {{ $errors->has('file_img_2_galeria') ? 'is-invalid' : '' }}" type="file" name="file_img_2_galeria" id="file_img_2_galeria" multiple>
-        <div id="file_img_2_galeria" class="form-text">
+        <div class="form-text">
             Extensão: png, jpg ou jpeg
         </div>
         @error('file_img_2_galeria')
@@ -214,7 +217,7 @@
     <div class="mb-3 col-md-6">
         <label for="file_img_3_galeria" class="form-label">Upload IMG - 3º Imagem</label>
         <input class="form-control {{ $errors->has('file_img_3_galeria') ? 'is-invalid' : '' }}" type="file" name="file_img_3_galeria" id="file_img_3_galeria" multiple>
-        <div id="file_img_3_galeria" class="form-text">
+        <div class="form-text">
             Extensão: png, jpg ou jpeg
         </div>
         @error('file_img_3_galeria')

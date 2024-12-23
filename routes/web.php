@@ -86,6 +86,7 @@ Route::middleware('autenticacao')->prefix('admin')->group(function(){
     Route::controller(PortfolioController::class)->group(function(){
         Route::prefix('portfolio')->group(function(){
             Route::get('/index', 'index')->name('portfolio.index');
+            Route::post('/index', 'index')->name('portfolio.index');
             Route::get('/create', 'create')->name('portfolio.create');
             Route::post('/store', 'store')->name('portfolio.store');
             Route::get('/show/{id}', 'show')->where('id', '[0-9]+')->name('portfolio.show');

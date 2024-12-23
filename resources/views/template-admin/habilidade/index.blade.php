@@ -113,7 +113,8 @@
                                     </div>
                                 </div>
                                 <div class="mb-3 col-12">
-                                    <button type="submit" class="btn btn-primary">Pesquisar</button>
+                                    <button type="reset" class="btn btn-secondary"> Limpar </button>
+                                    <button type="submit" class="btn btn-primary"> Pesquisar </button>
                                 </div>
                             </form>
 
