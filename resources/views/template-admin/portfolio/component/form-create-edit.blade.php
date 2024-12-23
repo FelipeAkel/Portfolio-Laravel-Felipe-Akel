@@ -179,7 +179,8 @@
         <label for="file_img_destaque" class="form-label">Upload IMG - Destaque <span class="required">*</span></label>
         <input class="form-control {{ $errors->has('file_img_destaque') ? 'is-invalid' : '' }}" type="file" name="file_img_destaque" id="file_img_destaque">
         <div id="file_img_destaque" class="form-text">
-            Extensão: png, jpg ou jpeg
+            Extensão: png, jpg ou jpeg<br />
+            Dimensões: 1x1, ou seja, img deve ser quadrada
         </div>
         @error('file_img_destaque')
             <div class="invalid-feedback">

@@ -23,18 +23,21 @@
                         @php $width_100_boolean = true; @endphp
                     @endif
                     @php
-                        // Imagem icone
-                        $verifica_php_laravel = strpos($dadosProjeto->ds_tipo_projeto, 'php-laravel');
-                        $verifica_php_laravel === false ? $img_svg = 'website-one-page' : $img_svg = 'laravel-2';
+                        $img_svg = 'website-one-page';
 
-                        $verifica_angular = strpos($dadosProjeto->ds_tipo_projeto, 'angular');
-                        $verifica_angular === false ? $img_svg = 'website-one-page' : $img_svg = 'angular';
+                        if (strpos($dadosProjeto->ds_tipo_projeto, 'angular') !== false) {
+                            $img_svg = 'angular';
+                        }
+                        if (strpos($dadosProjeto->ds_tipo_projeto, 'php-laravel') !== false) {
+                            $img_svg = 'laravel-2';
+                        }
                     @endphp
 
                     <li class="{{ $dadosProjeto->ds_tipo_projeto }}">
                         <div class="list_inner">
                             <div class="image">
-                                <img src="{{ asset('template-internauta/img/') }}/thumbs/1-1.jpg" alt="" />
+                                {{-- A dimenções da imagem eram 1x1 --}}
+                                <img src="{{ asset('storage/') }}/{{ $dadosProjeto->ds_url_img_destaque }}" alt="" />
                                 <div class="main" data-img-url="{{ asset('storage/') }}/{{ $dadosProjeto->ds_url_img_destaque }}"></div>
                             </div>
                             <div class="overlay"></div>
@@ -78,34 +81,45 @@
                                             </div>
                                         @endif
                                     </div>
-                                    <div class="additional_images">
-                                        <ul>
-                                            <li>
-                                                <div class="list_inner">
-                                                    <div class="my_image">
-                                                        <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
-                                                        <div class="main" data-img-url="{{ asset('storage/') }}/{{ $dadosProjeto->ds_url_img_1_galeria }}"></div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="list_inner">
-                                                    <div class="my_image">
-                                                        <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
-                                                        <div class="main" data-img-url="{{ asset('storage/') }}/{{ $dadosProjeto->ds_url_img_2_galeria }}"></div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="list_inner">
-                                                    <div class="my_image">
-                                                        <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
-                                                        <div class="main" data-img-url="{{ asset('storage/') }}/{{ $dadosProjeto->ds_url_img_3_galeria }}"></div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    @if ($dadosProjeto->ds_url_img_1_galeria != null && $dadosProjeto->ds_url_img_2_galeria != null && $dadosProjeto->ds_url_img_3_galeria != null)
+                                        <div class="additional_images">
+                                            <ul>
+                                                @if ($dadosProjeto->ds_url_img_1_galeria)
+                                                    <li>
+                                                        <div class="list_inner">
+                                                            <div class="my_image">
+                                                                {{-- A dimenções da imagem eram 4x2 --}}
+                                                                <img src="{{ asset('storage/') }}/{{ $dadosProjeto->ds_url_img_1_galeria }}" alt="" />
+                                                                <div class="main" data-img-url="{{ asset('storage/') }}/{{ $dadosProjeto->ds_url_img_1_galeria }}"></div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                @endif
+                                                @if ($dadosProjeto->ds_url_img_2_galeria)
+                                                    <li>
+                                                        <div class="list_inner">
+                                                            <div class="my_image">
+                                                                {{-- A dimenções da imagem eram 4x2 --}}
+                                                                <img src="{{ asset('storage/') }}/{{ $dadosProjeto->ds_url_img_2_galeria }}" alt="" />
+                                                                <div class="main" data-img-url="{{ asset('storage/') }}/{{ $dadosProjeto->ds_url_img_2_galeria }}"></div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                @endif
+                                                @if ($dadosProjeto->ds_url_img_3_galeria)
+                                                    <li>
+                                                        <div class="list_inner">
+                                                            <div class="my_image">
+                                                                {{-- A dimenções da imagem eram 4x2 --}}
+                                                                <img src="{{ asset('storage/') }}/{{ $dadosProjeto->ds_url_img_3_galeria }}" alt="" />
+                                                                <div class="main" data-img-url="{{ asset('storage/') }}/{{ $dadosProjeto->ds_url_img_3_galeria }}"></div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                @endif
+                                            </ul>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>

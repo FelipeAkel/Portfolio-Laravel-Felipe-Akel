@@ -10,10 +10,10 @@
             </a>
         </li>
         <li class="nav-item text-nowrap">
-            <button class="nav-link px-3 link-menu-header">
+            <a class="nav-link px-3 link-menu-header">
                 <img src="{{ asset('storage/') }}/{{ $_SESSION['ds_url_foto_usuario'] }}" alt="mdo" width="32" height="32" class="rounded-circle">
                 {{ $_SESSION['no_usuario_portfolio'] }}
-            </button>
+            </a>
         </li>
         <li class="nav-item text-nowrap">
             <a href="{{ route('admin.logoff') }}" class="nav-link px-3 link-menu-header" 

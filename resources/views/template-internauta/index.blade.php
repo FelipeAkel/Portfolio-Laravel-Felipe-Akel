@@ -70,19 +70,19 @@
 				<div class="content_inner">
 					<div class="main_info">
 						<div class="left">
-							<span class="subtitle">Olá Mundo, eu sou</span>
+							<span class="subtitle">Hello World, eu sou</span>
 							<h3 class="name">{{ $sobreMim->no_usuario_portfolio }}</h3>
 							<p class="text">{{ $sobreMim->ds_funcao }}</p>
 							<div class="iknow_tm_video">
 								<div class="video_inner">
 									<div class="circle">
 										<a href="{{ $sobreMim->ds_url_linkedin }}" target="_blank">
-											<img class="" src="{{ asset('template-internauta/img/') }}/svg/social/linkedin-2.svg" alt="Logo Linkedin" />
+											<img src="{{ asset('template-internauta/img/') }}/svg/social/linkedin-q.svg" alt="Logo Linkedin" />
 										</a>
 									</div>
-									<div class="circle">
+									<div class="circle p-ml-10">
 										<a href="{{ $sobreMim->ds_url_github }}" target="_blank">
-											<img class="" src="{{ asset('template-internauta/img/') }}/svg/social/linkedin-2.svg" alt="Logo GitHub" />
+											<img src="{{ asset('template-internauta/img/') }}/svg/social/github-q.svg" alt="Logo GitHub" />
 										</a>
 									</div>
 								</div>
@@ -118,7 +118,7 @@
 			@include('template-internauta.layout.portfolio')
 			
 			@include('template-internauta.layout.service')
-									
+			
 			@include('template-internauta.layout.contact')
 
 		</div>
