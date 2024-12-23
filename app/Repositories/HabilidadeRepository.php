@@ -26,7 +26,7 @@
             if(!empty($filtros['id_tipo_habilidade'])) {
                 $query->where('id_tipo_habilidade', '=', $filtros['id_tipo_habilidade']);
             }
-            if(!empty($filtros['nr_porcentagem'])) {
+            if(isset($filtros['nr_porcentagem']) && $filtros['nr_porcentagem'] !== null) {
                 $query->where('nr_porcentagem', '=', $filtros['nr_porcentagem']);
             }
             if(!empty($filtros['dt_created_inicio'])) {
@@ -37,10 +37,10 @@
             }
             
             $retornoHabilidade = $query
-            ->orderBy('id_tipo_habilidade', 'ASC')
-            ->orderBy('nr_ordenacao', 'ASC')
-            ->paginate(10);
-            
+                ->orderBy('id_tipo_habilidade', 'ASC')
+                ->orderBy('nr_ordenacao', 'ASC')
+                ->paginate(10);
+                
             return $retornoHabilidade;
         }
 
