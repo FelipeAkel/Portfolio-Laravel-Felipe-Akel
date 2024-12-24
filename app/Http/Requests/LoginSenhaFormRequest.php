@@ -13,7 +13,6 @@ class LoginSenhaFormRequest extends FormRequest
 
     public function rules()
     {
-        // TO DO - Obrigar o usuário a colocar uma senha com caracteres especiais... mais forte!
         return [
             'no_login' => 'required|string',
             'ds_senha_antiga' => 'required|min:10|string',

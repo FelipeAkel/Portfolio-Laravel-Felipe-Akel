@@ -15,17 +15,12 @@ class SobreMimService
         $deleteCurriculo = false;
         $deleteFoto = false;
         
-        //Verificando se arquivo foi adicionado
         if($request->file('ds_url_curriculo')){
-            // Lendo informações do arquivo selecionado
             $curriculo = $request->file('ds_url_curriculo');
-
-            // 'Armazenando o arquivo na pasta storage do Laravel. 
-                // 1º parametro 'sobre-mim 'se refere a pasta criada/existente.
-                // 2º parametro 'public' se refere ao arquivo de configuração Disk - config/filesystems.php o qual define o diretório configurado do Storage.
-            $urlCurriculo = $curriculo->store('sobre-mim', 'public');
-
-            // Delete Arquivos Antigos ---- Adicionar na controller: use Illuminate\Support\Facades\Storage;
+            $nomeOriginal = pathinfo($curriculo->getClientOriginalName(), PATHINFO_FILENAME);
+            $extensao = $curriculo->getClientOriginalExtension();
+            $nomeArquivo = $nomeOriginal . '_' . now()->format('d-m-Y') . '.' . $extensao;
+            $urlCurriculo = $curriculo->storeAs('sobre-mim', $nomeArquivo, 'public');
             $deleteCurriculo = Storage::disk('public')->delete($sobreMim->ds_url_curriculo);
         }
 

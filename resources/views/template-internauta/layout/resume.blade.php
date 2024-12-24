@@ -82,6 +82,7 @@
                                             <div class="curso_complementar">
                                                 <div class="image">
                                                     <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
+                                                    {{-- TO DO - ATUALIZAR IMAGEM DO CERTIFICDO --}}
                                                     <div class="main" data-img-url="https://elements-cover-images-0.imgix.net/fe419e2a-45bb-4c36-9826-c7b9467185ca?auto=compress%2Cformat&w=900&fit=max&s=13f0a8e8e3b0000a6de3a8668b7882f0"></div>
                                                 </div>
                                                 <div class="description">
