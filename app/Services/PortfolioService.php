@@ -52,38 +52,79 @@ class PortfolioService
     {
         // TO DO - Melhoria: Salvar imagens em uma tabela de arquivos...
         // Deleta a img antiga da pasta e atualizar com a nova
+        $deleteImgDestaque = false;
+        $deleteImg1 = false;
+        $deleteImg2 = false;
+        $deleteImg3 = false;
+
         if($request->file('file_img_destaque')){
             $imgDestaque = $request->file('file_img_destaque');
-            $urlImgDestaque = $imgDestaque->store('portfolio', 'public');
-            if($portfolio !== null){
-                Storage::disk('public')->delete($portfolio->ds_url_img_destaque);
+            
+            $nomeOriginal = pathinfo($imgDestaque->getClientOriginalName(), PATHINFO_FILENAME);
+            $extensao = $imgDestaque->getClientOriginalExtension();
+            $nomeArquivo = 'Dest_' . $nomeOriginal . '_' . now()->format('d-m-Y') . '.' . $extensao;
+            
+            $urlImgDestaque = $imgDestaque->storeAs('portfolio', $nomeArquivo, 'public');
+            if($portfolio !== null && $portfolio->ds_url_img_destaque != $urlImgDestaque){
+                $deleteImgDestaque = Storage::disk('public')->delete($portfolio->ds_url_img_destaque);
             }
             $request['ds_url_img_destaque'] = $urlImgDestaque;
         }
         if($request->file('file_img_1_galeria')){
             $img1Galeria = $request->file('file_img_1_galeria');
-            $urlImg1Galeria = $img1Galeria->store('portfolio', 'public');
-            if($portfolio !== null){
-                Storage::disk('public')->delete($portfolio->ds_url_img_1_galeria);
+
+            $nomeOriginal = pathinfo($img1Galeria->getClientOriginalName(), PATHINFO_FILENAME);
+            $extensao = $img1Galeria->getClientOriginalExtension();
+            $nomeArquivo = 'Img1_' . $nomeOriginal . '_' . now()->format('d-m-Y_H-i-s') . '.' . $extensao;
+
+            $urlImg1Galeria = $img1Galeria->storeAs('portfolio', $nomeArquivo, 'public');
+            if($portfolio !== null && $portfolio->ds_url_img_1_galeria != $urlImg1Galeria){
+                $deleteImg1 = Storage::disk('public')->delete($portfolio->ds_url_img_1_galeria);
             }
             $request['ds_url_img_1_galeria'] = $urlImg1Galeria;
         }
         if($request->file('file_img_2_galeria')){
             $img2Galeria = $request->file('file_img_2_galeria');
-            $urlImg2Galeria = $img2Galeria->store('portfolio', 'public');
-            if($portfolio !== null){
-                Storage::disk('public')->delete($portfolio->ds_url_img_2_galeria);
+
+            $nomeOriginal = pathinfo($img2Galeria->getClientOriginalName(), PATHINFO_FILENAME);
+            $extensao = $img2Galeria->getClientOriginalExtension();
+            $nomeArquivo = 'Img2_' . $nomeOriginal . '_' . now()->format('d-m-Y_H-i-s') . '.' . $extensao;
+
+            $urlImg2Galeria = $img2Galeria->storeAs('portfolio', $nomeArquivo, 'public');
+            if($portfolio !== null && $portfolio->ds_url_img_2_galeria != $urlImg2Galeria){
+                $deleteImg2 = Storage::disk('public')->delete($portfolio->ds_url_img_2_galeria);
             }
             $request['ds_url_img_2_galeria'] = $urlImg2Galeria;
         }
         if($request->file('file_img_3_galeria')){
             $img3Galeria = $request->file('file_img_3_galeria');
-            $urlImg3Galeria = $img3Galeria->store('portfolio', 'public');
-            if($portfolio !== null){
-                Storage::disk('public')->delete($portfolio->ds_url_img_3_galeria);
+
+            $nomeOriginal = pathinfo($img3Galeria->getClientOriginalName(), PATHINFO_FILENAME);
+            $extensao = $img3Galeria->getClientOriginalExtension();
+            $nomeArquivo = 'Img3_' . $nomeOriginal . '_' . now()->format('d-m-Y_H-i-s') . '.' . $extensao;
+
+            $urlImg3Galeria = $img3Galeria->storeAs('portfolio', $nomeArquivo,'public');
+            if($portfolio !== null && $portfolio->ds_url_img_3_galeria != $urlImg3Galeria){
+                $deleteImg3 = Storage::disk('public')->delete($portfolio->ds_url_img_3_galeria);
             }
             $request['ds_url_img_3_galeria'] = $urlImg3Galeria;
         }
+
+        $countDeletes = 0;
+        if($deleteImgDestaque === true){
+            $countDeletes = $countDeletes + 1;
+        }
+        if($deleteImg1 === true){
+            $countDeletes = $countDeletes + 1;
+        }
+        if($deleteImg2 === true){
+            $countDeletes = $countDeletes + 1;
+        }
+        if($deleteImg3 === true){
+            $countDeletes = $countDeletes + 1;
+        }
+        $request['countDeletes'] = $countDeletes;
+
         return $request;
     }
 

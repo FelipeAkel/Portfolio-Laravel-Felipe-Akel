@@ -37,7 +37,6 @@ class SobreMimService
             if($sobreMim->ds_url_foto_usuario != $urlFoto){
                 $deleteFoto = Storage::disk('public')->delete($sobreMim->ds_url_foto_usuario);
             }
-
         }
 
         $countDeletes = 0;

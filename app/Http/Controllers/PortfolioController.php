@@ -71,10 +71,14 @@ class PortfolioController extends Controller
     public function update(PortfolioFormRequest $request, $id)
     {
         $portfolio = $this->portfolioRepository::find($id);
-
+        
         $this->portfolioService::mesclarDsTipoProjeto($request);
         $this->portfolioService::arquivosImgs($request, $portfolio);
         
+        if($request['countDeletes'] > 0){
+            Toastr::info("Total de ". $request['countDeletes'] ." arquivos deletados", 'Informação');
+        } 
+
         $retornoBanco = $this->portfolioRepository::update($id, $request);
 
         if($retornoBanco == true){
