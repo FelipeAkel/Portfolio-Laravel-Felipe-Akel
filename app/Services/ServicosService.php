@@ -10,22 +10,48 @@ class ServicosService
     {
         // TO DO - Melhoria: Salvar imagens em uma tabela de arquivos...
         // Salva e Deleta as imgs na pasta public
+
+        $deleteIcon = false;
+        $deleteImg = false;
+
         if($request->file('file_icon_svg')){
             $icone = $request->file('file_icon_svg');
-            $urlIcone = $icone->store('servicos/icones', 'public');
-            if($servico !== null){
-                Storage::disk('public')->delete($servico->ds_url_icon_svg);
+            
+            $nomeOriginal = pathinfo($icone->getClientOriginalName(), PATHINFO_FILENAME);
+            $extensao = $icone->getClientOriginalExtension();
+            $nomeArquivo = $nomeOriginal . '.' . $extensao;
+            
+            $urlIcone = $icone->storeAs('servicos/icones', $nomeArquivo, 'public');
+
+            if($servico !== null && $servico->ds_url_icon_svg != $urlIcone){
+                $deleteIcon = Storage::disk('public')->delete($servico->ds_url_icon_svg);
             }
             $request['ds_url_icon_svg'] = $urlIcone;
         }
         if($request->file('file_img')){
             $imagem = $request->file('file_img');
-            $urlImagem = $imagem->store('servicos', 'public');
-            if($servico !== null){
-                Storage::disk('public')->delete($servico->ds_url_img);
+
+            $nomeOriginal = pathinfo($imagem->getClientOriginalName(), PATHINFO_FILENAME);
+            $extensao = $imagem->getClientOriginalExtension();
+            $nomeArquivo = $nomeOriginal . '.' . $extensao;
+
+            $urlImagem = $imagem->storeAs('servicos', $nomeArquivo, 'public');
+
+            if($servico !== null && $servico->ds_url_img != $urlImagem){
+                $deleteImg = Storage::disk('public')->delete($servico->ds_url_img);
             }
             $request['ds_url_img'] = $urlImagem;
         }
+
+        $countDeletes = 0;
+        if($deleteIcon === true){
+            $countDeletes = $countDeletes + 1;
+        }
+        if($deleteImg === true){
+            $countDeletes = $countDeletes + 1;
+        }
+
+        $request['countDeletes'] = $countDeletes;
 
         return $request;
     }

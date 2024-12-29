@@ -64,6 +64,9 @@ class ServicosController extends Controller
         $servico = $this->servicosRepository::find($id);
 
         $this->servicosService::arquivosImgs($request, $servico);
+        if($request['countDeletes'] > 0){
+            Toastr::info("Total de ". $request['countDeletes'] ." arquivos deletados", 'Informação');
+        } 
 
         $retornoBanco = $this->servicosRepository::update($id, $request);
 
