@@ -52,9 +52,9 @@
                                 <div class="popup_details">
                                     <div class="main_details">
                                         <div class="textbox" style="{{ $width_100_boolean == true ? 'width: 100%;' : '' }}" >
-                                            <p>{{ $dadosProjeto->ds_projeto }}</p>
+                                            <p>{!! nl2br(e($dadosProjeto->ds_projeto)) !!}</p>
                                             <h5 class="titulo-portfolio" > Tecnologias </h5>
-                                            <p>{{ $dadosProjeto->ds_tecnologia }}</p>
+                                            <p>{!! nl2br(e($dadosProjeto->ds_tecnologia)) !!}</p>
                                         </div>
                                         @if ( $width_100_boolean == false)
                                             <div class="detailbox">

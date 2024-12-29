@@ -41,7 +41,7 @@
                                     </div>
                                     @empty(!$dadosCarreiraProfissional->ds_formacao)
                                         <div class="text">
-                                            <p>{{ $dadosCarreiraProfissional->ds_formacao }}</p>
+                                            <p>{!! nl2br(e($dadosCarreiraProfissional->ds_formacao)) !!}</p>
                                         </div>
                                     @endempty
                                     @empty(!$dadosCarreiraProfissional->ds_url)

@@ -38,7 +38,7 @@
                 <p>{{ $sobreMim->ds_subtitulo }}</p>
             </div>
             <div class="text">
-                <p>{{ $sobreMim->ds_perfil }}</p>
+                <p>{!! nl2br(e($sobreMim->ds_perfil)) !!}</p>
             </div>
             <div class="iknow_tm_button">
                 <a href="{{ asset('storage/') }}/{{ $sobreMim->ds_url_curriculo }}" download>Download CV</a>

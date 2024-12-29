@@ -22,7 +22,7 @@
                                     @endif
                                 </div>
                                 <div class="description">
-                                    <p>{{ $dadoServico->ds_servico }}</p>
+                                    <p>{!! nl2br(e($dadoServico->ds_servico)) !!}</p>
                                 </div>
                             </div>
                         </div>
