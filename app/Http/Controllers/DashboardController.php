@@ -23,7 +23,7 @@ class DashboardController extends Controller
         $totalServicos = $this->dashboadRepository::totalServicos();
         $totalFaleConosco = $this->dashboadRepository::totalFaleConosco();
         
-        return view('template-admin.dashboard', compact(
+        return view('template-admin.dashboard.dashboard', compact(
             'totalCarreiraProfissional', 'totalHabilidade', 'totalPortfolio', 'totalServicos', 'totalFaleConosco'
         ));
     }

@@ -85,8 +85,8 @@
     </div>
 
     <hr class="border border-2 opacity-50">
-   
-   <div class="row">
+    
+    <div class="row">
         <div class="col-12">
             <div class="card">
                 <h5 class="card-header titulo-1rem text-info-emphasis">Fale Conosco</h5>
@@ -128,6 +128,37 @@
                         </div>
                         <div class="col-md-4 d-flex justify-content-center align-self-center order-1">
                             <h4 class="text-center">Quantidade Total de<br> Registros <span class="text-info">{{ $countFaleConosco }}</span></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="border border-2 opacity-50">
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <h5 class="card-header titulo-1rem text-info-emphasis">Gráficos</h5>
+                <div class="card-body">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 ">
+                            @include('template-admin.dashboard.graficos.fale-conosco')
+                        </div>
+                    </div>
+                        
+                    <hr class="border border-2 opacity-50">
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            @include('template-admin.dashboard.graficos.carreira-profissional')
+                        </div>
+                        <div class="col-md-4">
+                            @include('template-admin.dashboard.graficos.habilidades')
+                        </div>
+                        <div class="col-md-4">
+                            @include('template-admin.dashboard.graficos.portfolio-servicos')
                         </div>
                     </div>
                 </div>
