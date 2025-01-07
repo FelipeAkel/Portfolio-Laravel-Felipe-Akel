@@ -22,9 +22,10 @@ class DashboardController extends Controller
         $totalPortfolio = $this->dashboadRepository::totalPortfolio();
         $totalServicos = $this->dashboadRepository::totalServicos();
         $totalFaleConosco = $this->dashboadRepository::totalFaleConosco();
+        $graficoFaleConosco = $this->dashboadRepository::graficoFaleConosco();
         
         return view('template-admin.dashboard.dashboard', compact(
-            'totalCarreiraProfissional', 'totalHabilidade', 'totalPortfolio', 'totalServicos', 'totalFaleConosco'
+            'totalCarreiraProfissional', 'totalHabilidade', 'totalPortfolio', 'totalServicos', 'totalFaleConosco', 'graficoFaleConosco'
         ));
     }
 

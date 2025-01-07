@@ -57,4 +57,20 @@ class DashboardRepository {
         );
     }
 
+    public function graficoFaleConosco()
+    {
+        return DB::select(
+            "SELECT 
+                sta.id,
+                sta.no_status,
+                (
+                    SELECT count(*)
+                    FROM tb_fale_conosco tfc 
+                    WHERE tfc.id_status = sta.id AND tfc.deleted_at IS NULL	
+                ) AS total_fale_conosco
+            FROM tb_status sta
+            WHERE sta.id_funcionalidade = 1 AND sta.deleted_at IS NULL"
+        );
+    }
+
 }

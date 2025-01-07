@@ -140,7 +140,7 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <h5 class="card-header titulo-1rem text-info-emphasis">Gráficos</h5>
+                <h5 class="card-header titulo-1rem text-info-emphasis">Gráficos - Chart.Js</h5>
                 <div class="card-body">
                     <div class="row justify-content-center">
                         <div class="col-md-8 ">
