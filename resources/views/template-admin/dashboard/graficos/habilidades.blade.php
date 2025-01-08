@@ -3,15 +3,10 @@
         Habilidades
     </div>
     <div class="card-body">
-        <h5 class="card-title ">Gráfico</h5>
         <canvas id="graficoHabilidades"></canvas>
     </div>
     <div class="card-footer text-body-secondary"></div>
 </div>
-
-{{-- @dd($totalHabilidade) --}}
-
-{{-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> --}}
 
 <script>
     // Dados do gráfico

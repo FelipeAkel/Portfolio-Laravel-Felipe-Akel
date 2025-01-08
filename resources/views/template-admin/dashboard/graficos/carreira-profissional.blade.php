@@ -8,8 +8,6 @@
     <div class="card-footer text-body-secondary"></div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 <script>
     // Dados do gráfico
     const dataCarreiraProfissional = {
