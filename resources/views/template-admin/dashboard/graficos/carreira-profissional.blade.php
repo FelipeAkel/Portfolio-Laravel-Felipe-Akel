@@ -1,5 +1,5 @@
 <div class="card text-center">
-    <div class="card-header titulo-1rem text-info-emphasis">
+    <div class="card-header titulo-1rem text-primary">
         Carreira Profissional
     </div>
     <div class="card-body">

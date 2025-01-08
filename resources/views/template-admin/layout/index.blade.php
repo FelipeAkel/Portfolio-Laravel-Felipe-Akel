@@ -13,7 +13,7 @@
     @include('template-admin.layout.include.head-js')
 
     {{-- JavaScript do Chart.Js --}}
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ asset('template-admin/js/chart.js') }}"></script>
 
 </head>
 
