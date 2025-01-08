@@ -12,7 +12,7 @@
 
 <script>
     // Dados do gráfico
-    const data = {
+    const dataCarreiraProfissional = {
         labels: [
         
             @foreach ($totalCarreiraProfissional as $dadosCarreira )
@@ -21,7 +21,7 @@
         
         ],
         datasets: [{
-            label: 'My First Dataset',
+            label: 'Descrição Label',
             data: [
                 @foreach ($totalCarreiraProfissional as $dadosCarreira )
                     {{ $dadosCarreira->total_quantidade }},
@@ -32,9 +32,9 @@
     };
 
     // Configuração do gráfico
-    const config = {
+    const configCarreiraProfissional = {
         type: 'pie',
-        data: data,
+        data: dataCarreiraProfissional,
         options: {
             responsive: true,
             plugins: {
@@ -43,11 +43,11 @@
                 },
                 tooltip: {
                     callbacks: {
-                    label: function(context) {
-                        let label = context.label || '';
-                        let value = context.raw || 0;
-                        return `${label}: ${value}`;
-                    }
+                        label: function(context) {
+                            let label = context.label || '';
+                            let value = context.raw || 0;
+                            return `${label}: ${value}`;
+                        }
                     }
                 }
             }
@@ -57,6 +57,6 @@
     // Renderizando o gráfico
     const graficoCarreiraProfissional = new Chart(
         document.getElementById('graficoCarreiraProfissional'),
-        config
+        configCarreiraProfissional
     );
 </script>
