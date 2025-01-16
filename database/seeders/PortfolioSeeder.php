@@ -5,10 +5,11 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\TbPortfolio;
 
-class PortfolioSeed extends Seeder
+class PortfolioSeeder extends Seeder
 {
     public function run()
     {
+
         TbPortfolio::create([
             'ds_tipo_projeto' => 'landing-page',
             'no_projeto' => 'Portfólio e Git/GitGub', 
@@ -48,6 +49,7 @@ class PortfolioSeed extends Seeder
                 1º Seção: Cronômetro regressivo até o dia e hora do evento.
                 2º e 3º Seção: Informações sobre os serviços.
                 4º Seção: Informações do Autor.
+                
                 Utilizei um template licenciado que forneceu a estrutura básica do site e os arquivos de CSS e JavaScript. Todavia, precisei realizar alguns ajustes e correções para atender a necessidade do cliente.
             ',
             'ds_tecnologia' => 'HTML | CSS | JavaScript',
@@ -129,6 +131,28 @@ class PortfolioSeed extends Seeder
             'ds_url_repositorio' => 'https://github.com/FelipeAkel/Bootstrap5-Ecommerce',
             'ds_projeto' => 'O projeto trata-se da criação de um layout E-Commerce durante a realização do curso online, Bootstrap 5 do básico ao avançado, qual este template foi utilizado como práticas dos conhecimentos ensinados nas aulas.',
             'ds_tecnologia' => 'Bootstrap | HTML | CSS',
+        ]);
+
+        TbPortfolio::create([
+            'ds_tipo_projeto' => 'angular',
+            'no_projeto' => 'Minha Lista', 
+            'dt_inicio' => '2024-07-13', 
+            'dt_finalizacao' => '2024-07-25',
+            'ds_url_repositorio' => 'https://github.com/FelipeAkel/angular-lista-de-tarefas',
+            'ds_projeto' => "A Lista de Tarefas trata-se de um programa desenvolvido para consolidar estudo/conhecimento em um projeto prático com o framework front-end, Angular. 
+            
+                Inicialmente, o programa possibilita criar uma lista de itens, tarefas que são gerenciados pelo usuário. Dessa forma, o usuário poderá 'cadastrar', 'editar' e 'excluir' seus dados. Além disso, poderá atualizar os status dos registros para 'pendentes' e 'concluídos'.",
+            'ds_tecnologia' => 'Angular | HTML | CSS',
+        ]);
+
+        TbPortfolio::create([
+            'ds_tipo_projeto' => 'angular',
+            'no_projeto' => 'Portfólio Angular', 
+            'dt_inicio' => '2024-07-27', 
+            'dt_finalizacao' => '2024-08-03',
+            'ds_url_repositorio' => 'https://github.com/FelipeAkel/Angular-Portfolio',
+            'ds_projeto' => 'Mini portfólio desenvolvido em Angular para aprendizado e fixar o conhecimento adquirido ao estudar a tecnologia.',
+            'ds_tecnologia' => 'Angular | HTML | CSS',
         ]);
 
     }

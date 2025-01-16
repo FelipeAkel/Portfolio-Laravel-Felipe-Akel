@@ -22,6 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(FuncionalidadesSeeder::class);
         $this->call(StatusSeeder::class);
         $this->call(ServicosSeeder::class);
-        $this->call(PortfolioSeed::class);
+        $this->call(PortfolioSeeder::class);
     }
 }

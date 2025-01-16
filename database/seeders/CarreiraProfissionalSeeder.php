@@ -47,12 +47,27 @@ class CarreiraProfissionalSeeder extends Seeder
 
         TbCarreiraProfissional::create([
             'id_tipo_experiencia' => '3',
+            'no_experiencia' => 'Analista Desenvolvedor PHP Pl',
+            'no_empresa' => 'Liberty Health',
+            'dt_inicio' => '2021-07-01',
+            'dt_final' => null,
+            'st_trabalho_atual' => '1',
+            'ds_formacao' => '- Manutenção e desenvolvimento de sistemas utilizando linguagem PHP Laravel; 
+                - Manutenção e desenvolvimento com framework front-end Angular;
+                - Atendimento de chamados de Sustentação de sistemas; 
+            ',
+            'nr_total_horas' => null,
+            'ds_url' => null
+        ]);
+
+        TbCarreiraProfissional::create([
+            'id_tipo_experiencia' => '3',
             'no_experiencia' => 'Analista Desenvolvedor PHP Jr',
             'no_empresa' => 'Globalweb Outsourcing do Brasil S.A.',
             'dt_inicio' => '2021-12-13',
-            'dt_final' => null,
-            'st_trabalho_atual' => '1',
-            'ds_formacao' => '- Realizar atividades de manutenção e desenvolvimento de sistemas utilizando linguagem PHP e PHP Laravel; 
+            'dt_final' => '2024-06-28',
+            'st_trabalho_atual' => '0',
+            'ds_formacao' => '- Manutenção e desenvolvimento de sistemas utilizando linguagem PHP e PHP Laravel; 
                 - Modelagem de banco de dados Oracle; 
                 - Apoiar no treinamento dos Trainnes do projeto; 
                 - Gerar/Interpretar documentos e artefatos de acordo com a metodologia vigente;
@@ -109,6 +124,18 @@ class CarreiraProfissionalSeeder extends Seeder
                 - Elaboração de relatórios com programas do pacote Microsoft Office, Word, Excel, Power Point e Outlook;',
             'nr_total_horas' => null,
             'ds_url' => null
+        ]);
+
+        TbCarreiraProfissional::create([
+            'id_tipo_experiencia' => '4',
+            'no_experiencia' => 'Bootstrap 5 do básico ao avançado',
+            'no_empresa' => 'Udemy',
+            'dt_inicio' => '2024-02-05',
+            'dt_final' => '2024-02-05',
+            'st_trabalho_atual' => '0',
+            'ds_formacao' => null,
+            'nr_total_horas' => 16.5,
+            'ds_url' => 'https://www.udemy.com/certificate/UC-73858e3d-0ed1-4a38-90e9-f04103fa18b6/'
         ]);
 
         TbCarreiraProfissional::create([
@@ -180,7 +207,7 @@ class CarreiraProfissionalSeeder extends Seeder
             'st_trabalho_atual' => '0',
             'ds_formacao' => null,
             'nr_total_horas' => 6,
-            'ds_url' => 'https://drive.google.com/file/d/1PRuotd6EFg1pSBtZg1a1P8-Uh4wriqAN/view'
+            'ds_url' => 'https://drive.google.com/file/d/19inT5Gi7GpKfwXFGUqoe1cGW9HRl3d54/view?usp=sharing'
         ]);
 
         TbCarreiraProfissional::create([
@@ -204,7 +231,7 @@ class CarreiraProfissionalSeeder extends Seeder
             'st_trabalho_atual' => '0',
             'ds_formacao' => null,
             'nr_total_horas' => 3,
-            'ds_url' => 'https://drive.google.com/file/d/1kclayTtHb85Zgmt5I1_IjqIS0QolMZps/view'
+            'ds_url' => 'https://drive.google.com/file/d/1talZRTqOqZrwzMDLfWGuczGOsI-u3qpf/view?usp=sharing'
         ]);
 
         TbCarreiraProfissional::create([
@@ -216,7 +243,7 @@ class CarreiraProfissionalSeeder extends Seeder
             'st_trabalho_atual' => '0',
             'ds_formacao' => null,
             'nr_total_horas' => 50 ,
-            'ds_url' => 'https://www.softblue.com.br/certificado/526481C99E08'
+            'ds_url' => 'https://drive.google.com/file/d/1bzytgYpN5qt_SGf_5E5jrVf844nWdSiE/view?usp=sharing'
         ]);
 
         TbCarreiraProfissional::create([
@@ -240,7 +267,7 @@ class CarreiraProfissionalSeeder extends Seeder
             'st_trabalho_atual' => '0',
             'ds_formacao' => null,
             'nr_total_horas' => 8,
-            'ds_url' => 'http://soft.blue/certificado/494865A4368A'
+            'ds_url' => 'https://drive.google.com/file/d/1A26_cP7zGXgqBJh0uBGOI_TenMrq1YWi/view?usp=sharing'
         ]);
 
         TbCarreiraProfissional::create([
@@ -252,7 +279,7 @@ class CarreiraProfissionalSeeder extends Seeder
             'st_trabalho_atual' => '0',
             'ds_formacao' => null,
             'nr_total_horas' => 20,
-            'ds_url' => 'https://www.softblue.com.br/certificado/49486450F33E'
+            'ds_url' => 'https://drive.google.com/file/d/1Ee0NhVf6cAwaiSMWHtiLxdH9m2pBhRvd/view?usp=sharing'
         ]);
 
         TbCarreiraProfissional::create([
@@ -264,7 +291,7 @@ class CarreiraProfissionalSeeder extends Seeder
             'st_trabalho_atual' => '0',
             'ds_formacao' => null,
             'nr_total_horas' => 8,
-            'ds_url' => 'https://www.softblue.com.br/certificado/228925A56E2A'
+            'ds_url' => 'https://drive.google.com/file/d/1C15v8PNl-Uy7RCL5NRz6NFSHvQX6354f/view?usp=sharing'
         ]);
 
         TbCarreiraProfissional::create([
@@ -276,7 +303,7 @@ class CarreiraProfissionalSeeder extends Seeder
             'st_trabalho_atual' => '0',
             'ds_formacao' => null,
             'nr_total_horas' => 60,
-            'ds_url' => 'https://drive.google.com/file/d/13s4vhoWZNL83MA7SJZ4gZsUoFwkBMTqL/view?usp=sharing'
+            'ds_url' => 'https://drive.google.com/file/d/1Ash7sh8WK3fJ8hGE4ZtQ6LgssYXPVaUD/view?usp=sharing'
         ]);
     }
 }
