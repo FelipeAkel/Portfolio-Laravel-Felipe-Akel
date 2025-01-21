@@ -11,7 +11,7 @@ class ServicosSeeder extends Seeder
     {
         TbServicos::create([
             'no_servico' => 'Programador Front-End',
-            'ds_servico' => 'Utilizando Frameworks consolidados no mercado, por exemplo Bootstrap e Metronic, para aumentar a velocidade na criação de layouts. Além disso, adoto conceitos de UX/Designer cujo objetivo é garantir que o usuário tenha a melhor experiência de uso do produto/serviço.'
+            'ds_servico' => 'Utilizando Frameworks consolidados no mercado, por exemplo Angular, Bootstrap e Metronic, para aumentar a velocidade na criação de layouts. Além disso, adoto conceitos de UX/Designer cujo objetivo é garantir que o usuário tenha a melhor experiência de uso do produto/serviço.'
         ]);
 
         TbServicos::create([
@@ -24,8 +24,8 @@ class ServicosSeeder extends Seeder
             'ds_servico' => 'Meu ponto de vista, o programador não trabalha somente com códigos. Destaco as seguintes responsabilidades:
 
             - Executar as tarefas do backlog do produto respeitando as necessidades definidas pelo Product Owner (PO); 
-            - Criar e atualizar Banco de Dados Relacional do sistema (DDL). Além disso, realizar inclusão, atualização e exclusão de dados (DML);
-            - Evidênciar, documentar a entrega das funcionalidades;
+            - Criar e atualizar Banco de Dados Relacional do sistema (DDL). Além disso, realizar inclusão, atualização e exclusão de dados (DML). Utilizando a linguagem SQL na execução das querys;
+            - Evidênciar, documentar a entrega das funcionalidades solicitadas pelo cliente;
             - Descrever, extrair as informações e histórias do usuário além de manter o quadro de tarefas atualizado; 
             '
         ]);
