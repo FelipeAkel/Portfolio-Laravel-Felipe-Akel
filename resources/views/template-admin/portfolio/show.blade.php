@@ -107,21 +107,20 @@
                         </div>
 
                         <h5 class="titulo-1rem">Imagens do Projeto</h5>
-                        @if (isset($portfolio->ds_url_img_destaque))
-                            <div class="mb-3 col-md-3">
-                                <div class="card text-center border-warning" style="width: 18rem;">
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modalImgDestaque">
-                                        <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_destaque }}" class="card-img-top img-proporcao" alt="Imagem em Destaque">
+                        <div class="mb-3 col-md-3">
+                            <div class="card text-center border-warning" style="width: 18rem;">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#modalImgDestaque">
+                                    <img src="{{ isset($portfolio->ds_url_img_destaque) ? asset("storage/$portfolio->ds_url_img_destaque") : asset('default/default-projeto.png') }}" class="card-img-top img-proporcao" alt="Imagem em Destaque">
+                                </a>
+                                <div class="card-body text-warning">
+                                    <p class="card-text">Imagem em Destaque</p>
+                                    <a href="#" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalImgDestaque">
+                                        <i class="bi bi-search"></i> Ampliar
                                     </a>
-                                    <div class="card-body text-warning">
-                                        <p class="card-text">Imagem em Destaque</p>
-                                        <a href="#" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalImgDestaque">
-                                            <i class="bi bi-search"></i> Ampliar
-                                        </a>
-                                    </div>
                                 </div>
                             </div>
-                        @endif
+                        </div>
+                        
                         @if (isset($portfolio->ds_url_img_1_galeria))
                             <div class="mb-3 col-md-3">
                                 <div class="card text-center" style="width: 18rem;">
@@ -191,7 +190,7 @@
             </div>
             <div class="modal-body">
                 <figure class="figure">
-                    <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_destaque }}" class="figure-img img-fluid rounded" alt="Imagem em Destaque">
+                    <img src="{{ isset($portfolio->ds_url_img_destaque) ? asset("storage/$portfolio->ds_url_img_destaque") : asset('default/default-projeto.png') }}" class="figure-img img-fluid rounded" alt="Imagem em Destaque">
                     <figcaption class="figure-caption">Imagem em Destaque</figcaption>
                 </figure>
             </div>

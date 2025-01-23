@@ -5,7 +5,7 @@
             <div class="left_inner">
                 <div class="image">
                     <img src="{{ asset('template-internauta/img/') }}/thumbs/35-44.jpg" alt="" />
-                    <div class="main" data-img-url="{{ asset('storage/') }}/{{ $sobreMim->ds_url_foto_usuario }}"></div>
+                    <div class="main" data-img-url="{{ isset($sobreMim->ds_url_foto_usuario) ? asset("storage/$sobreMim->ds_url_foto_usuario") : asset('default/felipe-akel.jpg') }}"></div>
                 </div>
                 <div class="details">
                     <ul>
@@ -41,7 +41,7 @@
                 <p>{!! nl2br(e($sobreMim->ds_perfil)) !!}</p>
             </div>
             <div class="iknow_tm_button">
-                <a href="{{ asset('storage/') }}/{{ $sobreMim->ds_url_curriculo }}" download>Download CV</a>
+                <a href="{{ isset($sobreMim->ds_url_curriculo) ? asset("storage/$sobreMim->ds_url_curriculo") : asset('default/curriculo-felipe-akel.pdf') }}" download>Download CV</a>
             </div>
         </div>
     </div>

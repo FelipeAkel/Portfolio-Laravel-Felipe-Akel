@@ -54,7 +54,7 @@
     @if(isset($servico->id))
     <div class="mb-3 col-md-6">
         <div class="card text-center" style="width: 18rem;">
-            <img src="{{ asset('storage/') }}/{{ $servico->ds_url_icon_svg }}" class="card-img-top img-proporcao-icon" alt="Icone de Serviço">
+            <img src="{{ isset($dadoServico->ds_url_icon_svg) ? asset("storage/$dadoServico->ds_url_icon_svg") : asset('default/default-icon.svg') }}" class="card-img-top img-proporcao-icon" alt="Icone de Serviço">
             <div class="card-body">
                 <p class="card-text">Icone de Serviço</p>
             </div>

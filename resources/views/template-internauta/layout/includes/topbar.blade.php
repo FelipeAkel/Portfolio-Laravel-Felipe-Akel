@@ -3,11 +3,11 @@
     <div class="container">
         <div class="topbar_inner">
             <div class="logo">
-                {{-- <a href="#"><img src="{{ asset('template-internauta/img/') }}/logo/light.png" alt="Logo Marcar IKNOW" /></a> --}}
+                <img src="{{ asset('default/logomarca-fa.png') }}" width="70px" alt="Logo Marcar Felipe Akel" />
             </div>
             <div class="right">
                 <div class="iknow_tm_button">
-                    <a href="{{ asset('storage/') }}/{{ $sobreMim->ds_url_curriculo }}" download>Download CV</a>
+                    <a href="{{ isset($sobreMim->ds_url_curriculo) ? asset("storage/$sobreMim->ds_url_curriculo") : asset('default/curriculo-felipe-akel.pdf') }}" download>Download CV</a>
                 </div>
             </div>
         </div>

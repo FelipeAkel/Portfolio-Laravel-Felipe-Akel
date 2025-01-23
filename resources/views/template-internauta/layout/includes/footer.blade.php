@@ -3,7 +3,7 @@
     <div class="container">
         <div class="inner">
             <div class="left">
-                <p>Todos os Direitos Reservados &copy; <a href="#" target="_blank">Felipe Akel</a></p>
+                <p>Todos os Direitos Reservados &copy; <a href="{{ $sobreMim->ds_url_linkedin }}" target="_blank">{{ $sobreMim->no_usuario }}</a></p>
             </div>
             <div class="right">
                 <ul>

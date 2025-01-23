@@ -37,8 +37,8 @@
                         <div class="list_inner">
                             <div class="image">
                                 {{-- A dimenções da imagem eram 1x1 --}}
-                                <img src="{{ asset('storage/') }}/{{ $dadosProjeto->ds_url_img_destaque }}" alt="" />
-                                <div class="main" data-img-url="{{ asset('storage/') }}/{{ $dadosProjeto->ds_url_img_destaque }}"></div>
+                                <img src="{{ isset($dadosProjeto->ds_url_img_destaque) ? asset("storage/$dadosProjeto->ds_url_img_destaque") : asset('default/default-projeto.png') }}" alt="Imagem do Projeto" />
+                                <div class="main" data-img-url="{{ isset($dadosProjeto->ds_url_img_destaque) ? asset("storage/$dadosProjeto->ds_url_img_destaque") : asset('default/default-projeto.png') }}"></div>
                             </div>
                             <div class="overlay"></div>
                             <img class="svg" src="{{ asset('template-internauta/img/svg/') }}/{{ $img_svg }}.svg" alt="" />

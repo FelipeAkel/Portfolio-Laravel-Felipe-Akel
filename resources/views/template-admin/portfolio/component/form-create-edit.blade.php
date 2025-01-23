@@ -232,7 +232,7 @@
         <div class="mb-3 col-md-3">
             <div class="card text-center border-warning" style="width: 18rem;">
                 <a href="#" data-bs-toggle="modal" data-bs-target="#modalImgDestaque">
-                    <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_destaque }}" class="card-img-top img-proporcao" alt="Imagem em Destaque">
+                    <img src="{{ isset($portfolio->ds_url_img_destaque) ? asset("storage/$portfolio->ds_url_img_destaque") : asset('default/default-projeto.png') }}" class="card-img-top img-proporcao" alt="Imagem em Destaque">
                 </a>
                 <div class="card-body text-warning">
                     <p class="card-text">Imagem em Destaque</p>
@@ -306,7 +306,7 @@
         </div>
         <div class="modal-body">
             <figure class="figure">
-                <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_destaque }}" class="figure-img img-fluid rounded" alt="Imagem em Destaque">
+                <img src="{{ isset($portfolio->ds_url_img_destaque) ? asset("storage/$portfolio->ds_url_img_destaque") : asset('default/default-projeto.png') }}" class="figure-img img-fluid rounded" alt="Imagem em Destaque">
                 <figcaption class="figure-caption">Imagem em Destaque</figcaption>
             </figure>
         </div>

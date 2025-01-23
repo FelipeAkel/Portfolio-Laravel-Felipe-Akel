@@ -295,7 +295,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <figure class="figure">
-                                        <img src="{{ asset('storage/') }}/{{ $dadoProjeto->ds_url_img_destaque }}" class="figure-img img-fluid rounded" alt="Imagem em Destaque">
+                                        <img src="{{ isset($dadoProjeto->ds_url_img_destaque) ? asset("storage/$dadoProjeto->ds_url_img_destaque") : asset('default/default-projeto.png') }}" class="figure-img img-fluid rounded" alt="Imagem em Destaque">
                                         <figcaption class="figure-caption">Imagem em Destaque</figcaption>
                                     </figure>
                                 </div>

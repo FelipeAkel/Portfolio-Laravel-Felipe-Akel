@@ -80,11 +80,10 @@
                                         <a class="iknow_tm_full_link" href="#"></a>
                                         <div class="hidden_content">
                                             <div class="curso_complementar">
-                                                <div class="image">
+                                                {{-- <div class="image">
                                                     <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
-                                                    {{-- TO DO - ATUALIZAR IMAGEM DO CERTIFICDO --}}
-                                                    <div class="main" data-img-url="https://elements-cover-images-0.imgix.net/fe419e2a-45bb-4c36-9826-c7b9467185ca?auto=compress%2Cformat&w=900&fit=max&s=13f0a8e8e3b0000a6de3a8668b7882f0"></div>
-                                                </div>
+                                                    <div class="main" data-img-url="URL_CERTIFICADO"></div>
+                                                </div> --}}
                                                 <div class="description">
                                                     <h3 class="titulo-modal" >Cursos Concluídos</h3>
                                                     <ul class="list-group">

@@ -12,7 +12,7 @@
     // Dados do gráfico
     const dataPortfolioServicos = {
         labels: [
-            'Portfólio',
+            'Projetos',
             'Serviços'
         ],
         datasets: [{

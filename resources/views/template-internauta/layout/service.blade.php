@@ -9,7 +9,7 @@
                 @foreach ($servicos AS $indice => $dadoServico )
                 <li>
                     <div class="list_inner">
-                        <span class="icon"><img class="svg" src="{{ asset('storage/') }}/{{ $dadoServico->ds_url_icon_svg }}" alt="" /></span>
+                        <span class="icon"><img class="svg" src="{{ isset($dadoServico->ds_url_icon_svg) ? asset("storage/$dadoServico->ds_url_icon_svg") : asset('default/default-icon.svg') }}" alt="Icone de Serviço" /></span>
                         <h3 class="title">{{ $dadoServico->no_servico }}</h3>
                         <p class="text">{{ mb_strimwidth($dadoServico->ds_servico, 0, 40, "...") }}</p>
                         <a class="iknow_tm_full_link" href="#"></a>
@@ -17,8 +17,8 @@
                             <div class="service_informations">
                                 <div class="image">
                                     @if ($dadoServico->ds_url_img != '')
-                                        <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
-                                        <div class="main" data-img-url="{{ asset('storage/') }}/{{ $dadoServico->ds_url_img }}"></div>
+                                        <img src="{{ asset('template-internauta/img/thumbs/4-2.jpg') }}" alt="" />
+                                        <div class="main" data-img-url="{{ asset("storage/$dadoServico->ds_url_img")  }}"></div>
                                     @endif
                                 </div>
                                 <div class="description">

@@ -11,7 +11,11 @@
         </li>
         <li class="nav-item text-nowrap">
             <a class="nav-link px-3 link-menu-header">
-                <img src="{{ asset('storage/') }}/{{ $_SESSION['ds_url_foto_usuario'] }}" alt="mdo" width="32" height="32" class="rounded-circle">
+                <img 
+                    src="{{ $_SESSION['ds_url_foto_usuario'] ? asset('storage/' . $_SESSION['ds_url_foto_usuario']) : asset('default/felipe-akel.jpg') }}"
+                    alt="Imagem do usuário Felipe Akel" width="32" height="32" 
+                    class="rounded-circle"
+                >
                 {{ $_SESSION['no_usuario_portfolio'] }}
             </a>
         </li>

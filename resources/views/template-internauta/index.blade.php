@@ -91,7 +91,7 @@
 						<div class="right">
 							<div class="image">
 								<img src="{{ asset('template-internauta/img/') }}/thumbs/47-60.jpg" alt="" />
-								<div class="main" data-img-url="{{ asset('storage/') }}/{{ $sobreMim->ds_url_foto_usuario }}"></div>
+								<div class="main" data-img-url="{{ isset($sobreMin->ds_url_foto_usuario) ? asset("storage/$sobreMim->ds_url_foto_usuario") : asset('default/felipe-akel.jpg') }}"></div>
 							</div>
 						</div>
 					</div>

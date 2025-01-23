@@ -135,7 +135,7 @@ class PortfolioSeeder extends Seeder
 
         TbPortfolio::create([
             'ds_tipo_projeto' => 'angular',
-            'no_projeto' => 'Minha Lista', 
+            'no_projeto' => 'Lista de Tarefas', 
             'dt_inicio' => '2024-07-13', 
             'dt_finalizacao' => '2024-07-25',
             'ds_url_repositorio' => 'https://github.com/FelipeAkel/angular-lista-de-tarefas',

@@ -69,7 +69,7 @@
                         </td>
                         <td>{{ $dadoServico->id }}</td>
                         <td>{{ $dadoServico->no_servico }}</td>
-                        <td class="text-center"><img src="{{ asset('storage/') }}/{{$dadoServico->ds_url_icon_svg }}" style="width:30px;" class="rounded img-icon" alt="..."></td>
+                        <td class="text-center"><img src="{{ isset($dadoServico->ds_url_icon_svg) ? asset("storage/$dadoServico->ds_url_icon_svg") : asset('default/default-icon.svg') }}" style="width:30px;" class="rounded img-icon" alt="..."></td>
                         <td class="text-center">
                             @if (isset($dadoServico->ds_url_img))
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#modalImgDestaque{{ $indice }}" >Imagem</a>
