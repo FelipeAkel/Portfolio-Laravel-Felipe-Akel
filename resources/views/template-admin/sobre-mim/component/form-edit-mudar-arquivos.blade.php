@@ -45,13 +45,14 @@
             >
             <div id="ds_url_foto_usuario" class="form-text">
                 Extensão: png, jpg ou jpeg
-                {{-- <br> Dimenção 100px por 200px; --}}
+                <br>Dimenções 1000px de largura e altura
             </div>
             @error('ds_url_foto_usuario')
                 <div class="invalid-feedback">
                     {{ $errors->first('ds_url_foto_usuario') }}
                 </div>
             @enderror
+            
         </div>
 
         <div class="col-12">
@@ -66,19 +67,19 @@
 <div class="modal fade" id="modalFotoUsuario" tabindex="-1" aria-labelledby="modalFotoUsuarioLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-        <div class="modal-header">
-            <h1 class="modal-title fs-5" id="modalFotoUsuarioLabel">Foto Usuário</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <figure class="figure">
-                <img src="{{ isset($sobreMim->ds_url_foto_usuario) ? asset("storage/$sobreMim->ds_url_foto_usuario") : asset('default/felipe-akel.jpg') }}" class="figure-img img-fluid rounded" alt="Imagem do Usuário Portfólio">
-                <figcaption class="figure-caption">Imagem do Usuário Portfólio</figcaption>
-            </figure>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        </div>
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalFotoUsuarioLabel">Foto Usuário</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <figure class="figure">
+                    <img src="{{ isset($sobreMim->ds_url_foto_usuario) ? asset("storage/$sobreMim->ds_url_foto_usuario") : asset('default/felipe-akel.jpg') }}" class="figure-img img-fluid rounded" alt="Imagem do Usuário Portfólio">
+                    <figcaption class="figure-caption">Imagem do Usuário Portfólio</figcaption>
+                </figure>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            </div>
         </div>
     </div>
 </div>

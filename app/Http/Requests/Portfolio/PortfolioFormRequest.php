@@ -26,7 +26,7 @@ class PortfolioFormRequest extends FormRequest
             'ds_url_repositorio' => 'nullable|url',
             'ds_projeto' => 'required',
             'ds_tecnologia' => 'required|max:100',
-            'file_img_destaque' => 'required|file|mimes:png,jpg,jpeg',
+            'file_img_destaque' => 'nullable|file|mimes:png,jpg,jpeg',
             'file_img_1_galeria' => 'nullable|file|mimes:png,jpg,jpeg',
             'file_img_2_galeria' => 'nullable|file|mimes:png,jpg,jpeg',
             'file_img_3_galeria' => 'nullable|file|mimes:png,jpg,jpeg',
@@ -60,6 +60,26 @@ class PortfolioFormRequest extends FormRequest
             if (!$this->hasAnyChecked()) {
                 $validator->errors()->add('tipo_projeto', 'Pelo menos um tipo de projeto deve ser selecionado');
             }
+
+            // Verifica se a imagem tem a mesma altura e largura
+            $imgDestaque = $this->file('file_img_destaque');
+            if($imgDestaque){
+                $imgSize = getimagesize($imgDestaque->getPathname());
+
+                if($imgSize) {
+                    $widthImg = $imgSize[0];    // Largura
+                    $heigthImg = $imgSize[1];   // Altura
+
+                    if($widthImg != $heigthImg) {
+                        $validator->errors()->add('file_img_destaque', 'A imagem deve ter a largura e altura iguais, por exemplo: 1000 x 1000');
+                    }
+
+                } else {
+                    $validator->errors()->add('file_img_destaque', 'O arquivo enviado não é uma imagem válida');
+                }
+
+            }
+
         });
     }
 

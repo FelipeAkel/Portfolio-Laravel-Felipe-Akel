@@ -26,7 +26,7 @@
     </div>
 
     <div class="mb-3 col-md-6">
-        <label for="file_icon_svg" class="form-label">Icone <span class="required">*</span></label>
+        <label for="file_icon_svg" class="form-label">Icone</label>
         <input class="form-control {{ $errors->has('file_icon_svg') ? 'is-invalid' : '' }}" type="file" name="file_icon_svg" id="file_icon_svg">
         <div id="file_icon_svg" class="form-text">
             Extensão: svg

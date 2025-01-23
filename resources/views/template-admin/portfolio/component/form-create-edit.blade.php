@@ -176,11 +176,11 @@
     <h5 class="titulo-1rem">Imagens do Projeto</h5>
 
     <div class="mb-3 col-md-6">
-        <label for="file_img_destaque" class="form-label">Upload IMG - Destaque <span class="required">*</span></label>
+        <label for="file_img_destaque" class="form-label">Upload IMG - Destaque</label>
         <input class="form-control {{ $errors->has('file_img_destaque') ? 'is-invalid' : '' }}" type="file" name="file_img_destaque" id="file_img_destaque">
         <div id="file_img_destaque" class="form-text">
             Extensão: png, jpg ou jpeg<br />
-            Dimensões: 1x1, ou seja, img deve ser quadrada
+            Dimensões: largura e altura devem ter o mesmo tamanho, ou seja, img deve ser quadrada
         </div>
         @error('file_img_destaque')
             <div class="invalid-feedback">
