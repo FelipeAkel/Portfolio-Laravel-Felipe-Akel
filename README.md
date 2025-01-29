@@ -24,7 +24,8 @@ Destaca-se, que o sistema é composto de 2 layouts distintos responsáveis por m
 - **[Laravel Versão 8.x](https://laravel.com/docs/8.x)**
 
 ### Sistema de Gerenciameto de Bando de Dados - SGBD
-O Banco de Dados utilizado foi o [MySQL Workbench](https://www.mysql.com/products/workbench/). O Sistema utilizar um **Banco de Dados Relacional** e para criação das tabelas foi utilizado as **Migrations do Laravel**, o atual **Modelo de Dados** pode ser acesso no link [Banco de Dados Relacional](public/readme/banco-relacional.png).
+O Banco de Dados utilizado foi o [MySQL Workbench](https://www.mysql.com/products/workbench/). 
+O Sistema utilizar um **Banco de Dados Relacional** e para criação das tabelas foi utilizado as **Migrations do Laravel**, o atual **Modelo de Dados** pode ser acesso no link [Banco de Dados Relacional](public/readme/banco-relacional.png).
 
 ### Composer
 Gerenciador de dependências do PHP. Necessário ter instalado para atualizações e inclusões de novos pacotes no sistema.
@@ -41,7 +42,7 @@ Gerenciador de dependências do PHP. Necessário ter instalado para atualizaçõ
 
 Primeiramente, é essencial clonar o repositório para sua máquina e abrir o terminal, prompt de comando, no diretório na pasta do projeto. Com isso, podemos seguir o passo a passo a seguir:
 
-    - [ ] \(Optional) No terminal execute 'composer install';
+    - [ ] \(teste) No terminal execute 'composer install';
     - [ ] \(Optional) Faça uma cópia do arquivo '.env.example' para '.env' na pasta do projeto.
     3. SGBD utilizado 'MySQL': Crie um banco de dados chamado 'bd_portfolio_felipe_akel';
     - Por exemplo, pode-se utilizar o Xampp para acessar o phpMyAdmin ('http://localhost/phpmyadmin') e criar a database;
