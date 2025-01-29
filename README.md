@@ -42,34 +42,34 @@ Gerenciador de dependências do PHP. Necessário ter instalado para atualizaçõ
 
 Primeiramente, é essencial clonar o repositório para sua máquina e abrir o terminal, prompt de comando, no diretório na pasta do projeto. Com isso, podemos seguir o passo a passo a seguir:
 
-    - [ ] \(teste) No terminal execute 'composer install';
-    - [ ] \(Optional) Faça uma cópia do arquivo '.env.example' para '.env' na pasta do projeto.
-    3. SGBD utilizado 'MySQL': Crie um banco de dados chamado 'bd_portfolio_felipe_akel';
-    - Por exemplo, pode-se utilizar o Xampp para acessar o phpMyAdmin ('http://localhost/phpmyadmin') e criar a database;
-    4. No terminal execute 'php artisan key:generate';
-    5. No terminal execute 'php artisan migrate' para criar as tabelas;
-    6. No terminal execute 'php artisan db:seed' para carregar os dados nas tabelas;
-    7. No terminal execute 'php artisan storage:link' para gerar um link simbólico na pasta 'public';
-    8. No terminal execute 'php artisan serve' ou 'php artisan serve --port=8080';
-    9. Pronto! Você deve conseguir acessar o endereço criado ('http://127.0.0.1:8000') ou na porta configurada.
+1. No terminal execute ```composer install```;
+2. Faça uma cópia do arquivo ```.env.example``` para ```.env``` na pasta do projeto.
+3. SGBD utilizado ```MySQL```: Crie um banco de dados chamado ```bd_portfolio_felipe_akel```;
+    - Por exemplo, pode-se utilizar o Xampp para acessar o phpMyAdmin (```http://localhost/phpmyadmin```) e criar a database;
+4. No terminal execute ```php artisan key:generate```;
+5. No terminal execute ```php artisan migrate``` para criar as tabelas;
+6. No terminal execute ```php artisan db:seed``` para carregar os dados nas tabelas;
+7. No terminal execute ```php artisan storage:link``` para gerar um link simbólico na pasta ```public```;
+8. No terminal execute ```php artisan serve``` ou ```php artisan serve --port=8080```;
+9. Pronto! Você deve conseguir acessar o endereço criado (```http://127.0.0.1:8000```) ou na porta configurada.
 
 
 > [!IMPORTANT]
-> Para logar na área administrativa clique no link 'Login' localizado no canto direito inferior da tela ou ('http://127.0.0.1:8000/login').
-> **Login**: 'felipe.florentino', **senha**: '0123456789'
+> **Login**: ```felipe.florentino```, **senha**: ```0123456789```
+Para logar na área administrativa clique no link ```Login``` localizado no canto direito inferior da tela ou (```http://127.0.0.1:8000/login```).
 
 Para configurar o envio de e-mail do Portfólio Felipe Akel, é essecial seguir o passo a passo abaixo:
 
-    1. Necessário ter uma conta Gmail com autenticação de 2 fatores ativas.
-    2. Acesse as configurações de sua conta:
-    2.1. Busque por "Senhas de app", geralmente está dentro de "Verificação em duas etapas", crie um registro com o nome Portfólio Felipe Akel, por exemplo. Copie/salve a senha gerada.
-    3. Abra o arquivo .env e altere o valor contido na variável:
-    3.1. 'MAIL_HOST=smtp.gmail.com', atualize para este dado;
-    3.2. 'MAIL_PORT=1025', altere para esta porta;
-    3.3. 'MAIL_USERNAME=SEU_EMAIL@gmail.com', coloque o e-mail responsável por enviar as mensagens aos usuários.
-    3.4. 'MAIL_PASSWORD=SENHA_GERADA_GMAIL', coloque a senha gerada do Gmail, não coloque espaços.
-    3.5. 'MAIL_ENCRYPTION=tls', atualize para este dado;
-    3.6. "MAIL_FROM_ADDRESS='SEU_EMAIL@gmail.com'", repita o e-mail responsável por enviar as mensagens aos usuários dentro de aspas simples.
+1. Necessário ter uma conta Gmail com autenticação de 2 fatores ativas.
+2. Acesse as configurações de sua conta:
+    - Busque por "Senhas de app", geralmente está dentro de "Verificação em duas etapas", crie um registro com o nome Portfólio Felipe Akel, por exemplo. Copie/salve a senha gerada.
+3. Abra o arquivo .env e altere o valor contido na variável:
+    - ```MAIL_HOST=smtp.gmail.com```, atualize para este dado;
+    - ```MAIL_PORT=1025```, altere para esta porta;
+    - ```MAIL_USERNAME=SEU_EMAIL@gmail.com```, coloque o e-mail responsável por enviar as mensagens aos usuários.
+    - ```MAIL_PASSWORD=SENHA_GERADA_GMAIL```, coloque a senha gerada do Gmail, não coloque espaços.
+    - ```MAIL_ENCRYPTION=tls```, atualize para este dado;
+    - ```MAIL_FROM_ADDRESS='SEU_EMAIL@gmail.com'```, repita o e-mail responsável por enviar as mensagens aos usuários dentro de aspas simples.
     
 
 ## Vulnerabilidades de segurança
