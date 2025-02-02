@@ -2,21 +2,22 @@
 
 ## Sobre o Portfolio Felipe Akel em Laravel
 
-> [!CAUTION]
-> Sistema em fase de Desenvolvimento
-
 O Portifólio Felipe Akel trata-se de um website desenvolvido em PHP Laravel com o objetivo de apresentar as informações do desenvolvedor, Felipe Akel. 
 
 Destaca-se, que o sistema é composto de 2 layouts distintos responsáveis por montar o front-end dos ambientes. Primeiro, trata-se de área dos internautas de livre acesso. Segundo, trata-se da área administrativa do portfólio o qual possibilita o gerenciamento das informações do website. Com isso, o projeto desenvolvido em Laravel ganha autonomia para ações de _CRUD - Create, Read, Update, Delete_. 
 
 ### Área dos Internautas
-- Resumo [IMG](public/readme/resumo.png)
-- Em breve todas as telas...
+- Sobre Mim [IMG](public/readme/sobre-mim.png)
+- Porfólio [IMG](public/readme/portfolio.png)
+- Contato [IMG](public/readme/contato.png)
+- ...
 
 ### Área Administrativa
-- Sobre Mim [IMG](public/readme/sobre-mim.png)
-- Dashboard [IMG](public/readme/cadastro-portfolio.png)
-- Em breve todas as telas...
+- Dashboard [IMG](public/readme/ad-dashboard.png)
+- Sobre Mim [IMG](public/readme/ad-sobre-mim.png)
+- Pesquisando: Portfólio [IMG](public/readme/ad-portfolio.png)
+- Cadastro: Portfólio [IMG](public/readme/ad-create-portfolio.png)
+- ...
 
 ## Tecnologias utilizadas
 
