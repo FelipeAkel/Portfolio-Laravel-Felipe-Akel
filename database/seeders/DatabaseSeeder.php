@@ -23,6 +23,6 @@ class DatabaseSeeder extends Seeder
         $this->call(StatusSeeder::class);
         $this->call(ServicosSeeder::class);
         $this->call(PortfolioSeeder::class);
-        $this->call(FaleConoscoSeeder::class);
+        // $this->call(FaleConoscoSeeder::class); // Dados para realização de testes
     }
 }

@@ -1,4 +1,4 @@
-<p align="center"><img src="public/readme/desktop-mobile.png" width="400"></p>
+<p align="center"><img src="public/readme/desktop-mobile-2.png" width="400"></p>
 
 ## :rocket: Sobre o Portfolio Felipe Akel em Laravel
 
@@ -29,7 +29,7 @@ Destaca-se, que o sistema é composto de 2 layouts distintos responsáveis por m
 
 ### :small_blue_diamond: Sistema de Gerenciameto de Bando de Dados - SGBD
 O Banco de Dados utilizado foi o [MySQL Workbench](https://www.mysql.com/products/workbench/). 
-O Sistema utilizar um **Banco de Dados Relacional** e para criação das tabelas foi utilizado as **Migrations do Laravel**.
+O Sistema utilizar um **Banco de Dados Relacional** e para criação das tabelas foi utilizado as **Migrations do Laravel** além das **Seeders** para inserir dados nas tabelas.
 
 ### :small_blue_diamond: Composer
 Gerenciador de dependências do PHP. Necessário ter instalado para atualizações e inclusões de novos pacotes no sistema.
@@ -48,6 +48,7 @@ Primeiramente, é essencial clonar o repositório para sua máquina e abrir o te
 
 > [!IMPORTANT]
 > Para logar na área administrativa clique no link ```Login``` localizado no canto direito inferior da tela ou (```http://127.0.0.1:8000/login```).
+
 **Login**: ```felipe.florentino``` e **senha**: ```0123456789```
 
 ### :one: Configurando o Ambiente
