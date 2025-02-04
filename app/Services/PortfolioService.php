@@ -50,7 +50,6 @@ class PortfolioService
 
     public function arquivosImgs($request, $portfolio)
     {
-        // TO DO - Melhoria: Salvar imagens em uma tabela de arquivos...
         // Deleta a img antiga da pasta e atualizar com a nova
         $deleteImgDestaque = false;
         $deleteImg1 = false;

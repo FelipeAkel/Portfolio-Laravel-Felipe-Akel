@@ -115,11 +115,6 @@ class SobreMimController extends Controller
         if($updateArquivos['countDeletes'] > 0){
             Toastr::info("Total de ". $updateArquivos['countDeletes'] ." arquivos deletados", 'Informação');
         } 
-        // TO DO - Encontrar outra solução mais eficiente para esta validação, por exemplo no FormRequest, pois ao iniciar o projeto não existirá arquivos na pasta e não vai conseguir fazer update
-        // else {
-        //     Toastr::error('Nenhum arquivo enviado! Envie um PDF ou Imagem', 'Erro');
-        //     return redirect()->route('sobre-mim.mudar-arquivos');
-        // }
 
         $retornoBanco = $this->sobreMimRepository::updateCurriculoFoto($id, $updateArquivos);
 

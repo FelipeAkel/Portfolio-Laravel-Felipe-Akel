@@ -8,9 +8,7 @@ class ServicosService
 {
     public function arquivosImgs($request, $servico)
     {
-        // TO DO - Melhoria: Salvar imagens em uma tabela de arquivos...
         // Salva e Deleta as imgs na pasta public
-
         $deleteIcon = false;
         $deleteImg = false;
 
