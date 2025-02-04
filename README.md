@@ -1,47 +1,53 @@
 <p align="center"><img src="public/readme/desktop-mobile.png" width="400"></p>
 
-## Sobre o Portfolio Felipe Akel em Laravel
+## :rocket: Sobre o Portfolio Felipe Akel em Laravel
 
 O Portifólio Felipe Akel trata-se de um website desenvolvido em PHP Laravel com o objetivo de apresentar as informações do desenvolvedor, Felipe Akel. 
 
 Destaca-se, que o sistema é composto de 2 layouts distintos responsáveis por montar o front-end dos ambientes. Primeiro, trata-se de área dos internautas de livre acesso. Segundo, trata-se da área administrativa do portfólio o qual possibilita o gerenciamento das informações do website. Com isso, o projeto desenvolvido em Laravel ganha autonomia para ações de _CRUD - Create, Read, Update, Delete_. 
 
-### Área dos Internautas
+### :small_blue_diamond: Área dos Internautas
 - Sobre Mim [IMG](public/readme/sobre-mim.png)
 - Porfólio [IMG](public/readme/portfolio.png)
 - Contato [IMG](public/readme/contato.png)
 - ...
 
-### Área Administrativa
+### :small_blue_diamond: Área Administrativa
 - Dashboard [IMG](public/readme/ad-dashboard.png)
 - Sobre Mim [IMG](public/readme/ad-sobre-mim.png)
 - Pesquisando: Portfólio [IMG](public/readme/ad-portfolio.png)
 - Cadastro: Portfólio [IMG](public/readme/ad-create-portfolio.png)
 - ...
 
-## Tecnologias utilizadas
+## :computer: Tecnologias utilizadas
 
-### Laravel
+### :small_blue_diamond: Laravel
 - **[Laravel Versão 8.x](https://laravel.com/docs/8.x)**
 
 ### Sistema de Gerenciameto de Bando de Dados - SGBD
 O Banco de Dados utilizado foi o [MySQL Workbench](https://www.mysql.com/products/workbench/). 
 O Sistema utilizar um **Banco de Dados Relacional** e para criação das tabelas foi utilizado as **Migrations do Laravel**, o atual **Modelo de Dados** pode ser acesso no link [Banco de Dados Relacional](public/readme/banco-relacional.png).
 
-### Composer
+### :small_blue_diamond: Composer
 Gerenciador de dependências do PHP. Necessário ter instalado para atualizações e inclusões de novos pacotes no sistema.
 ([Documentação](https://getcomposer.org/))
 
-### Tema área do internauta: iKnow
+### :small_blue_diamond: Tema área do internauta: iKnow
 [iKnow](https://themeforest.net/item/iknow-cv-resume-template/34225451) é o template utilizado na Área dos Internautas.
 
-### Tema área administrativa: Bootstrap
+### :small_blue_diamond: Tema área administrativa: Bootstrap
 [Bootstrap 5](https://getbootstrap.com/) é o template utilizado na Área Administrativa.
 
 
-## Construção do Ambiente Local
+## :ballot_box_with_check: Construção do Ambiente Local
 
 Primeiramente, é essencial clonar o repositório para sua máquina e abrir o terminal, prompt de comando, no diretório na pasta do projeto. Com isso, podemos seguir o passo a passo a seguir:
+
+> [!IMPORTANT]
+> **Login**: ```felipe.florentino```, **senha**: ```0123456789```
+Para logar na área administrativa clique no link ```Login``` localizado no canto direito inferior da tela ou (```http://127.0.0.1:8000/login```).
+
+### :one: Configurando o Ambiente
 
 1. No terminal execute ```composer install```;
 2. Faça uma cópia do arquivo ```.env.example``` para ```.env``` na pasta do projeto.
@@ -54,10 +60,7 @@ Primeiramente, é essencial clonar o repositório para sua máquina e abrir o te
 8. No terminal execute ```php artisan serve``` ou ```php artisan serve --port=8080```;
 9. Pronto! Você deve conseguir acessar o endereço criado (```http://127.0.0.1:8000```) ou na porta configurada.
 
-
-> [!IMPORTANT]
-> **Login**: ```felipe.florentino```, **senha**: ```0123456789```
-Para logar na área administrativa clique no link ```Login``` localizado no canto direito inferior da tela ou (```http://127.0.0.1:8000/login```).
+### :two: Configurando o Envio de E-mails
 
 Para configurar o envio de e-mail do Portfólio Felipe Akel, é essecial seguir o passo a passo abaixo:
 
@@ -73,11 +76,11 @@ Para configurar o envio de e-mail do Portfólio Felipe Akel, é essecial seguir 
     - ```MAIL_FROM_ADDRESS='SEU_EMAIL@gmail.com'```, repita o e-mail responsável por enviar as mensagens aos usuários dentro de aspas simples.
     
 
-## Vulnerabilidades de segurança
+## :unlock: Vulnerabilidades de segurança
 
 Se você descobrir uma vulnerabilidade de segurança do sistema, envie uma mensagem para Felipe Akel via [Linkedin](https://www.linkedin.com/in/felipe-akel-carvalho-florentino-009412135/). Todas as vulnerabilidades de segurança serão verificadas. Obrigado!
 
 
-## Licença
+## :page_facing_up: Licença
 
 Este Portfólio desenvolvido em Laravel utiliza a licença MIT.
