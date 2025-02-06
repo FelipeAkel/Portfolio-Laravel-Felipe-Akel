@@ -155,5 +155,17 @@ class PortfolioSeeder extends Seeder
             'ds_tecnologia' => 'Angular | HTML | CSS',
         ]);
 
+        TbPortfolio::create([
+            'ds_tipo_projeto' => 'php-laravel website',
+            'no_projeto' => 'Portfólio Laravel - Felipe Akel', 
+            'dt_inicio' => '2024-02-05', 
+            'dt_finalizacao' => '2025-02-06',
+            'ds_url_repositorio' => 'https://github.com/FelipeAkel/Portfolio-Laravel-Felipe-Akel',
+            'ds_projeto' => 'O Portifólio Felipe Akel trata-se de um website desenvolvido em PHP Laravel com o objetivo de apresentar as informações do desenvolvedor, Felipe Akel.
+
+                Destaca-se, que o sistema é composto de 2 layouts distintos responsáveis por montar o front-end dos ambientes. Primeiro, trata-se de área dos internautas de livre acesso. Segundo, trata-se da área administrativa do portfólio o qual possibilita o gerenciamento das informações do website. Com isso, o projeto desenvolvido em Laravel ganha autonomia para ações de CRUD - Create, Read, Update, Delete.',
+            'ds_tecnologia' => 'Laravel | PHP | Bootstrap | HTML | CSS | JavaScript | MySQL',
+        ]);
+
     }
 }
