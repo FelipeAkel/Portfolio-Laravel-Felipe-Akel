@@ -29,7 +29,6 @@
             <thead class="table-primary">
                 <tr>
                     <th scope="col" width="200px">Ações</th>
-                    <th scope="col">ID</th>
                     <th scope="col">Serviço</th>
                     <th scope="col" class="text-center">Icone</th>
                     <th scope="col" class="text-center">Imagem</th>
@@ -67,7 +66,6 @@
 
                             </div>
                         </td>
-                        <td>{{ $dadoServico->id }}</td>
                         <td>{{ $dadoServico->no_servico }}</td>
                         <td class="text-center"><img src="{{ isset($dadoServico->ds_url_icon_svg) ? asset("storage/$dadoServico->ds_url_icon_svg") : asset('default/default-icon.svg') }}" style="width:30px;" class="rounded img-icon" alt="..."></td>
                         <td class="text-center">
