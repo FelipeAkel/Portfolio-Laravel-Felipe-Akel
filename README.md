@@ -25,6 +25,9 @@ Destaca-se, que o sistema é composto de 2 layouts distintos responsáveis por m
 ## :computer: Tecnologias utilizadas
 
 ### :small_blue_diamond: Laravel
+[PHP Versão 7.x](https://www.php.net/)
+
+### :small_blue_diamond: Laravel
 [Laravel Versão 8.x](https://laravel.com/docs/8.x)
 
 ### :small_blue_diamond: Sistema de Gerenciameto de Bando de Dados - SGBD
@@ -64,20 +67,20 @@ Primeiramente, é essencial clonar o repositório para sua máquina e abrir o te
 8. No terminal execute ```php artisan serve``` ou ```php artisan serve --port=8080```;
 9. Pronto! Você deve conseguir acessar o endereço criado (```http://127.0.0.1:8000```) ou na porta configurada.
 
-### :two: Configurando o Envio de E-mails
+### :two: Configurando o Envio de E-mails (Opcional)
 
-Para configurar o envio de e-mail do Portfólio Felipe Akel, é essecial seguir o passo a passo abaixo:
+Para configurar o envio de e-mail do sistema, foi utilizado o passo a passo abaixo:
 
 1. Necessário ter uma conta Gmail com autenticação de 2 fatores ativas.
 2. Acesse as configurações de sua conta:
     - Busque por "Senhas de app", geralmente está dentro de "Verificação em duas etapas", crie um registro com o nome Portfólio Felipe Akel, por exemplo. Copie/salve a senha gerada.
 3. Abra o arquivo .env e altere o valor contido na variável:
+    - ```EMAIL_CONFIGURADO=true```, atualize para este dado;
     - ```MAIL_HOST=smtp.gmail.com```, atualize para este dado;
-    - ```MAIL_PORT=1025```, altere para esta porta;
+    - ```MAIL_PORT=587```, altere para esta porta;
     - ```MAIL_USERNAME=SEU_EMAIL@gmail.com```, coloque o e-mail responsável por enviar as mensagens aos usuários.
     - ```MAIL_PASSWORD=SENHA_GERADA_GMAIL```, coloque a senha gerada do Gmail, não coloque espaços.
     - ```MAIL_ENCRYPTION=tls```, atualize para este dado;
-    - ```MAIL_FROM_ADDRESS='SEU_EMAIL@gmail.com'```, repita o e-mail responsável por enviar as mensagens aos usuários dentro de aspas simples.
     
 
 ## :unlock: Vulnerabilidades de segurança
@@ -87,4 +90,4 @@ Se você descobrir uma vulnerabilidade de segurança do sistema, envie uma mensa
 
 ## :page_facing_up: Licença
 
-Este Portfólio desenvolvido em Laravel utiliza a licença MIT.
+Este Portfólio desenvolvido em Laravel e utiliza a licença MIT.

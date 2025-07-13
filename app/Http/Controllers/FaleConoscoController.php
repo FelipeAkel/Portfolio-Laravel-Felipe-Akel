@@ -51,14 +51,19 @@ class FaleConoscoController extends Controller
 
     public function responderStore(ResponderFormRequest $request, $id)
     {
+        $envEmailConfigurado = env("EMAIL_CONFIGURADO");
+        if($request->st_notificacao_email == 1 && $envEmailConfigurado === false) {
+            $request['st_notificacao_email'] = 0;
+            Toastr::error('Notificação por e-mail não configurada, contate um Administrador.', 'Atenção');
+        }
+
         $faleConosco = $this->faleConoscoRepository::find($id);
         $retornoBanco = $this->faleConoscoRepository::responderStore($id, $request);
         
         if($retornoBanco == true){
-
             // Notificação do internauta por e-mail
-            if($request->st_notificacao_email == 1){
-                
+            if($request->st_notificacao_email == 1 && $envEmailConfigurado === true) {
+
                 $status = $this->statusRepository::find($request['id_status']);
 
                 $parametrosEmail = [

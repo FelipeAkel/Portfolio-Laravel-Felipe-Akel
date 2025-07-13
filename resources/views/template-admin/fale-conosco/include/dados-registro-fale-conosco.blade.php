@@ -32,6 +32,11 @@
                         </div>
                     </div>
 
+                    <div class="mb-3 col-md-3">
+                        <label class="form-label">E-mail </label>
+                        <input type="text" class="form-control" value="{{ $faleConosco->ds_email }}" disabled>
+                    </div>
+
                     <div class="mb-3 col-md-12">
                         <label class="form-label">Descrição</label>
                         <textarea class="form-control" rows="3" disabled>{{ $faleConosco->ds_mensagem }}</textarea>
