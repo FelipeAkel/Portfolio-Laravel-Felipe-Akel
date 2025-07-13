@@ -73,7 +73,7 @@ class FaleConoscoController extends Controller
                     'status' => $status->no_status,
                     'resposta' => $request->ds_resposta,
                 ];
-                Mail::to($faleConosco->ds_email)->send(new respostaFaleConoscoEmail($parametrosEmail));
+                Mail::to($faleConosco->ds_email)->queue(new respostaFaleConoscoEmail($parametrosEmail));
 
                 Toastr::info('Internauta notificado por e-mail', 'Informe');
             }

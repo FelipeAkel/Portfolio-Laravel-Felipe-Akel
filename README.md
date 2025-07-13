@@ -81,6 +81,8 @@ Para configurar o envio de e-mail do sistema, foi utilizado o passo a passo abai
     - ```MAIL_USERNAME=SEU_EMAIL@gmail.com```, coloque o e-mail responsável por enviar as mensagens aos usuários.
     - ```MAIL_PASSWORD=SENHA_GERADA_GMAIL```, coloque a senha gerada do Gmail, não coloque espaços.
     - ```MAIL_ENCRYPTION=tls```, atualize para este dado;
+4. No terminal execute ```php artisan queue:work```, para o envio de forma assíncrona;
+    - Ele deve ficar rodando em segundo plano em produção (ex: usando supervisord, systemd, etc.).
     
 
 ## :unlock: Vulnerabilidades de segurança
