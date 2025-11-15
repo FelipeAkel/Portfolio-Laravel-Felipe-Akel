@@ -5,12 +5,12 @@ use App\Models\TbStatus;
 
 class StatusRepository {
     
-    public function statusFaleConosco()
+    public static function statusFaleConosco()
     {
         return TbStatus::find([1, 2, 3, 4, 5]);
     }
 
-    public function find($id)
+    public static function find($id)
     {
         return TbStatus::find($id);
     }

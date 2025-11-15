@@ -12,12 +12,12 @@
     
     class CarreiraProfissionalRepository
     {
-        public function all()
+        public static function all()
         {
             return TbCarreiraProfissional::all();
         }
 
-        public function index($request)
+        public static function index($request)
         {
             $filtros = $request->only(['no_experiencia', 'dt_inicio', 'dt_final', 'id_tipo_experiencia']);
 
@@ -42,7 +42,7 @@
             return $retornoCarreiraProfissional;
         }
 
-        public function store($request)
+        public static function store($request)
         {
             try {
                 DB::beginTransaction();
@@ -56,12 +56,12 @@
             }
         }
 
-        public function find($id)
+        public static function find($id)
         {
             return TbCarreiraProfissional::with("tipoExperiencia")->find($id);
         }
 
-        public function update($request, $id)
+        public static function update($request, $id)
         {
             try {
                 DB::beginTransaction();
@@ -75,7 +75,7 @@
             }
         }
 
-        public function destroy($id)
+        public static function destroy($id)
         {
             try {
                 DB::beginTransaction();
@@ -89,7 +89,7 @@
             }
         }
 
-        public function tipoExperienciaAll()
+        public static function tipoExperienciaAll()
         {
             return TbTipoExperiencia::all();
         }

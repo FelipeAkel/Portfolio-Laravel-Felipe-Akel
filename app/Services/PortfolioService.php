@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Storage;
 
 class PortfolioService 
 {
-    public function mesclarDsTipoProjeto($request)
+    public static function mesclarDsTipoProjeto($request)
     {
         // mesclando os campos de checkbox em uma única variável para salvar no banco
         $ds_tipo_projeto = null;
@@ -25,7 +25,7 @@ class PortfolioService
         return $request;
     }
 
-    public function strposDsTipoProjeto($portfolio)
+    public static function strposDsTipoProjeto($portfolio)
     {
         // Verifica e recuperar os valores do checkbox - Tipo de Projeto
         $verifica_php_laravel = strpos($portfolio->ds_tipo_projeto, 'php-laravel');
@@ -48,7 +48,7 @@ class PortfolioService
         return $portfolio;
     }
 
-    public function arquivosImgs($request, $portfolio)
+    public static function arquivosImgs($request, $portfolio)
     {
         // Deleta a img antiga da pasta e atualizar com a nova
         $deleteImgDestaque = false;
@@ -127,7 +127,7 @@ class PortfolioService
         return $request;
     }
 
-    public function deleteImgsPasta($portfolio)
+    public static function deleteImgsPasta($portfolio)
     {
         $imgDestaque = Storage::disk('public')->delete($portfolio->ds_url_img_destaque);
         $img1 = Storage::disk('public')->delete($portfolio->ds_url_img_1_galeria);

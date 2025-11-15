@@ -9,12 +9,12 @@ use App\Models\TbLogsSistema;
 
 class ServicosRepository
 {
-    public function index()
+    public static function index()
     {
         return TbServicos::where('id', '>=', '1')->orderBy('no_servico', 'ASC')->paginate(10);
     }
 
-    public function store($request)
+    public static function store($request)
     {
         try {
             DB::beginTransaction();
@@ -28,12 +28,12 @@ class ServicosRepository
         }
     }
 
-    public function find($id)
+    public static function find($id)
     {
         return TbServicos::find($id);
     }
 
-    public function update($id, $request)
+    public static function update($id, $request)
     {
         try {
             DB::beginTransaction();
@@ -47,7 +47,7 @@ class ServicosRepository
         }
     }
 
-    public function destroy($id)
+    public static function destroy($id)
     {
         try {
             DB::beginTransaction();

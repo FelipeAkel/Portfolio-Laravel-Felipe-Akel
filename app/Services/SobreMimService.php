@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Storage;
 class SobreMimService 
 {
 
-    public function updateArquivosPdfFoto($request, $sobreMim) 
+    public static function updateArquivosPdfFoto($request, $sobreMim) 
     {
         $urlCurriculo = $sobreMim->ds_url_curriculo;
         $urlFoto = $sobreMim->ds_url_foto_usuario;

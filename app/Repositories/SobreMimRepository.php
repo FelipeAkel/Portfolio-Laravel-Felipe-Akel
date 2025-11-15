@@ -9,17 +9,17 @@ use App\Models\TbLogsSistema;
 
 class SobreMimRepository {
     
-    public function find($id)
+    public static function find($id)
     {
         return TbSobreMim::find($id);
     }
 
-    public function logsSistema()
+    public static function logsSistema()
     {
         return TbLogsSistema::orderBy('created_at', 'DESC')->paginate(10);
     }
 
-    public function informacaoPessoalUpdate($id, $request)
+    public static function informacaoPessoalUpdate($id, $request)
     {
         try {
             DB::beginTransaction();
@@ -33,7 +33,7 @@ class SobreMimRepository {
         }
     }
 
-    public function updateCurriculoFoto($id, $updateArquivos)
+    public static function updateCurriculoFoto($id, $updateArquivos)
     {
         try {
             DB::beginTransaction();
@@ -50,7 +50,7 @@ class SobreMimRepository {
         }
     }
 
-    public function alterarLoginSenhaUpdate($id, $request)
+    public static function alterarLoginSenhaUpdate($id, $request)
     {
         try {
             DB::beginTransaction();
@@ -64,17 +64,17 @@ class SobreMimRepository {
         }
     }
 
-    public function loginValidacao($request, $hashSenha)
+    public static function loginValidacao($request, $hashSenha)
     {
         return TbSobreMim::whereRaw('no_login = ? AND ds_senha = ? ', [$request['no_login'], $hashSenha])->first();
     }
 
-    public function logSistemaLogin()
+    public static function logSistemaLogin()
     {
         return TbLogsSistema::create(['id_status' => 10, 'ds_log_executado' => 'Login no sistema']);
     }
 
-    public function dataUltimoAcesso()
+    public static function dataUltimoAcesso()
     {
         return TbLogsSistema::where('id_status', '=', 10)->orderBy('id', 'DESC')->get()->first();
     }

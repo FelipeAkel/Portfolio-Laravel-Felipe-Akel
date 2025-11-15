@@ -10,7 +10,7 @@ use App\Models\TbLogsSistema;
 
 class FaleConoscoRepository {
     
-    public function index($request)
+    public static function index($request)
     {
         $filtros = $request->only(['id_status', 'dt_created_inicio', 'dt_created_final']);
         
@@ -31,12 +31,12 @@ class FaleConoscoRepository {
             ->paginate(10);
     }
 
-    public function find($id)
+    public static function find($id)
     {
         return TbFaleConosco::with('status')->find($id);
     }
 
-    public function responderStore($id, $request)
+    public static function responderStore($id, $request)
     {
         $request['id_fale_conosco'] = $id;
 
@@ -53,7 +53,7 @@ class FaleConoscoRepository {
         }
     }
 
-    public function faleConosco($id)
+    public static function faleConosco($id)
     {
         return TbRespostas::where('id_fale_conosco', '=', $id)->orderBy('created_at', 'DESC')->paginate(5);
     }

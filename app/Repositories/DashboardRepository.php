@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\DB;
 
 class DashboardRepository {
 
-    public function totalCarreiraProfissional() 
+    public static function totalCarreiraProfissional() 
     {
         return DB::select(
             'SELECT COUNT(*) AS total_quantidade, CAR.id_tipo_experiencia, TIP.no_tipo_experiencia, TIP.ds_tipo_experiencia, TIP.deleted_at
@@ -16,7 +16,7 @@ class DashboardRepository {
         );
     }
 
-    public function totalHabilidade()
+    public static function totalHabilidade()
     {
         return DB::select(
             'SELECT COUNT(HAB.id_tipo_habilidade) AS total_quantidade, HAB.id_tipo_habilidade, TIP.no_tipo_habilidade, TIP.ds_tipo_habilidade, TIP.deleted_at
@@ -27,7 +27,7 @@ class DashboardRepository {
         );
     }
 
-    public function totalPortfolio()
+    public static function totalPortfolio()
     {
         $totalPortfolio = DB::select(
             'SELECT COUNT(*) AS total_portfolio
@@ -37,7 +37,7 @@ class DashboardRepository {
         return $totalPortfolio = $totalPortfolio[0];
     }
 
-    public function totalServicos() 
+    public static function totalServicos() 
     {
         $totalServicos = DB::select(
             'SELECT COUNT(*) AS total_servicos
@@ -47,7 +47,7 @@ class DashboardRepository {
         return $totalServicos = $totalServicos[0];
     }
 
-    public function totalFaleConosco()
+    public static function totalFaleConosco()
     {
         return DB::select(
             "SELECT COUNT(FAL.id_status) AS 'total_status', FAL.id_status, STA.no_status, STA.ds_status
@@ -57,7 +57,7 @@ class DashboardRepository {
         );
     }
 
-    public function graficoFaleConosco()
+    public static function graficoFaleConosco()
     {
         return DB::select(
             "SELECT 

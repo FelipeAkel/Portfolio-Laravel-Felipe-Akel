@@ -10,7 +10,7 @@ use App\Models\TbLogsSistema;
 
 class PortfolioRepository
 {
-    public function index($request)
+    public static function index($request)
     {
         $query = TbPortfolio::where('id', '>', 0);
 
@@ -60,7 +60,7 @@ class PortfolioRepository
         return $retornoPortfolio;
     }
 
-    public function store($request)
+    public static function store($request)
     {
         try {
             DB::beginTransaction();
@@ -74,12 +74,12 @@ class PortfolioRepository
         }
     }
 
-    public function find($id)
+    public static function find($id)
     {
         return TbPortfolio::find($id);
     }
 
-    public function update($id, $request)
+    public static function update($id, $request)
     {
         try {
             DB::beginTransaction();
@@ -93,7 +93,7 @@ class PortfolioRepository
         }
     }
 
-    public function destroy($id)
+    public static function destroy($id)
     {
         try {
             DB::beginTransaction();

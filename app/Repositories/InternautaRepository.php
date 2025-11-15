@@ -16,34 +16,34 @@ use App\Models\TbLogsSistema;
 
 class InternautaRepository {
     
-    public function find($id)
+    public static function find($id)
     {
         return TbSobreMim::find($id);
     }
 
-    public function tipoExperiencia()
+    public static function tipoExperiencia()
     {
         return TbTipoExperiencia::whereIn('id', [1, 2, 3])->get();
     }
 
-    public function carreiraProfissionalAll()
+    public static function carreiraProfissionalAll()
     {
         return TbCarreiraProfissional::all();
     }
 
-    public function cursosComplementares()
+    public static function cursosComplementares()
     {
         return TbCarreiraProfissional::where('id_tipo_experiencia', '=', 4)
             ->orderBy('dt_inicio', 'DESC')
             ->get();
     }
 
-    public function tipoHabilidadeAll()
+    public static function tipoHabilidadeAll()
     {
         return  TbTipoHabilidade::all();
     }
 
-    public function habilidades()
+    public static function habilidades()
     {
         return TbHabilidades::where('id', '>=', 1)
             ->orderBy('id_tipo_habilidade', 'ASC')
@@ -51,17 +51,17 @@ class InternautaRepository {
             ->get();
     }
 
-    public function portfolioAll()
+    public static function portfolioAll()
     {
         return TbPortfolio::all();
     }
 
-    public function servicosAll()
+    public static function servicosAll()
     {
         return TbServicos::all();
     }
 
-    public function faleConoscoCreate($request)
+    public static function faleConoscoCreate($request)
     {
         try {
             DB::beginTransaction();

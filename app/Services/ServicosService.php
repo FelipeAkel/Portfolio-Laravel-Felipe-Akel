@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ServicosService 
 {
-    public function arquivosImgs($request, $servico)
+    public static function arquivosImgs($request, $servico)
     {
         // Salva e Deleta as imgs na pasta public
         $deleteIcon = false;
@@ -54,7 +54,7 @@ class ServicosService
         return $request;
     }
 
-    public function deleteImgsPasta($servico)
+    public static function deleteImgsPasta($servico)
     {
         $icon = Storage::disk('public')->delete($servico->ds_url_icon_svg);
         $img = Storage::disk('public')->delete($servico->ds_url_img);

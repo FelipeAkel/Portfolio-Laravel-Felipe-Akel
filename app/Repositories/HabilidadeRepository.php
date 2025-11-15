@@ -12,12 +12,12 @@
     
     class HabilidadeRepository
     {
-        public function all()
+        public static function all()
         {
             return TbHabilidades::all();
         }
 
-        public function index($request)
+        public static function index($request)
         {
             $filtros = $request->only(['id_tipo_habilidade', 'nr_porcentagem', 'dt_created_inicio', 'dt_created_final']);
             
@@ -44,7 +44,7 @@
             return $retornoHabilidade;
         }
 
-        public function store($request)
+        public static function store($request)
         {
             try {
                 DB::beginTransaction();
@@ -58,12 +58,12 @@
             }
         }
 
-        public function find($id)
+        public static function find($id)
         {
             return TbHabilidades::find($id);
         }
 
-        public function update($id, $request)
+        public static function update($id, $request)
         {
             try {
                 DB::beginTransaction();
@@ -77,7 +77,7 @@
             }
         }
 
-        public function destroy($id)
+        public static function destroy($id)
         {
             try {
                 DB::beginTransaction();
@@ -91,7 +91,7 @@
             }
         }
 
-        public function tipoHabilidadeAll()
+        public static function tipoHabilidadeAll()
         {
             return TbTipoHabilidade::all();
         }
