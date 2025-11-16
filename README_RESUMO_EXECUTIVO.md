@@ -11,14 +11,14 @@ Sistema para gestão de portfólio do programador desenvolvido em **Laravel 12 +
 
 ## 📁 Estrutura de Pastas Resumo
 ```
-        📦 Sistema (184+ arquivos criados)
+        📦 Sistema (185+ arquivos criados)
         ├── 🎨 Frontend (64 views Blade)
         ├── 🔧 Backend (10 controllers, 13 models)
         ├── 🗄️ Database (17 migrations, 11 seeders)
         ├── 💡 Repositories (9 repositories)
         ├── 📊 Services (4 serviços)
         ├── 🛡️ Security (9 middlewares)
-        └── 📚 Documentação (5 arquivos MD)
+        └── 📚 Documentação (6 arquivos MD)
 ```
 
 
@@ -94,4 +94,4 @@ Desenvolvido seguindo as melhores práticas de desenvolvimento Laravel e princí
 
 **Autor e Desenvolvedor:** Felipe Akel Carvalho Florentino
 
-## Gerado automaticamente em: 2025-11-16 10:25:18
+## Gerado automaticamente em: 2025-11-16 18:13:01
