@@ -8,7 +8,7 @@
 
     @include('template-admin.layout.include.head-css')
 
-    <link rel="stylesheet" href="{{ asset('template-admin/css/login.css') }}">
+    <link rel="stylesheet" href="{{ asset_path('template-admin/css/login.css') }}">
 
     @include('template-admin.layout.include.head-js')
 
@@ -21,7 +21,7 @@
     <main class="form-signin w-100 m-auto">
         <form action="{{ route('admin.login-validacao') }}" method="POST">
             @csrf
-            <img class="mb-4" src="{{ asset('template-admin/img/undraw_login_re_4vu2.svg') }}" alt="" width="250" >
+            <img class="mb-4" src="{{ asset_path('template-admin/img/undraw_login_re_4vu2.svg') }}" alt="" width="250" >
             
             <h1 class="h3 mb-3 fw-normal">Dados de Usuário</h1>
 
@@ -66,8 +66,8 @@
     </main>
 
     {{-- Ao colocar no head-js, compoente não funciona! --}}
-    <script src="{{ asset('template-admin/toastr/jquery.js') }}" ></script>
-    <script src="{{ asset('template-admin/toastr/toastr.js') }}"></script>
+    <script src="{{ asset_path('template-admin/toastr/jquery.js') }}" ></script>
+    <script src="{{ asset_path('template-admin/toastr/toastr.js') }}"></script>
     {!! Toastr::message() !!}
 </body>
 
