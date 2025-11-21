@@ -19,21 +19,21 @@
 		href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
 		rel="stylesheet">
 
-	<link rel="stylesheet" type="text/css" href="{{ asset('template-internauta/css/plugins.css') }}" />
-	<link rel="stylesheet" type="text/css" href="{{ asset('template-internauta/css/dark.css') }}" />
-	<link rel="stylesheet" type="text/css" href="{{ asset('template-internauta/css/style.css') }}" />
-	<link rel="stylesheet" type="text/css" href="{{ asset('template-internauta/css/custom.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset_path('template-internauta/css/plugins.css') }}" />
+	<link rel="stylesheet" type="text/css" href="{{ asset_path('template-internauta/css/dark.css') }}" />
+	<link rel="stylesheet" type="text/css" href="{{ asset_path('template-internauta/css/style.css') }}" />
+	<link rel="stylesheet" type="text/css" href="{{ asset_path('template-internauta/css/custom.css') }}">
 
 	{{-- ICONS --}}
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 	{{-- Toastr --}}
-	<link rel="stylesheet" href="{{ asset('template-admin/toastr/toastr.css') }}">
+	<link rel="stylesheet" href="{{ asset_path('template-admin/toastr/toastr.css') }}">
 
 	<!-- SCRIPTS -->
-	<script src="{{ asset('template-internauta/js/jquery.js') }}" defer></script>
-	<script src="{{ asset('template-internauta/js/plugins.js') }}" defer></script>
-	<script src="{{ asset('template-internauta/js/init.js') }}" defer> defer</script>
+	<script src="{{ asset_path('template-internauta/js/jquery.js') }}" defer></script>
+	<script src="{{ asset_path('template-internauta/js/plugins.js') }}" defer></script>
+	<script src="{{ asset_path('template-internauta/js/init.js') }}" defer> defer</script>
 	<!-- /SCRIPTS -->
 
 </head>
@@ -53,7 +53,7 @@
 	<div class="iknow_tm_modalbox">
 		<div class="box_inner">
 			<div class="close">
-				<a href="#"><img class="svg" src="{{ asset('template-internauta/img/') }}/svg/cancel.svg" alt="" /></a>
+				<a href="#"><img class="svg" src="{{ asset_path('template-internauta/img/') }}/svg/cancel.svg" alt="" /></a>
 			</div>
 			<div class="description_wrap"></div>
 		</div>
@@ -77,12 +77,12 @@
 								<div class="video_inner">
 									<div class="circle">
 										<a href="{{ $sobreMim->ds_url_linkedin }}" target="_blank">
-											<img src="{{ asset('template-internauta/img/') }}/svg/social/linkedin-q.svg" alt="Logo Linkedin" />
+											<img src="{{ asset_path('template-internauta/img/') }}/svg/social/linkedin-q.svg" alt="Logo Linkedin" />
 										</a>
 									</div>
 									<div class="circle p-ml-10">
 										<a href="{{ $sobreMim->ds_url_github }}" target="_blank">
-											<img src="{{ asset('template-internauta/img/') }}/svg/social/github-q.svg" alt="Logo GitHub" />
+											<img src="{{ asset_path('template-internauta/img/') }}/svg/social/github-q.svg" alt="Logo GitHub" />
 										</a>
 									</div>
 								</div>
@@ -90,8 +90,8 @@
 						</div>
 						<div class="right">
 							<div class="image">
-								<img src="{{ asset('template-internauta/img/') }}/thumbs/47-60.jpg" alt="" />
-								<div class="main" data-img-url="{{ isset($sobreMin->ds_url_foto_usuario) ? asset("storage/$sobreMim->ds_url_foto_usuario") : asset('default/felipe-akel.jpg') }}"></div>
+								<img src="{{ asset_path('template-internauta/img/') }}/thumbs/47-60.jpg" alt="" />
+								<div class="main" data-img-url="{{ isset($sobreMin->ds_url_foto_usuario) ? asset_path("storage/$sobreMim->ds_url_foto_usuario") : asset_path('default/felipe-akel.jpg') }}"></div>
 							</div>
 						</div>
 					</div>
@@ -135,8 +135,8 @@
 	<!-- /MAGIC CURSOR -->
 	
 	{{-- Ao colocar no head-js, compoente não funciona! --}}
-    <script src="{{ asset('template-admin/toastr/jquery.js') }}" ></script>
-    <script src="{{ asset('template-admin/toastr/toastr.js') }}"></script>
+    <script src="{{ asset_path('template-admin/toastr/jquery.js') }}" ></script>
+    <script src="{{ asset_path('template-admin/toastr/toastr.js') }}"></script>
     {!! Toastr::message() !!}
 </div>
 <!-- / WRAPPER ALL -->
