@@ -81,7 +81,7 @@
                                         <div class="hidden_content">
                                             <div class="curso_complementar">
                                                 {{-- <div class="image">
-                                                    <img src="{{ asset('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
+                                                    <img src="{{ asset_path('template-internauta/img/') }}/thumbs/4-2.jpg" alt="" />
                                                     <div class="main" data-img-url="URL_CERTIFICADO"></div>
                                                 </div> --}}
                                                 <div class="description">

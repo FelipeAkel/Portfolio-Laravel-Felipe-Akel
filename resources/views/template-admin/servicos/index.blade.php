@@ -67,7 +67,7 @@
                             </div>
                         </td>
                         <td>{{ $dadoServico->no_servico }}</td>
-                        <td class="text-center"><img src="{{ isset($dadoServico->ds_url_icon_svg) ? asset("storage/$dadoServico->ds_url_icon_svg") : asset('default/default-icon.svg') }}" style="width:30px;" class="rounded img-icon" alt="..."></td>
+                        <td class="text-center"><img src="{{ isset($dadoServico->ds_url_icon_svg) ? asset_path("storage/$dadoServico->ds_url_icon_svg") : asset_path('default/default-icon.svg') }}" style="width:30px;" class="rounded img-icon" alt="..."></td>
                         <td class="text-center">
                             @if (isset($dadoServico->ds_url_img))
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#modalImgDestaque{{ $indice }}" >Imagem</a>
@@ -86,7 +86,7 @@
                                 </div>
                                 <div class="modal-body text-center">
                                     <figure class="figure">
-                                        <img src="{{ asset('storage/') }}/{{ $dadoServico->ds_url_img }}" class="figure-img img-fluid rounded" alt="Imagem em Destaque">
+                                        <img src="{{ asset_path('storage/') }}/{{ $dadoServico->ds_url_img }}" class="figure-img img-fluid rounded" alt="Imagem em Destaque">
                                         <figcaption class="figure-caption">Imagem em Destaque</figcaption>
                                     </figure>
                                 </div>

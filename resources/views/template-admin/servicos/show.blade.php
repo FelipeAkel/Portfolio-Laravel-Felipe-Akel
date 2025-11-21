@@ -56,7 +56,7 @@
 
                         <div class="mb-3 col-md-3">
                             <div class="card text-center" style="width: 18rem;">
-                                <img src="{{ isset($servico->ds_url_icon_svg) ? asset("storage/$servico->ds_url_icon_svg") : asset('default/default-icon.svg') }}" class="card-img-top img-proporcao-icon" alt="Icone de Serviço">
+                                <img src="{{ isset($servico->ds_url_icon_svg) ? asset_path("storage/$servico->ds_url_icon_svg") : asset_path('default/default-icon.svg') }}" class="card-img-top img-proporcao-icon" alt="Icone de Serviço">
                                 <div class="card-body">
                                     <p class="card-text">Icone de Serviço</p>
                                 </div>
@@ -66,7 +66,7 @@
                             <div class="mb-3 col-md-3">
                                 <div class="card text-center" style="width: 18rem;">
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#modalImgDestaque">
-                                        <img src="{{ asset('storage/') }}/{{ $servico->ds_url_img }}" class="card-img-top img-proporcao" alt="Imagem em Destaque">
+                                        <img src="{{ asset_path('storage/') }}/{{ $servico->ds_url_img }}" class="card-img-top img-proporcao" alt="Imagem em Destaque">
                                     </a>
                                     <div class="card-body">
                                         <p class="card-text">Imagem em Destaque</p>
@@ -101,7 +101,7 @@
             </div>
             <div class="modal-body text-center">
                 <figure class="figure">
-                    <img src="{{ asset('storage/') }}/{{ $servico->ds_url_img }}" class="figure-img img-fluid rounded" alt="Imagem em Destaque">
+                    <img src="{{ asset_path('storage/') }}/{{ $servico->ds_url_img }}" class="figure-img img-fluid rounded" alt="Imagem em Destaque">
                     <figcaption class="figure-caption">Imagem em Destaque</figcaption>
                 </figure>
             </div>

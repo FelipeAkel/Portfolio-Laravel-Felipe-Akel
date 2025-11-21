@@ -19,13 +19,13 @@
         <div class="col col-md-4 ">
             <div class="row justify-content-center">
                 <div class="card text-center pt-3" style="width: 18rem;">
-                    <img src="{{ isset($sobreMim->ds_url_foto_usuario) ? asset("storage/$sobreMim->ds_url_foto_usuario") : asset('default/felipe-akel.jpg') }}" class="card-img-top rounded" alt="Foto do Usuário">
+                    <img src="{{ isset($sobreMim->ds_url_foto_usuario) ? asset_path("storage/$sobreMim->ds_url_foto_usuario") : asset_path('default/felipe-akel.jpg') }}" class="card-img-top rounded" alt="Foto do Usuário">
                     <div class="card-body">
                         <h5 class="card-title text-info-emphasis">{{ $sobreMim->no_usuario }}</h5>
                         <p class="card-text">{{ $sobreMim->ds_funcao }}</p>
                     </div>
                     <div class="card-body">
-                        <a href="{{ isset($sobreMim->ds_url_curriculo) ? asset("storage/$sobreMim->ds_url_curriculo") : asset('default/curriculo-felipe-akel.pdf')  }}" class="card-link link-menu" target="_blank">Currículo</a>
+                        <a href="{{ isset($sobreMim->ds_url_curriculo) ? asset_path("storage/$sobreMim->ds_url_curriculo") : asset_path('default/curriculo-felipe-akel.pdf')  }}" class="card-link link-menu" target="_blank">Currículo</a>
                         <a href="{{ $sobreMim->ds_url_linkedin }}" class="card-link link-menu" target="_blank">Linkedin</a>
                     </div>
                 </div>

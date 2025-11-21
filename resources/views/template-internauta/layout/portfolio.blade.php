@@ -37,11 +37,11 @@
                         <div class="list_inner">
                             <div class="image">
                                 {{-- A dimenções da imagem eram 1x1 --}}
-                                <img src="{{ isset($dadosProjeto->ds_url_img_destaque) ? asset("storage/$dadosProjeto->ds_url_img_destaque") : asset('default/default-projeto.png') }}" alt="Imagem do Projeto" />
-                                <div class="main" data-img-url="{{ isset($dadosProjeto->ds_url_img_destaque) ? asset("storage/$dadosProjeto->ds_url_img_destaque") : asset('default/default-projeto.png') }}"></div>
+                                <img src="{{ isset($dadosProjeto->ds_url_img_destaque) ? asset_path("storage/$dadosProjeto->ds_url_img_destaque") : asset_path('default/default-projeto.png') }}" alt="Imagem do Projeto" />
+                                <div class="main" data-img-url="{{ isset($dadosProjeto->ds_url_img_destaque) ? asset_path("storage/$dadosProjeto->ds_url_img_destaque") : asset_path('default/default-projeto.png') }}"></div>
                             </div>
                             <div class="overlay"></div>
-                            <img class="svg" src="{{ asset('template-internauta/img/svg/') }}/{{ $img_svg }}.svg" alt="" />
+                            <img class="svg" src="{{ asset_path('template-internauta/img/svg/') }}/{{ $img_svg }}.svg" alt="" />
                             <div class="details">
                                 <span>Detalhes</span>
                                 <h3> {{ $dadosProjeto->no_projeto }} </h3>
@@ -89,8 +89,8 @@
                                                         <div class="list_inner">
                                                             <div class="my_image">
                                                                 {{-- A dimenções da imagem eram 4x2 --}}
-                                                                <img src="{{ asset('storage/') }}/{{ $dadosProjeto->ds_url_img_1_galeria }}" alt="" />
-                                                                <div class="main" data-img-url="{{ asset('storage/') }}/{{ $dadosProjeto->ds_url_img_1_galeria }}"></div>
+                                                                <img src="{{ asset_path('storage/') }}/{{ $dadosProjeto->ds_url_img_1_galeria }}" alt="" />
+                                                                <div class="main" data-img-url="{{ asset_path('storage/') }}/{{ $dadosProjeto->ds_url_img_1_galeria }}"></div>
                                                             </div>
                                                         </div>
                                                     </li>
@@ -100,8 +100,8 @@
                                                         <div class="list_inner">
                                                             <div class="my_image">
                                                                 {{-- A dimenções da imagem eram 4x2 --}}
-                                                                <img src="{{ asset('storage/') }}/{{ $dadosProjeto->ds_url_img_2_galeria }}" alt="" />
-                                                                <div class="main" data-img-url="{{ asset('storage/') }}/{{ $dadosProjeto->ds_url_img_2_galeria }}"></div>
+                                                                <img src="{{ asset_path('storage/') }}/{{ $dadosProjeto->ds_url_img_2_galeria }}" alt="" />
+                                                                <div class="main" data-img-url="{{ asset_path('storage/') }}/{{ $dadosProjeto->ds_url_img_2_galeria }}"></div>
                                                             </div>
                                                         </div>
                                                     </li>
@@ -111,8 +111,8 @@
                                                         <div class="list_inner">
                                                             <div class="my_image">
                                                                 {{-- A dimenções da imagem eram 4x2 --}}
-                                                                <img src="{{ asset('storage/') }}/{{ $dadosProjeto->ds_url_img_3_galeria }}" alt="" />
-                                                                <div class="main" data-img-url="{{ asset('storage/') }}/{{ $dadosProjeto->ds_url_img_3_galeria }}"></div>
+                                                                <img src="{{ asset_path('storage/') }}/{{ $dadosProjeto->ds_url_img_3_galeria }}" alt="" />
+                                                                <div class="main" data-img-url="{{ asset_path('storage/') }}/{{ $dadosProjeto->ds_url_img_3_galeria }}"></div>
                                                             </div>
                                                         </div>
                                                     </li>

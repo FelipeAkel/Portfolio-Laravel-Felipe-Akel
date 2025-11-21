@@ -14,7 +14,7 @@
                     <div class="details">
                         <div class="left">
                             <div class="avatar">
-                                <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/testimonials/1.jpg"></div>
+                                <div class="main" data-img-url="{{ asset_path('template-internauta/img/') }}/testimonials/1.jpg"></div>
                             </div>
                             <div class="info">
                                 <h3>Jecob Oramson</h3>
@@ -22,7 +22,7 @@
                             </div>
                         </div>
                         <div class="right">
-                            <img class="svg" src="{{ asset('template-internauta/img/') }}/svg/left-quote.svg" alt="" />
+                            <img class="svg" src="{{ asset_path('template-internauta/img/') }}/svg/left-quote.svg" alt="" />
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                     <div class="details">
                         <div class="left">
                             <div class="avatar">
-                                <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/testimonials/2.jpg"></div>
+                                <div class="main" data-img-url="{{ asset_path('template-internauta/img/') }}/testimonials/2.jpg"></div>
                             </div>
                             <div class="info">
                                 <h3>Kerry Hudson</h3>
@@ -43,7 +43,7 @@
                             </div>
                         </div>
                         <div class="right">
-                            <img class="svg" src="{{ asset('template-internauta/img/') }}/svg/left-quote.svg" alt="" />
+                            <img class="svg" src="{{ asset_path('template-internauta/img/') }}/svg/left-quote.svg" alt="" />
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                     <div class="details">
                         <div class="left">
                             <div class="avatar">
-                                <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/testimonials/3.jpg"></div>
+                                <div class="main" data-img-url="{{ asset_path('template-internauta/img/') }}/testimonials/3.jpg"></div>
                             </div>
                             <div class="info">
                                 <h3>Albert Walker</h3>
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="right">
-                            <img class="svg" src="{{ asset('template-internauta/img/') }}/svg/left-quote.svg" alt="" />
+                            <img class="svg" src="{{ asset_path('template-internauta/img/') }}/svg/left-quote.svg" alt="" />
                         </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                     <div class="details">
                         <div class="left">
                             <div class="avatar">
-                                <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/testimonials/4.jpg"></div>
+                                <div class="main" data-img-url="{{ asset_path('template-internauta/img/') }}/testimonials/4.jpg"></div>
                             </div>
                             <div class="info">
                                 <h3>Arnold Hookins</h3>
@@ -85,7 +85,7 @@
                             </div>
                         </div>
                         <div class="right">
-                            <img class="svg" src="{{ asset('template-internauta/img/') }}/svg/left-quote.svg" alt="" />
+                            <img class="svg" src="{{ asset_path('template-internauta/img/') }}/svg/left-quote.svg" alt="" />
                         </div>
                     </div>
                 </div>
@@ -98,7 +98,7 @@
                     <div class="details">
                         <div class="left">
                             <div class="avatar">
-                                <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/testimonials/5.jpg"></div>
+                                <div class="main" data-img-url="{{ asset_path('template-internauta/img/') }}/testimonials/5.jpg"></div>
                             </div>
                             <div class="info">
                                 <h3>Aura Brooklyn</h3>
@@ -106,7 +106,7 @@
                             </div>
                         </div>
                         <div class="right">
-                            <img class="svg" src="{{ asset('template-internauta/img/') }}/svg/left-quote.svg" alt="" />
+                            <img class="svg" src="{{ asset_path('template-internauta/img/') }}/svg/left-quote.svg" alt="" />
                         </div>
                     </div>
                 </div>

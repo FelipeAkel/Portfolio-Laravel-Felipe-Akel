@@ -8,12 +8,12 @@
 
     @include('template-admin.layout.include.head-css')
 
-    <link rel="stylesheet" href="{{ asset('template-admin/css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset_path('template-admin/css/dashboard.css') }}">
 
     @include('template-admin.layout.include.head-js')
 
     {{-- JavaScript do Chart.Js --}}
-    <script src="{{ asset('template-admin/js/chart.js') }}"></script>
+    <script src="{{ asset_path('template-admin/js/chart.js') }}"></script>
 
 </head>
 
@@ -39,8 +39,8 @@
     @include('template-admin.layout.include.footer')
 
     {{-- Ao colocar no head-js, componente não funciona! --}}
-    <script src="{{ asset('template-admin/toastr/jquery.js') }}" ></script>
-    <script src="{{ asset('template-admin/toastr/toastr.js') }}"></script>
+    <script src="{{ asset_path('template-admin/toastr/jquery.js') }}" ></script>
+    <script src="{{ asset_path('template-admin/toastr/toastr.js') }}"></script>
     {!! Toastr::message() !!}
 
 </body>

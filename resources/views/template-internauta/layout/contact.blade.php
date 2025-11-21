@@ -10,7 +10,7 @@
                 <ul>
                     <li>
                         <div class="list_inner">
-                            <span class="icon"><img class="svg" src="{{ asset('template-internauta/img/') }}/svg/whatsapp.svg" alt="" /></span>
+                            <span class="icon"><img class="svg" src="{{ asset_path('template-internauta/img/') }}/svg/whatsapp.svg" alt="" /></span>
                             {{-- <span class="icon"><i class="svg bi bi-whatsapp" style="font-size: 30px;"></i></span> --}}
                             <div class="short">
                                 <h3>Me mande um WhatsApp</h3>
@@ -20,7 +20,7 @@
                     </li>
                     <li>
                         <div class="list_inner">
-                            <span class="icon"><img class="svg" src="{{ asset('template-internauta/img/') }}/svg/letter.svg" alt="" /></span>
+                            <span class="icon"><img class="svg" src="{{ asset_path('template-internauta/img/') }}/svg/letter.svg" alt="" /></span>
                             <div class="short">
                                 <h3>Enviar E-mail</h3>
                                 <span><a href="mailto:{{ $sobreMim->ds_email }}?subject='Sobre seu Currículo e Portfólio'">{{ $sobreMim->ds_email }}</a></span>

@@ -78,7 +78,7 @@
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2 dropdown-toggle link-menu" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                         <img 
-                            src="{{ $_SESSION['ds_url_foto_usuario'] ? asset('storage/'. $_SESSION['ds_url_foto_usuario']) : asset('default/felipe-akel.jpg') }}" 
+                            src="{{ $_SESSION['ds_url_foto_usuario'] ? asset_path('storage/'. $_SESSION['ds_url_foto_usuario']) : asset_path('default/felipe-akel.jpg') }}" 
                             alt="'Imagem do usuário Felipe Akel'" width="32" height="32" 
                             class="rounded-circle">
                         {{ $_SESSION['no_usuario_portfolio'] }}

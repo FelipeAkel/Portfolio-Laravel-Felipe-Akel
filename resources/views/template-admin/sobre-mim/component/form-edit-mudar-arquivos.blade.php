@@ -11,7 +11,7 @@
 
     <div class="mb-3 col-md-6">
         <h5 class="titulo-1rem">Currículo</h5>
-        <a href="{{ isset($sobreMim->ds_url_curriculo) ? asset("storage/$sobreMim->ds_url_curriculo") : asset('default/curriculo-felipe-akel.pdf') }}" class="btn btn-info" target="_blank"><i class="bi bi-filetype-pdf"></i> - Visualizar PDF</a>
+        <a href="{{ isset($sobreMim->ds_url_curriculo) ? asset_path("storage/$sobreMim->ds_url_curriculo") : asset_path('default/curriculo-felipe-akel.pdf') }}" class="btn btn-info" target="_blank"><i class="bi bi-filetype-pdf"></i> - Visualizar PDF</a>
     </div>
     <div class="mb-3 col-md-6">
         <h5 class="titulo-1rem">Foto Usuário</h5>
@@ -73,7 +73,7 @@
             </div>
             <div class="modal-body">
                 <figure class="figure">
-                    <img src="{{ isset($sobreMim->ds_url_foto_usuario) ? asset("storage/$sobreMim->ds_url_foto_usuario") : asset('default/felipe-akel.jpg') }}" class="figure-img img-fluid rounded" alt="Imagem do Usuário Portfólio">
+                    <img src="{{ isset($sobreMim->ds_url_foto_usuario) ? asset_path("storage/$sobreMim->ds_url_foto_usuario") : asset_path('default/felipe-akel.jpg') }}" class="figure-img img-fluid rounded" alt="Imagem do Usuário Portfólio">
                     <figcaption class="figure-caption">Imagem do Usuário Portfólio</figcaption>
                 </figure>
             </div>

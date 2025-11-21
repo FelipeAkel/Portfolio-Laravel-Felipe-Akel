@@ -110,7 +110,7 @@
                         <div class="mb-3 col-md-3">
                             <div class="card text-center border-warning" style="width: 18rem;">
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#modalImgDestaque">
-                                    <img src="{{ isset($portfolio->ds_url_img_destaque) ? asset("storage/$portfolio->ds_url_img_destaque") : asset('default/default-projeto.png') }}" class="card-img-top img-proporcao" alt="Imagem em Destaque">
+                                    <img src="{{ isset($portfolio->ds_url_img_destaque) ? asset_path("storage/$portfolio->ds_url_img_destaque") : asset_path('default/default-projeto.png') }}" class="card-img-top img-proporcao" alt="Imagem em Destaque">
                                 </a>
                                 <div class="card-body text-warning">
                                     <p class="card-text">Imagem em Destaque</p>
@@ -125,7 +125,7 @@
                             <div class="mb-3 col-md-3">
                                 <div class="card text-center" style="width: 18rem;">
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#modalImgGaleria1">
-                                        <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_1_galeria }}" class="card-img-top img-proporcao" alt="1º Imagem Galeria Modal">
+                                        <img src="{{ asset_path('storage/') }}/{{ $portfolio->ds_url_img_1_galeria }}" class="card-img-top img-proporcao" alt="1º Imagem Galeria Modal">
                                     </a>
                                     <div class="card-body">
                                         <p class="card-text">1º Imagem da Galeria Modal</p>
@@ -140,7 +140,7 @@
                             <div class="mb-3 col-md-3">
                                 <div class="card text-center" style="width: 18rem;">
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#modalImgGaleria2">
-                                        <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_2_galeria }}" class="card-img-top img-proporcao" alt="2º Imagem Galeria Modal">
+                                        <img src="{{ asset_path('storage/') }}/{{ $portfolio->ds_url_img_2_galeria }}" class="card-img-top img-proporcao" alt="2º Imagem Galeria Modal">
                                     </a>
                                     <div class="card-body">
                                         <p class="card-text">2º Imagem da Galeria Modal</p>
@@ -155,7 +155,7 @@
                             <div class="mb-3 col-md-3">
                                 <div class="card text-center" style="width: 18rem;">
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#modalImgGaleria3">
-                                        <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_3_galeria }}" class="card-img-top img-proporcao" alt="3º Imagem Galeria Modal">
+                                        <img src="{{ asset_path('storage/') }}/{{ $portfolio->ds_url_img_3_galeria }}" class="card-img-top img-proporcao" alt="3º Imagem Galeria Modal">
                                     </a>
                                     <div class="card-body">
                                         <p class="card-text">3º Imagem da Galeria Modal</p>
@@ -190,7 +190,7 @@
             </div>
             <div class="modal-body">
                 <figure class="figure">
-                    <img src="{{ isset($portfolio->ds_url_img_destaque) ? asset("storage/$portfolio->ds_url_img_destaque") : asset('default/default-projeto.png') }}" class="figure-img img-fluid rounded" alt="Imagem em Destaque">
+                    <img src="{{ isset($portfolio->ds_url_img_destaque) ? asset_path("storage/$portfolio->ds_url_img_destaque") : asset_path('default/default-projeto.png') }}" class="figure-img img-fluid rounded" alt="Imagem em Destaque">
                     <figcaption class="figure-caption">Imagem em Destaque</figcaption>
                 </figure>
             </div>
@@ -210,7 +210,7 @@
             </div>
             <div class="modal-body">
                 <figure class="figure">
-                    <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_1_galeria }}" class="figure-img img-fluid rounded" alt="1º Imagem Galeria Modal">
+                    <img src="{{ asset_path('storage/') }}/{{ $portfolio->ds_url_img_1_galeria }}" class="figure-img img-fluid rounded" alt="1º Imagem Galeria Modal">
                     <figcaption class="figure-caption">1º Imagem Galeria Modal</figcaption>
                 </figure>
             </div>
@@ -231,7 +231,7 @@
             </div>
             <div class="modal-body">
                 <figure class="figure">
-                    <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_2_galeria }}" class="figure-img img-fluid rounded" alt="2º Imagem Galeria Modal">
+                    <img src="{{ asset_path('storage/') }}/{{ $portfolio->ds_url_img_2_galeria }}" class="figure-img img-fluid rounded" alt="2º Imagem Galeria Modal">
                     <figcaption class="figure-caption">2º Imagem Galeria Modal</figcaption>
                 </figure>
             </div>
@@ -252,7 +252,7 @@
             </div>
             <div class="modal-body">
                 <figure class="figure">
-                    <img src="{{ asset('storage/') }}/{{ $portfolio->ds_url_img_3_galeria }}" class="figure-img img-fluid rounded" alt="3º Imagem Galeria Modal">
+                    <img src="{{ asset_path('storage/') }}/{{ $portfolio->ds_url_img_3_galeria }}" class="figure-img img-fluid rounded" alt="3º Imagem Galeria Modal">
                     <figcaption class="figure-caption">3º Imagem Galeria Modal</figcaption>
                 </figure>
             </div>

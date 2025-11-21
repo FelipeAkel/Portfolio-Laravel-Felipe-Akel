@@ -10,8 +10,8 @@
                 <li>
                     <div class="list_inner">
                         <div class="image">
-                            <img src="{{ asset('template-internauta/img/') }}/thumbs/37-27.jpg" alt="" />
-                            <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/news/1.jpg"></div>
+                            <img src="{{ asset_path('template-internauta/img/') }}/thumbs/37-27.jpg" alt="" />
+                            <div class="main" data-img-url="{{ asset_path('template-internauta/img/') }}/news/1.jpg"></div>
                             <a class="iknow_tm_full_link" href="#"></a>
                         </div>
                         <div class="details">
@@ -34,8 +34,8 @@
                 <li>
                     <div class="list_inner">
                         <div class="image">
-                            <img src="{{ asset('template-internauta/img/') }}/thumbs/37-27.jpg" alt="" />
-                            <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/news/2.jpg"></div>
+                            <img src="{{ asset_path('template-internauta/img/') }}/thumbs/37-27.jpg" alt="" />
+                            <div class="main" data-img-url="{{ asset_path('template-internauta/img/') }}/news/2.jpg"></div>
                             <a class="iknow_tm_full_link" href="#"></a>
                         </div>
                         <div class="details">
@@ -58,8 +58,8 @@
                 <li>
                     <div class="list_inner">
                         <div class="image">
-                            <img src="{{ asset('template-internauta/img/') }}/thumbs/37-27.jpg" alt="" />
-                            <div class="main" data-img-url="{{ asset('template-internauta/img/') }}/news/3.jpg"></div>
+                            <img src="{{ asset_path('template-internauta/img/') }}/thumbs/37-27.jpg" alt="" />
+                            <div class="main" data-img-url="{{ asset_path('template-internauta/img/') }}/news/3.jpg"></div>
                             <a class="iknow_tm_full_link" href="#"></a>
                         </div>
                         <div class="details">
